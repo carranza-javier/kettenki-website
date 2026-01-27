@@ -1,0 +1,35 @@
+# robots.txt for kettenki.com
+# Personal portfolio & AI consulting website
+
+User-agent: *
+Allow: /
+
+# Block sensitive directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+
+# Allow important resources for proper rendering
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /assets/
+
+# Block bad bots and aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Sitemap
+Sitemap: https://www.kettenki.com/sitemap.xml
