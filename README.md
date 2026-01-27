@@ -127,6 +127,6 @@ Direkt in den HTML-Dateien oder über das data-i18n System.
 
 ## Kontakt
 
-- **Email**: javier@kettenki.com
+- **Email**: kettenki@gmail.com
 - **LinkedIn**: linkedin.com/in/javiercarranza
 - **Website**: https://kettenki.com
