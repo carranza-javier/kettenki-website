@@ -128,5 +128,5 @@ Direkt in den HTML-Dateien oder über das data-i18n System.
 ## Kontakt
 
 - **Email**: kettenki@gmail.com
-- **LinkedIn**: linkedin.com/in/javiercarranza
+- **LinkedIn**: linkedin.com/in/jcarranza1988
 - **Website**: https://kettenki.com
