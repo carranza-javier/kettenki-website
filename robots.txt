@@ -32,4 +32,4 @@ User-agent: BLEXBot
 Disallow: /
 
 # Sitemap
-Sitemap: https://www.kettenki.com/sitemap.xml
+Sitemap: https://kettenki.com/sitemap.xml
