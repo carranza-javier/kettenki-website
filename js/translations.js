@@ -7,7 +7,7 @@ const translations = {
     nav_contact: 'Kontakt',
     
     // Hero Section
-    hero_title: 'kettenKI',
+    hero_title: 'KettenKI',
     hero_slogan: 'Warum weniger tun, wenn man mehr tun kann',
     hero_subtitle: 'KI-Lösungen in Cloud-Architekturen für Schweizer Unternehmen',
     
@@ -59,7 +59,7 @@ const translations = {
     contact_cta: 'Lassen Sie uns über Ihre KI-Lösung sprechen',
     
     // Footer
-    footer_text: '© 2026 kettenKI. Entwickelt mit Präzision.',
+    footer_text: '© 2026 KettenKI. Entwickelt mit Präzision.',
   },
   
   en: {
@@ -70,7 +70,7 @@ const translations = {
     nav_contact: 'Contact',
     
     // Hero Section
-    hero_title: 'kettenKI',
+    hero_title: 'KettenKI',
     hero_slogan: 'Why do less when more is possible',
     hero_subtitle: 'AI Solutions in Cloud Architectures for Swiss Companies',
     
@@ -122,7 +122,7 @@ const translations = {
     contact_cta: 'Let\'s discuss your AI solution',
     
     // Footer
-    footer_text: '© 2026 kettenKI. Built with precision.',
+    footer_text: '© 2026 KettenKI. Built with precision.',
   }
 };
 

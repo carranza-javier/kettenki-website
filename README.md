@@ -1,6 +1,6 @@
-# kettenKI Website
+# KettenKI Website
 
-Professionelle, minimalistische und vollständig responsive Website für kettenKI - KI-Lösungen in Cloud-Architekturen für Schweizer Unternehmen.
+Professionelle, minimalistische und vollständig responsive Website für KettenKI - KI-Lösungen in Cloud-Architekturen für Schweizer Unternehmen.
 
 ## Eigenschaften
 
@@ -123,7 +123,7 @@ Direkt in den HTML-Dateien oder über das data-i18n System.
 
 ## Lizenz
 
-© 2026 kettenKI - Javier Carranza
+© 2026 KettenKI - Javier Carranza
 
 ## Kontakt
 
