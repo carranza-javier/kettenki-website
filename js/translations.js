@@ -13,9 +13,16 @@ const translations = {
     
     // About Page
     about_title: 'Über mich',
-    about_text: 'Javier Carranza ist ein Softwareingenieur, der bewusst abseits des Lärms und der Hektik arbeitet, die die heutige Tech-Welt dominieren. Er glaubt an Einfachheit, Qualität und langfristiges Denken, auch wenn der Kontext schnelle und oberflächliche Lösungen fordert.',
-    about_text2: 'In einer zunehmend mit sofortigen Antworten und unbegründeten Entscheidungen gesättigten Branche sucht Javier weiter zu gehen: Probleme tiefgreifend zu verstehen und sie mit ethischen, verantwortungsvollen und nachhaltigen Lösungen anzugehen.',
-    about_text3: 'Seine Arbeit konzentriert sich auf den Aufbau sicherer, interpretierbarer und effizienter Systeme, in denen Technologie kein Selbstzweck ist, sondern ein Werkzeug im Dienste der Menschen, des Geschäfts und der Zukunft.',
+    about_text: 'Javier Carranza ist ein Softwareingenieur, der bewusst abseits des Lärms und der Eile arbeitet, die die heutige Technologiewelt dominieren. Mit mehr als 14 Jahren Erfahrung in internationalen Projekten ist er durch unzählige Codes gereist, an Bord verschiedener Raumschiffe, jedes mit seiner eigenen Besatzung und seinen eigenen Regeln – aber immer in dieselbe Richtung navigierend.',
+    about_text2: 'Er glaubt an Einfachheit, Qualität und langfristiges Denken, selbst wenn der Kontext zu schnellen und oberflächlichen Lösungen drängt.',
+    about_text3: 'Kürzlich hat er seine Fähigkeiten mit „übernatürlichen Kräften“ in Cloud-Architektur verstärkt und sich zuletzt in die neue Welt der Künstlichen Intelligenz vertieft. Das ist keine Science-Fiction: Es ist Realität.',
+    about_text4: 'Mit seiner futuristischen Brille hat er gesehen, wie eine neue technologische Ära entsteht, und er will bei dieser Reise mit Lichtgeschwindigkeit nicht am Rand stehen.',
+    about_text5: 'Er lebt auf dem Planeten Bern, Schweiz, und ist offen für neue Herausforderungen, um dich dabei zu unterstützen, deine Arbeit zu optimieren.',
+    about_title2: 'Über KettenKI',
+    about_text6: 'KettenKI entstand mit der Idee, eine robuste und moderne Kette zwischen Menschen und künstlicher Intelligenz zu schaffen, geleitet von ethischen und verantwortungsvollen Werten.',
+    about_text7: 'Wir kümmern uns um die Sicherheit und die Einhaltung gesetzlicher Vorschriften dieser Technologien, da sie Schwachstellen aufweisen können, die ausgenutzt werden könnten, wenn sie nicht richtig verwaltet werden.',
+    about_text8: 'KettenKI befindet sich in einer nicht allzu fernen Galaxie, wächst Tag für Tag und fügt neue, solide Wissensglieder hinzu. Diese intelligenten Glieder unterstützen die Menschen dabei, ihre Aufgaben komfortabler und dynamischer zu erledigen.',
+    about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen effektive und verlässliche Unterstützung zu bieten.',
     
     // Services Page
     services_title: 'Anwendungsfälle',
@@ -76,6 +83,7 @@ const translations = {
     
     // About Page
     about_title: 'About Me',
+    about_title2: 'About KettenKI',
     about_text: 'Javier Carranza is a software engineer who deliberately works away from the noise and rush that dominate today’s technology world. With over 14 years of experience in international projects, he has traveled through countless lines of code aboard different spaceships, each with its own crew and rules—but always moving in the same direction.',
     about_text2: 'He believes in simplicity, quality, and long-term thinking, even when the context pushes for quick and superficial solutions.',
     about_text3: 'Recently, he has enhanced his skills with “supernatural powers” in cloud architecture, and more recently, by exploring the new world of artificial intelligence. This is not science fiction: it is reality.',
