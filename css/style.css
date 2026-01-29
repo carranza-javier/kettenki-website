@@ -422,6 +422,7 @@ section {
 .code-line {
   color: var(--color-text-secondary);
   margin: 0.25rem 0;
+  text-align: center;
 }
 
 .code-arrow {
