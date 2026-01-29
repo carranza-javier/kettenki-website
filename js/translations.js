@@ -13,17 +13,17 @@ const translations = {
     
     // About Page
     about_title: 'Über mich',
-    about_text: 'Javier Carranza ist ein Softwareingenieur, der bewusst abseits des Lärms und der Eile arbeitet, die die heutige Technologiewelt dominieren. Mit mehr als 14 Jahren Erfahrung in internationalen Projekten ist er durch unzählige Codes gereist, an Bord verschiedener Raumschiffe, jedes mit seiner eigenen Besatzung und seinen eigenen Regeln – aber immer in dieselbe Richtung navigierend.',
-    about_text2: 'Er glaubt an Einfachheit, Qualität und langfristiges Denken, selbst wenn der Kontext zu schnellen und oberflächlichen Lösungen drängt.',
-    about_text3: 'Kürzlich hat er seine Fähigkeiten mit „übernatürlichen Kräften“ in Cloud-Architektur verstärkt und sich zuletzt in die neue Welt der Künstlichen Intelligenz vertieft. Das ist keine Science-Fiction: Es ist Realität.',
-    about_text4: 'Mit seiner futuristischen Brille hat er gesehen, wie eine neue technologische Ära entsteht, und er will bei dieser Reise mit Lichtgeschwindigkeit nicht am Rand stehen.',
-    about_text5: 'Er lebt auf dem Planeten Bern, Schweiz, und ist offen für neue Herausforderungen, um dich dabei zu unterstützen, deine Arbeit zu optimieren.',
+    about_text: 'Javier Carranza ist ein Softwareingenieur, der bewusst abseits des Lärms und der Eile arbeitet, die die heutige Technologiewelt dominieren. Mit mehr als 14 Jahren Erfahrung in internationalen Projekten verfügt er über umfassende Kenntnisse in unterschiedlichsten technischen Umgebungen.',
+    about_text2: 'Er glaubt an Einfachheit, Qualität und langfristiges Denken, auch wenn der Kontext oft zu schnellen und oberflächlichen Lösungen drängt.',
+    about_text3: 'Kürzlich hat er seine Fähigkeiten in der Cloud-Architektur weiter ausgebaut und sich zuletzt intensiv mit dem Bereich der Künstlichen Intelligenz beschäftigt.',
+    about_text4: 'Er hat die Entstehung einer neuen technologischen Ära miterlebt und möchte bei diesem Transformationsprozess nicht am Rand stehen.',
+    about_text5: 'Er lebt in Bern, Schweiz, und ist offen für neue Herausforderungen, um andere bei der Optimierung ihrer Arbeit zu unterstützen.',
     about_title2: 'Über KettenKI',
-    about_text6: 'KettenKI entstand mit der Idee, eine robuste und moderne Kette zwischen Menschen und künstlicher Intelligenz zu schaffen, geleitet von ethischen und verantwortungsvollen Werten.',
-    about_text7: 'Wir kümmern uns um die Sicherheit und die Einhaltung gesetzlicher Vorschriften dieser Technologien, da sie Schwachstellen aufweisen können, die ausgenutzt werden könnten, wenn sie nicht richtig verwaltet werden.',
-    about_text8: 'KettenKI befindet sich in einer nicht allzu fernen Galaxie, wächst Tag für Tag und fügt neue, solide Wissensglieder hinzu. Diese intelligenten Glieder unterstützen die Menschen dabei, ihre Aufgaben komfortabler und dynamischer zu erledigen.',
-    about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen effektive und verlässliche Unterstützung zu bieten.',
-    
+    about_text6: 'KettenKI entstand mit der Idee, eine robuste und moderne Verbindung zwischen Menschen und Künstlicher Intelligenz zu schaffen, geleitet von ethischen und verantwortungsvollen Werten.',
+    about_text7: 'Wir legen großen Wert auf Sicherheit und die Einhaltung gesetzlicher Vorschriften, da diese Technologien Schwachstellen aufweisen können, wenn sie nicht korrekt verwaltet werden.',
+    about_text8: 'KettenKI entwickelt sich kontinuierlich weiter, wächst von Tag zu Tag und erweitert ihr solides Wissensfundament. Dieses Wissen unterstützt Menschen dabei, ihre Aufgaben effizienter und flexibler zu erledigen.',
+    about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen eine effektive und verlässliche Unterstützung zu bieten.',
+
     // Services Page
     services_title: 'Anwendungsfälle',
     services_subtitle: 'Bewährte KI-Lösungen für reale Geschäftsprobleme',
@@ -83,16 +83,16 @@ const translations = {
     
     // About Page
     about_title: 'About Me',
+    about_text: 'Javier Carranza is a software engineer who deliberately  works away from the noise and rush that dominate today’s technology world. With over 14 years of experience in international projects, he has extensive knowledge in a wide range of technical environments.',
+    about_text2: 'He believes in simplicity, quality, and long-term thinking, even when the context often pushes for quick and superficial solutions.',
+    about_text3: 'Recently, he has further developed his skills in cloud architecture and has focused intensively on the field of artificial intelligence.',
+    about_text4: 'He has witnessed the emergence of a new technological era and does not want to stand on the sidelines of this transformation process.',
+    about_text5: 'He lives in Bern, Switzerland, and is open to new challenges, helping others optimize their work.',
     about_title2: 'About KettenKI',
-    about_text: 'Javier Carranza is a software engineer who deliberately works away from the noise and rush that dominate today’s technology world. With over 14 years of experience in international projects, he has traveled through countless lines of code aboard different spaceships, each with its own crew and rules—but always moving in the same direction.',
-    about_text2: 'He believes in simplicity, quality, and long-term thinking, even when the context pushes for quick and superficial solutions.',
-    about_text3: 'Recently, he has enhanced his skills with “supernatural powers” in cloud architecture, and more recently, by exploring the new world of artificial intelligence. This is not science fiction: it is reality.',
-    about_text4: 'With his futuristic glasses, he has seen a new technological era emerge and does not want to stand on the sidelines of this journey at the speed of light.',
-    about_text5: 'He lives on planet Bern, Switzerland, and is open to new challenges to help you optimize your work.',
-    about_text6: 'KettenKI was born with the idea of creating a robust and modern chain between people and artificial intelligence, guided by ethical and responsible values.',
-    about_text7: 'We care about the security and regulatory compliance of these technologies, as they may have vulnerabilities that could be exploited if not properly managed.',
-    about_text8: 'KettenKI exists in a galaxy not so far away, growing day by day and adding new solid links of knowledge. These intelligent links will support people in performing their tasks more comfortably and dynamically.',
-    about_text9: 'It is not about replacing people, but about providing effective and reliable support.',
+    about_text6: 'KettenKI was created with the idea of building a robust and modern connection between humans and artificial intelligence, guided by ethical and responsible values.',
+    about_text7: 'We place great emphasis on security and compliance with regulations, as these technologies can have vulnerabilities if not properly managed.',
+    about_text8: 'KettenKI continuously evolves, growing day by day and expanding its solid knowledge base. This knowledge helps people perform their tasks more efficiently and flexibly.',
+    about_text9: 'The goal is not to replace people, but to provide them with effective and reliable support.',
     // Services Page
     services_title: 'Use Cases',
     services_subtitle: 'Proven AI solutions for real business problems',
