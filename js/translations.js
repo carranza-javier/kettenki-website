@@ -76,10 +76,15 @@ const translations = {
     
     // About Page
     about_title: 'About Me',
-    about_text: 'Javier Carranza is a software engineer who deliberately works outside the noise and rush that dominate today\'s tech world. He believes in simplicity, quality, and long-term thinking, even when the context pushes toward quick and superficial solutions.',
-    about_text2: 'In an industry increasingly saturated with immediate answers and unfounded decisions, Javier seeks to go further: to understand problems deeply and address them with ethical, responsible, and sustainable solutions.',
-    about_text3: 'His work focuses on building secure, interpretable, and efficient systems, where technology is not an end in itself, but a tool in service of people, business, and the future.',
-    
+    about_text: 'Javier Carranza is a software engineer who deliberately works away from the noise and rush that dominate today’s technology world. With over 14 years of experience in international projects, he has traveled through countless lines of code aboard different spaceships, each with its own crew and rules—but always moving in the same direction.',
+    about_text2: 'He believes in simplicity, quality, and long-term thinking, even when the context pushes for quick and superficial solutions.',
+    about_text3: 'Recently, he has enhanced his skills with “supernatural powers” in cloud architecture, and more recently, by exploring the new world of artificial intelligence. This is not science fiction: it is reality.',
+    about_text4: 'With his futuristic glasses, he has seen a new technological era emerge and does not want to stand on the sidelines of this journey at the speed of light.',
+    about_text5: 'He lives on planet Bern, Switzerland, and is open to new challenges to help you optimize your work.',
+    about_text6: 'KettenKI was born with the idea of creating a robust and modern chain between people and artificial intelligence, guided by ethical and responsible values.',
+    about_text7: 'We care about the security and regulatory compliance of these technologies, as they may have vulnerabilities that could be exploited if not properly managed.',
+    about_text8: 'KettenKI exists in a galaxy not so far away, growing day by day and adding new solid links of knowledge. These intelligent links will support people in performing their tasks more comfortably and dynamically.',
+    about_text9: 'It is not about replacing people, but about providing effective and reliable support.',
     // Services Page
     services_title: 'Use Cases',
     services_subtitle: 'Proven AI solutions for real business problems',
