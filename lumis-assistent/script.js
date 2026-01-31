@@ -17,7 +17,7 @@ const translations = {
     de: {
         subtitle: 'Dein intelligenter Kaffeebar-Assistent',
         inputLabel: 'Stelle deine Frage',
-        placeholder: 'Wie bereite ich einen Bärner Mule zu?',
+        placeholder: 'z.B. Wie bereite ich einen Bärner Mule zu?',
         examplesLabel: 'Beispiele:',
         example1: 'Frühschicht Aufgaben',
         example2: 'Bärner Mule Rezept',
