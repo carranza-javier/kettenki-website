@@ -20,7 +20,7 @@ const translations = {
         placeholder: 'z.B. Wie bereite ich einen Cappuccino zu?',
         examplesLabel: 'Beispiele:',
         example1: 'Frühschicht Aufgaben',
-        example2: 'Cappuccino Rezept',
+        example2: 'Bärner Mule Rezept',
         example3: 'Spätschicht Abschluss',
         askButton: 'Frage stellen',
         loading: 'Claude denkt nach...',
@@ -41,7 +41,7 @@ const translations = {
         placeholder: 'e.g. How do I prepare a cappuccino?',
         examplesLabel: 'Examples:',
         example1: 'Morning shift tasks',
-        example2: 'Cappuccino recipe',
+        example2: 'Berner Mule recipe',
         example3: 'Evening shift closing',
         askButton: 'Ask question',
         loading: 'Claude is thinking...',
@@ -62,12 +62,12 @@ const translations = {
 const exampleQuestions = {
     de: {
         example1: 'Welche Aufgaben muss ich während der Frühschicht erledigen?',
-        example2: 'Wie bereite ich einen Cappuccino zu?',
+        example2: 'Wie bereite ich einen Bärner Mule zu?',
         example3: 'Was muss ich am Ende der Spätschicht machen?'
     },
     en: {
         example1: 'What tasks do I need to complete during the morning shift?',
-        example2: 'How do I prepare a cappuccino?',
+        example2: 'How do I prepare a Berner Mule?',
         example3: 'What do I need to do at the end of the evening shift?'
     }
 };
