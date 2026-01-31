@@ -175,15 +175,6 @@ body::before {
     margin-bottom: var(--spacing-md);
 }
 
-.input-label {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: var(--spacing-sm);
-}
-
 .question-input {
     width: 100%;
     padding: var(--spacing-md);
@@ -673,7 +664,6 @@ body::before {
         border-radius: var(--radius-md);
     }
     
-    .input-label,
     .answer-title {
         font-size: 1.25rem;
     }
