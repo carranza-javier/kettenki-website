@@ -13,6 +13,8 @@
     --text-light: #636e72;
     --white: #ffffff;
     --error: #d63031;
+    --color-accent-start: #00d4ff;
+    --color-accent-end: #00ff88;    
     
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(88, 146, 107, 0.1);
@@ -36,6 +38,8 @@
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-xl: 24px;
+
+    --font-weight-bold: 700;
 }
 
 /* === Global Reset === */
@@ -126,13 +130,20 @@ body::before {
     animation: fadeInDown 0.8s ease;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
+.logo {
+    width: 100%;        /* ocupa hasta el 100% del contenedor */
+    max-width: 300px;   /* tamaño máximo que quieres en escritorio */
+    height: auto;       /* mantiene proporción */
+    display: block;     /* evita espacios extra debajo de la imagen */
+    margin: 0 auto;     /* centra la imagen dentro del contenedor */
 }
+
+/* Opcional: ajustar el contenedor en móviles */
+.logo-container {
+    text-align: center; /* asegura que esté centrado en móviles */
+    padding: 10px 0;   /* espacio arriba y abajo */
+}
+
 
 .title {
     font-family: 'Playfair Display', serif;
@@ -495,6 +506,23 @@ body::before {
 .footer-text strong {
     color: var(--primary);
     font-weight: 600;
+}
+
+/* Estilo para el link KettenKI */
+.footer-link {
+    font-family: 'Zalando Sans Expanded', sans-serif;
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    text-decoration: none; /* quita el subrayado */
+}
+
+.footer-text a.footer-link {
+    display: block;
 }
 
 /* === Utility Classes === */
