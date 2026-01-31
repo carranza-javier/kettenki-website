@@ -632,8 +632,7 @@ body::before {
     }
     
     .language-switcher {
-        top: var(--spacing-sm);
-        right: var(--spacing-sm);
+        display: none;
     }
     
     .container {
