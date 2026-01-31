@@ -17,7 +17,7 @@ const translations = {
     de: {
         subtitle: 'Dein intelligenter Kaffeebar-Assistent',
         inputLabel: 'Stelle deine Frage',
-        placeholder: 'z.B. Wie bereite ich einen Cappuccino zu?',
+        placeholder: 'Wie bereite ich einen Bärner Mule zu?',
         examplesLabel: 'Beispiele:',
         example1: 'Frühschicht Aufgaben',
         example2: 'Bärner Mule Rezept',
@@ -38,7 +38,7 @@ const translations = {
     en: {
         subtitle: 'Your intelligent coffee bar assistant',
         inputLabel: 'Ask your question',
-        placeholder: 'e.g. How do I prepare a cappuccino?',
+        placeholder: 'e.g. How do I prepare a Berner Mule?',
         examplesLabel: 'Examples:',
         example1: 'Morning shift tasks',
         example2: 'Berner Mule recipe',
