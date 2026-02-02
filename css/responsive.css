@@ -148,6 +148,16 @@
   }
 }
 
+/* Small Mobile Phones */
+@media (max-width: 344px) { 
+  h1 {
+    font-size: 1.7rem;
+  }
+  .case-card h3 {
+      font-size: 1.4rem;
+  }  
+}
+
 /* Print Styles */
 @media print {
   header,
