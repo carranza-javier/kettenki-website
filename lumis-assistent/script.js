@@ -12,6 +12,10 @@ const API_CONFIG = {
     }
 };
 
+
+// MOCK Mode Configuration
+const MOCK_ENABLED = true; // Set to true to enable mock responses
+
 // Translations
 const translations = {
     de: {
@@ -157,6 +161,12 @@ function switchLanguage(lang) {
  * @returns {Promise<Object>} - API response
  */
 async function askLUMIS(question) {
+
+    if (MOCK_ENABLED && typeof mockAskLUMIS !== 'undefined') {
+        console.log('🎭 MOCK MODE: Using simulated response');
+        return mockAskLUMIS(question);
+    }
+
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), API_CONFIG.timeout);
     
@@ -458,6 +468,14 @@ function initEventListeners() {
  */
 function init() {
     console.log('🚀 LUMIS KI-Assistent initialized');
+
+    if (MOCK_ENABLED) {
+        console.log('🎭 MOCK MODE ENABLED - Using simulated responses (no API calls)');
+        console.log('⚠️  Remember to set MOCK_ENABLED = false for production!');
+    } else {
+        console.log('🌐 PRODUCTION MODE - Using real API');
+        console.log('API Endpoint:', API_CONFIG.endpoint);
+    }
     
     // Set initial language
     updateTranslations();
