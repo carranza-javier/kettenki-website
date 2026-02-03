@@ -485,10 +485,6 @@ function init() {
     
     // Focus on input
     elements.questionInput.focus();
-    
-    // Log configuration
-    console.log('API Endpoint:', API_CONFIG.endpoint);
-    console.log('Current Language:', currentLang);
 }
 
 // Start the app when DOM is ready
