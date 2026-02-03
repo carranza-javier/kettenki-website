@@ -14,7 +14,7 @@ const API_CONFIG = {
 
 
 // MOCK Mode Configuration
-const MOCK_ENABLED = true; // Set to true to enable mock responses
+const MOCK_ENABLED = false; // Set to true to enable mock responses
 
 // Translations
 const translations = {
