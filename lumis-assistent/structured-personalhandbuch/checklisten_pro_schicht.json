@@ -1,0 +1,361 @@
+{
+  "sektion": "Checklisten pro Schicht",
+  "beschreibung": "Alle Checklisten und Aufgaben pro Schicht von LUMIS KAFFEEBAR",
+  "wichtige_hinweise": [
+    "Bieri Bestellung: Benutzername ist 'Lumis'. Das Passwort steht im physischen Personalhandbuch.",
+    "Fadi Bestellung: Per WhatsApp / SMS an 076 433 74 86",
+    "Bestellungen für den nächsten Tag werden immer am Abend gemacht. Freitag: keine Bestellungen.",
+    "Pies auftauen: Immer am Abend vor dem nächsten Tag. Freitag: keine Pies auftauen.",
+    "Die vier wichtigsten Sachen am Schluss: Lumis abgeschlossen? Pies raufgeholt? Bieri bestellt? Fadi bestellt?"
+  ],
+  "alle_themen": [
+    "Frühschicht Morgen", "Frühschicht Vormittag", "Mis en place Mittag",
+    "Nach dem Mittag", "Mise en place Abendschicht",
+    "Schichtübergabe", "Abendschicht Mise en place", "Während der Abendschicht",
+    "Aufräumen", "Tour durch die hinteren Kühlmöbel", "Nach letzter Runde",
+    "Beim Rausgehen", "Vier wichtigste Sachen",
+    "Wochentagbezogene Tasks", "Montag", "Donnerstag", "Freitag",
+    "Bieri Bestellung", "Fadi Bestellung", "Pies auftauen",
+    "Früchte auffüllen", "Minze bestellen", "Salat bestellen"
+  ],
+  "kategorien": [
+    {
+      "kategorie_name": "Frühschicht - Morgen",
+      "aufgaben": [
+        {
+          "name": "Eröffnung",
+          "tags": ["Frühschicht", "Morgen", "Eröffnung", "Anfang"],
+          "checkliste": [
+            "Licht an (links von der Tapetentüre 'Morgen'), falls Laurent nicht da",
+            "Salat in Kühlschrank verräumen",
+            "Kaffeemaschine und Mühle anstellen",
+            "Abwaschmaschine anstellen",
+            "Stühle runter im Gastraum, Tische im Fenster richten",
+            "Zucker (weiss und braun) und 1x Kaffeerahm auf Theke",
+            "Gipfeli, Brötli & Brioche in Körbli, Teller mit Servietten",
+            "Zeitungen stempeln, bostichen",
+            "Amaretti und Kuchen und Früchte aus dem Kühler, Glas mit Kuchenbesteck und Teller",
+            "Draussen: Tische abketten, Tische mit Lumpen abputzen, Aschenbecher raustellen, wenn nötig wischen, grünes Tischli mit 2 gelben Stühlen, Sonnenschirme rausbringen",
+            "Kreidetafel (wenn beschriftet) rausstellen falls es nicht regnet, sonst drinnen im Eingang vor der Heizung",
+            "Geld und Eis im Keller holen",
+            "iPad aus der Schublade, Schicht eröffnen, Musik einstellen",
+            "Kinderecke parat machen",
+            "1 Espresso und ein Kaffee rauslassen, ausleeren",
+            "Reservationen checken",
+            "Lappen parat machen: 5x klein, 1x für Kaffeesatz, 1 Tüechli auf Kaffeemaschine",
+            "Winter: Suppentopf bereitstellen und 6dl Wasser unten reinfüllen",
+            "Mis en Place Müesli: Kompott und Granola vorbereiten, Geschirr parat machen",
+            "Telefon (iPhone) einstecken, kontrollieren ob auf laut gestellt"
+          ],
+          "notizen": null
+        },
+        {
+          "name": "Im Verlauf des Vormittags",
+          "tags": ["Frühschicht", "Vormittag", "Vorbereitung"],
+          "checkliste": [
+            "4 Zitronen und 2 Orangen schneiden und datieren",
+            "Kuchen schneiden und unter die Glashaube",
+            "Apérosachen vorbereiten und in Kühler",
+            "Im Winter: Suppe in Topf füllen und auf Stufe 12 erhitzen",
+            "Eistee vorbereiten, Minze aus der Kühlwanne zuerst brauchen (FIFO)"
+          ],
+          "notizen": "FIFO: First in - First out bei der Minze."
+        }
+      ]
+    },
+    {
+      "kategorie_name": "Mis en place Mittag",
+      "aufgaben": [
+        {
+          "name": "Mis en place Mittag",
+          "tags": ["Mittag", "Mis en place", "Vorbereitung", "10:30"],
+          "checkliste": [
+            "10:30 Uhr: Ofen anstellen",
+            "Salatsauce in Saucen-Becher abfüllen",
+            "Geschirr bereitstellen",
+            "Brot vom Vortag aufbacken",
+            "Mineral vorne Reserve auffüllen",
+            "Mittagsbedarf (Mineral, Ziegenkäse, Milch & Co.) im Keller holen",
+            "Wasser für Besteck einlaufen lassen und Spülbecken vorbereiten",
+            "Beide Schichten machen vor dem Mittag Pause (bis 11:30 beide fertig mit Pause)",
+            "Menutafel mit Pies auf Bar",
+            "Essensbestellzettel bereit legen"
+          ],
+          "notizen": "Beide Schichten müssen bis 11:30 mit der Pause fertig sein."
+        }
+      ]
+    },
+    {
+      "kategorie_name": "Nach dem Mittag",
+      "aufgaben": [
+        {
+          "name": "Nach dem Mittag",
+          "tags": ["Mittag", "Nachmittag", "Aufräumen", "Vorbereitung Abend"],
+          "checkliste": [
+            "Salat inkl. allen Zusätzen auffüllen, oberste Schublade reinigen",
+            "Menuschild wegräumen",
+            "Servietten auffüllen",
+            "Eventuell Pies zum Auftauen holen: pro Sorte mindestens 2 Pies vorrätig für Abend",
+            "Reservationen für Abend schreiben und platzieren / informieren",
+            "Brot: Hast genug für den Abend? Abendschicht zum Brotholen schicken",
+            "Ghüder wechseln und bei Schichtende rausbringen",
+            "Kompost leeren",
+            "WC-Reinigung und auf Liste eintragen",
+            "Alles (inkl. Zmorgesache, Kassenrollen, Zigis, etc.) auffüllen"
+          ],
+          "notizen": null
+        }
+      ]
+    },
+    {
+      "kategorie_name": "Mise en place Abendschicht",
+      "aufgaben": [
+        {
+          "name": "Mise en place für Abendschicht (ab ca. 15:00)",
+          "tags": ["Abend", "Mise en place", "15:00", "Vorbereitung"],
+          "checkliste": [
+            "Milchkrüegli mal auswechseln & Milchlappen auswaschen",
+            "Generell Ordnung & Sauberkeit herstellen",
+            "Genügend Früchte schneiden",
+            "Schneidbrettli für Früchte bereitlegen",
+            "Minzenglas kontrollieren, auffüllen",
+            "Spezbier und sonstige Abend-Special-Täfeli auf die Bar stellen",
+            "1 Kistli mit Apérogeschirr (Schäleli & Zahnstochergläsli etc.) & kleine Teller für Brot bereitstellen",
+            "Espresso-Löffeli in 2dl Glas und 1 Zange in 3dl Glas für Weinblätter",
+            "Kleine Gabeln in 3dl Glas",
+            "Citro aus Schublade in Kühlwanne stellen",
+            "Bierlappen bereit legen"
+          ],
+          "notizen": null
+        },
+        {
+          "name": "Schichtübergabe",
+          "tags": ["Schichtübergabe", "Übergang", "Informationen"],
+          "checkliste": [
+            "Reservationen besprechen",
+            "Pie Stand besprechen",
+            "Offene Tische besprechen",
+            "Sonstige Specials besprechen"
+          ],
+          "notizen": "Diese Informationen müssen bei der Schichtübergabe weitergegeben werden."
+        }
+      ]
+    },
+    {
+      "kategorie_name": "Abendschicht",
+      "aufgaben": [
+        {
+          "name": "Mise en place Abend",
+          "tags": ["Abend", "Mise en place", "Eröffnung", "Apéro"],
+          "checkliste": [
+            "Reservationen checken",
+            "Eis aufgefüllt & Reserve in Kühlelement hinten",
+            "Apérogeschirr bereitstellen (Schäleli, Zahnstocher & kleine Teller)",
+            "Zitrusfrüchte vorschneiden (sicher 2x Zitrone, 1x Orange)",
+            "Check ob Bierkühlschrank im Keller aufgefüllt"
+          ],
+          "notizen": null
+        },
+        {
+          "name": "Während der Abendschicht",
+          "tags": ["Abend", "Während", "Lounge", "Kinderecke", "Beleuchtung"],
+          "checkliste": [
+            "Um 17:00: Wenn nötig Tische in der Lounge putzen & 'Kaffeebar-Fremde Sachen' in Teeküche stellen",
+            "Coworking Sachen aus Lounge verräumen: Schildli auf Tischen in Holzkiste, Coworking Schild beim Pflanzengestell wegnehmen",
+            "Ab 17:00 wenn möglich: Kinderregal aufräumen, Klappe zumachen & Höckerli versorgen",
+            "Abendbeleuchtung je nach Jahreszeit einschalten (Spot 1 und 3 raus, LED-Strahler raus), Kerzen auf Tische verteilen",
+            "19:00: Backofen runterkühlen lassen und putzen – Pies gibt's bis 19:00 Uhr, Apéroteller & Salat gibt's bis 19:30 Uhr",
+            "Sonnenschirme verräumen"
+          ],
+          "notizen": "Pies nur bis 19:00 Uhr. Apéroteller & Salat bis 19:30 Uhr."
+        }
+      ]
+    },
+    {
+      "kategorie_name": "Aufräumen Abend",
+      "aufgaben": [
+        {
+          "name": "Aufräumen",
+          "tags": ["Abend", "Aufräumen", "Reinigung", "Ende"],
+          "checkliste": [
+            "Kaffeemaschine inkl. Kolben reinigen (noch 1 Brühgruppe offen halten)",
+            "Alle Flächen (inkl. Lavabos) mit Alkoholreiniger reinigen (Reihenfolge: Brotecke, hintere Lavabo-Ecke, dann was man sonst schon kann)",
+            "Kühlwanne ausräumen (offenes Mineral in Schublade, Eistee in Kühlmöbel hinten), putzen und abdecken",
+            "Zitronen und Orangen abdecken (Freitags Früchte in Kompost)",
+            "Minze in neues Glas mit frischem Wasser",
+            "Alle offenen Weine mit Vacuvin-Stöpsel vakumieren & datieren was heute geöffnet wurde",
+            "Aussenplätze: Tische putzen, Aschenbecher leeren & putzen, Tische zusammenketten, grob wischen",
+            "Tageszeitungen weg, Zeitungsständer aufräumen",
+            "Sitzbank und Sitzpolster feucht reinigen mit Alkoholreiniger",
+            "Alle Tische abputzen",
+            "Alles auffüllen: alle Getränke, Tüechli, Zigaretten, Kaffee, Pies, Gebäck, Apérosachen, Servietten/Handtücher, ...",
+            "Chromstahl Fronten mit Alkoholreiniger putzen",
+            "Mis en place für Morgenschicht: Brotkörbli inkl. Serviette, Kaffeerahm Kännchen, Zuckerdosen, Kuchenplatte inkl. Besteck"
+          ],
+          "notizen": "Freitags: Früchte in Kompost werfen."
+        },
+        {
+          "name": "Tour durch die hinteren Kühlmöbel (ca. 19:30)",
+          "tags": ["Abend", "Kühlmöbel", "Kontrolle", "Bestecker", "19:30"],
+          "checkliste": [
+            "Hafermilch aus Krügli wegschütten",
+            "Vorhandenen Salat nach Datum in Schubladen verteilen (obere Schublade: ältester, unterste Schublade: zweitältester, Kühlmöbel: drittältester)",
+            "Salat & Früchte bei Bieri bestellen",
+            "Hummus und Weinblätter kontrollieren und bei Fadi bestellen",
+            "Gebäck in Tupper & Amaretti im Glas in Kühlmöbel",
+            "Oberste Kühlschublade reinigen & leere GN's abwaschen",
+            "Offene Packung Rohschinken in Zippersack einpacken",
+            "Löffel aus Hummus nehmen und mit Schaber Hummus vom Rand runterschaben",
+            "Aare Chnebu mit Klammer verschliessen",
+            "Übrig gebliebene Apéro Portionen zurück in GN"
+          ],
+          "notizen": "Salat nach Datum sortieren: obere Schublade ältester, unterste Schublade zweitältester, Kühlmöbel drittältester."
+        },
+        {
+          "name": "Nach letzter Runde",
+          "tags": ["Abend", "Ende", "Letzte Runde", "Abschluss"],
+          "checkliste": [
+            "Bieranlage putzen inkl. 'Heisswasserbad'",
+            "Kaffeemaschine & Mühle ausschalten",
+            "Offene Milchflasche in Kühlschrank stellen",
+            "Milch aus Krügli wegschütten",
+            "Kaffeerahm aus Krügli wegleeren",
+            "Geschirrspüler ablassen / Siebe putzen",
+            "Bargeld Umsatz eintragen, Geld in Tresor",
+            "Material Laurent raufnehmen",
+            "Raufstühle Kaffeebar und Lounge",
+            "Bohnenblust und Bieri Kistchen auf die Theke",
+            "Mis en place für Morgenschicht: Lappen (5x klein, 1x für Kaffeesatz, 1 grosses Tüechli, 1x Schürze) & Co, Bostich, Stempelkissen, Schlüssel und Chetteli-Halter, Kaffee-Eimer neben Mühle"
+          ],
+          "notizen": null
+        },
+        {
+          "name": "Beim Rausgehen",
+          "tags": ["Abend", "Rausgehen", "Abschluss", "Schlüssel", "Sicherheit"],
+          "checkliste": [
+            "Nachtbeleuchtung ein ('Zentral aus')",
+            "Regenbogenschlüssel & Kellerschlüssel und iPad in Schublade & richtig zumachen",
+            "Kehricht in Container",
+            "Sommer: Fliegenfänger einstecken",
+            "Winter: Suppentopf bereitstellen",
+            "Kaffeebar Haupteingang abschliessen"
+          ],
+          "notizen": null
+        },
+        {
+          "name": "Die vier wichtigsten Sachen am Schluss",
+          "tags": ["Abend", "Ende", "Kontrolle", "WICHTIG", "Checkliste"],
+          "checkliste": [
+            "Ist das Lumis abgeschlossen?",
+            "Pies raufgeholt?",
+            "Bieri bestellt?",
+            "Fadi bestellt?"
+          ],
+          "notizen": "WICHTIG: Diese 4 Sachen immer am Ende kontrollieren!"
+        }
+      ]
+    },
+    {
+      "kategorie_name": "Wochentagbezogene Tasks",
+      "aufgaben": [
+        {
+          "name": "Montag",
+          "tags": ["Montag", "Wochentag", "Kaffeemaschine"],
+          "checkliste": [
+            "Kaffeemaschinen-Kolben & Siebe einlegen",
+            "1. Montag im Monat: Kaffeemühle reinigen"
+          ],
+          "notizen": "Kaffeemühle nur am ersten Montag des Monats reinigen."
+        },
+        {
+          "name": "Donnerstag",
+          "tags": ["Donnerstag", "Wochentag", "Zeitungen"],
+          "checkliste": [
+            "'Die Zeit' und WOZ bostichen und stempeln, in Zeitungsständer stellen",
+            "Ältere Ausgabe in Altpapier"
+          ],
+          "notizen": null
+        },
+        {
+          "name": "Freitag",
+          "tags": ["Freitag", "Wochentag", "Kasse", "keine Bestellungen"],
+          "checkliste": [
+            "Kasse abrechnen (Noten und Münz in Tresor)",
+            "Lanz Kistli in Eingangsbereich",
+            "Keine Bestellungen machen"
+          ],
+          "notizen": "WICHTIG: Am Freitag werden keine Bestellungen gemacht."
+        }
+      ]
+    },
+    {
+      "kategorie_name": "Bestellungen",
+      "aufgaben": [
+        {
+          "name": "Bieri Bestellung (Salat & Früchte)",
+          "tags": ["Bestellung", "Bieri", "Salat", "Früchte", "Online"],
+          "bestellzeiten": {
+            "montag_abend": "Für Dienstag",
+            "dienstag_abend": "Für Mittwoch",
+            "mittwoch_abend": "Für Donnerstag",
+            "donnerstag_abend": "Für Freitag",
+            "freitag": "Keine Bestellung",
+            "sonntag_abend": "Für Montag"
+          },
+          "bestellen_bei": "Bieri Gemüse über Onlineshop",
+          "zugangsdaten": {
+            "benutzername": "Lumis",
+            "passwort": "Das Passwort steht im physischen Personalhandbuch"
+          },
+          "bestellmengen": {
+            "salat": "Auf 8 Säcke auffüllen",
+            "zitronen": "Auf 10 Stück auffüllen",
+            "orangen": "Auf 6 Stück auffüllen",
+            "limetten": "Auf 4 Stück auffüllen",
+            "ingwer": "Auf 5 Knollen auffüllen",
+            "minze": "Wenn nur ½ GN hat, 100g bestellen",
+            "saisonfrüchte": "Bei Bedarf 1kg"
+          },
+          "notizen": "Freitag: Keine Bestellung machen."
+        },
+        {
+          "name": "Fadi Bestellung (Hummus & Weinblätter)",
+          "tags": ["Bestellung", "Fadi", "Hummus", "Weinblätter", "WhatsApp"],
+          "bestellzeiten": {
+            "montag_abend": "Für Dienstag",
+            "dienstag_abend": "Für Mittwoch",
+            "mittwoch_abend": "Für Donnerstag",
+            "donnerstag_abend": "Für Freitag",
+            "freitag": "Keine Bestellung",
+            "sonntag_abend": "Für Montag"
+          },
+          "bestellen_bei": "Fadi per WhatsApp / SMS",
+          "telefonnummer": "076 433 74 86",
+          "bestellmengen": {
+            "hummus": "Wenn weniger als 4 Portionen vorhanden, 500g bestellen",
+            "weinblätter": "Wenn weniger als 10 Stück vorhanden, 20 Stück bestellen"
+          },
+          "notizen": "WICHTIG: Reservationen für Apéro am nächsten Tag beachten und Bestellung eventuell anpassen. Freitag: Keine Bestellung machen."
+        },
+        {
+          "name": "Pies auftauen",
+          "tags": ["Pies", "Auftauen", "Vorbereitung", "Abend"],
+          "bestellzeiten": {
+            "montag_abend": "Für Dienstag",
+            "dienstag_abend": "Für Mittwoch",
+            "mittwoch_abend": "Für Donnerstag",
+            "donnerstag_abend": "Für Freitag",
+            "freitag": "Keine Pies auftauen",
+            "sonntag_abend": "Für Montag"
+          },
+          "mengen": {
+            "fleisch_pie": "Auf 8 Stück auffüllen",
+            "vegi_pie": "Auf 10 Stück auffüllen",
+            "veganer_pie": "Auf 10 Stück auffüllen"
+          },
+          "notizen": "Freitag: Keine Pies auftauen. Pies immer am Abend vor dem nächsten Tag auftauen."
+        }
+      ]
+    }
+  ]
+}
