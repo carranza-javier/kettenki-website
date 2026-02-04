@@ -6,7 +6,7 @@
  * Change MOCK_ENABLED to true for simulated responses
  */
 const MOCK_CONFIG = {
-    enabled: true, // Enable or disable mock mode
+    enabled: false, // Enable or disable mock mode
     delay: 2000, // Simulated network delay in milliseconds
     randomErrors: false, // Enable random error simulation
     errorRate: 0.1 // 10% chance to simulate a network error

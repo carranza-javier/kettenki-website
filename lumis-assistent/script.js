@@ -9,7 +9,7 @@ const API_CONFIG = {
     headers: { 'Content-Type': 'application/json' }
 };
 
-const MOCK_ENABLED = true;
+const MOCK_ENABLED = false;
 
 // Translations
 const translations = {
