@@ -7,7 +7,7 @@
     <title>LUMIS KI-Assistent</title>
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Google Fonts: Distinctive pairing -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -21,96 +21,93 @@
     </div>
 
     <!-- Main Container -->
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo-container">
-                <img src="img/lumis_logo_1.webp" alt="LUMIS Logo" class="logo">
-            </div>
-            <p class="subtitle" data-i18n="subtitle">Dein intelligenter Kaffeebar-Assistent</p>
-        </header>
-
-        <!-- Question Input Section -->
-        <section class="question-section">
-            <div class="input-wrapper">
-                <textarea 
-                    id="question-input" 
-                    class="question-input" 
-                    placeholder="z.B. Wie bereite ich einen Bärner Mule zu?"
-                    rows="2"
-                    data-i18n-placeholder="placeholder"
-                ></textarea>
+    <div class="app-container">
+        
+        <!-- EMPTY STATE: Initial centered view -->
+        <div id="empty-state" class="empty-state">
+            <div class="empty-state-content">
+                <header class="header">
+                    <div class="logo-container">
+                        <img src="img/lumis_logo_1.webp" alt="LUMIS Logo" class="logo">
+                    </div>
+                    <p class="subtitle" data-i18n="subtitle">Dein intelligenter Kaffeebar-Assistent</p>
+                </header>
                 
-                <!-- Example Questions -->
-                <div class="examples">
-                    <span class="examples-label" data-i18n="examplesLabel">Beispiele:</span>
-                    <div class="example-chips">
-                        <button class="example-chip" data-question="Welche Aufgaben muss ich während der Frühschicht erledigen?" data-i18n="example1">Frühschicht Aufgaben</button>
-                        <button class="example-chip" data-question="Wie bereite ich einen Bärner Mule zu?" data-i18n="example2">Bärner Mule Rezept</button>
-                        <button class="example-chip" data-question="Was muss ich am Ende der Spätschicht machen?" data-i18n="example3">Spätschicht Abschluss</button>
+                <!-- Centered Input Box -->
+                <div class="centered-input-container">
+                    <div class="input-box">
+                        <textarea 
+                            id="initial-input" 
+                            class="main-input" 
+                            placeholder="Frage stellen..."
+                            rows="1"
+                            data-i18n-placeholder="placeholder"
+                        ></textarea>
+                        <button id="initial-send-btn" class="send-btn" aria-label="Send">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M2 10L18 10M18 10L11 3M18 10L11 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
-            </div>
-
-            <!-- Submit Button -->
-            <button id="ask-button" class="ask-button">
-                <span class="button-text" data-i18n="askButton">Frage stellen</span>
-                <span class="button-icon">→</span>
-            </button>
-        </section>
-
-        <!-- Loading Indicator -->
-        <div id="loading" class="loading hidden">
-            <div class="loading-animation">
-                <div class="coffee-cup">
-                    <div class="steam"></div>
-                    <div class="steam"></div>
-                    <div class="steam"></div>
-                </div>
-            </div>
-            <p class="loading-text" data-i18n="loading">Lumis denkt nach...</p>
-        </div>
-
-        <!-- Answer Section -->
-        <section id="answer-section" class="answer-section hidden">
-            <div class="answer-header">
-                <div class="answer-icon">✨</div>
-                <h2 class="answer-title" data-i18n="answerTitle">Antwort</h2>
-            </div>
-            
-            <div class="answer-card">
-                <div class="question-display">
-                    <span class="question-label" data-i18n="yourQuestion">Deine Frage:</span>
-                    <p id="question-display" class="question-text"></p>
-                </div>
                 
-                <div class="answer-content">
-                    <div id="answer-display" class="answer-text"></div>
-                </div>
-                
-                <div class="answer-footer">
-                    <button id="new-question-btn" class="secondary-button">
-                        <span data-i18n="newQuestion">Neue Frage stellen</span>
+                <!-- Example Suggestions (minimal) -->
+                <div class="suggestions">
+                    <button class="suggestion-btn" data-question="Welche Aufgaben muss ich während der Frühschicht erledigen?">
+                        <span class="suggestion-text" data-i18n="example1">Frühschicht Aufgaben</span>
+                    </button>
+                    <button class="suggestion-btn" data-question="Wie bereite ich einen Bärner Mule zu?">
+                        <span class="suggestion-text" data-i18n="example2">Bärner Mule Rezept</span>
+                    </button>
+                    <button class="suggestion-btn" data-question="Was muss ich am Ende der Spätschicht machen?">
+                        <span class="suggestion-text" data-i18n="example3">Spätschicht Abschluss</span>
                     </button>
                 </div>
             </div>
-        </section>
-
-        <!-- Error Message -->
-        <div id="error-message" class="error-message hidden">
-            <div class="error-icon">⚠️</div>
-            <p id="error-text" class="error-text"></p>
-            <button id="retry-button" class="secondary-button" data-i18n="retry">Erneut versuchen</button>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p class="footer-text">
-                <span data-i18n="poweredBy">Powered by</span> 
-                <a href="https://kettenki.com" target="_blank" class="footer-link">KettenKI</a>
-            </p>
-        </footer>
+        <!-- CHAT STATE: Conversation view -->
+        <div id="chat-state" class="chat-state hidden">
+            
+            <!-- Compact Header -->
+            <header class="compact-header">
+                <img src="img/lumis_logo_1.webp" alt="LUMIS" class="compact-logo">
+            </header>
+            
+            <!-- Messages Scroll Area -->
+            <div id="messages-area" class="messages-area">
+                <!-- Messages inserted here dynamically -->
+            </div>
+            
+            <!-- Fixed Bottom Input -->
+            <div class="bottom-input-container">
+                <div class="input-box">
+                    <textarea 
+                        id="chat-input" 
+                        class="main-input" 
+                        placeholder="Frage stellen..."
+                        rows="1"
+                        data-i18n-placeholder="placeholder"
+                    ></textarea>
+                    <button id="chat-send-btn" class="send-btn" aria-label="Send">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M2 10L18 10M18 10L11 3M18 10L11 17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">
+            <span data-i18n="poweredBy">Powered by</span> 
+            <a href="https://kettenki.com" target="_blank" class="footer-link">KettenKI</a>
+        </p>
+    </footer>
 
     <!-- JavaScript -->
     <script src="mock.js"></script>

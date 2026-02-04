@@ -1,9 +1,8 @@
 /* ========================================
-   LUMIS KI-Assistent - CSS Styles
-   Modern Coffee-Centric Design
+   LUMIS KI-Assistent - Professional Chat UI
+   Claude/ChatGPT Style
    ======================================== */
 
-/* === CSS Variables === */
 :root {
     /* Brand Colors */
     --primary: #58926b;
@@ -13,36 +12,32 @@
     --text-light: #636e72;
     --white: #ffffff;
     --error: #d63031;
-    --color-accent-start: #00d4ff;
-    --color-accent-end: #00ff88;    
+    --accent-start: #00d4ff;
+    --accent-end: #00ff88;    
     
     /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(88, 146, 107, 0.1);
-    --shadow-md: 0 4px 16px rgba(88, 146, 107, 0.15);
-    --shadow-lg: 0 8px 32px rgba(88, 146, 107, 0.2);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
     
     /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-medium: 0.3s ease;
-    --transition-slow: 0.5s ease;
+    --transition: 0.2s ease;
     
     /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
     
     /* Border Radius */
     --radius-sm: 8px;
     --radius-md: 12px;
-    --radius-lg: 20px;
+    --radius-lg: 16px;
     --radius-xl: 24px;
-
-    --font-weight-bold: 700;
 }
 
-/* === Global Reset === */
+/* === Reset === */
 * {
     margin: 0;
     padding: 0;
@@ -55,44 +50,30 @@ body {
     background: var(--background);
     color: var(--text-dark);
     line-height: 1.6;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
-
-/* Decorative Background Pattern */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.03;
-    background-image: 
-        radial-gradient(circle at 20% 50%, var(--primary) 1px, transparent 1px),
-        radial-gradient(circle at 80% 80%, var(--secondary) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
-    z-index: 0;
+/* === Header === */
+.header {
+    text-align: center;
+    animation: fadeInDown 0.8s ease;
 }
-
 /* === Language Switcher === */
 .language-switcher {
     position: fixed;
-    top: var(--spacing-md);
-    right: var(--spacing-md);
+    top: var(--space-md);
+    right: var(--space-md);
     display: flex;
-    gap: var(--spacing-xs);
+    gap: 4px;
     background: var(--white);
     padding: 4px;
-    border-radius: var(--radius-lg);
+    border-radius: 20px;
     box-shadow: var(--shadow-sm);
     z-index: 1000;
 }
 
 .lang-btn {
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: 6px 12px;
     border: none;
     background: transparent;
     color: var(--text-light);
@@ -100,8 +81,8 @@ body::before {
     font-weight: 500;
     font-size: 0.875rem;
     cursor: pointer;
-    border-radius: var(--radius-sm);
-    transition: all var(--transition-fast);
+    border-radius: 16px;
+    transition: all var(--transition);
 }
 
 .lang-btn:hover {
@@ -114,406 +95,343 @@ body::before {
     color: var(--white);
 }
 
-/* === Container === */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: var(--spacing-xl) var(--spacing-md);
+/* === Main App Container === */
+.app-container {
+    height: 100vh;
     position: relative;
-    z-index: 1;
 }
 
-/* === Header === */
-.header {
+/* ==========================================
+   EMPTY STATE (Initial View - Centered)
+   ========================================== */
+.empty-state {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+}
+
+.empty-state-content {
+    max-width: 700px;
+    width: 100%;
     text-align: center;
-    margin-bottom: var(--spacing-xl);
-    animation: fadeInDown 0.8s ease;
+    animation: fadeInUp 0.8s ease;
 }
 
 .logo {
-    width: 100%;        /* ocupa hasta el 100% del contenedor */
-    max-width: 300px;   /* tamaño máximo que quieres en escritorio */
-    height: auto;       /* mantiene proporción */
-    display: block;     /* evita espacios extra debajo de la imagen */
-    margin: 0 auto;     /* centra la imagen dentro del contenedor */
-}
-
-/* Opcional: ajustar el contenedor en móviles */
-.logo-container {
-    text-align: center; /* asegura que esté centrado en móviles */
-    padding: 10px 0;   /* espacio arriba y abajo */
-}
-
-
-.title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    font-weight: 700;
-    color: var(--primary);
-    letter-spacing: 0.02em;
-    margin: 0;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto var(--space-lg);
+    display: block;
+    animation: fadeInDown 0.8s ease;
 }
 
 .subtitle {
     font-size: clamp(1rem, 3vw, 1.25rem);
     color: var(--text-light);
     font-weight: 300;
-    margin-top: var(--spacing-xs);
+    margin-bottom: 3rem;
 }
 
-/* === Question Section === */
-.question-section {
+/* === Centered Input Box === */
+.centered-input-container {
+    margin-bottom: var(--space-lg);
+    animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
     background: var(--white);
-    padding: var(--spacing-lg);
     border-radius: var(--radius-xl);
+    padding: var(--space-sm);
     box-shadow: var(--shadow-md);
-    margin-bottom: var(--spacing-lg);
-    animation: fadeInUp 0.8s ease 0.2s backwards;
+    gap: var(--space-sm);
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 2rem
 }
 
-.input-wrapper {
-    margin-bottom: var(--spacing-md);
-}
-
-.question-input {
-    width: 100%;
-    padding: var(--spacing-md);
-    border: 2px solid rgba(88, 146, 107, 0.2);
-    border-radius: var(--radius-md);
+.main-input {
+    flex: 1;
+    border: none;
+    outline: none;
     font-family: 'Work Sans', sans-serif;
     font-size: 1rem;
     color: var(--text-dark);
-    resize: vertical;
-    transition: all var(--transition-medium);
-    background: var(--background);
-}
-
-.question-input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(88, 146, 107, 0.1);
-    background: var(--white);
-}
-
-.question-input::placeholder {
-    color: var(--text-light);
-    opacity: 0.6;
-}
-
-/* === Example Chips === */
-.examples {
-    margin-top: var(--spacing-md);
-}
-
-.examples-label {
-    display: block;
-    font-size: 0.875rem;
-    color: var(--text-light);
-    margin-bottom: var(--spacing-xs);
-    font-weight: 500;
-}
-
-.example-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-}
-
-.example-chip {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border: 1px solid var(--primary);
+    resize: none;
+    max-height: 200px;
+    overflow-y: auto;
     background: transparent;
-    color: var(--primary);
-    font-family: 'Work Sans', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 500;
-    border-radius: var(--radius-lg);
-    cursor: pointer;
-    transition: all var(--transition-fast);
+    padding: var(--space-sm);
 }
 
-.example-chip:hover {
+.main-input::placeholder {
+    color: var(--text-light);
+    opacity: 0.7;
+}
+
+.main-input::-webkit-scrollbar {
+    width: 6px;
+}
+
+.main-input::-webkit-scrollbar-thumb {
+    background: rgba(88, 146, 107, 0.2);
+    border-radius: 3px;
+}
+
+.send-btn {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
     background: var(--primary);
     color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
-}
-
-/* === Ask Button === */
-.ask-button {
-    width: 100%;
-    padding: var(--spacing-md) var(--spacing-lg);
-    background: linear-gradient(135deg, var(--primary) 0%, #4a7d5d 100%);
-    color: var(--white);
-    border: none;
     border-radius: var(--radius-md);
-    font-family: 'Work Sans', sans-serif;
-    font-size: 1.125rem;
-    font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-sm);
-    transition: all var(--transition-medium);
-    box-shadow: var(--shadow-md);
+    transition: all var(--transition);
 }
 
-.ask-button:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+.send-btn:hover:not(:disabled) {
+    background: #4a7d5d;
+    transform: scale(1.05);
 }
 
-.ask-button:active:not(:disabled) {
-    transform: translateY(0);
-}
-
-.ask-button:disabled {
-    opacity: 0.6;
+.send-btn:disabled {
+    background: #e0e0e0;
     cursor: not-allowed;
+    opacity: 0.5;
 }
 
-.button-icon {
-    font-size: 1.5rem;
-    transition: transform var(--transition-medium);
-}
-
-.ask-button:hover:not(:disabled) .button-icon {
-    transform: translateX(4px);
-}
-
-/* === Loading === */
-.loading {
-    text-align: center;
-    padding: var(--spacing-xl);
-    animation: fadeIn var(--transition-medium);
-}
-
-.loading-animation {
-    margin-bottom: var(--spacing-md);
-}
-
-.coffee-cup {
-    display: inline-block;
-    position: relative;
-    width: 60px;
-    height: 60px;
-    animation: bounce 1s ease-in-out infinite;
-}
-
-.coffee-cup::before {
-    content: '☕';
-    font-size: 60px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.steam {
-    position: absolute;
-    width: 4px;
-    height: 20px;
-    background: var(--primary);
-    border-radius: 2px;
-    opacity: 0;
-    animation: steam 2s ease-in-out infinite;
-}
-
-.steam:nth-child(1) {
-    left: 15px;
-    animation-delay: 0s;
-}
-
-.steam:nth-child(2) {
-    left: 28px;
-    animation-delay: 0.3s;
-}
-
-.steam:nth-child(3) {
-    left: 41px;
-    animation-delay: 0.6s;
-}
-
-.loading-text {
-    color: var(--text-light);
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-/* === Answer Section === */
-.answer-section {
-    animation: fadeInUp var(--transition-slow);
-}
-
-.answer-header {
+/* === Suggestions (Minimal) === */
+.suggestions {
     display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease 0.5s backwards;
 }
 
-.answer-icon {
-    font-size: 2rem;
-}
-
-.answer-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.75rem;
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.answer-card {
-    background: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-}
-
-.question-display {
-    padding-bottom: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-    border-bottom: 2px solid rgba(88, 146, 107, 0.1);
-}
-
-.question-label {
-    display: block;
-    font-size: 0.875rem;
-    color: var(--text-light);
-    font-weight: 600;
-    margin-bottom: var(--spacing-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.question-text {
-    font-size: 1.125rem;
+.suggestion-btn {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid rgba(88, 146, 107, 0.3);
+    background: rgba(255, 255, 255, 0.8);
     color: var(--text-dark);
-    font-weight: 500;
-    font-style: italic;
-}
-
-.answer-content {
-    margin-bottom: var(--spacing-lg);
-}
-
-.answer-text {
-    font-size: 1rem;
-    color: var(--text-dark);
-    line-height: 1.8;
-}
-
-/* Answer text formatting */
-.answer-text p {
-    margin-bottom: var(--spacing-sm);
-}
-
-.answer-text strong {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.answer-text ol,
-.answer-text ul {
-    margin: var(--spacing-sm) 0;
-    padding-left: var(--spacing-lg);
-}
-
-.answer-text li {
-    margin-bottom: var(--spacing-xs);
-    padding-left: var(--spacing-xs);
-}
-
-.answer-text ol li::marker {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-.answer-text ul li::marker {
-    color: var(--secondary);
-}
-
-.answer-footer {
-    padding-top: var(--spacing-md);
-    border-top: 2px solid rgba(88, 146, 107, 0.1);
-}
-
-/* === Secondary Button === */
-.secondary-button {
-    padding: var(--spacing-sm) var(--spacing-md);
-    background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    border-radius: var(--radius-md);
     font-family: 'Work Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: all var(--transition);
+    backdrop-filter: blur(10px);
 }
 
-.secondary-button:hover {
-    background: var(--primary);
-    color: var(--white);
+.suggestion-btn:hover {
+    border-color: var(--primary);
+    background: var(--white);
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
 }
 
-/* === Error Message === */
-.error-message {
+/* ==========================================
+   CHAT STATE (Conversation View)
+   ========================================== */
+.chat-state {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === Compact Header === */
+.compact-header {
+    flex-shrink: 0;
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--background);
+    border-bottom: 1px solid rgba(88, 146, 107, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.compact-logo {
+    height: 32px;
+    width: auto;
+}
+
+/* === Messages Area === */
+.messages-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.messages-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.messages-area::-webkit-scrollbar-thumb {
+    background: rgba(88, 146, 107, 0.2);
+    border-radius: 4px;
+}
+
+/* === Message Bubbles === */
+.message {
+    max-width: 70%;
+    animation: fadeIn 0.3s ease;
+}
+
+.message.user {
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.message.assistant {
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.message-bubble {
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    word-wrap: break-word;
+}
+
+.message.user .message-bubble {
+    background: var(--primary);
+    color: var(--white);
+    border-bottom-right-radius: var(--radius-sm);
+}
+
+.message.assistant .message-bubble {
     background: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    text-align: center;
-    border: 2px solid var(--error);
-    animation: shake 0.5s ease;
+    color: var(--text-dark);
+    box-shadow: var(--shadow-sm);
+    border-bottom-left-radius: var(--radius-sm);
 }
 
-.error-icon {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-sm);
+.message-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
 }
 
-.error-text {
-    color: var(--error);
-    font-size: 1rem;
-    margin-bottom: var(--spacing-md);
-    font-weight: 500;
+.message-text p {
+    margin-bottom: var(--space-sm);
 }
 
-/* === Footer === */
-.footer {
-    text-align: center;
-    padding: var(--spacing-xl) 0;
-    margin-top: var(--spacing-xl);
+.message-text p:last-child {
+    margin-bottom: 0;
 }
 
-.footer-text {
-    color: var(--text-light);
-    font-size: 0.875rem;
+.message-text strong {
+    font-weight: 600;
 }
 
-.footer-text strong {
+.message.assistant .message-text strong {
+    color: var(--primary);
+}
+
+.message-text ol,
+.message-text ul {
+    margin: var(--space-sm) 0;
+    padding-left: var(--space-lg);
+}
+
+.message-text li {
+    margin-bottom: var(--space-xs);
+}
+
+.message.assistant .message-text ol li::marker {
     color: var(--primary);
     font-weight: 600;
 }
 
-/* Estilo para el link KettenKI */
+/* === Loading Indicator === */
+.message.loading .message-bubble {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+}
+
+.loading-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.loading-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(1) { animation-delay: -0.32s; }
+.loading-dot:nth-child(2) { animation-delay: -0.16s; }
+
+.loading-text {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+/* === Error Message === */
+.message.error .message-bubble {
+    background: #fff5f5;
+    border: 2px solid var(--error);
+    color: var(--error);
+}
+
+/* === Bottom Input === */
+.bottom-input-container {
+    flex-shrink: 0;
+    background: var(--background);
+    border-top: 1px solid rgba(88, 146, 107, 0.1);
+    padding: var(--space-md) var(--space-lg);
+}
+
+.bottom-input-container .input-box {
+    max-width: 900px;
+}
+
+/* === Footer === */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: var(--space-sm);
+    background: transparent;
+    pointer-events: none;
+}
+
+.footer-text {
+    color: var(--text-light);
+    font-size: 0.8125rem;
+    pointer-events: auto;
+}
+
 .footer-link {
     font-family: 'Zalando Sans Expanded', sans-serif;
-    font-size: 1.5rem;
-    font-weight: var(--font-weight-bold);
-    background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
+    font-size: 0.9375rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: -0.02em;
-    text-decoration: none; /* quita el subrayado */
-}
-
-.footer-text a.footer-link {
-    display: block;
+    text-decoration: none;
 }
 
 /* === Utility Classes === */
@@ -525,11 +443,87 @@ body::before {
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .empty-state {
+        padding: var(--space-md);
+    }
+    
+    .logo {
+        max-width: 140px;
+    }
+    
+    .suggestions {
+        flex-direction: column;
+    }
+    
+    .suggestion-btn {
+        width: 100%;
+    }
+    
+    .message {
+        max-width: 85%;
+    }
+    
+    .messages-area {
+        padding: var(--space-md);
+    }
+    
+    .bottom-input-container {
+        padding: var(--space-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .language-switcher {
+        top: var(--space-sm);
+        right: var(--space-sm);
+    }
+    
+    .logo {
+        max-width: 150px;
+    }
+    
+    .main-title {
+        font-size: 1.25rem;
+    }
+    
+    .message {
+        max-width: 90%;
+    }
+    
+    .compact-header {
+        padding: var(--space-sm);
+    }
+    
+    .compact-logo {
+        height: 28px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
 
 @keyframes fadeInDown {
     from {
@@ -550,171 +544,5 @@ body::before {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes steam {
-    0% {
-        opacity: 0;
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-30px) scale(0.8);
-    }
-}
-
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-10px);
-    }
-    75% {
-        transform: translateX(10px);
-    }
-}
-
-/* === Responsive Design === */
-
-/* Tablet */
-@media (max-width: 768px) {
-    .container {
-        padding: var(--spacing-lg) var(--spacing-md);
-    }
-    
-    .question-section,
-    .answer-card {
-        padding: var(--spacing-md);
-    }
-    
-    .title {
-        font-size: 3rem;
-    }
-    
-    .example-chips {
-        flex-direction: column;
-    }
-    
-    .example-chip {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    :root {
-        --spacing-xl: 2rem;
-        --spacing-lg: 1.5rem;
-    }
-    
-    .language-switcher {
-        display: none;
-    }
-    
-    .container {
-        padding: var(--spacing-md) var(--spacing-sm);
-    }
-    
-    .header {
-        margin-bottom: var(--spacing-lg);
-    }
-    
-    .logo-container {
-        flex-direction: column;
-        gap: var(--spacing-xs);
-    }
-
-    .title {
-        font-size: 2.5rem;
-    }
-    
-    .subtitle {
-        font-size: 1rem;
-    }
-    
-    .question-section,
-    .answer-card,
-    .error-message {
-        padding: var(--spacing-sm);
-        border-radius: var(--radius-md);
-    }
-    
-    .answer-title {
-        font-size: 1.25rem;
-    }
-    
-    .question-input {
-        font-size: 0.9375rem;
-        padding: var(--spacing-sm);
-    }
-    
-    .ask-button {
-        font-size: 1rem;
-        padding: var(--spacing-sm) var(--spacing-md);
-    }
-    
-    .answer-text {
-        font-size: 0.9375rem;
-    }
-}
-
-/* Very small screens */
-@media (max-width: 360px) {
-    .title {
-        font-size: 2rem;
-    }
-    
-    .example-chip {
-        font-size: 0.8125rem;
-        padding: 6px var(--spacing-sm);
-    }
-}
-
-/* Landscape mobile */
-@media (max-height: 600px) and (orientation: landscape) {
-    .container {
-        padding: var(--spacing-sm);
-    }
-    
-    .header {
-        margin-bottom: var(--spacing-md);
-    }
-    
-    .loading {
-        padding: var(--spacing-md);
-    }
-}
-
-/* High DPI screens */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .question-input,
-    .ask-button,
-    .secondary-button {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
     }
 }
