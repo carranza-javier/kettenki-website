@@ -9,7 +9,7 @@ const API_CONFIG = {
     headers: { 'Content-Type': 'application/json' }
 };
 
-const MOCK_ENABLED = false;
+const MOCK_ENABLED = true;
 
 // Translations
 const translations = {
@@ -168,6 +168,88 @@ async function askLUMIS(question) {
 }
 
 // ========================================
+// Text Formatting (RECOVERED FROM OLD CODE)
+// ========================================
+
+/**
+ * Formats the answer text with proper line breaks and lists
+ * @param {string} text - Raw answer text
+ * @returns {string} - Formatted HTML
+ */
+function formatAnswer(text) {
+    if (!text) return '';
+    
+    // Split by double newlines to get paragraphs/sections
+    let sections = text.split('\n\n');
+    let html = '';
+    
+    sections.forEach(section => {
+        section = section.trim();
+        if (!section) return;
+        
+        // Check if this is a numbered list section
+        const lines = section.split('\n');
+        const isNumberedList = lines.every(line => {
+            const trimmed = line.trim();
+            return !trimmed || /^\d+\.|^-/.test(trimmed);
+        });
+        
+        if (isNumberedList && lines.length > 1) {
+            // Convert to ordered list
+            html += '<ol>';
+            lines.forEach(line => {
+                line = line.trim();
+                if (line) {
+                    // Remove leading number/dash
+                    line = line.replace(/^\d+\.\s*/, '').replace(/^-\s*/, '');
+                    html += `<li>${escapeHtml(line)}</li>`;
+                }
+            });
+            html += '</ol>';
+        } else if (section.includes('\n')) {
+            // Multiple lines but not a list - could be a header + items
+            const firstLine = lines[0];
+            const isHeader = firstLine.endsWith(':') || /^[A-ZÄÖÜ].*:$/.test(firstLine);
+            
+            if (isHeader && lines.length > 1) {
+                html += `<p><strong>${escapeHtml(firstLine)}</strong></p>`;
+                html += '<ul>';
+                lines.slice(1).forEach(line => {
+                    line = line.trim();
+                    if (line) {
+                        line = line.replace(/^\d+\.\s*/, '').replace(/^-\s*/, '');
+                        html += `<li>${escapeHtml(line)}</li>`;
+                    }
+                });
+                html += '</ul>';
+            } else {
+                // Just paragraphs with line breaks
+                lines.forEach(line => {
+                    line = line.trim();
+                    if (line) {
+                        html += `<p>${escapeHtml(line)}</p>`;
+                    }
+                });
+            }
+        } else {
+            // Single paragraph
+            html += `<p>${escapeHtml(section)}</p>`;
+        }
+    });
+    
+    return html;
+}
+
+/**
+ * Escapes HTML special characters
+ */
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// ========================================
 // Message Rendering
 // ========================================
 
@@ -197,7 +279,8 @@ function createMessageElement(type, content) {
         textDiv.className = 'message-text';
         
         if (type === 'assistant') {
-            textDiv.innerHTML = content; // HTML for assistant
+            // ⭐ FIXED: Now using formatAnswer to convert plain text to HTML
+            textDiv.innerHTML = formatAnswer(content);
         } else {
             textDiv.textContent = content; // Plain text for user
         }
