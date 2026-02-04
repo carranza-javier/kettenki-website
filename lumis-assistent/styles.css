@@ -61,7 +61,7 @@ body {
 /* === Language Switcher === */
 .language-switcher {
     position: fixed;
-    top: var(--space-md);
+    top: 0.813rem;
     right: var(--space-md);
     display: flex;
     gap: 4px;
