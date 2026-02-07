@@ -92,6 +92,19 @@
   .case-card {
     padding: var(--spacing-md);
   }
+  
+  /* About Images - Tablets */
+  .about-image {
+    max-width: 220px;
+  }
+  
+  .about-image-left {
+    margin: 0.5rem var(--spacing-md) var(--spacing-md) 0;
+  }
+  
+  .about-image-right {
+    margin: 0.5rem 0 var(--spacing-md) var(--spacing-md);
+  }
 }
 
 /* Mobile Phones */
@@ -146,6 +159,23 @@
     width: 45px;
     height: 45px;
   }
+  
+  /* About Images - Mobile */
+  .about-image-left,
+  .about-image-right {
+    float: none;
+    display: block;
+    margin: var(--spacing-md) auto;
+    max-width: 200px;
+  }
+
+  .about-me {
+    text-align: left;
+  }
+
+  .about-kettenki {
+    text-align: left;
+  }
 }
 
 /* Small Mobile Phones */
@@ -155,6 +185,13 @@
   }
   .case-card h3 {
       font-size: 1.4rem;
+  }  
+  .about-me {
+    text-align: left;
+  }
+
+  .about-kettenki {
+    text-align: left;
   }  
 }
 

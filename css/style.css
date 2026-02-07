@@ -87,6 +87,13 @@ a {
   padding-top: 50px;
 }
 
+.container-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  padding-top: 20px;
+}
+
 /* Header & Navigation */
 header {
   position: fixed;
@@ -296,7 +303,7 @@ section {
 
 /* About Section */
 .about-content {
-  max-width: 800px;
+  max-width: 830px;
   margin: 0 auto;
   font-size: 1.1rem;
   line-height: 1.8;
@@ -305,6 +312,43 @@ section {
 .about-content p {
   margin-bottom: var(--spacing-md);
   color: var(--color-text-secondary);
+}
+
+.about-me {
+  text-align: justify;
+}
+
+.about-kettenki {
+  text-align: justify;
+}
+
+/* About Images */
+.about-image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 8px;
+  opacity: 0.95;
+  transition: opacity var(--transition-normal);
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.08);
+}
+
+.about-image-left {
+  float: left;
+  margin: 0.5rem var(--spacing-lg) var(--spacing-md) 0;
+  shape-outside: margin-box;
+}
+
+.about-image-right {
+  float: right;
+  shape-outside: margin-box;
+}
+
+/* Cat image - blend with background */
+.about-image-cat {
+  max-width: 190px;
+  mix-blend-mode: lighten;
+  box-shadow: none;
 }
 
 /* Services/Cases Section */
