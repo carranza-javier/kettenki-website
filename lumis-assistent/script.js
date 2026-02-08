@@ -1,17 +1,23 @@
 // ========================================
-// LUMIS KI-Assistent - Professional Chat
+// LUMIS KI-Assistent - With Authentication
 // ========================================
 
 // API Configuration
 const API_CONFIG = {
     endpoint: 'https://c9e7xbpbba.execute-api.eu-central-1.amazonaws.com/ask',
+    loginEndpoint: 'https://c9e7xbpbba.execute-api.eu-central-1.amazonaws.com/login',
     timeout: 30000,
     headers: { 'Content-Type': 'application/json' }
 };
 
+const AUTH_CONFIG = {
+    tokenKey: 'lumis_auth_token',
+    tokenExpKey: 'lumis_token_exp'
+};
+
 const MOCK_ENABLED = false;
 
-// Translations
+// [Rest of translations and configurations remain the same...]
 const translations = {
     de: {
         subtitle: 'Dein intelligenter Kaffeebar-Assistent',
@@ -24,7 +30,9 @@ const translations = {
         errorEmpty: 'Bitte gib eine Frage ein.',
         errorNetwork: 'Netzwerkfehler. Bitte überprüfe deine Internetverbindung.',
         errorTimeout: 'Die Anfrage hat zu lange gedauert. Bitte versuche es erneut.',
-        errorAPI: 'Die API konnte nicht erreicht werden. Bitte versuche es später erneut.'
+        errorAPI: 'Die API konnte nicht erreicht werden. Bitte versuche es später erneut.',
+        loginError: 'Benutzername oder Passwort falsch.',
+        loginErrorNetwork: 'Verbindungsfehler. Bitte versuche es erneut.'
     },
     en: {
         subtitle: 'Your intelligent coffee bar assistant',
@@ -37,7 +45,9 @@ const translations = {
         errorEmpty: 'Please enter a question.',
         errorNetwork: 'Network error. Please check your internet connection.',
         errorTimeout: 'The request took too long. Please try again.',
-        errorAPI: 'Could not reach the API. Please try again later.'
+        errorAPI: 'Could not reach the API. Please try again later.',
+        loginError: 'Username or password incorrect.',
+        loginErrorNetwork: 'Connection error. Please try again.'
     }
 };
 
@@ -59,6 +69,16 @@ let isFirstMessage = true;
 
 // DOM Elements
 const elements = {
+    // Login
+    loginScreen: document.getElementById('login-screen'),
+    loginForm: document.getElementById('login-form'),
+    loginUsername: document.getElementById('login-username'),
+    loginPassword: document.getElementById('login-password'),
+    loginBtn: document.getElementById('login-btn'),
+    loginError: document.getElementById('login-error'),
+    loginSpinner: document.querySelector('.login-spinner'),
+    loginBtnText: document.querySelector('.login-btn-text'),
+    
     // Empty State
     emptyState: document.getElementById('empty-state'),
     initialInput: document.getElementById('initial-input'),
@@ -71,9 +91,129 @@ const elements = {
     chatSendBtn: document.getElementById('chat-send-btn'),
     
     // Common
+    appContainer: document.querySelector('.app-container'),
     langButtons: document.querySelectorAll('.lang-btn'),
     suggestionBtns: document.querySelectorAll('.suggestion-btn')
 };
+
+// ========================================
+// Authentication
+// ========================================
+
+function getAuthToken() {
+    const token = localStorage.getItem(AUTH_CONFIG.tokenKey);
+    const exp = localStorage.getItem(AUTH_CONFIG.tokenExpKey);
+    
+    if (!token || !exp) return null;
+    
+    // Check if expired
+    if (Date.now() > parseInt(exp)) {
+        clearAuthToken();
+        return null;
+    }
+    
+    return token;
+}
+
+function setAuthToken(token, expiresIn) {
+    const expirationTime = Date.now() + (expiresIn * 1000);
+    localStorage.setItem(AUTH_CONFIG.tokenKey, token);
+    localStorage.setItem(AUTH_CONFIG.tokenExpKey, expirationTime.toString());
+}
+
+function clearAuthToken() {
+    localStorage.removeItem(AUTH_CONFIG.tokenKey);
+    localStorage.removeItem(AUTH_CONFIG.tokenExpKey);
+}
+
+function checkAuth() {
+    const token = getAuthToken();
+    if (token) {
+        showApp();
+        return true;
+    }
+    showLogin();
+    return false;
+}
+
+function showLogin() {
+    elements.loginScreen.classList.remove('hidden');
+    elements.appContainer.classList.add('hidden');
+    elements.loginUsername.focus();
+}
+
+function showApp() {
+    elements.loginScreen.classList.add('hidden');
+    elements.appContainer.classList.remove('hidden');
+    elements.initialInput.focus();
+}
+
+async function handleLogin(e) {
+    e.preventDefault();
+    
+    const username = elements.loginUsername.value.trim();
+    const password = elements.loginPassword.value;
+    
+    if (!username || !password) {
+        showLoginError(translations[currentLang].loginError);
+        return;
+    }
+    
+    // Show loading
+    elements.loginBtn.disabled = true;
+    elements.loginBtnText.classList.add('hidden');
+    elements.loginSpinner.classList.remove('hidden');
+    elements.loginError.classList.add('hidden');
+    
+    try {
+        const response = await fetch(API_CONFIG.loginEndpoint, {
+            method: 'POST',
+            headers: API_CONFIG.headers,
+            body: JSON.stringify({ username, password })
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(data.message || 'Login failed');
+        }
+        
+        if (!data.token) {
+            throw new Error('No token received');
+        }
+        
+        // Save token
+        setAuthToken(data.token, data.expiresIn);
+        
+        // Clear form
+        elements.loginUsername.value = '';
+        elements.loginPassword.value = '';
+        
+        // Show app
+        showApp();
+        
+    } catch (error) {
+        console.error('Login error:', error);
+        
+        const errorMsg = error.message.includes('fetch') || error.message.includes('Network')
+            ? translations[currentLang].loginErrorNetwork
+            : translations[currentLang].loginError;
+        
+        showLoginError(errorMsg);
+    } finally {
+        elements.loginBtn.disabled = false;
+        elements.loginBtnText.classList.remove('hidden');
+        elements.loginSpinner.classList.add('hidden');
+    }
+}
+
+function showLoginError(message) {
+    elements.loginError.textContent = message;
+    elements.loginError.classList.remove('hidden');
+    setTimeout(() => {
+        elements.loginError.classList.add('hidden');
+    }, 5000);
+}
 
 // ========================================
 // State Management
@@ -142,18 +282,33 @@ async function askLUMIS(question) {
         return mockAskLUMIS(question);
     }
 
+    const token = getAuthToken();
+    if (!token) {
+        throw new Error('No authentication token');
+    }
+
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), API_CONFIG.timeout);
     
     try {
         const response = await fetch(API_CONFIG.endpoint, {
             method: 'POST',
-            headers: API_CONFIG.headers,
+            headers: {
+                ...API_CONFIG.headers,
+                'Authorization': `Bearer ${token}`
+            },
             body: JSON.stringify({ question }),
             signal: controller.signal
         });
         
         clearTimeout(timeoutId);
+        
+        // Check if unauthorized (token expired)
+        if (response.status === 401 || response.status === 403) {
+            clearAuthToken();
+            showLogin();
+            throw new Error('Session expired. Please login again.');
+        }
         
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         
@@ -168,18 +323,12 @@ async function askLUMIS(question) {
 }
 
 // ========================================
-// Text Formatting (RECOVERED FROM OLD CODE)
+// Text Formatting
 // ========================================
 
-/**
- * Formats the answer text with proper line breaks and lists
- * @param {string} text - Raw answer text
- * @returns {string} - Formatted HTML
- */
 function formatAnswer(text) {
     if (!text) return '';
     
-    // Split by double newlines to get paragraphs/sections
     let sections = text.split('\n\n');
     let html = '';
     
@@ -187,7 +336,6 @@ function formatAnswer(text) {
         section = section.trim();
         if (!section) return;
         
-        // Check if this is a numbered list section
         const lines = section.split('\n');
         const isNumberedList = lines.every(line => {
             const trimmed = line.trim();
@@ -195,19 +343,16 @@ function formatAnswer(text) {
         });
         
         if (isNumberedList && lines.length > 1) {
-            // Convert to ordered list
             html += '<ol>';
             lines.forEach(line => {
                 line = line.trim();
                 if (line) {
-                    // Remove leading number/dash
                     line = line.replace(/^\d+\.\s*/, '').replace(/^-\s*/, '');
                     html += `<li>${escapeHtml(line)}</li>`;
                 }
             });
             html += '</ol>';
         } else if (section.includes('\n')) {
-            // Multiple lines but not a list - could be a header + items
             const firstLine = lines[0];
             const isHeader = firstLine.endsWith(':') || /^[A-ZÄÖÜ].*:$/.test(firstLine);
             
@@ -223,7 +368,6 @@ function formatAnswer(text) {
                 });
                 html += '</ul>';
             } else {
-                // Just paragraphs with line breaks
                 lines.forEach(line => {
                     line = line.trim();
                     if (line) {
@@ -232,7 +376,6 @@ function formatAnswer(text) {
                 });
             }
         } else {
-            // Single paragraph
             html += `<p>${escapeHtml(section)}</p>`;
         }
     });
@@ -240,9 +383,6 @@ function formatAnswer(text) {
     return html;
 }
 
-/**
- * Escapes HTML special characters
- */
 function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
@@ -279,10 +419,9 @@ function createMessageElement(type, content) {
         textDiv.className = 'message-text';
         
         if (type === 'assistant') {
-            // ⭐ FIXED: Now using formatAnswer to convert plain text to HTML
             textDiv.innerHTML = formatAnswer(content);
         } else {
-            textDiv.textContent = content; // Plain text for user
+            textDiv.textContent = content;
         }
         
         bubble.appendChild(textDiv);
@@ -360,17 +499,14 @@ async function handleSend() {
         return;
     }
     
-    // Switch to chat state on first message
     if (isFirstMessage) {
         switchToChatState();
     }
     
-    // Add user message
     addMessage('user', question);
     clearInput();
     disableInput();
     
-    // Add loading
     const loadingMsg = addMessage('loading', '');
     
     try {
@@ -401,6 +537,9 @@ async function handleSend() {
 // ========================================
 
 function initEvents() {
+    // Login
+    elements.loginForm.addEventListener('submit', handleLogin);
+    
     // Initial state
     elements.initialSendBtn.addEventListener('click', handleSend);
     elements.initialInput.addEventListener('keydown', (e) => {
@@ -445,12 +584,12 @@ function initEvents() {
 // ========================================
 
 function init() {
-    console.log('🚀 LUMIS initialized');
+    console.log('🚀 LUMIS initialized with authentication');
     console.log(MOCK_ENABLED ? '🎭 MOCK MODE' : '🌐 PRODUCTION');
     
     updateTranslations();
     initEvents();
-    elements.initialInput.focus();
+    checkAuth();
 }
 
 if (document.readyState === 'loading') {

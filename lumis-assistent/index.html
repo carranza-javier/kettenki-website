@@ -14,6 +14,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="img/lumis_logo_1.webp" alt="LUMIS Logo" class="login-logo">
+                <p class="login-subtitle">Dein intelligenter Kaffeebar-Assistent</p>
+            </div>
+            
+            <form id="login-form" class="login-form">
+                <div class="login-input-group">
+                    <input 
+                        type="text" 
+                        id="login-username" 
+                        class="login-input" 
+                        placeholder="Benutzername"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+                
+                <div class="login-input-group">
+                    <input 
+                        type="password" 
+                        id="login-password" 
+                        class="login-input" 
+                        placeholder="Passwort"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+                
+                <div id="login-error" class="login-error hidden"></div>
+                
+                <button type="submit" id="login-btn" class="login-btn">
+                    <span class="login-btn-text">Anmelden</span>
+                    <div class="login-spinner hidden"></div>
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <p class="footer-text">
+                    <span>Powered by</span>
+                    <a href="https://kettenki.com" target="_blank" class="footer-link">KettenKI</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Language Switcher -->
     <div class="language-switcher">
         <button class="lang-btn active" data-lang="de">DE</button>
@@ -21,7 +69,7 @@
     </div>
 
     <!-- Main Container -->
-    <div class="app-container">
+    <div class="app-container hidden">
         
         <!-- EMPTY STATE: Initial centered view -->
         <div id="empty-state" class="empty-state">
