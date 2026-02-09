@@ -15,7 +15,7 @@ const AUTH_CONFIG = {
     tokenExpKey: 'lumis_token_exp'
 };
 
-const MOCK_ENABLED = true;
+const MOCK_ENABLED = false;
 
 // [Rest of translations and configurations remain the same...]
 const translations = {
