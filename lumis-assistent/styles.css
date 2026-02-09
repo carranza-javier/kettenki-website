@@ -5,7 +5,7 @@
 
 :root {
     /* Brand Colors */
-    --primary: #58926b;
+    /* --primary: #58926b;
     --secondary: #ffce30;
     --background: #fff6db;
     --text-dark: #2d3436;
@@ -13,7 +13,17 @@
     --white: #ffffff;
     --error: #d63031;
     --accent-start: #00d4ff;
-    --accent-end: #00ff88;    
+    --accent-end: #00ff88;     */
+
+    --primary: #d4a574;        /* Terracota suave / Caramelo */
+    --secondary: #e8b89a;      /* Melocotón cálido */
+    --background: #faf7f2;     /* Crema muy suave */
+    --text-dark: #3d3029;      /* Marrón chocolate oscuro */
+    --text-light: #8b7a6a;     /* Taupe medio */
+    --white: #ffffff;          
+    --error: #c97064;          /* Terracota rojizo suave */
+    --accent-start: #00d4ff;   /* Naranja melocotón */
+    --accent-end: #00ff88;     /* Caramelo */      
     
     /* Shadows */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -128,6 +138,16 @@ body {
     animation: fadeInDown 0.8s ease;
 }
 
+.logo-text {
+    font-family: 'Zalando Sans Expanded', sans-serif;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+}
+
 .subtitle {
     font-size: clamp(1rem, 3vw, 1.25rem);
     color: var(--text-light);
@@ -199,7 +219,7 @@ body {
 }
 
 .send-btn:hover:not(:disabled) {
-    background: #4a7d5d;
+    background: #e7c04a;
     transform: scale(1.05);
 }
 
@@ -627,7 +647,15 @@ body {
     display: block;
 }
 
-
+.login-title {
+    font-family: 'Zalando Sans Expanded', sans-serif;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+}
 .login-subtitle {
     font-size: 1rem;
     color: var(--text-light);
@@ -698,7 +726,7 @@ body {
 }
 
 .login-btn:hover:not(:disabled) {
-    background: #4a7d5d;
+    background: #e7c04a;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
