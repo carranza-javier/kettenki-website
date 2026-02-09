@@ -145,7 +145,9 @@ function showLogin() {
 function showApp() {
     elements.loginScreen.classList.add('hidden');
     elements.appContainer.classList.remove('hidden');
-    elements.initialInput.focus();
+    if (!/Mobi|Android/i.test(navigator.userAgent)) {
+        elements.initialInput.focus();
+    }
 }
 
 async function handleLogin(e) {
