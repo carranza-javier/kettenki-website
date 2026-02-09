@@ -402,10 +402,10 @@ function createMessageElement(type, content) {
     
     if (type === 'loading') {
         bubble.innerHTML = `
-            <div class="loading-dots">
-                <div class="loading-dot"></div>
-                <div class="loading-dot"></div>
-                <div class="loading-dot"></div>
+            <div class="coffee-cup">
+                <div class="steam"></div>
+                <div class="steam"></div>
+                <div class="steam"></div>
             </div>
             <span class="loading-text">${translations[currentLang].loading}</span>
         `;
