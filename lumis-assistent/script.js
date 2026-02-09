@@ -15,7 +15,7 @@ const AUTH_CONFIG = {
     tokenExpKey: 'lumis_token_exp'
 };
 
-const MOCK_ENABLED = false;
+const MOCK_ENABLED = true;
 
 // [Rest of translations and configurations remain the same...]
 const translations = {
@@ -23,8 +23,8 @@ const translations = {
         subtitle: 'Dein intelligenter Kaffeebar-Assistent',
         placeholder: 'Frage stellen...',
         example1: 'Frühschicht Aufgaben',
-        example2: 'Bärner Mule Rezept',
-        example3: 'Spätschicht Abschluss',
+        example2: 'Belle Giselle Rezept',
+        example3: 'Schokoladenkuchen Zutaten',
         loading: 'Denkt nach...',
         poweredBy: 'Powered by',
         errorEmpty: 'Bitte gib eine Frage ein.',
@@ -38,8 +38,8 @@ const translations = {
         subtitle: 'Your intelligent coffee bar assistant',
         placeholder: 'Ask a question...',
         example1: 'Morning shift tasks',
-        example2: 'Berner Mule recipe',
-        example3: 'Evening shift closing',
+        example2: 'Belle Giselle recipe',
+        example3: 'Chocolate cake ingredients',
         loading: 'Thinking...',
         poweredBy: 'Powered by',
         errorEmpty: 'Please enter a question.',
