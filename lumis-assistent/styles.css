@@ -286,6 +286,18 @@ body {
     width: auto;
 }
 
+span.span-compact-logo-location {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+span.location-text {
+    /* margin-bottom: 11px; */
+    top: -4px;
+    position: relative;
+}
+
 /* === Messages Area === */
 .messages-area {
     flex: 1;
@@ -543,6 +555,10 @@ body {
     .messages-area {
         padding: var(--space-md);
     }
+
+    .language-switcher {
+        display: none;
+    }
     
     .bottom-input-container {
         padding: var(--space-md);
@@ -561,9 +577,9 @@ body {
     .centered-input-container {
         padding-bottom: 1rem; 
     }    
+
     .language-switcher {
-        top: var(--space-sm);
-        right: var(--space-sm);
+        display: none;
     }
     
     .logo {
