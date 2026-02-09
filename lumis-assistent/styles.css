@@ -522,7 +522,6 @@ body {
     
     .bottom-input-container {
         padding: var(--space-md);
-        padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom));
     }
 }
 
@@ -555,10 +554,6 @@ body {
     .subtitle {
         font-size: 1rem;
     }
-    .bottom-input-container {
-        padding: var(--space-md);
-        padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom));
-    }    
 }
 
 
