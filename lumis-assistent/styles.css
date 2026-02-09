@@ -138,6 +138,7 @@ body {
 /* === Centered Input Box === */
 .centered-input-container {
     margin-bottom: var(--space-lg);
+    padding-bottom: 3rem;
     animation: fadeInUp 0.8s ease 0.4s backwards;
 }
 
@@ -428,6 +429,7 @@ body {
     background: var(--background);
     border-top: 1px solid rgba(88, 146, 107, 0.1);
     padding: var(--space-md) var(--space-lg);
+    padding-bottom: 3.5rem;
     display: flex;
     justify-content: center;
 }
@@ -522,10 +524,21 @@ body {
     
     .bottom-input-container {
         padding: var(--space-md);
+        padding-bottom: 4rem;
     }
+    .centered-input-container {
+        padding-bottom: 3.5rem; /* ← Más espacio en móviles */
+    }    
 }
 
 @media (max-width: 480px) {
+    .bottom-input-container {
+        padding-bottom: 4.5rem; /* ← Aún más espacio en pantallas pequeñas */
+    }
+    
+    .centered-input-container {
+        padding-bottom: 4rem; 
+    }    
     .language-switcher {
         top: var(--space-sm);
         right: var(--space-sm);
