@@ -223,7 +223,9 @@ function switchToChatState() {
     elements.emptyState.classList.add('hidden');
     elements.chatState.classList.remove('hidden');
     isFirstMessage = false;
-    elements.chatInput.focus();
+    if (!/Mobi|Android/i.test(navigator.userAgent)) {
+        elements.chatInput.focus();
+    }
 }
 
 function getCurrentInput() {
@@ -446,7 +448,7 @@ function removeMessage(msgElement) {
 
 function scrollToBottom() {
     setTimeout(() => {
-        elements.messagesArea.scrollTop = elements.messagesArea.scrollHeight;
+        msg.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 50);
 }
 
