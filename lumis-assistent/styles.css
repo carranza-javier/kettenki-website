@@ -527,7 +527,7 @@ body {
         padding-bottom: 4rem;
     }
     .centered-input-container {
-        padding-bottom: 3.5rem; /* ← Más espacio en móviles */
+        padding-bottom: 2.5rem; /* ← Más espacio en móviles */
     }    
 }
 
@@ -537,7 +537,7 @@ body {
     }
     
     .centered-input-container {
-        padding-bottom: 4rem; 
+        padding-bottom: 1rem; 
     }    
     .language-switcher {
         top: var(--space-sm);
