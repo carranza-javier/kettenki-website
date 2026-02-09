@@ -54,13 +54,13 @@ const translations = {
 const exampleQuestions = {
     de: {
         example1: 'Welche Aufgaben muss ich während der Frühschicht erledigen?',
-        example2: 'Wie bereite ich einen Bärner Mule zu?',
-        example3: 'Was muss ich am Ende der Spätschicht machen?'
+        example2: 'Wie bereite ich einen Belle Giselle zu?',
+        example3: 'Welche Zutaten enthält ein Schokoladenkuchen?'
     },
     en: {
         example1: 'What tasks do I need to complete during the morning shift?',
-        example2: 'How do I prepare a Berner Mule?',
-        example3: 'What do I need to do at the end of the evening shift?'
+        example2: 'How do I prepare a Belle Giselle?',
+        example3: 'What ingredients are in a chocolate cake?'
     }
 };
 
