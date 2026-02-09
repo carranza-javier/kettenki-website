@@ -481,7 +481,10 @@ function enableInput() {
     const btn = getCurrentSendBtn();
     input.disabled = false;
     btn.disabled = false;
-    input.focus();
+    if (!/Mobi|Android/i.test(navigator.userAgent)) {
+        input.focus();
+    }
+
 }
 
 function getErrorMessage(type) {
