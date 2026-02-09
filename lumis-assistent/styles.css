@@ -281,19 +281,6 @@ body {
     align-items: center;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-}
-
-.location-text {
-    font-size: 0.875rem;
-    color: var(--text-light);
-    font-weight: 400;
-    white-space: nowrap;
-}
-
 .compact-logo {
     height: 32px;
     width: auto;
