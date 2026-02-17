@@ -438,7 +438,7 @@ function createMessageElement(type, content) {
 function addMessage(type, content) {
     const msg = createMessageElement(type, content);
     elements.messagesArea.appendChild(msg);
-    scrollToBottom();
+    scrollToMessage(msg);
     return msg;
 }
 
@@ -448,9 +448,9 @@ function removeMessage(msgElement) {
     }
 }
 
-function scrollToBottom() {
+function scrollToMessage(msgElement) {
     setTimeout(() => {
-        msg.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        msgElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 50);
 }
 
