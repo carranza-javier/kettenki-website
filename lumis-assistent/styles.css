@@ -463,7 +463,6 @@ span.location-text {
     background: var(--background);
     border-top: 1px solid rgba(88, 146, 107, 0.1);
     padding: var(--space-md) var(--space-lg);
-    padding-bottom: 3.5rem;
     display: flex;
     justify-content: center;
 }
@@ -562,7 +561,7 @@ span.location-text {
     
     .bottom-input-container {
         padding: var(--space-md);
-        padding-bottom: 4rem;
+        padding-bottom: 2rem;
     }
     .centered-input-container {
         padding-bottom: 2.5rem; /* ← Más espacio en móviles */
@@ -571,7 +570,7 @@ span.location-text {
 
 @media (max-width: 480px) {
     .bottom-input-container {
-        padding-bottom: 4.5rem; /* ← Aún más espacio en pantallas pequeñas */
+        padding-bottom: 2.5rem; /* ← Aún más espacio en pantallas pequeñas */
     }
     
     .centered-input-container {
