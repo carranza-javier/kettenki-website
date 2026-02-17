@@ -561,7 +561,6 @@ span.location-text {
     
     .bottom-input-container {
         padding: var(--space-md);
-        padding-bottom: 2rem;
     }
     .centered-input-container {
         padding-bottom: 2.5rem; /* ← Más espacio en móviles */
@@ -569,10 +568,6 @@ span.location-text {
 }
 
 @media (max-width: 480px) {
-    .bottom-input-container {
-        padding-bottom: 2.5rem; /* ← Aún más espacio en pantallas pequeñas */
-    }
-    
     .centered-input-container {
         padding-bottom: 1rem; 
     }    
