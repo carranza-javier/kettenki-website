@@ -604,3 +604,22 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+
+// ========================================
+// Inactivity Timer (Auto-Logout)
+// ========================================
+const INACTIVITY_TIMEOUT = 10 * 1000; //    10 seconds for testing (adjust to 15 * 60 * 1000 for 15 minutes in production)
+let inactivityTimer;
+
+function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => {
+        window.location.href = '/lumis-assistent/';
+    }, INACTIVITY_TIMEOUT);
+}
+
+['click', 'touchstart', 'keydown', 'mousemove'].forEach(event => {
+    document.addEventListener(event, resetInactivityTimer, true);
+});
+
+resetInactivityTimer();
