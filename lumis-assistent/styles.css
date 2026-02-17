@@ -266,9 +266,11 @@ body {
    CHAT STATE (Conversation View)
    ========================================== */
 .chat-state {
-    height: 100vh;
+    height: 100vh; /* JS lo sobrescribirá dinámicamente */
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 /* === Compact Header === */
