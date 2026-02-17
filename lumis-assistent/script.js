@@ -608,7 +608,7 @@ if (document.readyState === 'loading') {
 // ========================================
 // Inactivity Timer (Auto-Logout)
 // ========================================
-const INACTIVITY_TIMEOUT = 10 * 1000; //    10 seconds for testing (adjust to 15 * 60 * 1000 for 15 minutes in production)
+const INACTIVITY_TIMEOUT = 10 * 60 * 1000; // 10 minutes
 let inactivityTimer;
 
 function resetInactivityTimer() {
