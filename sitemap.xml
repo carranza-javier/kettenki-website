@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Homepage - Highest Priority -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kettenki.com/</loc>
-    <lastmod>2026-01-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <!-- Multilingual alternates -->
-    <xhtml:link rel="alternate" hreflang="de" href="https://kettenki.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kettenki.com/" />
-    <xhtml:link rel="alternate" hreflang="de-CH" href="https://kettenki.com/" />
-    <xhtml:link rel="alternate" hreflang="de-DE" href="https://kettenki.com/" />
-    <xhtml:link rel="alternate" hreflang="de-AT" href="https://kettenki.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kettenki.com/" />
-  </url>
-  
-  <!-- Services/Solutions Page - High Priority for Business -->
-  <url>
-    <loc>https://kettenki.com/services.html</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://kettenki.com/services.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kettenki.com/services.html" />
-    <xhtml:link rel="alternate" hreflang="de-CH" href="https://kettenki.com/services.html" />
+    <priority>1.0</priority>
   </url>
-  
-  <!-- About Page - Personal Brand -->
+  <url>
+    <loc>https://kettenki.com/index.html</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
   <url>
     <loc>https://kettenki.com/about.html</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://kettenki.com/about.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kettenki.com/about.html" />
   </url>
-  
-  <!-- Contact Page - Conversion -->
+  <url>
+    <loc>https://kettenki.com/services.html</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kettenki.com/bambera.html</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kettenki.com/liviana.html</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kettenki.com/fandango.html</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://kettenki.com/contact.html</loc>
-    <lastmod>2026-01-27</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://kettenki.com/contact.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kettenki.com/contact.html" />
   </url>
-  
 </urlset>
