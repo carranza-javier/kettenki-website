@@ -751,6 +751,7 @@ footer p {
   font-size: 1.1rem;
   color: var(--color-text);
   font-weight: var(--font-weight-medium);
+  margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-sm);
 }
 
