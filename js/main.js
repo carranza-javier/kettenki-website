@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   // Active nav link highlighting
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPage = window.location.pathname.split('/').pop() || 'index';
   document.querySelectorAll('.nav-menu a').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       link.classList.add('active');
