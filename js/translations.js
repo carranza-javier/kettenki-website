@@ -37,7 +37,7 @@ const translations = {
     bambera_case1_answer: 'Glutenfreie Optionen: Gemischter Salat, Saisonsuppe, Risotto mit Gemüse, gegrillter Lachs mit Kartoffeln.',
     bambera_case2_title: 'Industrie',
     bambera_case2_question: 'Maschine zeigt Fehler E347, was tun?',
-    bambera_case2_answer: 'Fehler E347: Temperatursensor defekt. 1. Maschine ausschalten 2. 10 Minuten warten 3. Servicetechniker unter +41 31 XXX kontaktieren',
+    bambera_case2_answer: 'Fehler E347: Temperatursensor defekt.\n\n1. Maschine ausschalten\n2. 10 Minuten warten\n3. Servicetechniker unter +41 31 XXX kontaktieren',
     
     liviana_title: 'LIVIANA',
     liviana_tagline: 'Intelligenter Chatbot für Ihre Website',
@@ -122,7 +122,7 @@ const translations = {
     bambera_case1_answer: 'Gluten-free options: Mixed salad, seasonal soup, vegetable risotto, grilled salmon with potatoes.',
     bambera_case2_title: 'Industry',
     bambera_case2_question: 'Machine shows error E347, what to do?',
-    bambera_case2_answer: 'Error E347: Temperature sensor faulty. 1. Turn off machine 2. Wait 10 minutes 3. Contact service technician at +41 31 XXX',
+    bambera_case2_answer: 'Error E347: Temperature sensor fault.\n\n1. Turn off machine\n2. Wait 10 minutes\n3. Contact service technician at +41 31 XXX',
     
     liviana_title: 'LIVIANA',
     liviana_tagline: 'Intelligent chatbot for your website',
