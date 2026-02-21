@@ -40,7 +40,7 @@ const translations = {
     bambera_case2_answer: 'Fehler E347: Temperatursensor defekt.\n\n1. Maschine ausschalten\n2. 10 Minuten warten\n3. Servicetechniker unter +41 31 XXX kontaktieren',
     
     liviana_title: 'LIVIANA',
-    liviana_tagline: 'Intelligenter Chatbot für Ihre Website',
+    liviana_tagline: 'Intelligente Chatbot für Ihre Website',
     liviana_description: 'LIVIANA beantwortet Kundenanfragen auf Ihrer Website automatisch. Reduziert E-Mails und Telefonanrufe. Verfügbar 24 Stunden.',
     liviana_for_whom: 'Fitnessstudios, medizinische Kliniken, professionelle Dienstleistungen, Wellness.',
     liviana_benefit1: 'Automatisierter 24/7-Kundenservice',

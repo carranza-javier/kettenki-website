@@ -20,7 +20,7 @@ const MOCK_ENABLED = false;
 // [Rest of translations and configurations remain the same...]
 const translations = {
     de: {
-        subtitle: 'Dein intelligenter Kaffeebar-Assistentin',
+        subtitle: 'Deine intelligente Kaffeebar-Assistentin',
         placeholder: 'Frage stellen...',
         example1: 'Frühschicht Aufgaben',
         example2: 'Belle Giselle Rezept',
