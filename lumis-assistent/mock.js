@@ -1,5 +1,5 @@
 // ========================================
-// LUMIS KI-Assistent - Mock Configuration
+// LUMIS KI-Assistentin - Mock Configuration
 // ========================================
 
 /**
@@ -241,7 +241,7 @@ Warme Speisen bis 19:30 Uhr (So)`
         keywords: ['default'],
         answer: `Vielen Dank für deine Frage! 
 
-Ich bin der LUMIS KI-Assistent und kann dir helfen bei:
+Ich bin der LUMIS KI-Assistentin und kann dir helfen bei:
 
 **Checklisten & Aufgaben:**
 - Frühschicht, Mittagsschicht, Spätschicht

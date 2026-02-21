@@ -1,5 +1,5 @@
 // ========================================
-// LUMIS KI-Assistent - With Authentication
+// LUMIS KI-Assistentin - With Authentication
 // ========================================
 
 // API Configuration
@@ -20,7 +20,7 @@ const MOCK_ENABLED = false;
 // [Rest of translations and configurations remain the same...]
 const translations = {
     de: {
-        subtitle: 'Dein intelligenter Kaffeebar-Assistent',
+        subtitle: 'Dein intelligenter Kaffeebar-Assistentin',
         placeholder: 'Frage stellen...',
         example1: 'Frühschicht Aufgaben',
         example2: 'Belle Giselle Rezept',
@@ -614,7 +614,7 @@ let inactivityTimer;
 function resetInactivityTimer() {
     clearTimeout(inactivityTimer);
     inactivityTimer = setTimeout(() => {
-        window.location.href = '/lumis-assistent/';
+        window.location.href = '/lumis-assistentin/';
     }, INACTIVITY_TIMEOUT);
 }
 

@@ -25,7 +25,7 @@ const translations = {
     services_subtitle: 'Software für Ihr Unternehmen',
     
     bambera_title: 'BAMBERA',
-    bambera_tagline: 'Digitaler Assistent für Ihr Team',
+    bambera_tagline: 'Digitaler Assistentin für Ihr Team',
     bambera_description: 'BAMBERA digitalisiert Betriebshandbücher und Verfahren und wandelt sie in intelligente Unterstützung um. Mitarbeiter erhalten sofortigen Zugriff auf Informationen durch Fragen in natürlicher Sprache. Verfügbar in mehreren Sprachen.',
     bambera_for_whom: 'Gastronomie, Kinderbetreuung, Industrie- und Handelsbereiche mit komplexen Betriebshandbüchern.',
     bambera_benefit1: 'Sofortiger Zugriff auf operatives Wissen',
