@@ -1072,3 +1072,30 @@ footer p {
     font-size: 1rem;
   }
 }
+
+/* ============================================
+   PROTOTYPE DISCLAIMER & BADGES
+   ============================================ */
+
+.prototype-disclaimer {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.05));
+  border: 2px solid rgba(255, 193, 7, 0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.prototype-disclaimer h3 {
+  color: #ffc107;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.3rem;
+}
+
+.prototype-disclaimer p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+

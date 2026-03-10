@@ -7,7 +7,7 @@ const translations = {
     
     hero_title: 'KettenKI',
     hero_slogan: 'Warum weniger tun, wenn man mehr tun kann',
-    hero_subtitle: 'KI-Lösungen in Cloud-Architekturen für Schweizer Unternehmen',
+    hero_subtitle: 'Experimentelle KI-Lösungen - Kostenlos testen, bei Erfolg skalieren',
     
     about_title: 'Über mich',
     about_text: 'Javier Carranza ist ein Softwareingenieur, der bewusst abseits des Lärms und der Eile arbeitet, die die heutige Technologiewelt dominieren. Mit mehr als 14 Jahren Erfahrung in internationalen Projekten verfügt er über umfassende Kenntnisse in unterschiedlichsten technischen Umgebungen.',
@@ -21,8 +21,10 @@ const translations = {
     about_text8: 'KettenKI entwickelt sich kontinuierlich weiter, wächst von Tag zu Tag und erweitert ihr solides Wissensfundament. Dieses Wissen unterstützt Menschen dabei, ihre Aufgaben effizienter und flexibler zu erledigen.',
     about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen eine effektive und verlässige Unterstützung zu bieten.',
 
-    services_title: 'Unsere Lösungen',
-    services_subtitle: 'Software für Ihr Unternehmen',
+    services_title: 'Unsere Prototypen',
+    services_subtitle: 'Experimentelle KI-Lösungen zum Testen',
+    services_disclaimer_title: '🧪 Wichtiger Hinweis',
+    services_disclaimer_text: 'Diese Lösungen sind experimentelle Prototypen. Sie sind kostenlos zum Testen, funktional und getestet, aber ohne Garantie oder SLA. Bei Erfolg: Gemeinsame Weiterentwicklung möglich.',
     
     bambera_title: 'BAMBERA',
     bambera_tagline: 'Digitale Assistentin für Ihr Team',
@@ -69,7 +71,8 @@ const translations = {
     fandango_case2_output: 'FANDANGO strukturiert Informationen für elektronische Patientenakte.',
     
     cta_learn_more: 'Mehr erfahren',
-    cta_contact: 'Kontakt aufnehmen',
+    cta_contact: 'Gratis testen',
+    cta_prototype_badge: '🧪 Prototyp',
     
     label_benefits: 'Hauptvorteile',
     label_for_whom: 'Für wen',
@@ -93,7 +96,7 @@ const translations = {
     
     hero_title: 'KettenKI',
     hero_slogan: 'Why do less when more is possible',
-    hero_subtitle: 'AI Solutions in Cloud Architectures for Swiss Companies',
+    hero_subtitle: 'Experimental AI Solutions - Free testing, scale on success',
     
     about_title: 'About Me',
     about_text: 'Javier Carranza is a software engineer who deliberately works away from the noise and rush that dominate today\'s technology world. With over 14 years of experience in international projects, he has extensive knowledge in a wide range of technical environments.',
@@ -107,8 +110,10 @@ const translations = {
     about_text8: 'KettenKI continuously evolves, growing day by day and expanding its solid knowledge base. This knowledge helps people perform their tasks more efficiently and flexibly.',
     about_text9: 'The goal is not to replace people, but to provide them with effective and reliable support.',
     
-    services_title: 'Our Solutions',
-    services_subtitle: 'Software for your business',
+    services_title: 'Our Prototypes',
+    services_subtitle: 'Experimental AI solutions for testing',
+    services_disclaimer_title: '🧪 Important Notice',
+    services_disclaimer_text: 'These solutions are experimental prototypes. They are free to test, functional and tested, but without guarantee or SLA. On success: Joint development possible.',
     
     bambera_title: 'BAMBERA',
     bambera_tagline: 'Digital assistant for your team',
@@ -155,7 +160,8 @@ const translations = {
     fandango_case2_output: 'FANDANGO structures information for electronic medical record.',
     
     cta_learn_more: 'Learn more',
-    cta_contact: 'Get in touch',
+    cta_contact: 'Free trial',
+    cta_prototype_badge: '🧪 Prototype',
     
     label_benefits: 'Key Benefits',
     label_for_whom: 'For Whom',
