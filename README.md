@@ -173,8 +173,8 @@ Code ist offen und transparent verfügbar.
 
 ## Kontakt
 
-- **Email**: kettenki@gmail.com
-- **LinkedIn**: linkedin.com/in/jcarranza1988
+- **Email**: info@kettenki.com
+- **LinkedIn**: linkedin.com/company/kettenki
 - **Website**: https://kettenki.com
 
 ---
