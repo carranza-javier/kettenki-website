@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showLayer(video);
   }
 
-  container.addEventListener('mouseenter', () => {
+  function tryStartMorph() {
     if (playState !== 'idle') return;
     playState = 'playing';
     video.src = state === 'photo' ? FORWARD_SRC : REVERSE_SRC;
@@ -41,7 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       video.addEventListener('loadeddata', startVideo, { once: true });
     }
-  });
+  }
+
+  // 'click' is a fallback for touch devices: some mobile browsers only
+  // simulate 'mouseenter' once per element until the pointer truly
+  // leaves it, so a second tap in place can fail to re-trigger hover.
+  container.addEventListener('mouseenter', tryStartMorph);
+  container.addEventListener('click', tryStartMorph);
 
   video.addEventListener('ended', () => {
     video.pause();

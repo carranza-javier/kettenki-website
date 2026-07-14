@@ -1104,10 +1104,41 @@ footer p {
    ============================================ */
 
 /* Profile morph avatar (portfolio/index.html only, SPEC.md 5.1.1) */
-.profile-morph {
+.profile-morph-wrap {
+  position: relative;
   width: 150px;
   height: 150px;
   margin: 0 auto var(--spacing-lg);
+}
+
+/* Discoverability affordance: a soft glow that pulses outward a few
+   times on page load, then stops for good (iteration-count is finite,
+   no JS needed to turn it off). Lives on the wrapper, not on
+   .profile-morph itself, so it isn't clipped away by the circle's own
+   overflow/clip-path. box-shadow instead of a border, so nothing
+   reads as a leftover ring once the pulses are done. */
+.profile-morph-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.5);
+  animation: profile-pulse 1.5s ease-out 3 forwards;
+  pointer-events: none;
+}
+
+@keyframes profile-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(0, 212, 255, 0);
+  }
+}
+
+.profile-morph {
+  width: 150px;
+  height: 150px;
   position: relative;
   cursor: pointer;
   background: var(--color-surface);
