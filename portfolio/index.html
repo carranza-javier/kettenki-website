@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Portfolio - Javier Carranza | KettenKI</title>
+  <meta name="description" content="Technische Projekte und berufliche Erfahrung von Javier Carranza: Backend- und Full-Stack-Engineering jenseits der KI-Prototypen.">
+  <meta name="keywords" content="Javier Carranza Portfolio, Software Engineer Projekte, Angular, Spring Boot, Java, Cloud Architektur">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kettenki.com/portfolio/">
+  <meta property="og:title" content="Portfolio - Javier Carranza | KettenKI">
+  <meta property="og:description" content="Technische Projekte und berufliche Erfahrung jenseits der KI-Prototypen.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://kettenki.com/portfolio/">
+
+  <!-- Language Alternates -->
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/portfolio/">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/portfolio/">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="../index" class="logo">KettenKI</a>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="container">
+      <h1 class="section-title fade-in" data-i18n="portfolio_title">Portfolio</h1>
+
+      <div class="profile-morph fade-in">
+        <img src="img/javier-carranza/profile-photo.jpg" alt="Javier Carranza" class="profile-layer profile-static profile-static--photo is-visible" data-i18n-alt="profile_alt">
+        <img src="img/javier-carranza/profile-geometric.jpg" alt="" class="profile-layer profile-static profile-static--geometric" aria-hidden="true">
+        <video src="vid/javier-carranza/profile-forward.mp4" muted playsinline preload="auto" aria-hidden="true" class="profile-layer profile-video"></video>
+      </div>
+
+      <p class="section-subtitle fade-in" data-i18n="portfolio_subtitle">Technische Projekte und berufliche Erfahrung</p>
+
+      <p class="portfolio-intro fade-in" data-i18n="portfolio_intro">
+        Hier findest du echte Arbeit als Backend- und Full-Stack-Ingenieur, jenseits der KI-Prototypen aus dem Bereich Lösungen: eigene Projekte und dokumentierte Fallstudien aus meiner beruflichen Laufbahn.
+      </p>
+
+      <div class="portfolio-grid">
+        <a href="railtrack-manager" class="portfolio-card fade-in">
+          <img src="img/railtrack-manager/rtm-logo-thumb.png" alt="" class="portfolio-thumbnail-placeholder" aria-hidden="true">
+          <div class="portfolio-card-body">
+            <div class="type-badges">
+              <span class="type-badge type-badge--own" data-i18n="portfolio_type_own">🎓 Eigenes Projekt</span>
+            </div>
+            <h2 class="portfolio-card-title">RailTrack Manager</h2>
+            <p class="portfolio-card-hook" data-i18n="railtrack_tagline">Verwaltung von Gleisabschnitten und Störungen</p>
+            <div class="tech-badges">
+              <span class="tech-badge">Angular 21</span>
+              <span class="tech-badge">Spring Boot 3.5</span>
+              <span class="tech-badge">Java 21</span>
+              <span class="tech-badge">JWT</span>
+            </div>
+            <span class="portfolio-card-link" data-i18n="cta_learn_more">Mehr erfahren →</span>
+          </div>
+        </a>
+
+        <a href="spicy-feedback-tool" class="portfolio-card fade-in">
+          <div class="portfolio-thumbnail-placeholder portfolio-thumbnail-placeholder--chilis" aria-hidden="true">🌶️🌶️🌶️🌶️🌶️🌶️</div>
+          <div class="portfolio-card-body">
+            <div class="type-badges">
+              <span class="type-badge type-badge--client" data-i18n="portfolio_type_client">🤝 Kundenprojekt</span>
+              <span class="type-badge type-badge--production" data-i18n="portfolio_type_production">🚀 In Produktion</span>
+            </div>
+            <h2 class="portfolio-card-title">Spicy Feedback Tool</h2>
+            <p class="portfolio-card-hook" data-i18n="spicy_tagline">Konfigurierbare Feedback-Umfragen für Kunstausstellungen</p>
+            <div class="tech-badges">
+              <span class="tech-badge">Angular</span>
+              <span class="tech-badge">AWS Lambda</span>
+              <span class="tech-badge">DynamoDB</span>
+              <span class="tech-badge">Terraform</span>
+            </div>
+            <span class="portfolio-card-link" data-i18n="cta_learn_more">Mehr erfahren →</span>
+          </div>
+        </a>
+
+        <article class="portfolio-card coming-soon fade-in">
+          <h2 class="portfolio-card-title" data-i18n="portfolio_coming_soon_title">Weitere Projekte in Vorbereitung</h2>
+          <p class="portfolio-card-hook" data-i18n="portfolio_coming_soon_text">
+            Bambera und mini-midoffice folgen in Kürze.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container-footer">
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <!-- Scripts -->
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/profile-morph.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>RailTrack Manager - Portfolio | KettenKI</title>
+  <meta name="description" content="RailTrack Manager: Verwaltung von Gleisabschnitten und Störungen. Angular 21 + Spring Boot 3.5, mit JWT-Absicherung.">
+  <meta name="keywords" content="RailTrack Manager, Angular, Spring Boot, Java, JWT, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/portfolio/railtrack-manager">
+  <meta property="og:title" content="RailTrack Manager - Portfolio | KettenKI">
+
+  <link rel="canonical" href="https://kettenki.com/portfolio/railtrack-manager">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/portfolio/railtrack-manager">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/portfolio/railtrack-manager">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <a href="../index" class="logo">KettenKI</a>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container product-detail">
+      <div class="product-hero fade-in">
+        <div class="type-badges">
+          <span class="type-badge type-badge--own" data-i18n="portfolio_type_own">🎓 Eigenes Projekt</span>
+        </div>
+        <h1 class="product-title">RailTrack Manager</h1>
+        <p class="product-subtitle" data-i18n="railtrack_tagline">Verwaltung von Gleisabschnitten und Störungen</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <p>
+          <a href="https://github.com/carranza-javier/railtrack-manager" target="_blank" rel="noopener noreferrer" class="repo-link" data-i18n="cta_view_repo">Repo auf GitHub ansehen</a>
+        </p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_context">Kontext</h2>
+        <p data-i18n="railtrack_context">Als Liebhaber von Zügen und Schweizer Pünktlichkeit wollte ich etwas bauen, das beidem gerecht wird. So entstand RailTrack Manager: ein Full-Stack-Projekt, um Angular sauber mit Spring Boot zu verbinden und die Grundlagen von Angular Material wirklich zu beherrschen, anhand einer Domäne mit echter Komplexität: der Verwaltung von Bahninfrastruktur, statt eines weiteren CRUD-Beispiels ohne nennenswerten Geschäftssinn dahinter. Befüllt ist die App mit realistischen Daten aus dem Schweizer Bahnnetz (Bern–Olten, Lausanne–Yverdon, Zürich Depot).</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_walkthrough">Rundgang durch die Anwendung</h2>
+
+        <div class="screen-walkthrough-item">
+          <h3>Vault &amp; Login</h3>
+          <p data-i18n="railtrack_walkthrough_login">Die Anwendung nutzt HashiCorp Vault für die Verwaltung von Secrets. Bevor das Backend gestartet wird, muss deshalb ein Vault-Server laufen. Ist Vault bereit, startet zuerst das Backend und danach das Frontend. Es gibt keine vorangelegten Benutzer: Zuerst muss über die API ein Benutzer angelegt werden, mit dessen Zugangsdaten man sich anschließend im Login-Bildschirm anmeldet.</p>
+          <img src="img/railtrack-manager/rtm-login.png" alt="RailTrack Manager Login-Bildschirm" data-i18n-alt="railtrack_alt_login">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3>Track Segments</h3>
+          <p data-i18n="railtrack_walkthrough_tracks">Das Track-Segments-Panel ist das Herzstück der Anwendung: Hier werden die Gleisabschnitte des Netzes verwaltet, mit Linie, Typ, Betriebsstatus und letztem Wartungsdatum. Die Daten sind mit realen Abschnitten des Schweizer Bahnnetzes befüllt: Bern–Olten, Lausanne–Yverdon und dem Depot Zürich.</p>
+          <img src="img/railtrack-manager/rtm-tracks.png" alt="RailTrack Manager Track Segments Übersicht" data-i18n-alt="railtrack_alt_tracks">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3>Incidents</h3>
+          <p data-i18n="railtrack_walkthrough_incidents">Der Bereich Incidents erfasst die gemeldeten Störungen zu jedem Gleisabschnitt, von Signalstörungen bis zu Abweichungen in der Gleisgeometrie, jeweils mit Schweregrad und Bearbeitungsstatus.</p>
+          <img src="img/railtrack-manager/rtm-incidents.png" alt="RailTrack Manager Incidents Übersicht" data-i18n-alt="railtrack_alt_incidents">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3>Dashboard</h3>
+          <p data-i18n="railtrack_walkthrough_dashboard">Das Dashboard bietet einen Gesamtüberblick über den Zustand des Netzes: Anzahl der Gleisabschnitte, Gesamt- und offene Störungen, Abschnitte in Wartung sowie eine Aufschlüsselung nach Schweregrad und Status. Diese Ansicht ist für einen schnellen Überblick über die Systemgesundheit gedacht.</p>
+          <img src="img/railtrack-manager/rtm-dashboard.png" alt="RailTrack Manager Dashboard" data-i18n-alt="railtrack_alt_dashboard">
+        </div>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_architecture">Architektur</h2>
+        <div class="architecture-block">
+          <img src="img/railtrack-manager/rtm-architecture.png" alt="RailTrack Manager Architekturdiagramm" data-i18n-alt="railtrack_alt_architecture">
+          <p data-i18n="railtrack_architecture">Diagramm erstellt mit Eraser: Browser → Frontend (Angular, Port 4200) → Backend (Spring Boot, Port 8080, JWT) → Vault (Secrets, beim Start gelesen) und H2 (JPA). Ablauf: Vault startet vor dem Backend → Login stellt ein JWT aus → das JWT wird bei den folgenden Requests im Authorization-Header mitgeschickt → Spring Security validiert es, bevor CRUD-Operationen auf Tracks/Incidents verarbeitet werden.</p>
+        </div>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_stack">Stack</h2>
+        <table class="stack-table">
+          <thead>
+            <tr>
+              <th data-i18n="label_layer">Ebene</th>
+              <th data-i18n="label_technology">Technologie</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Frontend</td>
+              <td>Angular 21 + Angular Material (standalone components)</td>
+            </tr>
+            <tr>
+              <td>Backend</td>
+              <td>Spring Boot 3.5, Java 21</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_security">Sicherheit</td>
+              <td>Spring Security + JWT</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_secrets">Secrets</td>
+              <td>HashiCorp Vault</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_persistence">Persistenz</td>
+              <td>H2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
+        <ul class="benefits-list">
+          <li data-i18n="railtrack_did_1">Die komplette REST-API (CRUD für Gleisabschnitte und Störungen) mit Spring Boot und Spring Data JPA entworfen und implementiert.</li>
+          <li data-i18n="railtrack_did_2">JWT-Authentifizierung mit rollenbasiertem Zugriff von Grund auf implementiert.</li>
+          <li data-i18n="railtrack_did_3">Das Frontend in Angular 21 mit Standalone Components und Angular Material gebaut, mein erstes ernsthaftes Frontend-Projekt, kommend aus einem reinen Backend-Profil.</li>
+          <li data-i18n="railtrack_did_4">Das Datenmodell entworfen und mit realistischen Daten aus dem Schweizer Bahnnetz befüllt, damit die Demo einen echten Anwendungsfall abbildet.</li>
+        </ul>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
+        <p data-i18n="railtrack_challenge">Ich kam aus einem reinen Backend-Profil. Die Herausforderung war nicht die API (vertrautes Terrain), sondern die Angular- und Angular-Material-Lernkurve so weit zu erklimmen, dass ein kohärentes Frontend entsteht: Standalone Components, reaktive HTTP-Services, Auth-Guards und Material-Komponenten, die sauber in den App-Flow integriert sind.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_result">Ergebnis & Learnings</h2>
+        <p data-i18n="railtrack_result">Eine end-to-end funktionsfähige Full-Stack-Anwendung (JWT-Auth, CRUD, Rollen), die echte Frontend-Kompetenz über das Backend hinaus zeigt und als wiederverwendbare Vorlage für künftige Angular + Spring Boot Projekte dient.</p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_portfolio">← Zurück zum Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/lightbox.js"></script>
+</body>
+</html>

@@ -16,6 +16,11 @@
   .products-grid {
     gap: var(--spacing-md);
   }
+
+  /* Portfolio Grid */
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Tablets */
@@ -100,6 +105,12 @@
   
   /* Products Grid - Tablets */
   .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Portfolio Grid - Tablets */
+  .portfolio-grid,
+  .portfolio-gallery {
     grid-template-columns: 1fr;
   }
   

@@ -4,6 +4,8 @@ const translations = {
     nav_about: 'Über mich',
     nav_services: 'Lösungen',
     nav_contact: 'Kontakt',
+    nav_portfolio: 'Portfolio',
+    nav_blog: 'Blog',
     
     hero_title: 'KettenKI',
     hero_slogan: 'Warum weniger tun, wenn man mehr tun kann',
@@ -84,7 +86,95 @@ const translations = {
     contact_email: 'E-Mail',
     contact_linkedin: 'LinkedIn',
     contact_cta: 'Lassen Sie uns über Ihre KI-Lösung sprechen',
-    
+
+    portfolio_callout_text: 'Möchtest du meinen Werdegang als Ingenieur sehen?',
+    portfolio_callout_link: 'Zum Portfolio →',
+
+    portfolio_title: 'Portfolio',
+    portfolio_subtitle: 'Technische Projekte und berufliche Erfahrung',
+    portfolio_intro: 'Hier findest du echte Arbeit als Backend- und Full-Stack-Ingenieur, jenseits der KI-Prototypen aus dem Bereich Lösungen: eigene Projekte und dokumentierte Fallstudien aus meiner beruflichen Laufbahn.',
+    profile_alt: 'Foto von Javier Carranza',
+    portfolio_type_own: '🎓 Eigenes Projekt',
+    portfolio_type_case: 'Fallstudie',
+    portfolio_type_client: '🤝 Kundenprojekt',
+    portfolio_type_production: '🚀 In Produktion',
+    portfolio_coming_soon_title: 'Weitere Projekte in Vorbereitung',
+    portfolio_coming_soon_text: 'Bambera und mini-midoffice folgen in Kürze.',
+    cta_view_repo: 'Repo auf GitHub ansehen',
+    cta_back_to_portfolio: '← Zurück zum Portfolio',
+
+    label_context: 'Kontext',
+    label_walkthrough: 'Rundgang durch die Anwendung',
+    label_architecture: 'Architektur',
+    label_stack: 'Stack',
+    label_what_i_did: 'Was ich gemacht habe',
+    label_challenge: 'Technische Herausforderung',
+    label_result: 'Ergebnis & Learnings',
+    label_screenshots: 'Screenshots',
+    screenshots_pending: 'Screenshots folgen in Kürze.',
+    label_layer: 'Ebene',
+    label_technology: 'Technologie',
+    label_security: 'Sicherheit',
+    label_persistence: 'Persistenz',
+    label_secrets: 'Secrets',
+    label_auth: 'Authentifizierung',
+    label_database: 'Datenbank',
+    label_infrastructure: 'Infrastruktur',
+    label_charts: 'Grafiken',
+    lightbox_close: 'Schließen',
+
+    railtrack_title: 'RailTrack Manager',
+    railtrack_tagline: 'Verwaltung von Gleisabschnitten und Störungen',
+    railtrack_type: 'Eigenes Projekt',
+    railtrack_context: 'Als Liebhaber von Zügen und Schweizer Pünktlichkeit wollte ich etwas bauen, das beidem gerecht wird. So entstand RailTrack Manager: ein Full-Stack-Projekt, um Angular sauber mit Spring Boot zu verbinden und mich in die Grundlagen von Angular Material einzuarbeiten, anhand einer Domäne mit echter Komplexität: der Verwaltung von Bahninfrastruktur, statt eines weiteren CRUD-Beispiels ohne nennenswerten Geschäftssinn dahinter. Befüllt ist die App mit realistischen Daten aus dem Schweizer Bahnnetz (Bern–Olten, Lausanne–Yverdon, Zürich Depot).',
+    railtrack_walkthrough_login: 'Die Anwendung nutzt HashiCorp Vault für die Verwaltung von Secrets. Bevor das Backend gestartet wird, muss deshalb ein Vault-Server laufen. Ist Vault bereit, startet zuerst das Backend und danach das Frontend. Es gibt keine vorangelegten Benutzer: Zuerst muss über die API ein Benutzer angelegt werden, mit dessen Zugangsdaten man sich anschließend im Login-Bildschirm anmeldet.',
+    railtrack_walkthrough_tracks: 'Das Track-Segments-Panel ist das Herzstück der Anwendung: Hier werden die Gleisabschnitte des Netzes verwaltet, mit Linie, Typ, Betriebsstatus und letztem Wartungsdatum. Die Daten sind mit realen Abschnitten des Schweizer Bahnnetzes befüllt: Bern–Olten, Lausanne–Yverdon und dem Depot Zürich.',
+    railtrack_walkthrough_incidents: 'Der Bereich Incidents erfasst die gemeldeten Störungen zu jedem Gleisabschnitt, von Signalstörungen bis zu Abweichungen in der Gleisgeometrie, jeweils mit Schweregrad und Bearbeitungsstatus.',
+    railtrack_walkthrough_dashboard: 'Das Dashboard bietet einen Gesamtüberblick über den Zustand des Netzes: Anzahl der Gleisabschnitte, Gesamt- und offene Störungen, Abschnitte in Wartung sowie eine Aufschlüsselung nach Schweregrad und Status. Diese Ansicht ist für einen schnellen Überblick über die Systemgesundheit gedacht.',
+    railtrack_architecture: 'Diagramm erstellt mit Eraser: Browser → Frontend (Angular, Port 4200) → Backend (Spring Boot, Port 8080, JWT) → Vault (Secrets, beim Start gelesen) und H2 (JPA). Ablauf: Vault startet vor dem Backend → Login stellt ein JWT aus → das JWT wird bei den folgenden Requests im Authorization-Header mitgeschickt → Spring Security validiert es, bevor CRUD-Operationen auf Tracks/Incidents verarbeitet werden.',
+    railtrack_alt_login: 'RailTrack Manager Login-Bildschirm',
+    railtrack_alt_tracks: 'RailTrack Manager Track Segments Übersicht',
+    railtrack_alt_incidents: 'RailTrack Manager Incidents Übersicht',
+    railtrack_alt_dashboard: 'RailTrack Manager Dashboard',
+    railtrack_alt_architecture: 'RailTrack Manager Architekturdiagramm',
+    railtrack_did_1: 'Die komplette REST-API (CRUD für Gleisabschnitte und Störungen) mit Spring Boot und Spring Data JPA entworfen und implementiert.',
+    railtrack_did_2: 'JWT-Authentifizierung mit rollenbasiertem Zugriff von Grund auf implementiert.',
+    railtrack_did_3: 'Das Frontend in Angular 21 mit Standalone Components und Angular Material gebaut, mein erstes ernsthaftes Frontend-Projekt, kommend aus einem reinen Backend-Profil.',
+    railtrack_did_4: 'Das Datenmodell entworfen und mit realistischen Daten aus dem Schweizer Bahnnetz befüllt, damit die Demo einen echten Anwendungsfall abbildet.',
+    railtrack_challenge: 'Ich kam aus einem reinen Backend-Profil. Die Herausforderung war nicht die API (vertrautes Terrain), sondern die Angular- und Angular-Material-Lernkurve so weit zu erklimmen, dass ein kohärentes Frontend entsteht: Standalone Components, reaktive HTTP-Services, Auth-Guards und Material-Komponenten, die sauber in den App-Flow integriert sind.',
+    railtrack_result: 'Eine end-to-end funktionsfähige Full-Stack-Anwendung (JWT-Auth, CRUD, Rollen), die echte Frontend-Kompetenz über das Backend hinaus zeigt und als wiederverwendbare Vorlage für künftige Angular + Spring Boot Projekte dient.',
+
+    spicy_title: 'Spicy Feedback Tool',
+    spicy_tagline: 'Konfigurierbare Feedback-Umfragen für Kunstausstellungen',
+    spicy_context: 'Spicy Feedback Tool entstand aus einer konkreten Anfrage. Kunstraum, ein Ausstellungsraum für zeitgenössische Kunst, brauchte eine einfache Möglichkeit, Feedback von seinen Besuchern zu sammeln, ohne auf Papier oder generische Tools angewiesen zu sein, die nicht zur eigenen Identität passten. Statt eines starren Formulars entwickelte ich etwas Flexibleres: ein vollständig konfigurierbares Umfragesystem, mit dem der Kunde selbst seine Fragen erstellen und anpassen kann, ohne für jede Änderung auf mich angewiesen zu sein.',
+    spicy_walkthrough_userpick: 'Der Besucher wählt zuerst aus, für welche Ausstellung er Feedback geben möchte. Eine minimale, reibungslose Oberfläche, gedacht für die Nutzung am Smartphone, im Stehen, direkt im Ausstellungsraum.',
+    spicy_walkthrough_usersurvey: 'Jede Ausstellung hat ihren eigenen Fragensatz: Skalen, Freitext, Mehrfachauswahl. Kein generisches Formular, die Fragen ändern sich je nachdem, was Kunstraum zu jeder Ausstellung wissen möchte.',
+    spicy_walkthrough_adminausstellungen: 'Von hier aus verwaltet der Kunde alle seine Ausstellungen: Status (aktiv, bevorstehend, abgeschlossen), Datumsbereich und Anzahl der eingegangenen Antworten, ganz ohne mich dafür zu brauchen.',
+    spicy_walkthrough_adminneue: 'Eine neue Ausstellung anzulegen ist so einfach wie Name und Datum einzutragen. Die Konfiguration der Fragen erfolgt im nächsten, separaten Schritt.',
+    spicy_walkthrough_adminneuefrage: 'Hier liegt das Herzstück von Spicy Feedback Tool: Jede Frage wird mit ihrem Typ (Freitext, Skala, Mehrfachauswahl oder Schieberegler) und ihrem Abschnitt innerhalb der Umfrage definiert. Das ist es, was das System wirklich konfigurierbar macht, und nicht nur ein Formular, das so aussieht.',
+    spicy_walkthrough_admindashboard: 'Jede Ausstellung hat ihr eigenes Ergebnis-Dashboard: Durchschnittswerte zu den Skalenfragen, ein Diagramm zur Verteilung der Antworten und die gesammelten Freitextkommentare, mit CSV-Export.',
+    spicy_architecture: 'Die Anwendung ist vollständig serverless. Das Angular-Frontend wird als statische Seite über GitHub Pages ausgeliefert. Jede authentifizierte Anfrage durchläuft zuerst einen Lambda Authorizer, der das JWT validiert, bevor die Anfrage die Business-Lambda erreicht, die für das Lesen und Schreiben in DynamoDB zuständig ist. Die gesamte Infrastruktur (API Gateway, Lambdas, DynamoDB) ist mit Terraform als Code definiert.',
+    spicy_alt_userpick: 'Spicy Feedback Tool Auswahl der Ausstellung',
+    spicy_alt_usersurvey: 'Spicy Feedback Tool Umfrage aus Besuchersicht',
+    spicy_alt_adminausstellungen: 'Spicy Feedback Tool Verwaltung der Ausstellungen',
+    spicy_alt_adminneue: 'Spicy Feedback Tool neue Ausstellung anlegen',
+    spicy_alt_adminneuefrage: 'Spicy Feedback Tool neue Frage konfigurieren',
+    spicy_alt_admindashboard: 'Spicy Feedback Tool Ergebnis-Dashboard',
+    spicy_alt_architecture: 'Spicy Feedback Tool Architekturdiagramm',
+    spicy_did_1: 'Ein konfigurierbares Fragensystem mit vier Typen (Freitext, Skala, Mehrfachauswahl und Schieberegler) entworfen, das der Kunde verwaltet, ohne Code anzufassen.',
+    spicy_did_2: 'Das Frontend in Angular und das serverless Backend mit AWS Lambda und API Gateway gebaut.',
+    spicy_did_3: 'Eine eigene Authentifizierung mit JWT und einem Lambda Authorizer implementiert, mit Passwort-Hashing über bcrypt.',
+    spicy_did_4: 'Die gesamte Infrastruktur als Code mit Terraform definiert, damit das Deployment von Anfang an reproduzierbar war.',
+    spicy_did_5: 'Die Datenarchitektur mitten im Projekt neu entworfen: von einem Modell, in dem ein Teil der Konfiguration im Code selbst lag, zu einem vollständig datenbankgesteuerten System gewechselt, was das System wirklich flexibel machte, statt es nur so aussehen zu lassen.',
+    spicy_challenge: 'Das ist kein komplexes Projekt im Sinne von Algorithmen oder Skalierung. Es ist vor allem eine Übung in Urteilsvermögen: zu wissen, wann man nicht überengineert. Die übliche Falle bei solchen Tools ist, etwas zu bauen, das konfigurierbar aussieht, in der Praxis aber weiterhin für jede Änderung einen Entwickler braucht. Das Datenmodell mitten im Projekt so umzubauen, dass die gesamte Konfiguration in der Datenbank lebt, war die Entscheidung, die Spicy Feedback Tool wirklich flexibel machte, nicht nur dem Anschein nach. Und das, obwohl es sich in einer Fünf-Minuten-Demo nicht zeigt, ist der Teil, auf den ich am meisten stolz bin.',
+    spicy_result: 'Wenn Spicy seine eigene Umfrage über sich selbst hätte, würde die Frage lauten: "Wie viele Chilis gibst du diesem Projekt?". Meine ehrliche Antwort ist 6 von 6 🌶️🌶️🌶️🌶️🌶️🌶️, allerdings nicht wegen der Technik: wegen der Zufriedenheit, etwas Einfaches und Solides gebaut zu haben, das ein echter Kunde genau dieses Wochenende nutzen wird.',
+
+    blog_title: 'Blog',
+    blog_subtitle: 'Was ich baue, lerne und debugge',
+    blog_intro: 'Persönliche Notizen zu KI, Cloud-Architektur und den Prototypen von KettenKI, in chronologischer Reihenfolge.',
+    blog_empty_title: 'Noch keine Beiträge',
+    blog_empty_text: 'Der erste Beitrag ist in Arbeit. Schau bald wieder vorbei.',
+
     footer_text: '© 2026 KettenKI. Entwickelt mit Präzision.',
   },
   
@@ -93,6 +183,8 @@ const translations = {
     nav_about: 'About',
     nav_services: 'Solutions',
     nav_contact: 'Contact',
+    nav_portfolio: 'Portfolio',
+    nav_blog: 'Blog',
     
     hero_title: 'KettenKI',
     hero_slogan: 'Why do less when more is possible',
@@ -173,7 +265,95 @@ const translations = {
     contact_email: 'Email',
     contact_linkedin: 'LinkedIn',
     contact_cta: 'Let\'s discuss your AI solution',
-    
+
+    portfolio_callout_text: 'Want to see my track record as an engineer?',
+    portfolio_callout_link: 'View portfolio →',
+
+    portfolio_title: 'Portfolio',
+    portfolio_subtitle: 'Engineering projects and professional experience',
+    portfolio_intro: 'This is real work as a backend and full-stack engineer, beyond the AI prototypes in the Solutions section: personal projects and documented case studies from my professional career.',
+    profile_alt: 'Photo of Javier Carranza',
+    portfolio_type_own: '🎓 Own project',
+    portfolio_type_case: 'Case study',
+    portfolio_type_client: '🤝 Client project',
+    portfolio_type_production: '🚀 In production',
+    portfolio_coming_soon_title: 'More projects in the works',
+    portfolio_coming_soon_text: 'Bambera and mini-midoffice are coming soon.',
+    cta_view_repo: 'View repo on GitHub',
+    cta_back_to_portfolio: '← Back to portfolio',
+
+    label_context: 'Context',
+    label_walkthrough: 'Application walkthrough',
+    label_architecture: 'Architecture',
+    label_stack: 'Stack',
+    label_what_i_did: 'What I did',
+    label_challenge: 'Technical challenge',
+    label_result: 'Result & learnings',
+    label_screenshots: 'Screenshots',
+    screenshots_pending: 'Screenshots coming soon.',
+    label_layer: 'Layer',
+    label_technology: 'Technology',
+    label_security: 'Security',
+    label_persistence: 'Persistence',
+    label_secrets: 'Secrets',
+    label_auth: 'Authentication',
+    label_database: 'Database',
+    label_infrastructure: 'Infrastructure',
+    label_charts: 'Charts',
+    lightbox_close: 'Close',
+
+    railtrack_title: 'RailTrack Manager',
+    railtrack_tagline: 'Track section and incident management',
+    railtrack_type: 'Own project',
+    railtrack_context: 'As someone who loves trains and Swiss punctuality, I wanted to build something that does justice to both. That\'s how RailTrack Manager came about: a full-stack project to properly connect Angular with Spring Boot and get hands-on with the fundamentals of Angular Material - using a domain with real complexity, railway infrastructure management, instead of another CRUD example with no real business sense behind it. The app is seeded with realistic data from the Swiss railway network (Bern–Olten, Lausanne–Yverdon, Zürich Depot).',
+    railtrack_walkthrough_login: 'The application uses HashiCorp Vault for secrets management, so a Vault server needs to be running before the backend starts. Once Vault is up, the backend starts first, then the frontend. There are no seeded users by default: you first create one through the API, then use those credentials to log in.',
+    railtrack_walkthrough_tracks: 'The Track Segments panel is the heart of the application: this is where the network\'s track sections are managed, with their line, type, operational status and last maintenance date. The data is seeded with real sections from the Swiss rail network: Bern–Olten, Lausanne–Yverdon and the Zurich depot.',
+    railtrack_walkthrough_incidents: 'The Incidents section collects reported issues for each track section, from signaling failures to track geometry deviations, along with their severity and resolution status.',
+    railtrack_walkthrough_dashboard: 'The Dashboard gives an overall view of the network\'s health: number of track sections, total and open incidents, sections under maintenance, and a breakdown by severity and status. It\'s the screen designed for a quick read of system health.',
+    railtrack_architecture: 'Diagram created with Eraser: Browser → Frontend (Angular, port 4200) → Backend (Spring Boot, port 8080, JWT) → Vault (secrets, read on startup) and H2 (JPA). Flow: Vault starts before the backend → login issues a JWT → the JWT travels in the Authorization header on subsequent requests → Spring Security validates it before processing CRUD operations on tracks/incidents.',
+    railtrack_alt_login: 'RailTrack Manager login screen',
+    railtrack_alt_tracks: 'RailTrack Manager Track Segments overview',
+    railtrack_alt_incidents: 'RailTrack Manager Incidents overview',
+    railtrack_alt_dashboard: 'RailTrack Manager Dashboard',
+    railtrack_alt_architecture: 'RailTrack Manager architecture diagram',
+    railtrack_did_1: 'Designed and implemented the complete REST API (CRUD for track sections and incidents) with Spring Boot and Spring Data JPA.',
+    railtrack_did_2: 'Implemented JWT authentication with role-based access from scratch.',
+    railtrack_did_3: 'Built the frontend in Angular 21 with standalone components and Angular Material, my first serious frontend project, coming from a pure backend background.',
+    railtrack_did_4: 'Designed the data model and populated it with realistic Swiss rail data so the demo reflects a real use case.',
+    railtrack_challenge: 'I came from a 100% backend background. The challenge wasn\'t the API (familiar ground), but climbing the Angular and Angular Material learning curve far enough to build a coherent frontend: standalone components, reactive HTTP services, auth guards, and Material components properly integrated into the app\'s flow.',
+    railtrack_result: 'A fully functional end-to-end full-stack application (JWT auth, CRUD, roles) that demonstrates real frontend capability beyond the backend, and serves as a reusable template for future Angular + Spring Boot projects.',
+
+    spicy_title: 'Spicy Feedback Tool',
+    spicy_tagline: 'Configurable feedback surveys for art exhibitions',
+    spicy_context: 'Spicy Feedback Tool came from a direct request. Kunstraum, a contemporary art exhibition space, needed a simple way to collect feedback from its visitors without relying on paper or generic tools that didn\'t fit its identity. Instead of building a fixed form, I proposed something more flexible: a fully configurable survey system, so the client could create and adjust their own questions without depending on me for every change.',
+    spicy_walkthrough_userpick: 'The visitor first chooses which exhibition they want to give feedback on. A minimal, frictionless interface, designed to be completed on a phone, standing, right in the room.',
+    spicy_walkthrough_usersurvey: 'Each exhibition has its own set of questions: scales, free text, multiple choice. Not a generic form, the questions change depending on what Kunstraum wants to know about each exhibition.',
+    spicy_walkthrough_adminausstellungen: 'From here the client manages all their exhibitions: status (active, upcoming, closed), date range and number of responses received, without needing me for any of it.',
+    spicy_walkthrough_adminneue: 'Setting up a new exhibition is as simple as entering a name and dates. Question configuration happens in the next, separate step.',
+    spicy_walkthrough_adminneuefrage: 'This is the heart of Spicy Feedback Tool: each question is defined with its type (free text, scale, multiple choice or slider) and its section within the survey. This is what makes the system genuinely configurable, not just a form that looks like it is.',
+    spicy_walkthrough_admindashboard: 'Each exhibition has its own results dashboard: averages for the scale questions, a chart showing the distribution of responses and the collected free-text comments, with CSV export.',
+    spicy_architecture: 'The application is fully serverless. The Angular frontend is served as a static site from GitHub Pages. Every authenticated request first passes through a Lambda Authorizer, which validates the JWT before the request reaches the business Lambda responsible for reading from and writing to DynamoDB. All the infrastructure (API Gateway, Lambdas, DynamoDB) is defined as code with Terraform.',
+    spicy_alt_userpick: 'Spicy Feedback Tool exhibition picker',
+    spicy_alt_usersurvey: 'Spicy Feedback Tool visitor survey',
+    spicy_alt_adminausstellungen: 'Spicy Feedback Tool exhibition management',
+    spicy_alt_adminneue: 'Spicy Feedback Tool new exhibition form',
+    spicy_alt_adminneuefrage: 'Spicy Feedback Tool new question configuration',
+    spicy_alt_admindashboard: 'Spicy Feedback Tool results dashboard',
+    spicy_alt_architecture: 'Spicy Feedback Tool architecture diagram',
+    spicy_did_1: 'Designed a configurable question system with four types (free text, scale, multiple choice and slider) that the client manages without touching code.',
+    spicy_did_2: 'Built the frontend in Angular and the serverless backend with AWS Lambda and API Gateway.',
+    spicy_did_3: 'Implemented custom authentication with JWT and a Lambda Authorizer, with password hashing via bcrypt.',
+    spicy_did_4: 'Defined all the infrastructure as code with Terraform, so deployment was reproducible from the start.',
+    spicy_did_5: 'Redesigned the data architecture midway through the project: moved from a model where part of the configuration lived in the code itself to a system driven entirely by the database, which is what made the system genuinely flexible instead of just appearing to be.',
+    spicy_challenge: 'This isn\'t a complex project in terms of algorithms or scale. It\'s, above all, an exercise in judgment: knowing when not to over-engineer. The usual trap with tools like this is building something that looks configurable but in practice still needs a developer for every change. Redesigning the data model midway through so that all the configuration lived in the database was the decision that made Spicy Feedback Tool genuinely flexible, not just appear to be. And that, even though it doesn\'t show in a five-minute demo, is the part I\'m most proud of.',
+    spicy_result: 'If Spicy had its own survey about itself, the question would be: "how many chilis do you give this project?". My honest answer is 6 out of 6 🌶️🌶️🌶️🌶️🌶️🌶️, though not for the technical side: for the satisfaction of building something simple and solid that a real client is going to use this very weekend.',
+
+    blog_title: 'Blog',
+    blog_subtitle: 'What I build, learn and debug',
+    blog_intro: 'Personal notes on AI, cloud architecture and the KettenKI prototypes, in chronological order.',
+    blog_empty_title: 'No posts yet',
+    blog_empty_text: 'The first post is in the works. Check back soon.',
+
     footer_text: '© 2026 KettenKI. Built with precision.',
   }
 };
@@ -195,6 +375,20 @@ function updateContent() {
     const key = element.getAttribute('data-i18n');
     if (translations[currentLang][key]) {
       element.textContent = translations[currentLang][key];
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+    const key = element.getAttribute('data-i18n-alt');
+    if (translations[currentLang][key]) {
+      element.setAttribute('alt', translations[currentLang][key]);
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(element => {
+    const key = element.getAttribute('data-i18n-aria-label');
+    if (translations[currentLang][key]) {
+      element.setAttribute('aria-label', translations[currentLang][key]);
     }
   });
 }
