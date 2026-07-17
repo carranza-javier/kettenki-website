@@ -132,6 +132,23 @@ nav {
   letter-spacing: -0.02em;
 }
 
+/* Logo + "Javier Carranza" subtitle, Portfolio/Blog only (SPEC 2) */
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.logo-subtitle {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.01em;
+}
+
 .nav-menu {
   display: flex;
   gap: var(--spacing-md);
@@ -828,6 +845,16 @@ footer p {
 .product-detail {
   max-width: 900px;
   margin: 0 auto;
+}
+
+/* Portfolio ficha content is fully visible on load, no scroll-reveal:
+   hiding everything but "Kontext" behind a scroll trigger reads as if
+   the page had no more content. Applies to any future ficha too, since
+   it's scoped to .product-detail rather than per-page. */
+.product-detail .fade-in {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .product-hero {

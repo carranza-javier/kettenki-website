@@ -36,7 +36,10 @@
 <body class="theme-light">
   <header>
     <nav>
-      <a href="../index" class="logo">KettenKI</a>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
 
       <button class="mobile-menu-btn" aria-label="Menu">
         <span></span>
@@ -82,25 +85,25 @@
         <h2 data-i18n="label_walkthrough">Rundgang durch die Anwendung</h2>
 
         <div class="screen-walkthrough-item">
-          <h3>Vault &amp; Login</h3>
+          <h3 data-i18n="railtrack_walkthrough_login_title">Vault &amp; Login</h3>
           <p data-i18n="railtrack_walkthrough_login">Die Anwendung nutzt HashiCorp Vault für die Verwaltung von Secrets. Bevor das Backend gestartet wird, muss deshalb ein Vault-Server laufen. Ist Vault bereit, startet zuerst das Backend und danach das Frontend. Es gibt keine vorangelegten Benutzer: Zuerst muss über die API ein Benutzer angelegt werden, mit dessen Zugangsdaten man sich anschließend im Login-Bildschirm anmeldet.</p>
           <img src="img/railtrack-manager/rtm-login.png" alt="RailTrack Manager Login-Bildschirm" data-i18n-alt="railtrack_alt_login">
         </div>
 
         <div class="screen-walkthrough-item">
-          <h3>Track Segments</h3>
+          <h3 data-i18n="railtrack_walkthrough_tracks_title">Track Segments</h3>
           <p data-i18n="railtrack_walkthrough_tracks">Das Track-Segments-Panel ist das Herzstück der Anwendung: Hier werden die Gleisabschnitte des Netzes verwaltet, mit Linie, Typ, Betriebsstatus und letztem Wartungsdatum. Die Daten sind mit realen Abschnitten des Schweizer Bahnnetzes befüllt: Bern–Olten, Lausanne–Yverdon und dem Depot Zürich.</p>
           <img src="img/railtrack-manager/rtm-tracks.png" alt="RailTrack Manager Track Segments Übersicht" data-i18n-alt="railtrack_alt_tracks">
         </div>
 
         <div class="screen-walkthrough-item">
-          <h3>Incidents</h3>
+          <h3 data-i18n="railtrack_walkthrough_incidents_title">Incidents</h3>
           <p data-i18n="railtrack_walkthrough_incidents">Der Bereich Incidents erfasst die gemeldeten Störungen zu jedem Gleisabschnitt, von Signalstörungen bis zu Abweichungen in der Gleisgeometrie, jeweils mit Schweregrad und Bearbeitungsstatus.</p>
           <img src="img/railtrack-manager/rtm-incidents.png" alt="RailTrack Manager Incidents Übersicht" data-i18n-alt="railtrack_alt_incidents">
         </div>
 
         <div class="screen-walkthrough-item">
-          <h3>Dashboard</h3>
+          <h3 data-i18n="railtrack_walkthrough_dashboard_title">Dashboard</h3>
           <p data-i18n="railtrack_walkthrough_dashboard">Das Dashboard bietet einen Gesamtüberblick über den Zustand des Netzes: Anzahl der Gleisabschnitte, Gesamt- und offene Störungen, Abschnitte in Wartung sowie eine Aufschlüsselung nach Schweregrad und Status. Diese Ansicht ist für einen schnellen Überblick über die Systemgesundheit gedacht.</p>
           <img src="img/railtrack-manager/rtm-dashboard.png" alt="RailTrack Manager Dashboard" data-i18n-alt="railtrack_alt_dashboard">
         </div>

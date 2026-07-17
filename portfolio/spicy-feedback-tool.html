@@ -36,7 +36,10 @@
 <body class="theme-light">
   <header>
     <nav>
-      <a href="../index" class="logo">KettenKI</a>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
 
       <button class="mobile-menu-btn" aria-label="Menu">
         <span></span>
@@ -76,44 +79,44 @@
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_context">Kontext</h2>
-        <p data-i18n="spicy_context">Spicy Feedback Tool entstand aus einer konkreten Anfrage. Kunstraum, ein Ausstellungsraum für zeitgenössische Kunst, brauchte eine einfache Möglichkeit, Feedback von seinen Besuchern zu sammeln, ohne auf Papier oder generische Tools angewiesen zu sein, die nicht zur eigenen Identität passten. Statt eines starren Formulars entwickelte ich etwas Flexibleres: ein vollständig konfigurierbares Umfragesystem, mit dem der Kunde selbst seine Fragen erstellen und anpassen kann, ohne für jede Änderung auf mich angewiesen zu sein.</p>
+        <p><span data-i18n="spicy_context_pre">Spicy Feedback Tool entstand aus einer konkreten Anfrage. </span><a href="https://www.spicy-kunstraum.ch/" target="_blank" rel="noopener" class="repo-link" style="font-style: italic;" data-i18n="spicy_context_link">spicy kunstraum</a><span data-i18n="spicy_context_post">, ein Ausstellungsraum für zeitgenössische Kunst, brauchte eine einfache Möglichkeit, Feedback von seinen Besuchern zu sammeln, ohne auf Papier oder generische Tools angewiesen zu sein, die nicht zur eigenen Identität passten. Statt eines starren Formulars entwickelte ich etwas Flexibleres: ein vollständig konfigurierbares Umfragesystem, mit dem der Kunde selbst seine Fragen erstellen und anpassen kann, ohne für jede Änderung auf mich angewiesen zu sein.</span></p>
       </div>
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_walkthrough">Rundgang durch die Anwendung</h2>
 
         <div class="screen-walkthrough-item">
-          <h3>Ausstellung wählen</h3>
+          <h3 data-i18n="spicy_walkthrough_userpick_title">Ausstellung wählen</h3>
           <p data-i18n="spicy_walkthrough_userpick">Der Besucher wählt zuerst aus, für welche Ausstellung er Feedback geben möchte. Eine minimale, reibungslose Oberfläche, gedacht für die Nutzung am Smartphone, im Stehen, direkt im Ausstellungsraum.</p>
           <img src="img/spicy-feedback-tool/spicyft-user-pick.png" alt="Spicy Feedback Tool Auswahl der Ausstellung" data-i18n-alt="spicy_alt_userpick">
         </div>
 
         <div class="screen-walkthrough-item">
-          <h3>Umfrage</h3>
-          <p data-i18n="spicy_walkthrough_usersurvey">Jede Ausstellung hat ihren eigenen Fragensatz: Skalen, Freitext, Mehrfachauswahl. Kein generisches Formular, die Fragen ändern sich je nachdem, was Kunstraum zu jeder Ausstellung wissen möchte.</p>
+          <h3 data-i18n="spicy_walkthrough_usersurvey_title">Umfrage</h3>
+          <p><span data-i18n="spicy_walkthrough_usersurvey_pre">Jede Ausstellung hat ihren eigenen Fragensatz: Skalen, Freitext, Mehrfachauswahl. Kein generisches Formular, die Fragen ändern sich je nachdem, was </span><em data-i18n="spicy_context_link">spicy kunstraum</em><span data-i18n="spicy_walkthrough_usersurvey_post"> zu jeder Ausstellung wissen möchte.</span></p>
           <img src="img/spicy-feedback-tool/spicyft-user-survey.png" alt="Spicy Feedback Tool Umfrage aus Besuchersicht" data-i18n-alt="spicy_alt_usersurvey">
         </div>
 
         <div class="screen-walkthrough-item">
-          <h3>Verwaltung der Ausstellungen</h3>
+          <h3 data-i18n="spicy_walkthrough_adminausstellungen_title">Verwaltung der Ausstellungen</h3>
           <p data-i18n="spicy_walkthrough_adminausstellungen">Von hier aus verwaltet der Kunde alle seine Ausstellungen: Status (aktiv, bevorstehend, abgeschlossen), Datumsbereich und Anzahl der eingegangenen Antworten, ganz ohne mich dafür zu brauchen.</p>
           <img src="img/spicy-feedback-tool/spicyft-admin-ausstellungen.png" alt="Spicy Feedback Tool Verwaltung der Ausstellungen" data-i18n-alt="spicy_alt_adminausstellungen">
         </div>
 
         <div class="screen-walkthrough-item">
-          <h3>Neue Ausstellung</h3>
+          <h3 data-i18n="spicy_walkthrough_adminneue_title">Neue Ausstellung</h3>
           <p data-i18n="spicy_walkthrough_adminneue">Eine neue Ausstellung anzulegen ist so einfach wie Name und Datum einzutragen. Die Konfiguration der Fragen erfolgt im nächsten, separaten Schritt.</p>
           <img src="img/spicy-feedback-tool/spicyft-admin-ausstellungen-neue.png" alt="Spicy Feedback Tool neue Ausstellung anlegen" data-i18n-alt="spicy_alt_adminneue">
         </div>
 
         <div class="screen-walkthrough-item">
-          <h3>Neue Frage</h3>
+          <h3 data-i18n="spicy_walkthrough_adminneuefrage_title">Neue Frage</h3>
           <p data-i18n="spicy_walkthrough_adminneuefrage">Hier liegt das Herzstück von Spicy Feedback Tool: Jede Frage wird mit ihrem Typ (Freitext, Skala, Mehrfachauswahl oder Schieberegler) und ihrem Abschnitt innerhalb der Umfrage definiert. Das ist es, was das System wirklich konfigurierbar macht, und nicht nur ein Formular, das so aussieht.</p>
           <img src="img/spicy-feedback-tool/spicyft-admin-ausstellungen-neue-frage.png" alt="Spicy Feedback Tool neue Frage konfigurieren" data-i18n-alt="spicy_alt_adminneuefrage">
         </div>
 
         <div class="screen-walkthrough-item">
-          <h3>Dashboard</h3>
+          <h3 data-i18n="spicy_walkthrough_admindashboard_title">Dashboard</h3>
           <p data-i18n="spicy_walkthrough_admindashboard">Jede Ausstellung hat ihr eigenes Ergebnis-Dashboard: Durchschnittswerte zu den Skalenfragen, ein Diagramm zur Verteilung der Antworten und die gesammelten Freitextkommentare, mit CSV-Export.</p>
           <img src="img/spicy-feedback-tool/spicyft-admin-ausstellung-dashboard.png" alt="Spicy Feedback Tool Ergebnis-Dashboard" data-i18n-alt="spicy_alt_admindashboard">
         </div>
