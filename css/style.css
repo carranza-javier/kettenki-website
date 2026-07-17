@@ -873,6 +873,17 @@ footer p {
   font-weight: var(--font-weight-normal);
 }
 
+/* Client logo floated beside the Kontext paragraph, same float-and-wrap
+   pattern as .about-image-left. */
+.context-logo {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  float: left;
+  margin: 0.25rem var(--spacing-lg) var(--spacing-md) 0;
+  shape-outside: margin-box;
+}
+
 .product-intro {
   font-size: 1.1rem;
   line-height: 1.8;
