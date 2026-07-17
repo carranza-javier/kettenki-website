@@ -874,13 +874,13 @@ footer p {
 }
 
 /* Client logo floated beside the Kontext paragraph, same float-and-wrap
-   pattern as .about-image-left. */
+   pattern as .about-image-right. */
 .context-logo {
   width: 100%;
   max-width: 140px;
   height: auto;
-  float: left;
-  margin: 0.25rem var(--spacing-lg) var(--spacing-md) 0;
+  float: right;
+  margin: 0.25rem 0 var(--spacing-md) var(--spacing-lg);
   shape-outside: margin-box;
 }
 
