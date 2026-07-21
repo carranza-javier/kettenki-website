@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>mini-midoffice - Portfolio | KettenKI</title>
+  <meta name="description" content="mini-midoffice: von Claude Code durchgeführte Spring 5→6 Migration, angeleitet und verifiziert Schritt für Schritt, mit echter Sabre-GDS-Integration.">
+  <meta name="keywords" content="mini-midoffice, Spring Boot, Java, Hibernate, Sabre GDS, Migration, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/portfolio/mini-midoffice">
+  <meta property="og:title" content="mini-midoffice - Portfolio | KettenKI">
+
+  <link rel="canonical" href="https://kettenki.com/portfolio/mini-midoffice">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/portfolio/mini-midoffice">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/portfolio/mini-midoffice">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container product-detail">
+      <div class="product-hero fade-in">
+        <div class="type-badges">
+          <span class="type-badge type-badge--own" data-i18n="portfolio_type_own">🎓 Eigenes Projekt</span>
+        </div>
+        <h1 class="product-title">mini-midoffice</h1>
+        <p class="product-subtitle" data-i18n="mmo_tagline">Spring 5→6 Major-Version-Migration, Schritt für Schritt angeleitet und verifiziert, mit echter Sabre-GDS-Integration.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <p>
+          <a href="https://github.com/carranza-javier/mini-midoffice" target="_blank" rel="noopener noreferrer" class="repo-link" data-i18n="cta_view_repo">Repo auf GitHub ansehen</a>
+        </p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_context">Kontext</h2>
+        <p data-i18n="mmo_context">Ich wollte etwas ganz Konkretes testen: Wie gut kann ein KI-Agent wie Claude Code eine echte Major-Version-Migration (Spring 5 auf Spring 6) durchführen, wenn er dabei einer detaillierten Anleitung folgt, die ich selbst Schritt für Schritt definiert habe, und welche echten Erkenntnisse dabei entstehen. Claude Code hat die Anleitung Commit für Commit umgesetzt, immer grün. Meine Aufgabe war es, diese Schritte zu definieren, den Prozess zu steuern, jeden einzelnen Schritt zu verifizieren und die zehn konkreten Probleme ("Gotchas") herauszuarbeiten, die dabei unterwegs aufgetaucht sind, damit sie als wiederverwendbare Referenz dokumentiert sind. Nebenbei habe ich die Gelegenheit genutzt, das Projekt an die Zertifizierungs-Sandbox von Sabre GDS anzubinden: eigene Entwicklerzugangsdaten angelegt und die Endpunkte von Hand getestet, bevor sie integriert wurden.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_walkthrough">Rundgang durch die Anwendung</h2>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="mmo_walkthrough_flights_title">Flugsuche</h3>
+          <p data-i18n="mmo_walkthrough_flights">Live-Suche gegen die Sabre-Sandbox, mit echten Ergebnissen und einem Buchungs-Button für jedes Angebot.</p>
+          <img src="img/mini-midoffice/flights-search.png" alt="mini-midoffice Flugsuche gegen die Sabre-Sandbox" data-i18n-alt="mmo_alt_flights">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="mmo_walkthrough_reports_title">Reports</h3>
+          <p data-i18n="mmo_walkthrough_reports">Reports-Bildschirm mit Filtern nach Ziel, Anbieter und Datumsbereich, mit Export nach CSV und Excel.</p>
+          <img src="img/mini-midoffice/reports.png" alt="mini-midoffice Reports mit Filtern und Export" data-i18n-alt="mmo_alt_reports">
+        </div>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_architecture">Architektur</h2>
+        <div class="architecture-block">
+          <img src="img/mini-midoffice/mini_midoffice_sabre_architecture.svg" alt="mini-midoffice Architekturdiagramm" data-i18n-alt="mmo_alt_architecture">
+          <p data-i18n="mmo_architecture">Die Service-Schicht spricht nie direkt mit Sabre: Sie ruft Port-Schnittstellen auf (GdsFlightSearchPort, GdsFlightCheckPort), die darunter von einem konkreten Adapter implementiert werden. Diese Zwischenschicht ist eine Anti-Corruption-Layer: Morgen könnte man Amadeus oder Galileo an denselben Port anschließen, ohne die Geschäftslogik anzufassen.</p>
+        </div>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_stack">Stack</h2>
+        <table class="stack-table">
+          <thead>
+            <tr>
+              <th data-i18n="label_layer">Ebene</th>
+              <th data-i18n="label_technology">Technologie</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="label_language">Sprache</td>
+              <td>Java 17</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_framework">Framework</td>
+              <td>Spring 6.1.14</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_persistence">Persistenz</td>
+              <td>Hibernate 6.4.4, PostgreSQL 16, HikariCP</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_server">Server</td>
+              <td>Tomcat 10.1</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_build">Build</td>
+              <td data-i18n="mmo_stack_build">Maven Multi-Modul (WAR)</td>
+            </tr>
+            <tr>
+              <td>Frontend</td>
+              <td>Bootstrap 3, jQuery, Handlebars</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
+        <ul class="benefits-list">
+          <li data-i18n="mmo_did_1">Die Schritt-für-Schritt-Migrationsanleitung definiert, die den gesamten Prozess gesteuert hat: was geändert wird, in welcher Reihenfolge, und was vor dem nächsten Schritt validiert werden muss.</li>
+          <li data-i18n="mmo_did_2">Claude Code bei der Ausführung dieser Anleitung angeleitet und jeden Migrations-Commit geprüft und validiert (Spring 5.3→6.1, Hibernate 5.6→6.4, Tomcat 9→10.1, javax.*→jakarta.*), dabei jeden Schritt auf korrektes Kompilieren und Verhalten geprüft, bevor es weiterging.</li>
+          <li data-i18n="mmo_did_3">Die zehn konkreten Probleme, die während des Prozesses auftauchten, herausgearbeitet und dokumentiert, als wiederverwendbare Referenz für künftige ähnliche Migrationen.</li>
+          <li data-i18n="mmo_did_4">Die Sabre-Endpunkte in der Zertifizierungs-Sandbox manuell getestet (Flugsuche, Preisprüfung, Buchung) und dabei entdeckt, dass die Suche nur für Abflugorte in den USA vollständige Daten liefert, eine Einschränkung der Testdaten, kein Fehler der Integration.</li>
+          <li data-i18n="mmo_did_5">Die Entwicklerzugangsdaten in der Sabre-Sandbox angelegt und Konfiguration sowie einzelne Code-Details angepasst, wo es nötig war.</li>
+        </ul>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
+        <p data-i18n="mmo_challenge">Die Herausforderung hier war nicht das Schreiben von Code, sondern das gründliche Verifizieren dessen, was jemand anderes (in diesem Fall ein KI-Agent) geschrieben hat. Es ist einfach, sich darauf zu verlassen, dass "kompiliert grün" gleichbedeutend ist mit "ist in Ordnung", aber das reicht nicht aus. Ein konkretes Beispiel aus meinen eigenen Tests: Zu Beginn lieferte die Flugsuche von europäischen Abflugorten leere Ergebnisse, und der erste Verdacht war ein Bug in der Integration. Durch gründliche Recherche gegen die Sabre-API bestätigte sich das Gegenteil: eine Einschränkung des eigenen Zertifizierungs-Datensatzes, vollständige Daten gibt es nur für Abflugorte in den USA (JFK, ORD, MIA). Diese Art von Unterschied, zwischen "das ist kaputt" und "das ist eine Einschränkung der Testumgebung", entdeckt man nur durch echtes Testen, nicht durch Lesen des Codes. Solche losen Erkenntnisse in klare, wiederverwendbare Dokumentation zu verwandeln, war die eigentliche Arbeit.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_result">Ergebnis & Learnings</h2>
+        <p data-i18n="mmo_result">Eine vollständige, Schritt für Schritt verifizierte Major-Version-Migration, mit zehn echten Problemen, dokumentiert als wiederverwendbare Referenz, und eine Sabre-GDS-Integration, die wirklich getestet wurde, nicht nur simuliert. Und, allgemeiner betrachtet, eine kleine Fallstudie darüber, wie man einen KI-Agenten bei einer echten Ingenieursaufgabe gut anleitet und validiert, statt dem Ergebnis blind zu vertrauen.</p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_portfolio">← Zurück zum Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/lightbox.js"></script>
+</body>
+</html>
