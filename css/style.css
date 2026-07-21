@@ -1297,6 +1297,18 @@ img.portfolio-thumbnail-placeholder {
   font-size: 3rem;
 }
 
+/* Bambera wordmark, matching the product card on services.html: same
+   font as there (Zalando Sans Expanded, not the Inter body font the rest
+   of the portfolio theme uses) and the same gradient, applied via the
+   existing .bambera-gradient class on the inner span so the clip only
+   affects the text, not this box's own white background. */
+.portfolio-thumbnail-placeholder--bambera {
+  background: #ffffff;
+  font-size: 2.5rem;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-weight: var(--font-weight-bold);
+}
+
 .portfolio-card-body {
   padding: var(--spacing-md);
   display: flex;
