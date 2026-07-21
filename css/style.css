@@ -1292,6 +1292,11 @@ img.portfolio-thumbnail-placeholder {
   letter-spacing: 4px;
 }
 
+.portfolio-thumbnail-placeholder--icon {
+  background: #ffffff;
+  font-size: 3rem;
+}
+
 .portfolio-card-body {
   padding: var(--spacing-md);
   display: flex;
@@ -1496,6 +1501,17 @@ img.portfolio-thumbnail-placeholder {
 .screen-walkthrough-item img:hover,
 .architecture-block img:hover {
   opacity: 0.9;
+}
+
+/* Narrow/portrait screenshots (e.g. a login card shot with lots of empty
+   background around it) look oversized at the default width: 100%, since
+   that scales to the full text-column width regardless of the image's own
+   aspect ratio. Cap them so they read at the same visual scale as the
+   wider walkthrough screenshots next to them. */
+.screen-walkthrough-item img.screen-img--narrow {
+  width: auto;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 .architecture-block img {

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Bambera - Portfolio | KettenKI</title>
+  <meta name="description" content="Bambera: KI-Assistentin für den Service bei Lumis Kaffeebar. AWS Lambda, Claude Haiku 4.5 auf Bedrock, S3-Wissensbasis.">
+  <meta name="keywords" content="Bambera, AWS Lambda, Bedrock, Claude Haiku, RAG, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/portfolio/bambera">
+  <meta property="og:title" content="Bambera - Portfolio | KettenKI">
+
+  <link rel="canonical" href="https://kettenki.com/portfolio/bambera">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/portfolio/bambera">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/portfolio/bambera">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container product-detail">
+      <div class="product-hero fade-in">
+        <div class="type-badges">
+          <span class="type-badge type-badge--client" data-i18n="portfolio_type_client">🤝 Kundenprojekt</span>
+          <span class="type-badge type-badge--production" data-i18n="portfolio_type_production">🚀 In Produktion</span>
+        </div>
+        <h1 class="product-title">Bambera</h1>
+        <p class="product-subtitle" data-i18n="bamberapf_tagline">Antworten in unter 4 Sekunden, live im Einsatz bei Lumis Kaffeebar</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_context">Kontext</h2>
+        <p data-i18n="bamberapf_context">Vor Bambera bedeutete jede Unklarheit während des Service (Enthält dieser Kuchen Nüsse? Wie macht man einen Hugo?), anzuhalten, zum gedruckten Handbuch zu greifen, das Inhaltsverzeichnis zu durchsuchen, die richtige Seite zu finden, während der Gast vor der Theke wartete und die Schlange dahinter wuchs. Bambera ersetzt dieses Buch: Es antwortet in unter 4 Sekunden, in der Sprache der Frage (Deutsch, Englisch, Französisch oder Spanisch), mit null Halluzinationen bei sicherheitskritischen Themen wie Allergenen. Am meisten genutzt wird es vom neuen Personal, für das Bambera wie ein sofortiges Onboarding funktioniert: Statt ein ganzes Handbuch auswendig lernen zu müssen, bevor man mit Sicherheit bedienen kann, fragt man einfach und bekommt die richtige Antwort sofort. Vor dem Produktivstart haben wir es einen ganzen Monat lang als Prototyp mit dem eigenen Team getestet, seit Februar 2026 ist es im echten Einsatz in der Lumis Kaffeebar (Bern).</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_walkthrough">Rundgang durch die Anwendung</h2>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="bamberapf_walkthrough_login_title">Login</h3>
+          <p data-i18n="bamberapf_walkthrough_login">Der Zugang ist mit Benutzername und Passwort geschützt, da Bambera interne Betriebsdaten von Lumis Kaffeebar verarbeitet.</p>
+          <img src="img/bambera/bambera-login.png" alt="Bambera Login-Bildschirm" data-i18n-alt="bamberapf_alt_login" class="screen-img--narrow">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="bamberapf_walkthrough_home_title">Startbildschirm</h3>
+          <p data-i18n="bamberapf_walkthrough_home">Der Startbildschirm zeigt vorgeschlagene Fragen basierend auf den häufigsten Anfragen (Aufgaben der Frühschicht, ein konkretes Rezept, Zutaten eines Produkts), damit das neue Personal beim ersten Mal nicht überlegen muss, was es überhaupt fragen soll.</p>
+          <img src="img/bambera/bambera-home.png" alt="Bambera Startbildschirm mit vorgeschlagenen Fragen" data-i18n-alt="bamberapf_alt_home">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="bamberapf_walkthrough_frage_title">Frage</h3>
+          <p data-i18n="bamberapf_walkthrough_frage">Eine typische Frage aus dem Alltag: ob ein Produkt ein bestimmtes Allergen enthält. Genau das ist die Art von Frage, bei der eine falsche Antwort echte Konsequenzen hat, nicht nur kosmetische.</p>
+          <img src="img/bambera/bambera-frage.png" alt="Bambera Frage zu einem Allergen" data-i18n-alt="bamberapf_alt_frage">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="bamberapf_walkthrough_antwort_title">Antwort</h3>
+          <p data-i18n="bamberapf_walkthrough_antwort">Bambera antwortet in unter 4 Sekunden.</p>
+          <img src="img/bambera/bambera-antwort.png" alt="Bambera Antwort in unter 4 Sekunden" data-i18n-alt="bamberapf_alt_antwort">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="bamberapf_walkthrough_tablet_title">Im Einsatz</h3>
+          <p data-i18n="bamberapf_walkthrough_tablet">Und so sieht es in der Praxis aus: ein Tablet an der Theke, direkt neben der Kaffeemaschine, mitten im Service befragt.</p>
+          <img src="img/bambera/bambera-tablet.jpg" alt="Bambera auf einem Tablet an der Theke von Lumis Kaffeebar" data-i18n-alt="bamberapf_alt_tablet">
+        </div>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_architecture">Architektur</h2>
+        <div class="architecture-block">
+          <img src="img/bambera/bambera-architecture.png" alt="Bambera Architekturdiagramm" data-i18n-alt="bamberapf_alt_architecture">
+          <p data-i18n="bamberapf_architecture">Die Anfrage des Personals kommt vom Tablet bei API Gateway an, das das JWT validiert, bevor es die Lambda aufruft. Die Lambda prüft zuerst einen In-Memory-Cache (TTL 5 Minuten); gibt es dort keinen Treffer, fragt sie die JSON-Dateien in S3 ab. Das Kernwissen (Rezepte, Zutaten und Allergene) wird immer in den Kontext aufgenommen; die operativen Abschnitte (Checklisten, Serviceregeln, Notfälle) werden nur hinzugefügt, wenn das Vokabular der Frage sie aktiviert, die Weiche, die die in der Technischen Herausforderung beschriebenen Routing-Bugs gelöst hat. Die Lambda ruft mit diesem Kontext Bedrock (Claude Haiku 4.5) auf, gibt die Antwort ans Personal zurück und protokolliert die Interaktion asynchron zurück in S3, ohne die Antwort an den Nutzer zu blockieren.</p>
+        </div>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_stack">Stack</h2>
+        <table class="stack-table">
+          <thead>
+            <tr>
+              <th data-i18n="label_layer">Ebene</th>
+              <th data-i18n="label_technology">Technologie</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="label_compute">Rechenleistung</td>
+              <td>AWS Lambda (Node.js 24, ESM)</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_model">Modell</td>
+              <td data-i18n="bamberapf_stack_model">Claude Haiku 4.5 über Amazon Bedrock (eu-central-1)</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_knowledge_base">Wissensbasis</td>
+              <td data-i18n="bamberapf_stack_knowledge">Amazon S3, 7 strukturierte JSON-Dateien</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_auth">Authentifizierung</td>
+              <td data-i18n="bamberapf_stack_auth">JWT, verwaltet von API Gateway</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
+        <ul class="benefits-list">
+          <li data-i18n="bamberapf_did_1">Die komplette Pipeline entworfen und gebaut, von der API bis zum Prompt Engineering, mit Claude Haiku 4.5 auf Bedrock.</li>
+          <li data-i18n="bamberapf_did_2">Die Wissensbasis in 7 JSON-Dateien strukturiert (Rezepte, Zutaten und Allergene, Checklisten, Serviceregeln, Notfälle), mit expliziten booleschen Feldern (vegan, glutenfrei, laktosefrei), statt die Information nur im Fließtext zu belassen.</li>
+          <li data-i18n="bamberapf_did_3">Einen Datenfilter für Fragen zu Ernährungseigenschaften implementiert: statt sich nur darauf zu verlassen, dass das Modell ein boolesches Feld richtig interpretiert, filtere ich den Datensatz selbst, bevor er in den Prompt geht, damit das Modell erst gar nicht die Möglichkeit hat, Produkte außerhalb des angefragten Kriteriums zu sehen.</li>
+          <li data-i18n="bamberapf_did_4">Den System Prompt mit XML-Blöcken entworfen, nach den von Anthropic empfohlenen Praktiken für lange Kontexte, inklusive eines verpflichtenden Chain-of-Thought-Blocks für Allergenfragen: Das Modell muss Zutaten und Allergene explizit auflisten, bevor es eine Schlussfolgerung zieht, was ein Widerspruchsmuster beseitigte, das in frühen Versionen auftrat.</li>
+          <li data-i18n="bamberapf_did_5">Eine Testbatterie mit 100 Prompts und erwarteten Ergebnissen aufgebaut, um objektiv zu messen, ob eine Änderung die Antworten verbesserte oder verschlechterte.</li>
+          <li data-i18n="bamberapf_did_6">Das Routing-System für den Kontext komplett neu entworfen, nachdem eine Kaskade subtiler Bugs entdeckt wurde (siehe Technische Herausforderung).</li>
+        </ul>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
+        <p data-i18n="bamberapf_challenge">Die erste Version nutzte ein Keyword-basiertes Routing-System, um zu entscheiden, welche Abschnitte der Wissensbasis je nach Frage an das Modell geschickt werden. Auf dem Papier klang das vernünftig, aber in Produktion erzeugte es eine Kaskade subtiler, schwer vorhersehbarer Bugs, von der Art, bei der ein kurzes Wort in einer Sprache mit einem Wortteil in einer anderen Sprache kollidiert. Die Lehre daraus war nicht, für jeden Fall mehr Logik draufzupacken, sondern die Architektur zu vereinfachen: das Kernwissen immer mitzuschicken und nur die selteneren operativen Abschnitte bedingt hinzuzufügen. Das bestätigte etwas, das ich schon vermutet hatte: In einem RAG-System zählt die Qualität des Kontexts mehr als seine Größe.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_result">Ergebnis & Learnings</h2>
+        <p data-i18n="bamberapf_result">Ein Werkzeug, das das Team von Lumis täglich nutzt, seit Februar 2026 in Produktion. Es antwortet in unter 4 Sekunden, in vier Sprachen, mit einer messbaren und dank der Testbatterie aus 100 Prompts verbesserten Genauigkeit. Und der Beweis dafür, dass bei einem KI-Assistenten in einem echten Kontext, in dem eine falsche Antwort Konsequenzen haben kann (Lebensmittelsicherheit), der wichtigste Teil der Ingenieurarbeit nicht das Modell selbst ist, sondern der Prozess, der es vertrauenswürdig macht.</p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_portfolio">← Zurück zum Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/lightbox.js"></script>
+</body>
+</html>
