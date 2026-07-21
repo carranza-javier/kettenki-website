@@ -189,7 +189,7 @@ const translations = {
     spicy_result: 'Wenn Spicy seine eigene Umfrage über sich selbst hätte, würde die Frage lauten: "Wie viele Chilis gibst du diesem Projekt?". Meine ehrliche Antwort ist 6 von 6 🌶️🌶️🌶️🌶️🌶️🌶️, allerdings nicht wegen der Technik: wegen der Zufriedenheit, etwas Einfaches und Solides gebaut zu haben, das ein echter Kunde genau dieses Wochenende nutzen wird.',
 
     bamberapf_title: 'Bambera',
-    bamberapf_tagline: 'Antworten in unter 4 Sekunden, live im Einsatz bei Lumis Kaffeebar',
+    bamberapf_tagline: 'RAG-Assistentin, die in unter 4 Sekunden antwortet, im echten Einsatz bei Lumis Kaffeebar',
     bamberapf_context: 'Vor Bambera bedeutete jede Unklarheit während des Service (Enthält dieser Kuchen Nüsse? Wie macht man einen Hugo?), anzuhalten, zum gedruckten Handbuch zu greifen, das Inhaltsverzeichnis zu durchsuchen, die richtige Seite zu finden, während der Gast vor der Theke wartete und die Schlange dahinter wuchs. Bambera ersetzt dieses Buch: Es antwortet in unter 4 Sekunden, in der Sprache der Frage (Deutsch, Englisch, Französisch oder Spanisch), mit null Halluzinationen bei sicherheitskritischen Themen wie Allergenen. Am meisten genutzt wird es vom neuen Personal, für das Bambera wie ein sofortiges Onboarding funktioniert: Statt ein ganzes Handbuch auswendig lernen zu müssen, bevor man mit Sicherheit bedienen kann, fragt man einfach und bekommt die richtige Antwort sofort. Vor dem Produktivstart haben wir es einen ganzen Monat lang als Prototyp mit dem eigenen Team getestet, seit Februar 2026 ist es im echten Einsatz in der Lumis Kaffeebar (Bern).',
     bamberapf_walkthrough_login_title: 'Login',
     bamberapf_walkthrough_login: 'Der Zugang ist mit Benutzername und Passwort geschützt, da Bambera interne Betriebsdaten von Lumis Kaffeebar verarbeitet.',
@@ -419,7 +419,7 @@ const translations = {
     spicy_result: 'If Spicy had its own survey about itself, the question would be: "how many chilis do you give this project?". My honest answer is 6 out of 6 🌶️🌶️🌶️🌶️🌶️🌶️, though not for the technical side: for the satisfaction of building something simple and solid that a real client is going to use this very weekend.',
 
     bamberapf_title: 'Bambera',
-    bamberapf_tagline: 'Answers in under 4 seconds, live in use at Lumis Kaffeebar',
+    bamberapf_tagline: 'RAG assistant that answers in under 4 seconds, in real production use at Lumis Kaffeebar',
     bamberapf_context: 'Before Bambera, any question during service (does this cake contain nuts? how do you make a Hugo?) meant stopping, grabbing the physical manual, searching the index, finding the page, while the customer waited at the counter and the queue behind them grew. Bambera replaces that book: it answers in under 4 seconds, in the language of the question (German, English, French or Spanish), with zero hallucinations on safety-critical topics like allergens. The heaviest users are new staff, for whom Bambera works as instant onboarding: instead of memorizing an entire manual before being able to serve confidently, they ask and get the correct answer on the spot. Before going to production, we tested it as a prototype for a full month with the team itself, and it has been in real use at Lumis Kaffeebar (Bern) since February 2026.',
     bamberapf_walkthrough_login_title: 'Login',
     bamberapf_walkthrough_login: 'Access is protected with a username and password, since Bambera handles internal operational data from Lumis Kaffeebar.',
