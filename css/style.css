@@ -1309,6 +1309,17 @@ img.portfolio-thumbnail-placeholder {
   font-weight: var(--font-weight-bold);
 }
 
+/* La Guitarrita wordmark, matching the site's own brand colors and font
+   (laguitarrita.ch): plain solid terracotta text, no gradient clip needed
+   since it's a single color, unlike the Bambera wordmark above. */
+.portfolio-thumbnail-placeholder--laguitarrita {
+  background: #ffffff;
+  font-size: 2.2rem;
+  font-family: "Playfair Display", serif;
+  font-weight: var(--font-weight-bold);
+  color: #c0634a;
+}
+
 .portfolio-card-body {
   padding: var(--spacing-md);
   display: flex;
@@ -1524,6 +1535,18 @@ img.portfolio-thumbnail-placeholder {
   width: auto;
   max-width: 320px;
   margin: 0 auto;
+}
+
+/* Single standalone image reinforcing the Kontext text (e.g. La Guitarrita),
+   not part of a full screen walkthrough or architecture diagram, so it gets
+   its own lightweight rule instead of the .screen-walkthrough-item/
+   .architecture-block classes (no lightbox, no walkthrough heading implied). */
+.context-hero-img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  display: block;
+  margin-top: var(--spacing-md);
 }
 
 .architecture-block img {
@@ -1756,5 +1779,12 @@ body.theme-light .type-badge--production {
 
 body.theme-light .portfolio-thumbnail-placeholder {
   color: #b7bfc7;
+}
+
+/* Wins over the theme-light override above (higher specificity): the
+   La Guitarrita wordmark needs its own fixed brand color (terracotta),
+   not the generic light-theme placeholder gray. */
+body.theme-light .portfolio-thumbnail-placeholder--laguitarrita {
+  color: #c0634a;
 }
 

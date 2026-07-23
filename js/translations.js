@@ -100,6 +100,7 @@ const translations = {
     portfolio_type_client: '🤝 Kundenprojekt',
     portfolio_type_production: '🚀 In Produktion',
     cta_view_repo: 'Repo auf GitHub ansehen',
+    cta_view_live_site: 'Live-Website ansehen',
     cta_back_to_portfolio: '← Zurück zum Portfolio',
 
     label_context: 'Kontext',
@@ -127,6 +128,8 @@ const translations = {
     label_framework: 'Framework',
     label_server: 'Server',
     label_build: 'Build',
+    label_dns: 'DNS und Domain',
+    label_email: 'E-Mail',
     lightbox_close: 'Schließen',
 
     railtrack_title: 'RailTrack Manager',
@@ -242,6 +245,21 @@ const translations = {
     mmo_challenge: 'Die Herausforderung hier war nicht das Schreiben von Code, sondern das gründliche Verifizieren dessen, was jemand anderes (in diesem Fall ein KI-Agent) geschrieben hat. Es ist einfach, sich darauf zu verlassen, dass "kompiliert grün" gleichbedeutend ist mit "ist in Ordnung", aber das reicht nicht aus. Ein konkretes Beispiel aus meinen eigenen Tests: Zu Beginn lieferte die Flugsuche von europäischen Abflugorten leere Ergebnisse, und der erste Verdacht war ein Bug in der Integration. Durch gründliche Recherche gegen die Sabre-API bestätigte sich das Gegenteil: eine Einschränkung des eigenen Zertifizierungs-Datensatzes, vollständige Daten gibt es nur für Abflugorte in den USA (JFK, ORD, MIA). Diese Art von Unterschied, zwischen "das ist kaputt" und "das ist eine Einschränkung der Testumgebung", entdeckt man nur durch echtes Testen, nicht durch Lesen des Codes. Solche losen Erkenntnisse in klare, wiederverwendbare Dokumentation zu verwandeln, war die eigentliche Arbeit.',
     mmo_result: 'Eine vollständige, Schritt für Schritt verifizierte Major-Version-Migration, mit zehn echten Problemen, dokumentiert als wiederverwendbare Referenz, und eine Sabre-GDS-Integration, die wirklich getestet wurde, nicht nur simuliert. Und, allgemeiner betrachtet, eine kleine Fallstudie darüber, wie man einen KI-Agenten bei einer echten Ingenieursaufgabe gut anleitet und validiert, statt dem Ergebnis blind zu vertrauen.',
 
+    laguitarrita_title: 'La Guitarrita',
+    laguitarrita_tagline: 'Mein eigenes Flamenco-Gitarrenunterricht-Business, gebaut mit Angular, um das Framework in Ruhe zu üben, ohne Kundendruck.',
+    laguitarrita_context: 'La Guitarrita ist mein eigenes Business für Flamenco-Gitarrenunterricht in Bern. Der Webauftritt hätte an einem Nachmittag eine Vorlage in irgendeinem Website-Baukasten sein können, aber ich habe mich bewusst für Angular entschieden, nicht weil das Projekt es gebraucht hätte, sondern um einen echten Ort zu haben, an dem ich das Framework in Ruhe üben kann, ohne den Druck eines wartenden Kunden im Nacken. Das Ergebnis ist ein zweisprachiger One-Pager (Deutsch/Englisch), live in Produktion, bei Google indexiert und mit einer eigenen Markenidentität.',
+    laguitarrita_alt_hero: 'Javier Carranza spielt Flamenco-Gitarre, Nahaufnahme mit rotem Schal und unscharfem Hintergrund',
+    laguitarrita_stack_dns: 'INWX (Registrierung), Cloudflare (DNS)',
+    laguitarrita_stack_video: 'Amazon S3 (privat) + CloudFront (Origin Access Control)',
+    laguitarrita_did_1: 'Habe einen zweisprachigen One-Pager (DE/EN) mit Angular 21 und SSG/Prerendering gebaut, für gute Performance und SEO.',
+    laguitarrita_did_2: 'Habe das Schema für strukturierte Daten entworfen (JSON-LD: LocalBusiness, Person, Service, FAQPage), validiert mit Googles Rich Results Test.',
+    laguitarrita_did_3: 'Habe das DNS in Cloudflare im Modus "DNS only" konfiguriert, damit es konfliktfrei mit dem HTTPS-Zertifikat von GitHub Pages zusammenspielt, statt des standardmäßigen Proxy-Modus.',
+    laguitarrita_did_4: 'Habe eine automatische Deployment-Pipeline mit GitHub Actions bei jedem Push auf main aufgesetzt.',
+    laguitarrita_did_5: 'Habe das Kopfvideo von YouTube in einen privaten S3-Bucket migriert, ausgeliefert über CloudFront mit Origin Access Control, um das Wasserzeichen des Players zu entfernen.',
+    laguitarrita_did_6: 'Habe eine personalisierte E-Mail-Adresse (javier@laguitarrita.ch) mit Cloudflare Email Routing eingerichtet, die an Gmail weiterleitet, und Versand per SMTP mit derselben Adresse konfiguriert.',
+    laguitarrita_challenge: 'Eine technische Herausforderung im klassischen Sinn gibt es hier nicht. Die eigentliche Herausforderung war gestalterisch: eine benutzerfreundliche Oberfläche mit klaren, direkten Informationen, ohne Rauschen oder Füllsätze. Wer die Seite öffnet, sollte in Sekunden verstehen, was ich anbiete, und das Video von mir beim Spielen sollte die Aufmerksamkeit sofort einfangen, noch vor allem anderen. Die eigentliche technische Herausforderung kommt erst, wenn ich mehrere Schülerinnen und Schüler habe und einen privaten Bereich für sie baue.',
+    laguitarrita_result: 'Eine Website in Produktion, zweisprachig, bei Google indexiert, mit validierten strukturierten Daten und eigener Analytics, ohne auf Google Analytics angewiesen zu sein. Und anders als bei den übrigen Projekten in diesem Portfolio muss ich sie hier nicht mit Screenshots erklären: Du kannst sie selbst besuchen, auf laguitarrita.ch.',
+
     blog_title: 'Blog',
     blog_subtitle: 'Was ich baue, lerne und debugge',
     blog_intro: 'Persönliche Notizen zu KI, Cloud-Architektur und den Prototypen von KettenKI, in chronologischer Reihenfolge.',
@@ -250,7 +268,7 @@ const translations = {
 
     footer_text: '© 2026 KettenKI. Entwickelt mit Präzision.',
   },
-  
+
   en: {
     nav_home: 'Home',
     nav_about: 'About',
@@ -352,6 +370,7 @@ const translations = {
     portfolio_type_client: '🤝 Client project',
     portfolio_type_production: '🚀 In production',
     cta_view_repo: 'View repo on GitHub',
+    cta_view_live_site: 'View live site',
     cta_back_to_portfolio: '← Back to portfolio',
 
     label_context: 'Context',
@@ -379,6 +398,8 @@ const translations = {
     label_framework: 'Framework',
     label_server: 'Server',
     label_build: 'Build',
+    label_dns: 'DNS and domain',
+    label_email: 'Email',
     lightbox_close: 'Close',
 
     railtrack_title: 'RailTrack Manager',
@@ -493,6 +514,21 @@ const translations = {
     mmo_did_5: 'Created the developer credentials in the Sabre sandbox and adjusted configuration and the occasional code detail where needed.',
     mmo_challenge: 'The challenge here wasn\'t writing code, it was thoroughly verifying what someone else (in this case, an AI agent) was writing. It\'s easy to trust that "compiles green" means "it\'s fine", but that\'s not enough. A concrete example from my own testing: at first, flight search from European origins returned empty results, and the initial suspicion was a bug in the integration. Digging deep into the Sabre API, I confirmed the opposite: a limitation of the certification dataset itself, complete data is only available for US origins (JFK, ORD, MIA). That kind of difference, between "this is broken" and "this is a limitation of the test environment", can only be found by actually testing, not by reading the code. Turning those loose findings into clear, reusable documentation was the real work.',
     mmo_result: 'A complete major-version migration, verified step by step, with ten real problems documented as a reusable reference, and a Sabre GDS integration that was genuinely tested, not just simulated. And more broadly, a small case study on how to properly direct and validate an AI agent on a real engineering task, instead of blindly trusting the result.',
+
+    laguitarrita_title: 'La Guitarrita',
+    laguitarrita_tagline: 'My own flamenco guitar lessons business, built with Angular to practice the framework at my own pace, without client pressure.',
+    laguitarrita_context: 'La Guitarrita is my own flamenco guitar lessons business in Bern. The website could have been a template thrown together in any site builder in an afternoon, but I chose to build it with Angular on purpose, not because the project needed it, but to have a real place to practice the framework at my own pace, without a client waiting on the other end. The result is a bilingual one-pager (German/English), live in production, indexed on Google, with its own brand identity.',
+    laguitarrita_alt_hero: 'Javier Carranza playing flamenco guitar, close-up with red scarf and blurred background',
+    laguitarrita_stack_dns: 'INWX (registration), Cloudflare (DNS)',
+    laguitarrita_stack_video: 'Amazon S3 (private) + CloudFront (Origin Access Control)',
+    laguitarrita_did_1: 'Built a bilingual (DE/EN) one-pager with Angular 21 and SSG/prerendering, for solid performance and SEO.',
+    laguitarrita_did_2: 'Designed the structured data schema (JSON-LD: LocalBusiness, Person, Service, FAQPage), validated with Google\'s Rich Results Test.',
+    laguitarrita_did_3: 'Configured DNS in Cloudflare in "DNS only" mode so it would coexist without conflicts with GitHub Pages\' HTTPS certificate, instead of the default proxy mode.',
+    laguitarrita_did_4: 'Set up an automatic deployment pipeline with GitHub Actions on every push to main.',
+    laguitarrita_did_5: 'Migrated the header video from YouTube to a private S3 bucket served through CloudFront with Origin Access Control, to remove the player\'s watermark.',
+    laguitarrita_did_6: 'Set up a custom email address (javier@laguitarrita.ch) with Cloudflare Email Routing forwarding to Gmail, and sending via SMTP with that same address.',
+    laguitarrita_challenge: 'There\'s no technical challenge here in the traditional sense. The real challenge was one of design: a friendly interface, with clean, direct information, no noise or filler text. I wanted anyone landing on the page to see in seconds what I offer, and the video of me playing to grab their attention immediately, before anything else. The real technical challenge will come once I have several students and build a private area for them.',
+    laguitarrita_result: 'A site in production, bilingual, indexed on Google, with validated structured data and its own analytics, without relying on Google Analytics. And unlike the rest of the projects in this portfolio, I don\'t need to walk you through it with screenshots here: you can visit it yourself at laguitarrita.ch.',
 
     blog_title: 'Blog',
     blog_subtitle: 'What I build, learn and debug',

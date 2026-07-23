@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>La Guitarrita - Portfolio | KettenKI</title>
+  <meta name="description" content="La Guitarrita: mein eigenes Flamenco-Gitarrenunterricht-Business in Bern, ein zweisprachiger One-Pager mit Angular 21, SSG und eigener Markenidentität.">
+  <meta name="keywords" content="La Guitarrita, Angular, Angular Material, GitHub Pages, Cloudflare, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/portfolio/laguitarrita">
+  <meta property="og:title" content="La Guitarrita - Portfolio | KettenKI">
+
+  <link rel="canonical" href="https://kettenki.com/portfolio/laguitarrita">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/portfolio/laguitarrita">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/portfolio/laguitarrita">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container product-detail">
+      <div class="product-hero fade-in">
+        <div class="type-badges">
+          <span class="type-badge type-badge--own" data-i18n="portfolio_type_own">🎓 Eigenes Projekt</span>
+          <span class="type-badge type-badge--production" data-i18n="portfolio_type_production">🚀 In Produktion</span>
+        </div>
+        <h1 class="product-title">La Guitarrita</h1>
+        <p class="product-subtitle" data-i18n="laguitarrita_tagline">Mein eigenes Flamenco-Gitarrenunterricht-Business, gebaut mit Angular, um das Framework in Ruhe zu üben, ohne Kundendruck.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <p>
+          <a href="https://laguitarrita.ch" target="_blank" rel="noopener noreferrer" class="repo-link" data-i18n="cta_view_live_site">Live-Website ansehen</a>
+        </p>
+        <p>
+          <a href="https://github.com/carranza-javier/laguitarrita" target="_blank" rel="noopener noreferrer" class="repo-link" data-i18n="cta_view_repo">Repo auf GitHub ansehen</a>
+        </p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_context">Kontext</h2>
+        <p data-i18n="laguitarrita_context">La Guitarrita ist mein eigenes Business für Flamenco-Gitarrenunterricht in Bern. Der Webauftritt hätte an einem Nachmittag eine Vorlage in irgendeinem Website-Baukasten sein können, aber ich habe mich bewusst für Angular entschieden, nicht weil das Projekt es gebraucht hätte, sondern um einen echten Ort zu haben, an dem ich das Framework in Ruhe üben kann, ohne den Druck eines wartenden Kunden im Nacken. Das Ergebnis ist ein zweisprachiger One-Pager (Deutsch/Englisch), live in Produktion, bei Google indexiert und mit einer eigenen Markenidentität.</p>
+        <img src="img/laguitarrita/hero.png" alt="Javier Carranza spielt Flamenco-Gitarre, Nahaufnahme mit rotem Schal und unscharfem Hintergrund" data-i18n-alt="laguitarrita_alt_hero" class="context-hero-img">
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_stack">Stack</h2>
+        <table class="stack-table">
+          <thead>
+            <tr>
+              <th data-i18n="label_layer">Ebene</th>
+              <th data-i18n="label_technology">Technologie</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Frontend</td>
+              <td>Angular 21, Angular Material, SSG/Prerendering</td>
+            </tr>
+            <tr>
+              <td>Hosting</td>
+              <td>GitHub Pages, GitHub Actions (CI/CD)</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_dns">DNS und Domain</td>
+              <td data-i18n="laguitarrita_stack_dns">INWX (Registrierung), Cloudflare (DNS)</td>
+            </tr>
+            <tr>
+              <td>Video</td>
+              <td data-i18n="laguitarrita_stack_video">Amazon S3 (privat) + CloudFront (Origin Access Control)</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_email">E-Mail</td>
+              <td>Cloudflare Email Routing + Gmail SMTP</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
+        <ul class="benefits-list">
+          <li data-i18n="laguitarrita_did_1">Habe einen zweisprachigen One-Pager (DE/EN) mit Angular 21 und SSG/Prerendering gebaut, für gute Performance und SEO.</li>
+          <li data-i18n="laguitarrita_did_2">Habe das Schema für strukturierte Daten entworfen (JSON-LD: LocalBusiness, Person, Service, FAQPage), validiert mit Googles Rich Results Test.</li>
+          <li data-i18n="laguitarrita_did_3">Habe das DNS in Cloudflare im Modus "DNS only" konfiguriert, damit es konfliktfrei mit dem HTTPS-Zertifikat von GitHub Pages zusammenspielt, statt des standardmäßigen Proxy-Modus.</li>
+          <li data-i18n="laguitarrita_did_4">Habe eine automatische Deployment-Pipeline mit GitHub Actions bei jedem Push auf main aufgesetzt.</li>
+          <li data-i18n="laguitarrita_did_5">Habe das Kopfvideo von YouTube in einen privaten S3-Bucket migriert, ausgeliefert über CloudFront mit Origin Access Control, um das Wasserzeichen des Players zu entfernen.</li>
+          <li data-i18n="laguitarrita_did_6">Habe eine personalisierte E-Mail-Adresse (javier@laguitarrita.ch) mit Cloudflare Email Routing eingerichtet, die an Gmail weiterleitet, und Versand per SMTP mit derselben Adresse konfiguriert.</li>
+        </ul>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
+        <p data-i18n="laguitarrita_challenge">Eine technische Herausforderung im klassischen Sinn gibt es hier nicht. Die eigentliche Herausforderung war gestalterisch: eine benutzerfreundliche Oberfläche mit klaren, direkten Informationen, ohne Rauschen oder Füllsätze. Wer die Seite öffnet, sollte in Sekunden verstehen, was ich anbiete, und das Video von mir beim Spielen sollte die Aufmerksamkeit sofort einfangen, noch vor allem anderen. Die eigentliche technische Herausforderung kommt erst, wenn ich mehrere Schülerinnen und Schüler habe und einen privaten Bereich für sie baue.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_result">Ergebnis & Learnings</h2>
+        <p data-i18n="laguitarrita_result">Eine Website in Produktion, zweisprachig, bei Google indexiert, mit validierten strukturierten Daten und eigener Analytics, ohne auf Google Analytics angewiesen zu sein. Und anders als bei den übrigen Projekten in diesem Portfolio muss ich sie hier nicht mit Screenshots erklären: Du kannst sie selbst besuchen, auf laguitarrita.ch.</p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_portfolio">← Zurück zum Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
