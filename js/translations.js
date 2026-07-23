@@ -92,8 +92,8 @@ const translations = {
     portfolio_callout_link: 'Zum Portfolio →',
 
     portfolio_title: 'Portfolio',
-    portfolio_subtitle: 'Technische Projekte und berufliche Erfahrung',
-    portfolio_intro: 'Hier findest du echte Arbeit als Backend- und Full-Stack-Ingenieur, jenseits der KI-Prototypen aus dem Bereich Lösungen: eigene Projekte und dokumentierte Fallstudien aus meiner beruflichen Laufbahn.',
+    portfolio_subtitle: 'Wenn ich nicht gerade wandere, Gitarre spiele oder einen Roman lese, um mein Deutsch zu verbessern, mache ich das hier.',
+    portfolio_intro: 'Eigene Projekte, Arbeit mit echten Kunden und die eine oder andere dokumentierte Fallstudie aus meiner Laufbahn als Backend- und Full-Stack-Ingenieur.',
     profile_alt: 'Foto von Javier Carranza',
     portfolio_type_own: '🎓 Eigenes Projekt',
     portfolio_type_case: 'Fallstudie',
@@ -362,8 +362,8 @@ const translations = {
     portfolio_callout_link: 'View portfolio →',
 
     portfolio_title: 'Portfolio',
-    portfolio_subtitle: 'Engineering projects and professional experience',
-    portfolio_intro: 'This is real work as a backend and full-stack engineer, beyond the AI prototypes in the Solutions section: personal projects and documented case studies from my professional career.',
+    portfolio_subtitle: 'When I\'m not hiking, playing guitar, or reading a novel to improve my German, this is what I do.',
+    portfolio_intro: 'Personal projects, work with real clients, and the occasional documented case study from my career as a backend and full-stack engineer.',
     profile_alt: 'Photo of Javier Carranza',
     portfolio_type_own: '🎓 Own project',
     portfolio_type_case: 'Case study',
