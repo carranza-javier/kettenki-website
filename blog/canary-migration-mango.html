@@ -82,6 +82,10 @@
         <p data-i18n="canary_how_2">Mit wachsendem Vertrauen begannen wir, echten Traffic umzuleiten, zunächst einen sehr kleinen Prozentsatz, wobei wir bei jedem Schritt mit Grafana und CloudWatch überwachten: Latenz, Fehler, Volumen, Datenkonsistenz. Wich etwas vom Normalzustand ab, konnten wir sofort abbrechen und zum alten System zurückkehren, ohne dass es jemand bemerkte.</p>
         <p data-i18n="canary_how_3">Als das neue System bereits eine Weile lang echten Traffic problemlos verarbeitet hatte, gaben wir dem Partner einen neuen Endpunkt, der direkt auf die Cloud-Plattform zeigte. Und als alle Partner migriert waren, schalteten wir das alte System kontrolliert ab, nachdem wir geprüft hatten, dass kein Restfluss mehr davon abhing.</p>
 
+        <div class="architecture-block">
+          <img src="img/canary-migration/architecture.png" alt="Diagramm der vier Phasen der Canary-Migration: Shadow Processing, schrittweises Rollout, Cutover und Ausserbetriebnahme." data-i18n-alt="canary_alt_architecture">
+        </div>
+
         <h2 data-i18n="canary_problem_heading">Das Problem, das wir nicht vorhergesehen hatten</h2>
         <p data-i18n="canary_problem_1">Hier wird die Geschichte erst richtig interessant. Als die Migration schon weit fortgeschritten war, tauchten Fehler bei der Verarbeitung von Retouren auf. Die Ursache: Ein Kunde gab ein Produkt zurück, das er Wochen oder Monate zuvor gekauft hatte, als die ursprüngliche Bestellung noch vom alten System verarbeitet worden war, mit einem anderen Datenmodell als dem neuen. Das neue System versuchte, eine Retoure zu einer Bestellung zu verarbeiten, die es nicht verstand, weil die Felder nicht übereinstimmten.</p>
         <p data-i18n="canary_problem_2">Wir bauten eine temporäre Logik in den Retouren-Microservice ein, die erkennen konnte, in welchem Format die ursprüngliche Bestellung vorlag, und sie je nach Fall passend verarbeitete, indem sie quasi beide Sprachen gleichzeitig sprach. Wochenlang beobachteten wir, wie viele Legacy-Fälle noch eintrafen. Am Anfang waren es viele, alle alten Bestellungen, die noch innerhalb der Rückgabefrist lagen. Mit der Zeit nahmen sie ab, weil die neuen Bestellungen bereits mit dem richtigen Modell verarbeitet wurden. Als keine Legacy-Fälle mehr eintrafen, entfernten wir die duale Kompatibilitätslogik. Das System blieb sauber zurück, mit einem einzigen Datenmodell, ohne unnötigen temporären Code.</p>
@@ -112,5 +116,6 @@
 
   <script src="../js/translations.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/lightbox.js"></script>
 </body>
 </html>
