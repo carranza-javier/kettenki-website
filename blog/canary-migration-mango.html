@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Migration ohne Downtime: die Canary-Strategie - Blog | KettenKI</title>
+  <meta name="description" content="Wie wir Millionen von Bestellungen ohne Downtime von einem Legacy-System auf eine neue AWS-Architektur migriert haben, und welchen unerwarteten Edge Case wir bei den Retouren gefunden haben.">
+  <meta name="keywords" content="Canary Deployment, AWS, Spring Boot, Microservices, Migration, Java, Architektur, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/blog/canary-migration-mango">
+  <meta property="og:title" content="Migration ohne Downtime: die Canary-Strategie - Blog | KettenKI">
+
+  <link rel="canonical" href="https://kettenki.com/blog/canary-migration-mango">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/blog/canary-migration-mango">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/blog/canary-migration-mango">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container blog-post">
+      <div class="blog-post-header fade-in">
+        <h1 class="blog-post-title" data-i18n="canary_title">Migration ohne Downtime: die Canary-Strategie, die wir genutzt haben</h1>
+        <div class="blog-post-meta">
+          <span data-i18n="canary_date">24. Juli 2026</span>
+          <span class="tech-badge" data-i18n="blog_filter_java_architecture">Java & Architektur</span>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <h2 data-i18n="label_context">Kontext</h2>
+        <p data-i18n="canary_context">In einem Fashion-E-Commerce-Unternehmen, in dem ich gearbeitet habe, betreuten wir die Integration des Produktkatalogs mit internationalen Retail-Partnern. Wenn jemand auf der Plattform eines solchen Partners ein Produkt kaufte, kam dieser Kauf als Bestellung in unserem System an, und darüber liefen täglich tausende Bestellungen. Das System, das sie verarbeitete, war ein Legacy-System außerhalb der Cloud: Es funktionierte, war aber schwer zu warten, schwer bei Nachfragespitzen zu skalieren und teuer im Betrieb. Wir hatten eine neue Architektur in AWS aufgebaut (Microservices mit Spring Boot, SQS, SNS, S3), und das Ziel war, die kritischen Partner vom alten System auf das neue zu migrieren. Das Problem war, dass man nicht einfach das eine ausschalten und das andere von einem Tag auf den anderen einschalten konnte. Jede Bestellung war echtes Geld und echte Verpflichtungen gegenüber echten Kunden. Es gab keinen Spielraum für Fehler.</p>
+
+        <h2 data-i18n="canary_what_heading">Was eine Canary-Strategie ist</h2>
+        <p data-i18n="canary_what">Der Name kommt von den Kanarienvögeln, die Bergleute früher mit in die Kohlebergwerke nahmen. Überlebte der Kanarienvogel, war die Luft sicher. Starb er, gab es giftiges Gas, und man ging nicht hinein. In der Softwarewelt ist die Idee dieselbe: Man führt das neue System kontrolliert ein, verarbeitet zunächst nur einen kleinen Bruchteil des echten Traffics und beobachtet, ob alles gut läuft, bevor man mehr schickt. Geht etwas schief, betrifft es nur diesen Bruchteil, nicht das Ganze.</p>
+
+        <h2 data-i18n="canary_how_heading">Wie wir es gemacht haben</h2>
+        <p data-i18n="canary_how_1">Zuerst paralleles Verarbeiten. Die Bestellungen kamen weiterhin wie gewohnt über das alte System herein, ohne dass es jemand bemerkte. Intern wurden dieselben Bestellungen aber auch an die neue Plattform in AWS geschickt, deren Ergebnis noch für nichts Echtes verwendet wurde. Wir haben nur verglichen: Ist das Ergebnis des neuen Systems identisch mit dem des alten? Stimmten sie überein, bestätigte das, dass das neue System richtig funktionierte.</p>
+        <p data-i18n="canary_how_2">Mit wachsendem Vertrauen begannen wir, echten Traffic umzuleiten, zunächst einen sehr kleinen Prozentsatz, wobei wir bei jedem Schritt mit Grafana und CloudWatch überwachten: Latenz, Fehler, Volumen, Datenkonsistenz. Wich etwas vom Normalzustand ab, konnten wir sofort abbrechen und zum alten System zurückkehren, ohne dass es jemand bemerkte.</p>
+        <p data-i18n="canary_how_3">Als das neue System bereits eine Weile lang echten Traffic problemlos verarbeitet hatte, gaben wir dem Partner einen neuen Endpunkt, der direkt auf die Cloud-Plattform zeigte. Und als alle Partner migriert waren, schalteten wir das alte System kontrolliert ab, nachdem wir geprüft hatten, dass kein Restfluss mehr davon abhing.</p>
+
+        <h2 data-i18n="canary_problem_heading">Das Problem, das wir nicht vorhergesehen hatten</h2>
+        <p data-i18n="canary_problem_1">Hier wird die Geschichte erst richtig interessant. Als die Migration schon weit fortgeschritten war, tauchten Fehler bei der Verarbeitung von Retouren auf. Die Ursache: Ein Kunde gab ein Produkt zurück, das er Wochen oder Monate zuvor gekauft hatte, als die ursprüngliche Bestellung noch vom alten System verarbeitet worden war, mit einem anderen Datenmodell als dem neuen. Das neue System versuchte, eine Retoure zu einer Bestellung zu verarbeiten, die es nicht verstand, weil die Felder nicht übereinstimmten.</p>
+        <p data-i18n="canary_problem_2">Wir bauten eine temporäre Logik in den Retouren-Microservice ein, die erkennen konnte, in welchem Format die ursprüngliche Bestellung vorlag, und sie je nach Fall passend verarbeitete, indem sie quasi beide Sprachen gleichzeitig sprach. Wochenlang beobachteten wir, wie viele Legacy-Fälle noch eintrafen. Am Anfang waren es viele, alle alten Bestellungen, die noch innerhalb der Rückgabefrist lagen. Mit der Zeit nahmen sie ab, weil die neuen Bestellungen bereits mit dem richtigen Modell verarbeitet wurden. Als keine Legacy-Fälle mehr eintrafen, entfernten wir die duale Kompatibilitätslogik. Das System blieb sauber zurück, mit einem einzigen Datenmodell, ohne unnötigen temporären Code.</p>
+
+        <h2 data-i18n="canary_learned_heading">Was ich gelernt habe</h2>
+        <p data-i18n="canary_learned_1">Bei einer Migration ist temporäre Kompatibilität notwendig, aber gefährlich. Lässt man sie für immer bestehen, füllt sich das System überall mit bedingten Verzweigungen und wird unwartbar. Man muss von Anfang an planen, wann und wie man sie wieder entfernt. Die Migration endet nicht, wenn das neue System funktioniert, sie endet, wenn das alte System vollständig abgeschaltet und das neue sauber ist.</p>
+        <p data-i18n="canary_learned_2">Und eine zweite, allgemeinere Lektion: Testdaten spiegeln nie die ganze Komplexität der Produktion wider. Seitdem frage ich bei jeder Migration immer, ob wir mit anonymisierten echten Daten getestet haben und ob wir die Edge Cases des alten Systems berücksichtigt haben, nicht nur den Idealfall.</p>
+
+        <h2 data-i18n="canary_result_heading">Ergebnis</h2>
+        <p data-i18n="canary_result">Null Downtime während der gesamten Migration. Null verlorene Bestellungen. Altes System kontrolliert abgeschaltet, und neues System läuft sauber in AWS, ohne temporären Restcode.</p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_blog">← Zurück zum Blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

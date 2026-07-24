@@ -77,12 +77,26 @@
         Persönliche Notizen zu KI, Cloud-Architektur und den Prototypen von KettenKI, in chronologischer Reihenfolge.
       </p>
 
-      <!-- Blog list: leer bis zum ersten Beitrag. Neue Einträge oben in .blog-list einfügen. -->
+      <div class="blog-filters fade-in">
+        <button class="blog-filter-btn active" data-filter="all" data-i18n="blog_filter_all">Alle</button>
+        <button class="blog-filter-btn" data-filter="ai" data-i18n="blog_filter_ai">KI</button>
+        <button class="blog-filter-btn" data-filter="observability" data-i18n="blog_filter_observability">Observability</button>
+        <button class="blog-filter-btn" data-filter="java-architecture" data-i18n="blog_filter_java_architecture">Java & Architektur</button>
+        <button class="blog-filter-btn" data-filter="exploration" data-i18n="blog_filter_exploration">Exploration</button>
+      </div>
+
+      <!-- Blog list: neue Einträge oben einfügen (chronologisch, neueste zuerst). -->
       <div class="blog-list">
-        <div class="blog-empty-state fade-in">
-          <h2 data-i18n="blog_empty_title">Noch keine Beiträge</h2>
-          <p data-i18n="blog_empty_text">Der erste Beitrag ist in Arbeit. Schau bald wieder vorbei.</p>
-        </div>
+        <a href="canary-migration-mango" class="blog-entry fade-in" data-tags="java-architecture">
+          <div class="blog-entry-header">
+            <h2 class="blog-entry-title" data-i18n="canary_title">Migration ohne Downtime: die Canary-Strategie, die wir genutzt haben</h2>
+            <span class="blog-entry-date" data-i18n="canary_date">24. Juli 2026</span>
+          </div>
+          <p class="blog-entry-summary" data-i18n="canary_summary">Wie wir Millionen von Bestellungen ohne Downtime von einem Legacy-System auf eine neue AWS-Architektur migriert haben, und welchen unerwarteten Edge Case wir bei den Retouren gefunden haben.</p>
+          <div class="blog-tags">
+            <span class="tech-badge" data-i18n="blog_filter_java_architecture">Java & Architektur</span>
+          </div>
+        </a>
       </div>
     </section>
   </main>
@@ -102,5 +116,6 @@
   <!-- Scripts -->
   <script src="../js/translations.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/blog-filter.js"></script>
 </body>
 </html>

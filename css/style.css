@@ -1689,6 +1689,71 @@ img.portfolio-thumbnail-placeholder {
   border-radius: 12px;
 }
 
+/* Tag filter, same pill/active pattern as the DE/EN language switcher
+   (.lang-option), just applied to a filter-by-tag button group instead. */
+.blog-filters {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.blog-filter-btn {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium);
+  font-family: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.blog-filter-btn:hover {
+  border-color: var(--color-accent-start);
+  color: var(--color-text);
+}
+
+.blog-filter-btn.active {
+  background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
+  border-color: transparent;
+  color: var(--color-bg);
+}
+
+/* Individual post, free-form body per SPEC 6.3 (no fixed ficha structure) */
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-post-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: var(--spacing-xs);
+}
+
+.blog-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  align-items: center;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.blog-post h2 {
+  font-size: 1.5rem;
+  margin-top: var(--spacing-lg);
+}
+
+.blog-post p {
+  line-height: 1.8;
+}
+
 /* ============================================
    ABOUT -> PORTFOLIO CALLOUT
    ============================================ */
