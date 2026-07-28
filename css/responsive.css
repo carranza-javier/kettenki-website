@@ -114,10 +114,24 @@
     grid-template-columns: 1fr;
   }
 
-  /* Avatar stacks above the intro text instead of sitting beside it */
+  /* Blog/portfolio index header: title (and description, if present)
+     centered on mobile instead of left-aligned */
+  .pb-header-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pb-header-title,
+  .pb-header-desc {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  /* Avatar stacks above the intro text instead of sitting beside it,
+     and centers instead of sitting flush left */
   .portfolio-intro-row {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .portfolio-intro-text {
