@@ -1922,3 +1922,15 @@ body.theme-light .portfolio-thumbnail-placeholder--laguitarrita {
   color: #c0634a;
 }
 
+/* Blog only (not portfolio/): post titles and article body copy read in
+   Lora (serif), everything else in blog/ (meta, filters, nav/header)
+   stays Inter. Needs body.theme-light-prefixed selectors to outrank the
+   theme's own font-family rule above (higher specificity: two classes
+   vs. one). */
+body.theme-light .blog-entry-title,
+body.theme-light .blog-post-title,
+body.theme-light .blog-post p:not(.blog-post-subtitle),
+body.theme-light .blog-post li {
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+}
+
