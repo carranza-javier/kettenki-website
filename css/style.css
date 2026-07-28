@@ -1679,9 +1679,12 @@ img.portfolio-thumbnail-placeholder {
 }
 
 /* No card box: entries are separated by a divider + generous vertical
-   space instead of a bordered/shaded surface (editorial list, not tiles) */
+   space instead of a bordered/shaded surface (editorial list, not tiles).
+   Flex row so the thumbnail sits beside the title/summary/meta column. */
 .blog-entry {
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
   padding: var(--spacing-md) 0;
   border-bottom: 1px solid var(--color-border);
   transition: opacity var(--transition-fast);
@@ -1709,12 +1712,17 @@ img.portfolio-thumbnail-placeholder {
 
 .blog-entry-title {
   font-size: 1.1875rem;
+  font-weight: var(--font-weight-medium);
   margin-bottom: 0.35rem;
 }
 
-/* Most recent post (first in the list) reads larger than the rest */
-.blog-list .blog-entry:first-child .blog-entry-title {
-  font-size: 1.625rem;
+.blog-entry-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-entry-title a:hover {
+  text-decoration: underline;
 }
 
 .blog-entry-summary {
@@ -1724,8 +1732,44 @@ img.portfolio-thumbnail-placeholder {
   margin: 0;
 }
 
-.blog-list .blog-entry:first-child .blog-entry-summary {
-  font-size: 0.9375rem;
+.blog-entry-readmore {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent-start);
+  white-space: nowrap;
+}
+
+.blog-entry-readmore:hover {
+  color: var(--color-accent-end);
+}
+
+.blog-entry-thumb {
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+}
+
+.blog-entry-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.blog-thumb-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.blog-thumb-svg circle,
+.blog-thumb-svg line,
+.blog-thumb-svg rect,
+.blog-thumb-svg path {
+  fill: none;
+  stroke: var(--color-text-secondary);
+  stroke-width: 1.5;
+  stroke-linecap: round;
 }
 
 .blog-empty-state {
@@ -1878,12 +1922,14 @@ body.theme-light {
    darkening to stay legible. Borders/backgrounds keep the shared accent
    since those only need to be visible, not pass text-contrast ratios. */
 body.theme-light .repo-link,
-body.theme-light .portfolio-card-link {
+body.theme-light .portfolio-card-link,
+body.theme-light .blog-entry-readmore {
   color: #0077a6;
 }
 
 body.theme-light .repo-link:hover,
-body.theme-light .portfolio-card-link:hover {
+body.theme-light .portfolio-card-link:hover,
+body.theme-light .blog-entry-readmore:hover {
   color: #00915c;
 }
 

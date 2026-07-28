@@ -103,6 +103,7 @@ const translations = {
     cta_view_live_site: 'Live-Website ansehen',
     cta_back_to_portfolio: '← Zurück zum Portfolio',
     cta_back_to_blog: '← Zurück zum Blog',
+    cta_read_more: 'Weiterlesen →',
 
     label_context: 'Kontext',
     label_walkthrough: 'Rundgang durch die Anwendung',
@@ -419,6 +420,7 @@ const translations = {
     cta_view_live_site: 'View live site',
     cta_back_to_portfolio: '← Back to portfolio',
     cta_back_to_blog: '← Back to blog',
+    cta_read_more: 'Read more →',
 
     label_context: 'Context',
     label_walkthrough: 'Application walkthrough',

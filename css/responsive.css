@@ -172,9 +172,14 @@
   h1 {
     font-size: 2rem;
   }
-  
+
   h2 {
     font-size: 1.75rem;
+  }
+
+  /* Thumbnails hidden on very narrow screens rather than squeezed in */
+  .blog-entry-thumb {
+    display: none;
   }
   
   h3 {

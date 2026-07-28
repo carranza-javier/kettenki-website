@@ -85,20 +85,38 @@
 
       <!-- Blog list: neue Einträge oben einfügen (chronologisch, neueste zuerst). -->
       <div class="blog-list">
-        <a href="clean-code" class="blog-entry fade-in" data-tags="software-engineering">
-          <div class="blog-entry-meta">
-            <span data-i18n="cleancode_date">28. Juli 2026</span> · <span data-i18n="blog_filter_software_engineering">Software Engineering</span> · <span>3 min</span>
+        <article class="blog-entry fade-in" data-tags="software-engineering">
+          <div class="blog-entry-thumb" aria-hidden="true">
+            <svg class="blog-thumb-svg" viewBox="0 0 88 88" width="88" height="88">
+              <circle cx="34" cy="34" r="22"></circle>
+              <circle cx="56" cy="56" r="12"></circle>
+              <line x1="16" y1="72" x2="68" y2="72"></line>
+            </svg>
           </div>
-          <h2 class="blog-entry-title" data-i18n="cleancode_title">Clean Code: der nächste Programmierer könntest du sein</h2>
-          <p class="blog-entry-summary" data-i18n="cleancode_summary">Eine persönliche Reflexion über Clean Code: warum ständige Grundsatzdebatten weniger bringen als tägliche Mikroverbesserungen, inspiriert von Kent Becks "Tidy First?" und einer Wanderweg-Analogie.</p>
-        </a>
-        <a href="canary-migration-mango" class="blog-entry fade-in" data-tags="java-architecture">
-          <div class="blog-entry-meta">
-            <span data-i18n="canary_date">24. Juli 2026</span> · <span data-i18n="blog_filter_java_architecture">Java & Architektur</span> · <span>4 min</span>
+          <div class="blog-entry-body">
+            <div class="blog-entry-meta">
+              <span data-i18n="cleancode_date">28. Juli 2026</span> · <span data-i18n="blog_filter_software_engineering">Software Engineering</span> · <span>3 min</span>
+            </div>
+            <h2 class="blog-entry-title"><a href="clean-code" data-i18n="cleancode_title">Clean Code: der nächste Programmierer könntest du sein</a></h2>
+            <p class="blog-entry-summary"><span data-i18n="cleancode_summary">Eine persönliche Reflexion über Clean Code: warum ständige Grundsatzdebatten weniger bringen als tägliche Mikroverbesserungen, inspiriert von Kent Becks "Tidy First?" und einer Wanderweg-Analogie.</span> <a class="blog-entry-readmore" href="clean-code" data-i18n="cta_read_more">Weiterlesen →</a></p>
           </div>
-          <h2 class="blog-entry-title" data-i18n="canary_title">Migration ohne Downtime: die Canary-Strategie, die wir genutzt haben</h2>
-          <p class="blog-entry-summary" data-i18n="canary_summary">Wie wir Millionen von Bestellungen ohne Downtime von einem Legacy-System auf eine neue AWS-Architektur migriert haben, und welchen unerwarteten Edge Case wir bei den Retouren gefunden haben.</p>
-        </a>
+        </article>
+        <article class="blog-entry fade-in" data-tags="java-architecture">
+          <div class="blog-entry-thumb" aria-hidden="true">
+            <svg class="blog-thumb-svg" viewBox="0 0 88 88" width="88" height="88">
+              <rect x="14" y="14" width="18" height="18"></rect>
+              <rect x="56" y="56" width="18" height="18"></rect>
+              <line x1="32" y1="24" x2="62" y2="60"></line>
+            </svg>
+          </div>
+          <div class="blog-entry-body">
+            <div class="blog-entry-meta">
+              <span data-i18n="canary_date">24. Juli 2026</span> · <span data-i18n="blog_filter_java_architecture">Java & Architektur</span> · <span>4 min</span>
+            </div>
+            <h2 class="blog-entry-title"><a href="canary-migration-mango" data-i18n="canary_title">Migration ohne Downtime: die Canary-Strategie, die wir genutzt haben</a></h2>
+            <p class="blog-entry-summary"><span data-i18n="canary_summary">Wie wir Millionen von Bestellungen ohne Downtime von einem Legacy-System auf eine neue AWS-Architektur migriert haben, und welchen unerwarteten Edge Case wir bei den Retouren gefunden haben.</span> <a class="blog-entry-readmore" href="canary-migration-mango" data-i18n="cta_read_more">Weiterlesen →</a></p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
