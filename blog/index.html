@@ -70,43 +70,33 @@
   <!-- Main Content -->
   <main>
     <section class="container">
-      <h1 class="section-title fade-in" data-i18n="blog_title">Blog</h1>
-      <p class="section-subtitle fade-in" data-i18n="blog_subtitle">Was ich baue, lerne und debugge</p>
-
-      <p class="blog-intro fade-in" data-i18n="blog_intro">
-        Persönliche Notizen zu KI, Cloud-Architektur und den Prototypen von KettenKI, in chronologischer Reihenfolge.
-      </p>
-
-      <div class="blog-filters fade-in">
-        <button class="blog-filter-btn active" data-filter="all" data-i18n="blog_filter_all">Alle</button>
-        <button class="blog-filter-btn" data-filter="ai" data-i18n="blog_filter_ai">KI</button>
-        <button class="blog-filter-btn" data-filter="observability" data-i18n="blog_filter_observability">Observability</button>
-        <button class="blog-filter-btn" data-filter="java-architecture" data-i18n="blog_filter_java_architecture">Java & Architektur</button>
-        <button class="blog-filter-btn" data-filter="exploration" data-i18n="blog_filter_exploration">Exploration</button>
-        <button class="blog-filter-btn" data-filter="software-engineering" data-i18n="blog_filter_software_engineering">Software Engineering</button>
+      <div class="pb-header fade-in">
+        <div class="pb-header-row">
+          <h1 class="pb-header-title" data-i18n="blog_title">Blog</h1>
+          <p class="pb-header-desc" data-i18n="blog_subtitle">Was ich baue, lerne und debugge</p>
+        </div>
+        <div class="pb-header-divider"></div>
       </div>
+
+      <!-- Filter-Links werden von js/blog-filter.js aus den vorhandenen
+           Posts generiert (nur Tags mit mindestens einem Post). -->
+      <div class="blog-filters fade-in"></div>
 
       <!-- Blog list: neue Einträge oben einfügen (chronologisch, neueste zuerst). -->
       <div class="blog-list">
         <a href="clean-code" class="blog-entry fade-in" data-tags="software-engineering">
-          <div class="blog-entry-header">
-            <h2 class="blog-entry-title" data-i18n="cleancode_title">Clean Code: der nächste Programmierer könntest du sein</h2>
-            <span class="blog-entry-date" data-i18n="cleancode_date">28. Juli 2026</span>
+          <div class="blog-entry-meta">
+            <span data-i18n="cleancode_date">28. Juli 2026</span> · <span data-i18n="blog_filter_software_engineering">Software Engineering</span> · <span>3 min</span>
           </div>
+          <h2 class="blog-entry-title" data-i18n="cleancode_title">Clean Code: der nächste Programmierer könntest du sein</h2>
           <p class="blog-entry-summary" data-i18n="cleancode_summary">Eine persönliche Reflexion über Clean Code: warum ständige Grundsatzdebatten weniger bringen als tägliche Mikroverbesserungen, inspiriert von Kent Becks "Tidy First?" und einer Wanderweg-Analogie.</p>
-          <div class="blog-tags">
-            <span class="tech-badge" data-i18n="blog_filter_software_engineering">Software Engineering</span>
-          </div>
         </a>
         <a href="canary-migration-mango" class="blog-entry fade-in" data-tags="java-architecture">
-          <div class="blog-entry-header">
-            <h2 class="blog-entry-title" data-i18n="canary_title">Migration ohne Downtime: die Canary-Strategie, die wir genutzt haben</h2>
-            <span class="blog-entry-date" data-i18n="canary_date">24. Juli 2026</span>
+          <div class="blog-entry-meta">
+            <span data-i18n="canary_date">24. Juli 2026</span> · <span data-i18n="blog_filter_java_architecture">Java & Architektur</span> · <span>4 min</span>
           </div>
+          <h2 class="blog-entry-title" data-i18n="canary_title">Migration ohne Downtime: die Canary-Strategie, die wir genutzt haben</h2>
           <p class="blog-entry-summary" data-i18n="canary_summary">Wie wir Millionen von Bestellungen ohne Downtime von einem Legacy-System auf eine neue AWS-Architektur migriert haben, und welchen unerwarteten Edge Case wir bei den Retouren gefunden haben.</p>
-          <div class="blog-tags">
-            <span class="tech-badge" data-i18n="blog_filter_java_architecture">Java & Architektur</span>
-          </div>
         </a>
       </div>
     </section>

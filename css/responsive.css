@@ -113,6 +113,16 @@
   .portfolio-gallery {
     grid-template-columns: 1fr;
   }
+
+  /* Avatar stacks above the intro text instead of sitting beside it */
+  .portfolio-intro-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .portfolio-intro-text {
+    max-width: 100%;
+  }
   
   .product-card:nth-child(3) {
     grid-column: auto;

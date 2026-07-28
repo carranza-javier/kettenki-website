@@ -1138,15 +1138,52 @@ footer p {
 }
 
 /* ============================================
+   PORTFOLIO & BLOG - COMPRESSED INDEX HEADER
+   Shared by portfolio/index.html and blog/index.html only. Deliberately
+   separate from .section-title/.section-subtitle (shared with
+   about.html/services.html/contact.html), so those pages stay untouched.
+   ============================================ */
+
+.pb-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.pb-header-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+}
+
+.pb-header-title {
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0;
+  color: var(--color-text);
+}
+
+.pb-header-desc {
+  margin-left: auto;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.pb-header-divider {
+  border-bottom: 1px solid var(--color-border);
+  margin-top: 0.75rem;
+}
+
+/* ============================================
    PORTFOLIO
    ============================================ */
 
 /* Profile morph avatar (portfolio/index.html only, SPEC.md 5.1.1) */
 .profile-morph-wrap {
   position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto var(--spacing-lg);
+  width: 104px;
+  height: 104px;
+  flex-shrink: 0;
 }
 
 /* Discoverability affordance: a soft glow that pulses outward a few
@@ -1175,8 +1212,8 @@ footer p {
 }
 
 .profile-morph {
-  width: 150px;
-  height: 150px;
+  width: 104px;
+  height: 104px;
   position: relative;
   cursor: pointer;
   background: var(--color-surface);
@@ -1204,20 +1241,36 @@ footer p {
   opacity: 1;
 }
 
-.portfolio-intro {
-  max-width: 800px;
-  margin: 0 auto var(--spacing-lg);
-  text-align: center;
-  font-size: 1.1rem;
-  line-height: 1.8;
+/* Avatar + intro text row, replaces the old centered avatar/paragraphs
+   (SPEC.md 5.1) */
+.portfolio-intro-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.portfolio-intro-text {
+  max-width: 46ch;
+}
+
+.portfolio-intro-line1 {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 0.35rem;
+}
+
+.portfolio-intro-line2 {
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
+  margin-bottom: 0;
 }
 
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-sm);
 }
 
 .portfolio-card {
@@ -1620,63 +1673,59 @@ img.portfolio-thumbnail-placeholder {
    BLOG
    ============================================ */
 
-.blog-intro {
-  max-width: 800px;
-  margin: 0 auto var(--spacing-lg);
-  text-align: center;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-}
-
 .blog-list {
   max-width: 800px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
 }
 
+/* No card box: entries are separated by a divider + generous vertical
+   space instead of a bordered/shaded surface (editorial list, not tiles) */
 .blog-entry {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: var(--spacing-md);
-  transition: all var(--transition-normal);
+  display: block;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: opacity var(--transition-fast);
+}
+
+.blog-list .blog-entry:first-child {
+  padding-top: 0;
+}
+
+.blog-list .blog-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .blog-entry:hover {
-  transform: translateY(-3px);
-  border-color: var(--color-accent-start);
+  opacity: 0.75;
 }
 
-.blog-entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--spacing-sm);
-  flex-wrap: wrap;
+.blog-entry-meta {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
 }
 
 .blog-entry-title {
-  font-size: 1.3rem;
+  font-size: 1.1875rem;
+  margin-bottom: 0.35rem;
 }
 
-.blog-entry-date {
-  font-size: 0.85rem;
-  color: var(--color-text-secondary);
-  white-space: nowrap;
+/* Most recent post (first in the list) reads larger than the rest */
+.blog-list .blog-entry:first-child .blog-entry-title {
+  font-size: 1.625rem;
 }
 
 .blog-entry-summary {
+  font-size: 0.875rem;
+  max-width: 55ch;
   color: var(--color-text-secondary);
-  margin: var(--spacing-sm) 0;
+  margin: 0;
 }
 
-.blog-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+.blog-list .blog-entry:first-child .blog-entry-summary {
+  font-size: 0.9375rem;
 }
 
 .blog-empty-state {
@@ -1689,39 +1738,41 @@ img.portfolio-thumbnail-placeholder {
   border-radius: 12px;
 }
 
-/* Tag filter, same pill/active pattern as the DE/EN language switcher
-   (.lang-option), just applied to a filter-by-tag button group instead. */
+/* Tag filter as plain text links (not pill buttons): only tags with at
+   least one published post are rendered here, built at runtime by
+   js/blog-filter.js from the posts themselves. */
 .blog-filters {
   max-width: 800px;
-  margin: 0 auto var(--spacing-lg);
+  margin: 0 auto var(--spacing-md);
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
+  gap: 0.4rem 1rem;
 }
 
 .blog-filter-btn {
-  padding: 0.4rem 0.9rem;
-  font-size: 0.85rem;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8125rem;
   font-weight: var(--font-weight-medium);
   font-family: inherit;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
+  border: none;
+  border-radius: 0;
   cursor: pointer;
-  transition: all var(--transition-fast);
-  background: transparent;
+  transition: color var(--transition-fast);
+  background: none;
   color: var(--color-text-secondary);
 }
 
 .blog-filter-btn:hover {
-  border-color: var(--color-accent-start);
   color: var(--color-text);
 }
 
 .blog-filter-btn.active {
-  background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
-  border-color: transparent;
-  color: var(--color-bg);
+  background: none;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 /* Individual post, free-form body per SPEC 6.3 (no fixed ficha structure) */

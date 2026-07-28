@@ -263,7 +263,6 @@ const translations = {
 
     blog_title: 'Blog',
     blog_subtitle: 'Was ich baue, lerne und debugge',
-    blog_intro: 'Persönliche Notizen zu KI, Cloud-Architektur und den Prototypen von KettenKI, in chronologischer Reihenfolge.',
     blog_filter_all: 'Alle',
     blog_filter_ai: 'KI',
     blog_filter_observability: 'Observability',
@@ -580,7 +579,6 @@ const translations = {
 
     blog_title: 'Blog',
     blog_subtitle: 'What I build, learn and debug',
-    blog_intro: 'Personal notes on AI, cloud architecture and the KettenKI prototypes, in chronological order.',
     blog_filter_all: 'All',
     blog_filter_ai: 'AI',
     blog_filter_observability: 'Observability',
