@@ -1735,6 +1735,14 @@ img.portfolio-thumbnail-placeholder {
   margin-bottom: var(--spacing-xs);
 }
 
+.blog-post-subtitle {
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
 .blog-post-meta {
   display: flex;
   flex-wrap: wrap;
@@ -1752,6 +1760,16 @@ img.portfolio-thumbnail-placeholder {
 
 .blog-post p {
   line-height: 1.8;
+}
+
+.blog-post ol {
+  padding-left: 1.4rem;
+  margin: var(--spacing-md) 0;
+}
+
+.blog-post li {
+  line-height: 1.8;
+  margin-bottom: var(--spacing-sm);
 }
 
 /* ============================================

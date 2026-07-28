@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Clean Code: der nächste Programmierer könntest du sein - Blog | KettenKI</title>
+  <meta name="description" content="Eine persönliche Reflexion über Clean Code: warum ständige Grundsatzdebatten weniger bringen als tägliche Mikroverbesserungen, inspiriert von Kent Becks 'Tidy First?' und einer Wanderweg-Analogie.">
+  <meta name="keywords" content="Clean Code, Tidy First, Kent Beck, Software Engineering, Refactoring, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/blog/clean-code">
+  <meta property="og:title" content="Clean Code: der nächste Programmierer könntest du sein - Blog | KettenKI">
+
+  <link rel="canonical" href="https://kettenki.com/blog/clean-code">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/blog/clean-code">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/blog/clean-code">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container blog-post">
+      <div class="blog-post-header fade-in">
+        <h1 class="blog-post-title" data-i18n="cleancode_title">Clean Code: der nächste Programmierer könntest du sein</h1>
+        <p class="blog-post-subtitle">
+          <span data-i18n="cleancode_subtitle_1">Sauberer Code minimiert die kognitive Last für den nächsten Programmierer.</span><br>
+          <span data-i18n="cleancode_subtitle_2">Und dieser nächste Programmierer... könntest du sein ;)</span>
+        </p>
+        <div class="blog-post-meta">
+          <span data-i18n="cleancode_date">28. Juli 2026</span>
+          <span class="tech-badge" data-i18n="blog_filter_software_engineering">Software Engineering</span>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <p data-i18n="cleancode_p1">Über die Jahre habe ich immer wieder Debatten über Clean Code gehört und selbst daran teilgenommen. Klare Namen, einfaches Design, kleine Funktionen, wenige Verantwortlichkeiten und so weiter. Aber wie wenden wir diese Ideen eigentlich in unserem Alltag wirklich an?</p>
+
+        <p data-i18n="cleancode_p2">Es gibt viele gute Praktiken, die wir als Programmierer alle im Hinterkopf behalten sollten. Schon allein sie hin und wieder zu wiederholen, finde ich grundlegend, um sich daran zu erinnern, was wir tun und vor allem warum wir es tun. Ich finde es auch interessant zu beobachten, wie sich diese Ideen weiterentwickeln und welche Ansätze uns als Community, und natürlich in einem Unternehmensumfeld als Team, weiterhelfen können.</p>
+
+        <p><span data-i18n="cleancode_p3_pre">Besonders interessant finde ich zum Beispiel die praktische Philosophie, die Kent Beck in seinem Buch </span><em>Tidy First?</em><span data-i18n="cleancode_p3_post"> entwickelt. Nicht weil es eine neue Liste von Clean-Code-Regeln aufstellt, sondern weil es den Fokus auf etwas legt, das ich für grundlegend halte: den Code kontinuierlich zu verbessern, mit kleinen Schritten, die Teil der täglichen Arbeit sind.</span></p>
+
+        <p data-i18n="cleancode_list_intro">Einige Ideen, die ich besonders nützlich finde:</p>
+
+        <ol>
+          <li data-i18n="cleancode_list_1">Alltägliche Mikrokorrekturen: eine verwirrende Variable umbenennen, toten Code entfernen oder einen kleinen Teil des Designs verbessern. Kleine Handlungen, die sich mit der Zeit summieren und verhindern, dass die Komplexität unkontrolliert wächst.</li>
+          <li data-i18n="cleancode_list_2">Bevor du den Code änderst, räum ihn auf: Wenn wir eine neue Funktionalität hinzufügen wollen, macht es das Vorbereiten des Terrains vorher viel einfacher, die neue Logik zu schreiben.</li>
+          <li data-i18n="cleancode_list_3">Mach nicht jede Refaktorierung zu einem großen Projekt: Hör nicht auf, dem Kunden Mehrwert zu liefern, nur um eine komplette Bereinigung des Systems anzugehen. Der Code kann sich organisch nebenbei verbessern, eingebettet in den täglichen Arbeitsfluss.</li>
+        </ol>
+
+        <p data-i18n="cleancode_p4">Ich erinnere mich, dass sowohl Kollegen als auch ich selbst schon einmal in die Falle getappt sind, monatelang an der Refaktorierung eines Monsters zu arbeiten. Das Ergebnis ist meist eine Mischung aus Erschöpfung, Frustration und einem merkwürdigen Gefühl der Verantwortung für etwas, das eigentlich dem ganzen Team gehört.</p>
+
+        <p data-i18n="cleancode_p5">Übernimmt außerdem eine einzelne Person diese Aufgabe, wird sie unbemerkt zur "verantwortlichen Person" für diesen Teil des Systems. Ihr Name taucht bei allen wichtigen Änderungen auf, und wenn etwas passiert, richten sich die Blicke leicht auf sie.</p>
+
+        <p data-i18n="cleancode_p6">Aus Erfahrungen lernt man.</p>
+
+        <p data-i18n="cleancode_p7">Wie schon gesagt, gibt es unzählige gute Clean-Code-Praktiken im Internet. Heutzutage kannst du sogar mit verschiedenen LLMs darüber diskutieren und dir Informationen liefern lassen, die auf deine Interessen zugeschnitten sind. Deshalb glaube ich nicht, dass es sich lohnt, dieselbe Liste von Regeln in einem weiteren Blog neu zu schreiben. Das werde ich nicht tun.</p>
+
+        <p data-i18n="cleancode_p8">Lieber bleibe ich bei einer Analogie, die mir als Wanderfreund schon immer sehr bildhaft erschienen ist.</p>
+
+        <p data-i18n="cleancode_p9">Wenn du im Wald einen Pfad anlegst und klare Markierungen hinterlässt, kann die nächste Person ihn gehen, ohne sich zu verirren. Und genauso wie guter Code oft keine Kommentare braucht, weil er sich von selbst erklärt, braucht auch ein guter Pfad nicht alle zwanzig Meter eine Markierung.</p>
+
+        <p data-i18n="cleancode_p10">Das Schöne an dieser Idee ist, dass wir diesen Weg für die hinterlassen, die nach uns kommen: einen Kollegen, jemanden, den wir noch nicht kennen, oder, interessanterweise, uns selbst.</p>
+
+        <p data-i18n="cleancode_p11">Denn oft ist diese nächste Person du selbst, Monate später, wenn du dich nicht mehr an den Weg erinnerst, den du angelegt hast.</p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_blog">← Zurück zum Blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

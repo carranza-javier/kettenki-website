@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-07-24 (Nachbesserungen Canary-Migration-Blog-Post)_
+_Letzte Aktualisierung: 2026-07-28 (Zweiter Blog-Post: Clean Code)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -92,6 +92,11 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   2. **Bild war zu niedrig aufgelöst und pixelte im Lightbox-Zoom**: erste Version war 832×1248px, das Lightbox skaliert aber bis zu 95vw/90vh hoch, wodurch der Text im Diagramm bei größeren Bildschirmen unscharf wurde. Javi hat eine höher aufgelöste Exportversion nachgeliefert (1112×1684px), Datei ausgetauscht. Verifiziert: Darstellung im Lightbox bleibt in typischen Viewports unterhalb der nativen Auflösung (kein Hochskalieren mehr nötig, da die Höhenbegrenzung 90vh meist zuerst greift), Zoom-Screenshot zeigt scharfen Text.
   3. **Sachlich falsche Aussage in `canary_how_3` korrigiert**: der Text behauptete zuvor, der Partner habe einen neuen Endpunkt bekommen, der direkt auf die Cloud-Plattform zeigte, das stimmte nicht. Tatsächlich hat der Partner **nie** den Endpunkt gewechselt: der Router selbst hat intern schrittweise 100% des echten Traffics auf die neue Plattform umgeleitet, für den Partner war der Wechsel komplett unsichtbar. Korrigiert in DE und EN (`js/translations.js`) sowie im deutschen Fallback-Text in `blog/canary-migration-mango.html`.
   - Verifiziert per `python -m http.server` + echter Browser-Interaktion (Chrome, DE und EN über `setLanguage()`, inkl. Hard-Reload, da der lokale Dev-Server `js/translations.js` sonst aus dem Browser-Cache bediente und die Korrektur zunächst nicht sichtbar war): keine Erwähnung mehr, dass der Partner den Endpunkt gewechselt hätte, in keiner Sprache. Lightbox öffnet/schließt korrekt für das neue Bild. Schlüssel-Paritätscheck DE/EN: 271 Keys je Sprache, keine Gedankenstriche im neuen/geänderten Copy.
+- [x] **Zweiter Blog-Post veröffentlicht** (`blog/clean-code.html`), **neuer Tag Software Engineering** (`SPEC.md` 6.2, dort ergänzt): persönliche Reflexion über Clean Code, ausgehend von Kent Becks *Tidy First?* (Mikroanpassungen statt große Refactoring-Projekte) und einer Wanderweg-Analogie als Schluss ("guter Code braucht keine Kommentare, genau wie ein guter Pfad keine Markierung alle zwanzig Meter braucht"). Freies Format nach `SPEC.md` 6.3, kein Diagramm/keine Bilder, dafür eine nummerierte Liste (`<ol>`) für die drei Kernideen, neue CSS-Regeln `.blog-post ol`/`.blog-post li` dafür in `css/style.css` ergänzt (vorher nicht gebraucht, da der erste Post keine Liste hatte).
+  - **Neuer zweizeiliger Untertitel unter dem Titel** (bisher gab es dieses Element auf Blog-Posts noch nicht): neue CSS-Klasse `.blog-post-subtitle` (kursiv, gedämpfte Farbe) in `css/style.css`, HTML-seitig als zwei `<span data-i18n="...">` getrennt durch ein festes `<br>`, da `updateContent()` nur `textContent` setzt und kein HTML parst (ein einzelner Key mit eingebettetem Zeilenumbruch hätte nicht funktioniert). Der ";)" am Ende der zweiten Zeile ist reiner Text, kein Emoji, unverändert in beiden Sprachen übernommen.
+  - Neue `data-i18n`-Keys (`cleancode_*`, plus `blog_filter_software_engineering`) in `js/translations.js`, DE/EN vollständig befüllt.
+  - **`blog/index.html` aktualisiert**: neuer Filter-Button "Software Engineering" (`data-filter="software-engineering"`) am Ende der bestehenden Button-Reihe ergänzt, neuer Eintrag ganz oben in `.blog-list` (chronologisch neuester zuerst, vor dem Canary-Post), `data-tags="software-engineering"`.
+  - Verifiziert per `python -m http.server` + Headless-Chrome (`get_page_text` in DE und EN, `getComputedStyle` für helles Theme/Inter-Schrift, Tag-Filter-Klicks für `software-engineering`/`java-architecture`/`all` programmatisch getestet mit beiden Posts sichtbar/versteckt wie erwartet): kein unübersetzter Text, keine Gedankenstriche/En-Dashes, ";)" korrekt sichtbar in beiden Sprachen, keine Emojis im Copy.
 
 ## Blockiert — wartet auf Input
 
@@ -100,11 +105,11 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
 ## Nächster Schritt
 
 1. **Javi liest die deutsche Fassung von `railtrack_context` in `js/translations.js` gegen** (der literarische Einstieg "Als Liebhaber von Zügen und Schweizer Pünktlichkeit…" — bewusst nicht flach übersetzt, aber noch nicht von Javi freigegeben).
-2. **Alle 5 Portfolio-Fichen sind jetzt vollständig** (die 4 kuratierten aus `SPEC.md` 5.3 plus La Guitarrita). **Der Blog hat jetzt seinen ersten Post** (Canary-Migration, siehe Erledigt) und ist nicht mehr leer; der Tag-Filter ist ebenfalls fertig. Nächster inhaltlicher Block ist der Chatbot (siehe Offen) oder ein zweiter Blog-Post.
+2. **Alle 5 Portfolio-Fichen sind jetzt vollständig** (die 4 kuratierten aus `SPEC.md` 5.3 plus La Guitarrita). **Der Blog hat jetzt zwei Posts** (Canary-Migration und Clean Code, siehe Erledigt); der Tag-Filter deckt beide ab (inkl. neuem Tag Software Engineering). Nächster inhaltlicher Block ist der Chatbot (siehe Offen) oder ein dritter Blog-Post.
 
 ## Offen (noch nicht begonnen)
 
-- [ ] Zweiter Blog-Post, Kandidat: Bambera, Halluzinations-Fix via kontextuelles Routing (`blog/bambera-rag-fix.html`), Tag KI.
+- [ ] Dritter Blog-Post, Kandidat: Bambera, Halluzinations-Fix via kontextuelles Routing (`blog/bambera-rag-fix.html`), Tag KI.
 - [ ] Chatbot: schwebendes Widget mit Katzen-Avatar + `assets/js/chat-mock.js` (Mock-Antworten, Flag `?mock=true` / `localhost`-Erkennung).
 - [ ] Chatbot: System-Prompt eng gefasst nach `SPEC.md` 7.3.
 - [ ] Chatbot: Lambda + Bedrock + Rate Limiting — **erst wenn die UI lokal fertig ist.**
