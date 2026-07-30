@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-07-30 (og:title/og:description seitenweit auf Englisch umgestellt)_
+_Letzte Aktualisierung: 2026-07-30 (og:title-Format + og:image für Blog-Posts, neues Bild im Clean-Code-Artikel)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -128,6 +128,19 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **7 Seiten hatten bisher gar kein `og:description`** (`bambera.html`, `liviana.html`, `fandango.html`, `portfolio/railtrack-manager.html`, `portfolio/spicy-feedback-tool.html`, `portfolio/bambera.html`, `portfolio/mini-midoffice.html`, `portfolio/laguitarrita.html`): dort neu ergänzt (nicht nur übersetzt), auf Englisch, basierend auf dem jeweiligen deutschen `name="description"`-Text der Seite.
   - **Blog-Posts bekommen eigenes og:title/og:description statt generischem Wert** (`blog/clean-code.html`, `blog/canary-migration-mango.html`): Werte 1:1 aus den bereits vorhandenen englischen `cleancode_title`/`cleancode_summary` bzw. `canary_title`/`canary_summary`-Keys in `js/translations.js` übernommen, damit der Preview-Text exakt mit der englischen Version des Posts übereinstimmt statt neu formuliert zu werden.
   - Verifiziert per Quelltext-Grep (`og:title`/`og:description` in allen 16 Dateien) auf allen 16 Seiten inkl. der 4 in der Aufgabe genannten Stichproben (`index.html`, `portfolio/index.html`, `blog/index.html`, `blog/clean-code.html`): alle jetzt auf Englisch, `git diff --stat` bestätigt, dass ausschließlich diese Meta-Zeilen geändert wurden (24 Zeilen hinzugefügt/geändert über 16 Dateien, keine anderen Diffs).
+
+- [x] **og:title-Format der Blog-Posts geändert und og:image ergänzt** (LinkedIn Post Inspector hatte fehlendes `og:image` als Warning gemeldet):
+  - `og:title` in `blog/clean-code.html` und `blog/canary-migration-mango.html` von `"{Post-Titel} - Blog | KettenKI"` auf `"{Post-Titel} | Javier Carranza"` geändert ("Blog" und "KettenKI" am Ende entfernt, auf Javis Wunsch). Der `<title>`-Tag selbst (Browser-Tab, SEO) bleibt unverändert im alten Format, war nicht Teil der Aufgabe.
+  - **`og:image` (plus `og:image:width`/`og:image:height`) neu ergänzt**, vorher auf keiner der beiden Seiten vorhanden, seitenweit die ersten `og:image`-Tags überhaupt:
+    - `blog/clean-code.html` → `blog/img/clean-code/wanderung-cleancode.jpg` (1280×720, über PowerShell/`System.Drawing` gemessen, liegt über der geforderten Mindestgröße 1200×630, keine Anpassung nötig).
+    - `blog/canary-migration-mango.html` → `blog/img/canary-migration/architecture.png` (mangels besserer Alternative, wie in der Aufgabe vorgesehen). **Hinweis:** Dieses Bild ist mit 1112×1684 Hochformat und liegt in der Breite knapp unter der 1200px-Empfehlung, LinkedIn croppt Hochformat-Bilder in der Linkvorschau typischerweise stark. Funktioniert als Übergangslösung, aber ein eigens für den Post erstelltes Querformat-Bild (z. B. 1200×630) wäre die bessere langfristige Lösung, falls Javi das priorisieren möchte.
+  - Verifiziert per Quelltext-Grep beider Dateien (`og:title`/`og:image*`).
+
+- [x] **Bild `wanderung-cleancode.jpg` in den sichtbaren Artikeltext von `blog/clean-code.html` eingebaut** (zusätzlich zum og:image oben, das ist ein separates, rein für Social-Previews genutztes Tag): eingefügt direkt nach dem Analogie-Absatz `cleancode_p8` ("Lieber bleibe ich bei einer Analogie, die mir als Wanderfreund…"), vor `cleancode_p9` (die Erklärung der Wegmarkierungen). Zeigt einen Waldweg mit einem Wegweiser-Schild "CLEAN PATH", die Analogie buchstäblich als Foto.
+  - Wiederverwendet die bereits bestehende Klasse `.context-hero-img` (`css/style.css`, ursprünglich für das Hero-Bild bei La Guitarrita eingeführt): volle Spaltenbreite, abgerundete Ecken, Rahmen, kein Lightbox-Bedarf für ein einzelnes freistehendes Bild. Kein neuer CSS-Code nötig.
+  - Neuer `data-i18n-alt`-Key `cleancode_alt_wanderung` in `js/translations.js`, **DE und EN** befüllt, gleiches Muster wie bei allen bestehenden Portfolio-Bildern (`railtrack_alt_*`, `spicy_alt_*`, etc.). **Bewusst kein Spanisch ergänzt**, obwohl die Aufgabenstellung "ES/DE/EN" nannte: `SPEC.md` 3.1 ist hier eindeutig (die Seite ist nur DE/EN, keine spanische Version), Spanisch bleibt Planungssprache zwischen Javi und Claude, nie Produkttext. Falls das ein Missverständnis war, bitte Bescheid geben.
+  - Verifiziert per `python -m http.server` + echter Chrome-Interaktion (Screenshot in DE, danach Sprachumschalter auf EN geklickt, `img.alt` per JS ausgelesen): Bild sitzt an der vorgesehenen Stelle, gute Größe (volle Textspalte, ca. 660px Höhe im Screenshot), Alt-Text wechselt korrekt zwischen DE ("Ein markierter Wanderweg durch den Wald...") und EN ("A marked hiking trail through the forest..."). Schlüssel-Paritätscheck DE/EN nach dem neuen Key: 294 Keys je Sprache, keine fehlt in einer der beiden.
+  - **LinkedIn Post Inspector selbst noch nicht getestet** (das geht laut Aufgabe erst nach dem Deploy nach Produktion, hier nur lokal verifiziert).
 
 ## Blockiert — wartet auf Input
 
