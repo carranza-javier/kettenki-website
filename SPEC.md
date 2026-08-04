@@ -140,7 +140,7 @@ Basado en investigación de mejores prácticas 2026: 3-6 proyectos curados super
 
 1. **RailTrack Manager**, proyecto propio, repo público, capturas. Máxima evidencia verificable. ✅ Completado.
 2. **Spicy Feedback Tool** (spicy-kunstraum.ch), caso real: herramienta de feedback para galería de arte (Kunstraum), cliente real, en producción. ✅ Completado.
-3. **Bambera**, no es un prototipo: está en producción real en Lumis. Caso más fuerte de "IA aplicada de verdad". Pendiente.
+3. **Bambera**, prototipo propio de RAG, probado durante tres meses con el equipo de Lumis Kaffeebar. Caso más fuerte de "IA aplicada de verdad", con resultados medidos (batería de 100 prompts). No afirmar que esté en producción activa ni en uso diario. ✅ Completado.
 4. **mini-midoffice**, repo propio, migración Spring 5→6 documentada y tageada en Git (preparado en contexto Umbrella AG). Pendiente.
 5. *(Opcional, añadir solo si hay tiempo/valor)* Fandango, complementa a Bambera. SBB/TIP2, sin repo propio, mejor tratado como post de blog (reflexión de arquitectura) que como ficha de portfolio.
 

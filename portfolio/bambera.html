@@ -65,16 +65,15 @@
     <section class="container product-detail">
       <div class="product-hero fade-in">
         <div class="type-badges">
-          <span class="type-badge type-badge--client" data-i18n="portfolio_type_client">🤝 Kundenprojekt</span>
-          <span class="type-badge type-badge--production" data-i18n="portfolio_type_production">🚀 In Produktion</span>
+          <span class="type-badge type-badge--own" data-i18n="portfolio_type_own">🎓 Eigenes Projekt</span>
         </div>
         <h1 class="product-title">Bambera</h1>
-        <p class="product-subtitle" data-i18n="bamberapf_tagline">RAG-Assistentin, die in unter 4 Sekunden antwortet, im echten Einsatz bei Lumis Kaffeebar</p>
+        <p class="product-subtitle" data-i18n="bamberapf_tagline">RAG-Assistentin, die in unter 4 Sekunden antwortet, als Prototyp bei Lumis Kaffeebar getestet</p>
       </div>
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_context">Kontext</h2>
-        <p data-i18n="bamberapf_context">Vor Bambera bedeutete jede Unklarheit während des Service (Enthält dieser Kuchen Nüsse? Wie macht man einen Hugo?), anzuhalten, zum gedruckten Handbuch zu greifen, das Inhaltsverzeichnis zu durchsuchen, die richtige Seite zu finden, während der Gast vor der Theke wartete und die Schlange dahinter wuchs. Bambera ersetzt dieses Buch: Es antwortet in unter 4 Sekunden, in der Sprache der Frage (Deutsch, Englisch, Französisch oder Spanisch), mit null Halluzinationen bei sicherheitskritischen Themen wie Allergenen. Am meisten genutzt wird es vom neuen Personal, für das Bambera wie ein sofortiges Onboarding funktioniert: Statt ein ganzes Handbuch auswendig lernen zu müssen, bevor man mit Sicherheit bedienen kann, fragt man einfach und bekommt die richtige Antwort sofort. Vor dem Produktivstart haben wir es einen ganzen Monat lang als Prototyp mit dem eigenen Team getestet, seit Februar 2026 ist es im echten Einsatz in der Lumis Kaffeebar (Bern).</p>
+        <p data-i18n="bamberapf_context">Vor Bambera bedeutete jede Unklarheit während des Service (Enthält dieser Kuchen Nüsse? Wie macht man einen Hugo?), anzuhalten, zum gedruckten Handbuch zu greifen, das Inhaltsverzeichnis zu durchsuchen, die richtige Seite zu finden, während der Gast vor der Theke wartete und die Schlange dahinter wuchs. Bambera ersetzt dieses Buch: Es antwortet in unter 4 Sekunden, in der Sprache der Frage (Deutsch, Englisch, Französisch oder Spanisch), mit null Halluzinationen bei sicherheitskritischen Themen wie Allergenen. Am meisten genutzt wurde es vom neuen Personal, für das Bambera wie ein sofortiges Onboarding funktionierte: Statt ein ganzes Handbuch auswendig lernen zu müssen, bevor man mit Sicherheit bedienen kann, fragt man einfach und bekommt die richtige Antwort sofort. Wir haben es drei Monate lang als Prototyp mit dem eigenen Team in der Lumis Kaffeebar (Bern) getestet.</p>
       </div>
 
       <div class="product-section fade-in">
@@ -106,7 +105,7 @@
 
         <div class="screen-walkthrough-item">
           <h3 data-i18n="bamberapf_walkthrough_tablet_title">Im Einsatz</h3>
-          <p data-i18n="bamberapf_walkthrough_tablet">Und so sieht es in der Praxis aus: ein Tablet an der Theke, direkt neben der Kaffeemaschine, mitten im Service befragt.</p>
+          <p data-i18n="bamberapf_walkthrough_tablet">Und so sah es in der Praxis aus: ein Tablet an der Theke, direkt neben der Kaffeemaschine, mitten im Service befragt.</p>
           <img src="img/bambera/bambera-tablet.jpg" alt="Bambera auf einem Tablet an der Theke von Lumis Kaffeebar" data-i18n-alt="bamberapf_alt_tablet">
         </div>
       </div>
@@ -163,12 +162,12 @@
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
-        <p data-i18n="bamberapf_challenge">Die erste Version nutzte ein Keyword-basiertes Routing-System, um zu entscheiden, welche Abschnitte der Wissensbasis je nach Frage an das Modell geschickt werden. Auf dem Papier klang das vernünftig, aber in Produktion erzeugte es eine Kaskade subtiler, schwer vorhersehbarer Bugs, von der Art, bei der ein kurzes Wort in einer Sprache mit einem Wortteil in einer anderen Sprache kollidiert. Die Lehre daraus war nicht, für jeden Fall mehr Logik draufzupacken, sondern die Architektur zu vereinfachen: das Kernwissen immer mitzuschicken und nur die selteneren operativen Abschnitte bedingt hinzuzufügen. Das bestätigte etwas, das ich schon vermutet hatte: In einem RAG-System zählt die Qualität des Kontexts mehr als seine Größe.</p>
+        <p data-i18n="bamberapf_challenge">Die erste Version nutzte ein Keyword-basiertes Routing-System, um zu entscheiden, welche Abschnitte der Wissensbasis je nach Frage an das Modell geschickt werden. Auf dem Papier klang das vernünftig, aber im praktischen Einsatz erzeugte es eine Kaskade subtiler, schwer vorhersehbarer Bugs, von der Art, bei der ein kurzes Wort in einer Sprache mit einem Wortteil in einer anderen Sprache kollidiert. Die Lehre daraus war nicht, für jeden Fall mehr Logik draufzupacken, sondern die Architektur zu vereinfachen: das Kernwissen immer mitzuschicken und nur die selteneren operativen Abschnitte bedingt hinzuzufügen. Das bestätigte etwas, das ich schon vermutet hatte: In einem RAG-System zählt die Qualität des Kontexts mehr als seine Größe.</p>
       </div>
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_result">Ergebnis & Learnings</h2>
-        <p data-i18n="bamberapf_result">Ein Werkzeug, das das Team von Lumis täglich nutzt, seit Februar 2026 in Produktion. Es antwortet in unter 4 Sekunden, in vier Sprachen, mit einer messbaren und dank der Testbatterie aus 100 Prompts verbesserten Genauigkeit. Und der Beweis dafür, dass bei einem KI-Assistenten in einem echten Kontext, in dem eine falsche Antwort Konsequenzen haben kann (Lebensmittelsicherheit), der wichtigste Teil der Ingenieurarbeit nicht das Modell selbst ist, sondern der Prozess, der es vertrauenswürdig macht.</p>
+        <p data-i18n="bamberapf_result">Ein Prototyp, drei Monate lang mit dem Team von Lumis getestet, mit soliden Ergebnissen: Er antwortet in unter 4 Sekunden, in vier Sprachen, mit einer messbaren und dank der Testbatterie aus 100 Prompts verbesserten Genauigkeit. Und der Beweis dafür, dass bei einem KI-Assistenten in einem echten Kontext, in dem eine falsche Antwort Konsequenzen haben kann (Lebensmittelsicherheit), der wichtigste Teil der Ingenieurarbeit nicht das Modell selbst ist, sondern der Prozess, der es vertrauenswürdig macht.</p>
       </div>
 
       <div class="product-cta fade-in">
