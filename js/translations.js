@@ -86,7 +86,7 @@ const translations = {
     contact_title: 'Kontakt',
     contact_email: 'E-Mail',
     contact_linkedin: 'LinkedIn',
-    contact_cta: 'Lassen Sie uns über Ihre KI-Lösung sprechen',
+    contact_cta: 'Lassen Sie uns über Ihr Projekt sprechen',
 
     portfolio_callout_text: 'Möchtest du meinen Werdegang als Ingenieur sehen?',
     portfolio_callout_link: 'Zum Portfolio →',
@@ -405,7 +405,7 @@ const translations = {
     contact_title: 'Contact',
     contact_email: 'Email',
     contact_linkedin: 'LinkedIn',
-    contact_cta: 'Let\'s discuss your AI solution',
+    contact_cta: 'Let\'s discuss your project',
 
     portfolio_callout_text: 'Want to see my track record as an engineer?',
     portfolio_callout_link: 'View portfolio →',
