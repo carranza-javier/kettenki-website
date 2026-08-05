@@ -1266,6 +1266,38 @@ footer p {
   margin-bottom: 0;
 }
 
+/* CV download, right end of the intro row (margin-left: auto takes the
+   free space between the text and the edge, align-items: center on the
+   row keeps it level with the avatar). Deliberately a secondary button,
+   outline only, no accent fill, so it doesn't outweigh the project cards
+   underneath. The arrow is a pseudo-element on purpose: updateContent()
+   overwrites textContent on every language switch and would eat a real
+   child node. */
+.cv-download-btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  align-self: center;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  transition: all var(--transition-normal);
+}
+
+.cv-download-btn::after {
+  content: ' ↓';
+}
+
+.cv-download-btn:hover {
+  border-color: var(--color-accent-start);
+  color: var(--color-accent-start);
+}
+
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1932,6 +1964,15 @@ body.theme-light .repo-link:hover,
 body.theme-light .portfolio-card-link:hover,
 body.theme-light .blog-entry-readmore:hover {
   color: #00915c;
+}
+
+/* Same reason as above: the cyan hover accent is too pale on white. The
+   resting state keeps the neutral border/text of the light palette, the
+   hover borrows the same darkened blue as the other light-theme links. */
+body.theme-light .cv-download-btn:hover {
+  border-color: #0077a6;
+  color: #0077a6;
+  background: rgba(0, 119, 166, 0.06);
 }
 
 body.theme-light .type-badge--own {

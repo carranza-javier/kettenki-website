@@ -137,6 +137,12 @@
   .portfolio-intro-text {
     max-width: 100%;
   }
+
+  /* The row is a column here, so margin-left: auto would shove the button
+     against the right edge instead of centering it under the text */
+  .cv-download-btn {
+    margin-left: 0;
+  }
   
   .product-card:nth-child(3) {
     grid-column: auto;
