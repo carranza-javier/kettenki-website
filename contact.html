@@ -121,8 +121,12 @@
   </button>
 
   <!-- Scripts -->
+  <!-- Vor translations.js, damit das helle Thema gesetzt ist, bevor der
+       Browser auf die 80-KB-Übersetzungsdatei wartet (sonst blitzt der
+       dunkle Hintergrund kurz auf). Der Menütausch selbst hängt nicht an
+       der Reihenfolge, er läuft in DOMContentLoaded. -->
+  <script src="js/contact-nav.js"></script>
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/contact-nav.js"></script>
 </body>
 </html>

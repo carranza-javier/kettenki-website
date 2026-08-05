@@ -1174,6 +1174,15 @@ footer p {
   margin-top: 0.75rem;
 }
 
+/* contact.html im Portfolio/Blog-Kontext (?from=): der h1 leiht sich
+   .pb-header-title, steht dort aber allein, ohne .pb-header-Wrapper und
+   ohne Trennlinie darunter. Die setzen auf den anderen Seiten den Abstand
+   zum folgenden Text, hier fehlt er sonst (.pb-header-title selbst hat
+   margin-bottom: 0). */
+.contact-title--compact {
+  margin-bottom: var(--spacing-md);
+}
+
 /* ============================================
    PORTFOLIO
    ============================================ */
