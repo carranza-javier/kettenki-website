@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-08-15 (dritter Blog-Post veröffentlicht, neuer Tag "Security")_
+_Letzte Aktualisierung: 2026-08-15 (dritter Blog-Post fertig, aber vorerst wieder offline genommen)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -185,6 +185,13 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Bewusst nicht verlinkt**: die fünf CWE-Beispiele in der Aufzählung. Nur einen davon zu verlinken hätte inkonsistent gewirkt, alle fünf zu verlinken war nicht angefragt. Auf Wunsch nachrüstbar.
   - Verifiziert per lokalem Server + Chrome: alle drei `href`/`target`/`rel` programmatisch geprüft, Linktexte und umgebende Sätze in **DE und EN** korrekt (keine doppelten oder fehlenden Leerzeichen an den Nahtstellen), und nach mehrfachem Hin- und Herschalten der Sprache sind weiterhin alle drei `<a>`-Elemente vorhanden (genau der Fall, den das `_pre`/`_link`/`_post`-Muster absichert). Alle drei Ziel-URLs liefern 200.
 
+- [x] **Responsible-Disclosure-Post wieder offline genommen, auf Javis Wunsch** (der Post ist fertig und gefällt ihm, soll aber an einem anderen Tag erscheinen). Bewusst die harte Variante gewählt, nicht "unverlinkt aber erreichbar": auf einer statischen, öffentlichen Seite ist ein 404 die einzige ehrliche Art zu verbergen, ein nur nicht verlinkter Beitrag bleibt für jeden mit der URL sichtbar.
+  - **Der komplette Post liegt auf dem Branch `draft/responsible-disclosure`** (lokal und auf GitHub gepusht, Stand `a143bdd`, inklusive aller drei Bilder in der finalen Fassung und der drei Fließtext-Links). Dort geht nichts verloren.
+  - Auf `main` entfernt (Commit `679a44c`): `blog/responsible-disclosure.html`, die drei Bilder unter `blog/img/responsible-disclosure/` und der Eintrag in `blog/index.html`. `kettenki.com/blog/responsible-disclosure` liefert damit 404, ebenso die Bild-URLs.
+  - **Bewusst auf `main` gelassen**: die `rd_*`-Keys und `blog_filter_security` in `js/translations.js` sowie die `.blog-post ul`-Regel in `css/style.css`. Sie rendern von allein nichts, und so entsteht beim Wiederveröffentlichen keine DE/EN-Paritätsarbeit. Der Filter-Button "Security" verschwindet von selbst, da `js/blog-filter.js` die Buttons aus den tatsächlich gelisteten Posts baut (verifiziert: Index zeigt wieder Alle | Software Engineering | Java & Architektur mit zwei Posts).
+  - `SPEC.md` 6.2 (Tag Security) wurde **nicht** zurückgenommen, der Tag bleibt als geplante Kategorie gültig, der Post ist geschrieben und wartet nur auf den Veröffentlichungstermin.
+  - **Wiederveröffentlichen:** `git revert 679a44c` auf `main`, danach `PROJECT-STATUS.md` von Hand nachziehen (dieser Eintrag hier und die Datumszeile oben). Vorher lokal ansehen: `git switch draft/responsible-disclosure`, Server starten, zurück mit `git switch main`. Falls das Datum im Post nicht mehr passt, sind `rd_date` (DE/EN) in `js/translations.js` plus der Fallback-Text in `blog/index.html` und im Post selbst die einzigen Stellen.
+
 ## Blockiert — wartet auf Input
 
 _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind geliefert und eingebaut (siehe Erledigt)._
@@ -192,7 +199,7 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
 ## Nächster Schritt
 
 1. **Javi liest die deutsche Fassung von `railtrack_context` in `js/translations.js` gegen** (der literarische Einstieg "Als Liebhaber von Zügen und Schweizer Pünktlichkeit…" — bewusst nicht flach übersetzt, aber noch nicht von Javi freigegeben).
-2. **Alle 5 Portfolio-Fichen sind jetzt vollständig** (die 4 kuratierten aus `SPEC.md` 5.3 plus La Guitarrita). **Der Blog hat jetzt drei Posts** (Canary-Migration, Clean Code und Responsible Disclosure, siehe Erledigt); der Tag-Filter deckt alle drei ab (inkl. der neuen Tags Software Engineering und Security). Nächster inhaltlicher Block ist der Chatbot (siehe Offen) oder ein vierter Blog-Post.
+2. **Alle 5 Portfolio-Fichen sind jetzt vollständig** (die 4 kuratierten aus `SPEC.md` 5.3 plus La Guitarrita). **Live sind zwei Blog-Posts** (Canary-Migration und Clean Code); der dritte (Responsible Disclosure) ist fertig, liegt aber auf `draft/responsible-disclosure` und wartet auf Javis Veröffentlichungstermin, siehe Erledigt. Nächster inhaltlicher Block ist der Chatbot (siehe Offen) oder ein weiterer Blog-Post.
 
 ## Offen (noch nicht begonnen)
 
