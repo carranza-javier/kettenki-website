@@ -163,6 +163,7 @@ Basado en investigación de mejores prácticas 2026: 3-6 proyectos curados super
 - **BioInformática/IA**, opinión personal tras leer el libro *The Code Breaker*. Candidato a primer post de este tag.
 - **Exploración**, temas nuevos sin proyecto propio detrás todavía. Tratar como exploración honesta ("esto me interesa y esto estoy leyendo"), no prometer una categoría consolidada que aún no existe.
 - **Software Engineering**, reflexiones personales sobre prácticas de desarrollo (Clean Code, diseño, filosofías como *Tidy First?* de Kent Beck) más allá de un proyecto o migración concretos. Primer post: "Clean Code: el siguiente programador podrías ser tú".
+- **Security**, seguridad aplicada desde la perspectiva de quien se la encuentra por el camino, no de un security researcher: responsible disclosure, GitHub Security Advisories y Private Vulnerability Reporting, clasificación CWE. Primer post: "Encontré una vulnerabilidad en un proyecto Open Source. ¿Y ahora qué?".
 
 ### 6.3 Posts individuales (`blog/*.html`)
 

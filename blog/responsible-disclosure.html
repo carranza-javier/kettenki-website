@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Ich habe eine Schwachstelle in einem Open-Source-Projekt gefunden. Und jetzt? - Blog | KettenKI</title>
+  <meta name="description" content="Wie ich beim Ausprobieren einer Open-Source-Anwendung auf ein Sicherheitsproblem gestoßen bin, und was ich dabei über Responsible Disclosure, GitHub Security Advisories und CWE gelernt habe.">
+  <meta name="keywords" content="Responsible Disclosure, GitHub Security Advisory, Private Vulnerability Reporting, CWE, CWE-269, Open Source Security, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/blog/responsible-disclosure">
+  <meta property="og:title" content="I found a vulnerability in an Open Source project. What now? | Javier Carranza">
+  <meta property="og:description" content="How I ran into a security issue while trying out an Open Source application, and what I learned along the way about responsible disclosure, GitHub Security Advisories and CWE.">
+  <meta property="og:image" content="https://kettenki.com/blog/img/responsible-disclosure/public_issue_vs_security_advisory.png">
+  <meta property="og:image:width" content="2720">
+  <meta property="og:image:height" content="1040">
+
+  <link rel="canonical" href="https://kettenki.com/blog/responsible-disclosure">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/blog/responsible-disclosure">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/blog/responsible-disclosure">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact?from=blog" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container blog-post">
+      <div class="blog-post-header fade-in">
+        <h1 class="blog-post-title" data-i18n="rd_title">Ich habe eine Schwachstelle in einem Open-Source-Projekt gefunden. Und jetzt?</h1>
+        <div class="blog-post-meta">
+          <span data-i18n="rd_date">15. August 2026</span>
+          <span class="tech-badge" data-i18n="blog_filter_security">Security</span>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <p data-i18n="rd_p1">Ich habe eine Open-Source-Anwendung ausprobiert, als ich auf etwas gestoßen bin, mit dem ich nicht gerechnet hatte.</p>
+        <p data-i18n="rd_p2">Am Anfang war es einfach dieses Gefühl: "Moment mal... sollte das gerade wirklich passieren?"</p>
+        <p data-i18n="rd_p3">Ich habe weiter nachgeforscht und angefangen zu vermuten, dass es sich um ein Sicherheitsproblem handeln könnte.</p>
+        <p data-i18n="rd_p4">Und da kam ein Gefühl auf, das sich deutlich von dem unterscheidet, das man hat, wenn man irgendeinen beliebigen Bug findet.</p>
+        <p data-i18n="rd_p5">Wow.</p>
+        <p data-i18n="rd_p6">Auf einmal war ich motiviert. Ich wollte verstehen, was da passiert, es überprüfen und, falls es wirklich eine Schwachstelle war, dabei helfen, sie zu beheben.</p>
+        <p data-i18n="rd_p7">Aber zuerst stand das Wichtigste an: es reproduzieren.</p>
+        <p data-i18n="rd_p8">Ich wollte keinen Verdacht und kein False Positive melden. Ich musste sicher sein, dass das Verhalten echt ist, verstehen, unter welchen Bedingungen es auftritt, und prüfen, welche Auswirkung es haben kann.</p>
+        <p data-i18n="rd_p9">Nachdem ich es reproduziert und besser verstanden hatte, was da vor sich geht, kam die nächste Frage: Wie meldet man eigentlich verantwortungsvoll eine Schwachstelle in einem Open-Source-Projekt?</p>
+        <p data-i18n="rd_p10">Und an dieser Stelle habe ich etwas entdeckt, das meiner Meinung nach mehr Entwicklerinnen und Entwickler kennen sollten: GitHub Security Advisories und Private Vulnerability Reporting.</p>
+      </div>
+
+      <!-- Ein .fade-in pro Abschnitt statt eines einzigen um den ganzen
+           Artikel: der IntersectionObserver in js/main.js blendet erst bei
+           threshold 0.1 ein, ein einzelner sehr hoher Block (hier über
+           5000px wegen der drei Diagramme) erreicht diese Schwelle beim
+           Laden nie und bliebe unter dem Titel unsichtbar. -->
+      <div class="fade-in">
+        <h2 data-i18n="rd_h_issue">Nicht jeder Bug sollte zu einem Issue werden</h2>
+        <p data-i18n="rd_issue_1">Wenn du in einem Open-Source-Projekt einen ganz normalen Bug findest, ist es vermutlich üblich, ein Issue zu eröffnen oder einen Pull Request vorzubereiten.</p>
+        <p data-i18n="rd_issue_2">Eine Schwachstelle ist aber etwas anderes.</p>
+        <p data-i18n="rd_issue_3">Wenn wir die Details eines Sicherheitsproblems sofort veröffentlichen, sorgen wir womöglich dafür, dass die Information jeden erreicht, bevor die Maintainer Zeit hatten, es zu beheben.</p>
+        <p data-i18n="rd_issue_4">Und das kann besonders problematisch sein, wenn das Projekt Nutzer hat, die eine verwundbare Version einsetzen.</p>
+        <p data-i18n="rd_issue_5">Deshalb gibt es das Konzept Responsible Disclosure: das Problem so zu kommunizieren, dass das Projekt eine faire Gelegenheit bekommt, es zu untersuchen und zu beheben, bevor die Details öffentlich werden.</p>
+
+      </div>
+
+      <div class="fade-in">
+        <h2 data-i18n="rd_h_advisory">GitHub Security Advisory</h2>
+        <p data-i18n="rd_adv_1">GitHub hat für genau solche Situationen ein eigenes Werkzeug: Private Vulnerability Reporting.</p>
+        <p data-i18n="rd_adv_2">Die Idee finde ich ziemlich gut. Statt ein öffentliches Issue zu eröffnen, in dem es alle sehen können und das Problem offenliegt, kannst du einen privaten Kanal nutzen: Der Maintainer bekommt den Report, untersucht ihn, bereitet einen Fix vor und testet ihn, veröffentlicht ihn, und erst danach folgt die koordinierte Offenlegung.</p>
+
+        <div class="architecture-block">
+          <img src="img/responsible-disclosure/public_issue_vs_security_advisory.png" alt="Vergleich zwischen einem öffentlichen Issue, bei dem alle das Problem sofort sehen, und einem privaten Security Advisory, das die Details während Untersuchung, Fix, Tests und Release vertraulich hält, bis hin zur koordinierten Offenlegung." data-i18n-alt="rd_alt_issue_vs_advisory">
+        </div>
+
+        <p data-i18n="rd_adv_3">Während dieses gesamten Prozesses bleiben die Details der Schwachstelle privat.</p>
+        <p data-i18n="rd_adv_4">Und genau das finde ich an diesem Mechanismus interessant. Du versuchst nicht, unbegrenzt zu verstecken, dass es ein Problem gibt. Du gibst dem Projekt etwas sehr Wichtiges: Zeit.</p>
+        <p data-i18n="rd_adv_5">Zeit, um zu verstehen, was passiert. Zeit, um eine Lösung vorzubereiten. Zeit, um sie zu testen. Und Zeit, um eine korrigierte Version zu veröffentlichen, bevor öffentlich erklärt wird, wie sich die verwundbare Version ausnutzen lässt.</p>
+
+      </div>
+
+      <div class="fade-in">
+        <h2 data-i18n="rd_h_cwe">Etwas, das ich unterwegs entdeckt habe: CWE</h2>
+        <p data-i18n="rd_cwe_1">Während ich das Problem untersucht und dokumentiert habe, bin ich nebenbei auch tiefer in CWE eingestiegen, Common Weakness Enumeration.</p>
+        <p data-i18n="rd_cwe_2">CWE wird von MITRE gepflegt und liefert eine gemeinsame Klassifikation, um verschiedene Arten von Softwareschwächen zu beschreiben. Zum Beispiel:</p>
+
+        <ul>
+          <li data-i18n="rd_cwe_item_1">CWE-22, Path Traversal</li>
+          <li data-i18n="rd_cwe_item_2">CWE-79, Cross-Site Scripting</li>
+          <li data-i18n="rd_cwe_item_3">CWE-89, SQL Injection</li>
+          <li data-i18n="rd_cwe_item_4">CWE-862, Missing Authorization</li>
+          <li data-i18n="rd_cwe_item_5">CWE-269, Improper Privilege Management</li>
+        </ul>
+
+        <p data-i18n="rd_cwe_3">Letzteres fand ich besonders interessant, wegen seines Bezugs zu dem Problem, das ich gefunden hatte.</p>
+        <p data-i18n="rd_cwe_4">CWE-269 beschreibt ganz allgemein Situationen, in denen die Privilegien eines Nutzers nicht korrekt verwaltet werden.</p>
+
+        <div class="architecture-block">
+          <img src="img/responsible-disclosure/CWE-269-escape-from-privileges.jpg" alt="Illustration zu CWE-269, unsachgemäße Verwaltung von Privilegien: Ein Nutzer ohne ausreichende Berechtigungen schafft es, eine Aktion auszuführen, die für ihn gesperrt sein sollte." data-i18n-alt="rd_alt_cwe269">
+        </div>
+
+        <p data-i18n="rd_cwe_5">Und ich glaube, es gibt eine interessante Frage, die wir uns beim Thema Autorisierung stellen können: nicht nur "darf dieser Nutzer das tun?", sondern auch "was passiert, wenn er es nicht mehr darf?"</p>
+        <p data-i18n="rd_cwe_6">Rechte zu vergeben ist eine Operation. Sie korrekt wieder zu entziehen ebenfalls.</p>
+
+      </div>
+
+      <div class="fade-in">
+        <h2 data-i18n="rd_h_whatdo">Was mache ich also, wenn mir so etwas begegnet?</h2>
+        <p data-i18n="rd_what_1">Es gibt keinen einzigen gültigen Prozess für alle Projekte, aber das hier kann ein guter Ausgangspunkt sein:</p>
+
+        <div class="architecture-block">
+          <img src="img/responsible-disclosure/vulnerability_disclosure_decision_tree.png" alt="Entscheidungsbaum von dem Moment an, in dem du etwas Verdächtiges findest, bis zur koordinierten Offenlegung: prüfen, ob es reproduzierbar ist, prüfen, ob es eine Sicherheitsauswirkung hat, und in dem Fall dem Prozess für private Schwachstellenmeldungen über Triage, Fix, Tests und Release folgen." data-i18n-alt="rd_alt_decision_tree">
+        </div>
+
+        <p data-i18n="rd_what_2">Der erste Teil ist für mich der wichtigste: erst reproduzieren.</p>
+        <p data-i18n="rd_what_3">Etwas zu finden, das nach einer Schwachstelle aussieht, kann aufregend sein, aber es ist auch leicht, zu schnell Schlüsse zu ziehen.</p>
+        <p data-i18n="rd_what_4">Eine saubere Reproduktion verändert den Report komplett. Du sagst dann nicht mehr "ich glaube, hier könnte ein Problem sein". Du kannst sagen "ich habe dieses Verhalten unter diesen Bedingungen reproduziert, und das ist die Auswirkung, die ich beobachtet habe".</p>
+        <p data-i18n="rd_what_5">Das erleichtert den Maintainern die Arbeit enorm.</p>
+
+      </div>
+
+      <div class="fade-in">
+        <h2 data-i18n="rd_h_exp">Eine Erfahrung, die mir besonders gefallen hat</h2>
+        <p data-i18n="rd_exp_1">Am meisten überrascht hat mich an alledem, dass das Entdecken einer Schwachstelle etwas ausgelöst hat, womit ich nicht gerechnet hatte: Lust, beizutragen.</p>
+        <p data-i18n="rd_exp_2">Nicht nur das Problem zu finden und zu sagen "schaut mal, was ich gefunden habe", sondern dabei zu helfen, es zu lösen.</p>
+        <p data-i18n="rd_exp_3">Und ich glaube, das ist einer der schönen Teile von Open Source. Du kannst gerade eine Anwendung benutzen, aus Neugier Code lesen oder versuchen zu verstehen, wie ein bestimmter Teil des Systems funktioniert, und plötzlich stößt du auf etwas, das es wert ist, repariert zu werden.</p>
+        <p data-i18n="rd_exp_4">In diesem Moment musst du kein Security Researcher sein. Du brauchst Neugier, du musst überprüfen, was du da siehst, und, falls es wirklich ein Problem ist, es verantwortungsvoll melden.</p>
+        <p data-i18n="rd_exp_5">GitHub stellt einen Teil der dafür nötigen Infrastruktur bereits bereit.</p>
+        <p data-i18n="rd_exp_6">Vielleicht lohnt es sich beim nächsten Mal, wenn du auf so etwas stößt, statt direkt ein öffentliches Issue zu eröffnen, erst einmal zu suchen: SECURITY.md, Security Policy, Private Vulnerability Reporting, Security Advisory.</p>
+        <p data-i18n="rd_exp_7">Vielleicht findest du einen viel besseren Weg, es zu melden. Und nebenbei kannst du dabei richtig viel lernen.</p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_blog">← Zurück zum Blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/lightbox.js"></script>
+</body>
+</html>
