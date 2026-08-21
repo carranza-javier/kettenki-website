@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-08-21 (Bambera/Lumis in ein eigenes Repo ausgelagert, `lumis-assistentin/` hier entfernt)_
+_Letzte Aktualisierung: 2026-08-21 (Bambera/Lumis in `kettenki-bambera` ausgelagert und dort öffentlich; `lumis-assistentin/` hier entfernt, live 404, Rest der Seite 200)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -197,7 +197,7 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Backend dazugenommen:** der Lambda-Code lag untracked in `C:\carranza-javier\Lambdas\Lumis-ki-assistent\` (11 Versionen, per Dateiname unterschieden). Die jüngste (`lumis-ki-assistentin_2203_LAST_II.mjs`, 22.03.) liegt jetzt als `backend/index.mjs` im neuen Repo, unter Versionskontrolle. Der Ordner unter `Lambdas/` wurde **nicht** angefasst.
   - **Konfiguration vom Code getrennt:** vorher waren der S3-Bucket (`lumis-ki-assistent`), die Region, das Bedrock-Modell und der Kundenname im Systemprompt hart im Lambda verdrahtet, und im Frontend die API-Gateway-URL, die `lumis_*`-Storage-Keys und die Beispielfragen. Jetzt gibt es genau drei Konfigurationsflächen, keine davon Code: Lambda-Umgebungsvariablen (`.env.example`), `assistant.json` im Bucket des Kunden (`clients/example/assistant.json`) und `frontend/config.js` (`frontend/config.example.js`). Ein neuer Kunde ist damit ein neuer Bucket plus drei Konfigurationsdateien, ohne Codeänderung. Anleitung im README des neuen Repos.
   - **Kundendaten nicht mitgenommen:** `structured-personalhandbuch/*.json` (Rezepte, Preise, Abläufe, Mitarbeiterregeln) und das Lumis-Logo sind aus dem Verlauf des neuen Repos herausgefiltert, nicht nur aus dem letzten Stand. Das sind Betriebsdaten von Lumis und enthalten echte Namen und private Handynummern — sie gehören in den Bucket des Kunden, nicht in ein Produkt-Repo. Kopie liegt lokal unter `C:\carranza-javier\bambera-migration-backup\lumis-client-data\`. Aus demselben Grund ist auch die alte API-Gateway-URL im Verlauf des neuen Repos durch einen Platzhalter ersetzt.
-  - **Hier entfernt:** `lumis-assistentin/` ist aus `main` gelöscht. `kettenki.com/lumis-assistentin/` liefert nach dem nächsten Deploy 404, ebenso die JSON-Dateien darunter. Es gab keinen Link von der Website dorthin, also bricht nichts.
+  - **Hier entfernt und live:** `lumis-assistentin/` ist aus `main` gelöscht und gepusht (Commits `5f80219`, `0b764cb`, `4d5b7df`). Nach dem Pages-Rebuild in der Produktion geprüft: `/lumis-assistentin/`, `/lumis-assistentin/index.html`, `/lumis-assistentin/script.js` und die JSON-Dateien darunter liefern **404**; `/`, `/about.html`, `/services.html`, `/portfolio/`, `/portfolio/bambera.html`, `/blog/`, `/contact.html` und `/sitemap.xml` weiterhin **200**. Es gab keinen Link von der Website dorthin, es bricht also nichts.
   - **Verlauf dieses Repos bleibt, wie er ist:** die Lumis-Daten stehen seit `0d1e97c` im öffentlichen Verlauf und sind dort auch nach dem Löschen auf `main` noch abrufbar. Javi hat entschieden, das so zu lassen (nicht vertraulich, Lumis weiß davon), siehe Entscheidungen. Kein `filter-repo`, kein Force-Push auf `main`.
 
 ## Blockiert — wartet auf Input
@@ -212,7 +212,8 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
 ## Offen (noch nicht begonnen)
 
 - [ ] **Responsible-Disclosure-Post veröffentlichen, sobald die Maintainer des betroffenen Open-Source-Projekts das Release mit dem Fix herausgebracht haben.** Bis dahin bleibt er offline (404), fertig auf dem Branch `draft/responsible-disclosure`. Der Post nennt weder das Projekt noch technische Details der Schwachstelle, trotzdem gilt: **erst das Release, dann der Post.** Vorgehen und die zu ändernden Datumsstellen stehen im zugehörigen Erledigt-Eintrag. Wer das anstößt, ist Javi, nicht ein Datum im Kalender.
-- [ ] Vierter Blog-Post, Kandidat: Bambera, Halluzinations-Fix via kontextuelles Routing (`blog/bambera-rag-fix.html`), Tag KI.
+- [ ] **Entscheiden, ob `portfolio/bambera.html` jetzt einen Repo-Link bekommt.** Die Fiche hat bewusst keine Repo-Sektion, weil es damals nichts zu verlinken gab (siehe Erledigt). Seit dem 2026-08-21 gibt es `https://github.com/carranza-javier/kettenki-bambera`, öffentlich. Wenn ja: gleiches Muster wie die anderen Fichen, Key `cta_view_repo` existiert bereits. Rein inhaltliche Entscheidung von Javi, technisch steht nichts im Weg.
+- [ ] Vierter Blog-Post, Kandidat: Bambera, Halluzinations-Fix via kontextuelles Routing (`blog/bambera-rag-fix.html`), Tag KI. **Der Code liegt jetzt in `kettenki-bambera`** — das kontextuelle Routing steckt dort in `backend/index.mjs` (`selectContextualSections`) und ist über `assistant.json` pro Kunde konfigurierbar, was der Post erwähnen sollte, falls er geschrieben wird.
 - [ ] Chatbot: schwebendes Widget mit Katzen-Avatar + `assets/js/chat-mock.js` (Mock-Antworten, Flag `?mock=true` / `localhost`-Erkennung).
 - [ ] Chatbot: System-Prompt eng gefasst nach `SPEC.md` 7.3.
 - [ ] Chatbot: Lambda + Bedrock + Rate Limiting — **erst wenn die UI lokal fertig ist.**
