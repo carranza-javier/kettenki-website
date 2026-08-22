@@ -392,11 +392,11 @@ const translations = {
     livianapf_alt_closed: 'Die Startseite von kettenki.com mit dem Katzen-Maskottchen unten rechts',
 
     livianapf_walkthrough_greeting_title: 'Geöffnetes Fenster',
-    livianapf_walkthrough_greeting: 'Ein Klick öffnet das Fenster mit einer kurzen Begrüssung. Die Oberfläche übernimmt die Farben und die Schrift der Seite, sodass sich der Chat nahtlos in die Website einfügt. Ein dauerhafter Hinweis unter dem Eingabefeld sagt, dass es sich um einen Prototyp handelt und Antworten Fehler enthalten können.',
+    livianapf_walkthrough_greeting: 'Ein Klick öffnet das Fenster mit einer kurzen Begrüssung. Die Oberfläche übernimmt die Farben und die Schrift der Seite, sodass sich der Chat nahtlos in die Website einfügt. Ein dauerhaft eingeblendeter Hinweis unter dem Eingabefeld sagt, dass es sich um einen Prototyp handelt und Antworten Fehler enthalten können.',
     livianapf_alt_greeting: 'Das geöffnete Chatfenster mit der Begrüssung von Liviana',
 
     livianapf_walkthrough_conversation_title: 'Eine echte Anfrage',
-    livianapf_walkthrough_conversation: 'Eine Yogaschule fragt, ob ein Chatbot die wiederkehrenden Fragen übernehmen könnte, die sie per E-Mail und WhatsApp bekommt. Die Antwort ist kurz, bleibt beim Thema und endet mit dem Weg zur Kontaktaufnahme. Dieser Aufruf erscheint nur, wenn Kaufinteresse erkennbar ist, und nicht unter jeder Antwort. Ausserdem antwortet sie in der Sprache der Frage.',
+    livianapf_walkthrough_conversation: 'Eine Yogaschule fragt, ob ein Chatbot die wiederkehrenden Fragen beantworten könnte, die sie per E-Mail und WhatsApp bekommt. Die Antwort ist kurz, bleibt beim Thema und endet mit einer Möglichkeit zur Kontaktaufnahme. Dieser Aufruf erscheint nur, wenn Kaufinteresse erkennbar ist, und nicht unter jeder Antwort. Ausserdem antwortet sie in der Sprache der Frage.',
     livianapf_alt_conversation: 'Ein Gespräch über eine Yogaschule, das mit dem Hinweis auf die Kontaktadresse endet',
 
     livianapf_walkthrough_scope_title: 'Ausserhalb des Themas',
@@ -828,11 +828,11 @@ const translations = {
     livianapf_alt_closed: 'The kettenki.com home page with the cat mascot in the bottom right corner',
 
     livianapf_walkthrough_greeting_title: 'The open window',
-    livianapf_walkthrough_greeting: 'One click opens the window with a short greeting. The interface takes on the colours and the typeface of the site, so the chat blends into the website. A permanent note under the input field says this is a prototype and answers can contain mistakes.',
+    livianapf_walkthrough_greeting: 'One click opens the window with a short greeting. The interface takes on the colours and the typeface of the site, so the chat blends into the website. A note is permanently displayed under the input field, saying this is a prototype and answers can contain mistakes.',
     livianapf_alt_greeting: 'The open chat window showing the greeting from Liviana',
 
     livianapf_walkthrough_conversation_title: 'A real enquiry',
-    livianapf_walkthrough_conversation: 'A yoga school asks whether a chatbot could handle the recurring questions they receive by email and WhatsApp. The answer is short, stays on topic and ends with the way to get in touch. That call to contact appears only when buying interest is visible, not under every answer. She also replies in the language of the question.',
+    livianapf_walkthrough_conversation: 'A yoga school asks whether a chatbot could answer the recurring questions they receive by email and WhatsApp. The answer is short, stays on topic and ends with a way to get in touch. That call to contact appears only when buying interest is visible, not under every answer. She also replies in the language of the question.',
     livianapf_alt_conversation: 'A conversation about a yoga school that ends by pointing at the contact address',
 
     livianapf_walkthrough_scope_title: 'Off topic',
