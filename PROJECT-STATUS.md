@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-08-22 (Liviana-Chat-Widget live; abgeschnittenes Eingabefeld nachgebessert)_
+_Letzte Aktualisierung: 2026-08-22 (Liviana-Chat-Widget live; Eingabefeld nachgebessert, Widget läuft jetzt auf Inter)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -223,6 +223,12 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Zweiter Fehler in derselben Funktion mitgefunden**: ob eine Bildlaufleiste nötig ist, wurde geprüft, **nachdem** die Höhe auf den Deckel von 96 px gesetzt war. `scrollHeight` misst dann die gedeckelte Box und meldet keinen Überlauf mehr, die Leiste blieb also aus, obwohl der Text nicht mehr hineinpasste. Jetzt wird der Bedarf einmal mit `height: auto` gemessen und diese Zahl für beides benutzt.
   - **Schriftgrösse im Feld auf dem Handy von 13.6 px auf 16 px**, mit passendem `min-height` von 46 px. 16 px ist die Grenze, unterhalb derer iOS beim Hineintippen in ein Feld hineinzoomt, und auf einem Telefon war die kleinere Schrift ohnehin unangenehm.
   - Verifiziert bei 1920 px und in einem 390 px breiten Rahmen, jeweils nach hartem Neuladen: Feld öffnet mit voller Zeilenhöhe (40 px am Rechner, 46 px am Handy), wächst beim Tippen bis 96 px, bekommt dort eine Bildlaufleiste und fällt nach dem Absenden auf eine Zeile zurück.
+
+- [x] **Chat-Widget durchgehend auf Inter umgestellt**, auf Javis Wunsch: reguläres Gewicht überall, nie kursiv, statt der Zalando Sans Expanded des übrigen kommerziellen Auftritts. Im Fliesstext eines Chats liest sich die schmalere Schrift ruhiger, und Portfolio und Blog benutzen sie ohnehin schon.
+  - **Inter war auf den kommerziellen Seiten gar nicht geladen**, sie binden nur Zalando Sans Expanded ein. Nachgeladen wird sie jetzt aus `js/liviana-widget.js`, und zwar erst, nachdem feststeht, dass das Widget überhaupt gebaut wird (auf einer Seite im hellen Thema passiert also nichts). Gleiches Vorgehen wie in `js/contact-nav.js`. **Bewusst dieselbe Font-Adresse** wie dort und wie in den Portfolio- und Blog-Seiten (`Inter:wght@300;400;500;700`), damit der Browser eine bereits geladene Fassung wiederverwendet statt eine zweite zu holen; die `preconnect`-Zeilen auf `fonts.gstatic.com` stehen auf allen sieben Seiten bereits.
+  - **Formularelemente erben keine Schrift**, deshalb nennt die Regel `button` und `textarea` ausdrücklich mit. Die bisherige Einzelregel `font-family: inherit` auf `.liviana-input` wurde dafür entfernt, sie wäre doppelt gemoppelt.
+  - **Die beiden Gewichts-Ausnahmen im Widget sind weg**: der Titel "Liviana" stand auf fett, die Blase der Besucherin auf mittel. Beide jetzt regulär, wie gewünscht. Falls der Titel dadurch zu blass wirkt, ist das eine Zeile in `css/liviana-widget.css`.
+  - Verifiziert per `getComputedStyle` bei 1920 px und in einem 390 px breiten Rahmen: Titel, Untertitel, beide Blasenarten, Eingabefeld, Schliessen-Kreuz und Hinweiszeile alle Inter, Gewicht 400, Stil normal; `document.fonts.check` bestätigt, dass die Schrift wirklich geladen ist und nicht nur deklariert. Gegenprobe auf derselben Seite: Hero und Navigation weiterhin Zalando Sans Expanded. Genau ein Inter-Link im Dokument.
 
 ## Blockiert — wartet auf Input
 

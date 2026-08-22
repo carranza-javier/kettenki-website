@@ -26,6 +26,10 @@
     // Ein 502 ist laut API.md vorübergehend, ein zweiter Versuch ist erlaubt.
     upstreamRetryDelayMs: 2000,
     sessionStorageKey: 'liviana-session',
+    // Gleiche Adresse wie in js/contact-nav.js und in den Portfolio- und
+    // Blog-Seiten, damit der Browser den bereits geladenen Font wiederverwendet
+    // statt ihn ein zweites Mal zu holen.
+    fontHref: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap',
     // Bilder der Maskottchen, pro Sprache. Die Auswahl läuft über die
     // data-i18n-src-Keys in js/translations.js, hier stehen nur die Fallbacks
     // für den Fall, dass translations.js nicht geladen ist.
@@ -665,6 +669,23 @@
   });
 
   /* ------------------------------------------------------------------------
+     Schrift
+
+     Das Widget läuft auf Inter, die kommerziellen Seiten binden sie aber nicht
+     ein, dort ist Zalando Sans Expanded die Hausschrift. Nachgeladen wird sie
+     deshalb hier und erst, wenn feststeht, dass das Widget auch gebaut wird:
+     gleiches Vorgehen wie in js/contact-nav.js, wo das helle Thema die
+     Ausnahme ist. Portfolio und Blog laden Inter weiterhin statisch.
+     ------------------------------------------------------------------------ */
+  function loadFont() {
+    if (document.querySelector('link[href="' + LIVIANA_CONFIG.fontHref + '"]')) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = LIVIANA_CONFIG.fontHref;
+    document.head.appendChild(link);
+  }
+
+  /* ------------------------------------------------------------------------
      Einhängen
      ------------------------------------------------------------------------ */
   document.addEventListener('DOMContentLoaded', () => {
@@ -675,6 +696,7 @@
     // sie steht hier also bereits fest.
     if (document.body.classList.contains('theme-light')) return;
 
+    loadFont();
     document.body.appendChild(widget);
     document.body.classList.add('has-liviana');
     // translations.js hat seinen Durchlauf zu diesem Zeitpunkt schon hinter

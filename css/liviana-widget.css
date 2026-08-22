@@ -6,8 +6,19 @@
    Nutzt ausschliesslich die bestehenden Design-Variablen aus style.css.
    ========================================================================== */
 
-.liviana-widget {
-  font-family: inherit;
+/* Das Widget läuft durchgehend auf Inter, nicht auf der Zalando Sans Expanded
+   des übrigen kommerziellen Auftritts: im Fliesstext eines Chats ist die
+   schmalere Schrift ruhiger zu lesen, und Portfolio und Blog benutzen sie
+   ohnehin schon. Reguläres Gewicht überall, nie kursiv. Geladen wird sie von
+   js/liviana-widget.js, die kommerziellen Seiten binden sie nicht ein.
+   Formularelemente erben keine Schrift, deshalb steht bei Eingabefeld und
+   Knöpfen zusätzlich font-family: inherit. */
+.liviana-widget,
+.liviana-widget button,
+.liviana-widget textarea {
+  font-family: 'Inter', 'Helvetica Neue', Roboto, Arial, sans-serif;
+  font-weight: var(--font-weight-normal);
+  font-style: normal;
 }
 
 /* --------------------------------------------------------------------------
@@ -207,7 +218,6 @@
 .liviana-panel-title {
   display: block;
   font-size: 1rem;
-  font-weight: var(--font-weight-bold);
   line-height: 1.2;
   background: linear-gradient(135deg, var(--liviana-start), var(--liviana-end));
   -webkit-background-clip: text;
@@ -294,7 +304,6 @@
   background: linear-gradient(135deg, var(--liviana-start), var(--liviana-end));
   border-bottom-right-radius: 4px;
   color: var(--color-bg);
-  font-weight: var(--font-weight-medium);
 }
 
 .liviana-msg--system {
@@ -387,7 +396,6 @@
   min-height: 40px;
   max-height: 96px;
   padding: 0.55rem 0.75rem;
-  font-family: inherit;
   font-size: 0.85rem;
   line-height: 1.45;
   color: var(--color-text);
