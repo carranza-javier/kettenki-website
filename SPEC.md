@@ -181,9 +181,9 @@ Esto lo hace también la pieza de portfolio más fuerte del sitio: no es una cap
 
 ### 7.2 Ubicación y presentación
 
-- **Widget flotante**, presente en todas las páginas del sitio.
-- Avatar: **el gato** (mascota ya existente en la identidad de KettenKI). Da personalidad y coherencia de marca, evita que parezca un chat de soporte genérico.
-- Estados a maquetar: cerrado (burbuja), abierto, escribiendo/cargando, error, sin conexión.
+- **Widget flotante, solo en las páginas comerciales**: `index`, `about`, `services`, `contact`, `bambera`, `liviana`, `fandango`. **No** en `portfolio/` ni en `blog/`, que usan el tema claro y sirven a otro público (recruiters y perfil técnico, no clientela). Por la misma razón tampoco aparece en `contact.html` cuando `?from=portfolio` o `?from=blog` la ponen en tema claro. La regla implementada es esa y no una lista de ficheros: el widget no se construye si `body` lleva la clase `theme-light`.
+- Avatar: **el gato** (mascota ya existente en la identidad de KettenKI). Da personalidad y coherencia de marca, evita que parezca un chat de soporte genérico. El disparador es la ilustración completa abajo a la derecha, sin marco ni recorte circular; el círculo se reserva para el avatar de la cabecera del panel.
+- Estados maquetados: cerrado, abierto con saludo, escribiendo, respuesta, límite de peticiones con cuenta atrás, presupuesto diario agotado, error genérico, sin conexión y tiempo agotado.
 
 ### 7.3 Alcance de conocimiento (acotado a propósito)
 
@@ -199,7 +199,9 @@ Esto lo hace también la pieza de portfolio más fuerte del sitio: no es una cap
 
 ### 7.4 Arquitectura
 
-Reusar el patrón ya existente de Bambera: **AWS Bedrock + Lambda**, invocado desde JS vanilla en el frontend estático. Sin frameworks, coherente con el resto del sitio.
+**El backend vive en su propio repo, `kettenki-liviana`, y ya está desplegado.** Este repo contiene únicamente el widget. El contrato está en el `API.md` de aquel repo y es la única referencia que necesita el frontend: `POST /chat` con `{message, sessionId}`, respuesta `{answer, sessionId, meta}`, errores con forma `{error, message, retryAfter?}`.
+
+Sigue el patrón de Bambera: **AWS Bedrock + Lambda**, invocado desde JS vanilla en el frontend estático. Sin frameworks, coherente con el resto del sitio.
 
 Diferencias importantes respecto a Bambera (que corre en Lumis con acceso controlado): este chatbot es **público y sin login**, lo que exige:
 
@@ -212,18 +214,20 @@ Diferencias importantes respecto a Bambera (que corre en Lumis con acceso contro
 
 - **Sitio estático**: no necesita entorno de test. `python -m http.server` en la raíz del repo → `localhost:8000`. No hay build system.
 - **Chatbot**: no montar un stage de test en AWS (sobreingeniería y coste innecesario para un proyecto de una persona). En su lugar:
-  - Implementar un **mock local** (`assets/js/chat-mock.js`) que devuelva respuestas fijas.
-  - Activarlo con un flag: detección de `localhost` o query param `?mock=true`.
-  - El mock debe simular también el recorte de historial de 7.6, para que el comportamiento en local sea fiel al de producción.
+  - Un **mock local**, integrado en `js/liviana-widget.js`, que devuelve respuestas fijas y sabe provocar cada estado de error.
+  - Se activa **solo con `?mock=true`**, no por detección de `localhost`. El widget tiene que poder probarse en local contra la API real, y un mock silencioso escondería justo eso.
   - Permite maquetar toda la UI del widget (estados, scroll, avatar, errores) sin gastar una sola invocación de Bedrock.
-  - Conectar el endpoint real solo cuando la UI esté terminada.
+  - **Aviso para pruebas locales**: `AllowedOrigin` de la API es `https://kettenki.com`, así que desde `localhost` el navegador bloquea la llamada real por CORS. En local, o mock, o probar contra un doble local de la API.
 - **Todo el trabajo inicial se hace en local.** Nada se despliega a producción hasta que Javi lo decida explícitamente.
 
 ### 7.6 Memoria conversacional
 
 A diferencia de Bambera (stateless: cada mensaje se manda a Bedrock sin historial), el chatbot del sitio **sí mantiene memoria dentro de la conversación**. Motivo: es la demo en vivo de Liviana, un chatbot de atención al cliente que no recuerde lo que se acaba de preguntar sería una mala demostración del propio producto.
 
-- Bedrock no tiene memoria propia entre llamadas. La memoria se simula mandando el array de mensajes anterior completo + el nuevo en cada request.
-- **Alcance de la memoria: solo dentro de la sesión del navegador.** Guardar el historial en memoria JS o `sessionStorage`, nunca de forma persistente entre visitas.
-- **Límite de historial:** capar a los últimos 6-8 mensajes enviados a Bedrock. Motivo de coste: cada turno de conversación es más caro que el anterior porque arrastra todo el historial previo como input; sin límite, una conversación larga se encarece de forma creciente sin necesidad real.
-- Al superar el límite, el historial más antiguo se descarta (FIFO); el bot sigue funcionando pero sin recordar el inicio de conversaciones muy largas.
+**La memoria la lleva el servidor, no el navegador.** La versión anterior de este apartado describía lo contrario (el frontend mandando el array completo de mensajes y recortándolo a 6-8). La API de `kettenki-liviana` lo resuelve por su cuenta y el widget quedó más simple:
+
+- El widget manda **solo el mensaje nuevo** más el `sessionId`. Nunca el historial.
+- El servidor reproduce los **últimos 4 intercambios** de esa sesión al llamar al modelo, descartando los más antiguos primero. Ahí está el tope de coste, en el mismo sitio donde se genera la factura.
+- La memoria del servidor **caduca a las 24 horas** desde el último mensaje de esa sesión.
+- El `sessionId` se genera con `crypto.randomUUID()` y vive en `localStorage`, no en `sessionStorage`: así la conversación sobrevive a una recarga y al salto entre páginas, que es como está diseñado el backend. Un id caducado simplemente empieza una conversación nueva.
+- Consecuencia conocida: tras recargar, el historial **visible** aparece vacío aunque el servidor siga recordando. No molesta, pero conviene tenerlo presente.
