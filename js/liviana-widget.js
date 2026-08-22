@@ -339,6 +339,8 @@
     widget.setAttribute('data-state', 'open');
     fab.setAttribute('aria-expanded', 'true');
     greet();
+    // Jetzt erst hat das Eingabefeld Layout und lässt sich messen.
+    autoGrow();
     if (window.matchMedia('(min-width: 601px)').matches) input.focus();
   }
 
@@ -362,13 +364,21 @@
      Eingabefeld: wächst mit dem Text, Enter sendet, Shift+Enter macht Umbruch
      ------------------------------------------------------------------------ */
   function autoGrow() {
+    // Ohne Layout gibt es nichts zu messen: solange das Panel geschlossen ist,
+    // steht das Feld in einem display:none-Teilbaum und scrollHeight ist 0.
+    // Eine daraus berechnete Höhe von 0 px hat das Feld auf die Höhe seiner
+    // Innenabstände zusammengedrückt und die Zeile abgeschnitten.
+    if (!input.isConnected || input.scrollHeight === 0) return;
+
     input.style.height = 'auto';
-    const target = Math.min(input.scrollHeight, 96);
-    input.style.height = target + 'px';
+    const needed = input.scrollHeight;
+    input.style.height = Math.min(needed, 96) + 'px';
     // Erst ab der Maximalhöhe darf gescrollt werden. Ohne das erscheint schon
     // bei einer Zeile eine Bildlaufleiste, weil scrollHeight und gesetzte Höhe
-    // sich um ein Pixel unterscheiden können.
-    input.style.overflowY = input.scrollHeight > 96 ? 'auto' : 'hidden';
+    // sich um ein Pixel unterscheiden können. Gemessen wird der Bedarf von
+    // oben, also mit height: auto; nach dem Setzen der Höhe misst scrollHeight
+    // die gedeckelte Box und meldet keinen Überlauf mehr.
+    input.style.overflowY = needed > 96 ? 'auto' : 'hidden';
   }
 
   input.addEventListener('input', autoGrow);
@@ -672,6 +682,5 @@
     // Gleiches Muster wie blog-filter.js und contact-nav.js.
     refreshTranslations();
     renderMascot();
-    autoGrow();
   });
 })();

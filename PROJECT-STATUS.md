@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-08-22 (Liviana-Chat-Widget ist live auf kettenki.com, in Produktion geprüft)_
+_Letzte Aktualisierung: 2026-08-22 (Liviana-Chat-Widget live; abgeschnittenes Eingabefeld nachgebessert)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -217,6 +217,12 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Deployt und in Produktion geprüft** (2026-08-22, auf Javis Freigabe). Zwei Commits auf `main` (`d1a7b15` Widget, `4faf211` Dokumentation), gepusht, Pages hat nach rund einer Minute neu gebaut. Danach live nachgemessen: `js/liviana-widget.js`, `css/liviana-widget.css`, `img/ketten_liviana_de.jpg`, `img/ketten_liviana.webp` und `js/translations.js` liefern alle **200**; das Skript steht in allen **sieben** kommerziellen Seiten (`/`, `/about`, `/services`, `/contact`, `/bambera`, `/liviana`, `/fandango`) und in `/portfolio/`, `/blog/`, `/portfolio/bambera` und `/blog/clean-code` **nicht**. Gegenprobe zum hellen Thema ebenfalls live: `/contact.html` zeigt das Widget, `/contact.html?from=portfolio` nicht.
   - **Echtes Gespräch auf der Live-Seite**, ohne jeden Kniff: Frage auf Deutsch gestellt, Antwort nach 5.0 Sekunden, Sitzungskennung erzeugt und gespeichert, deutsche Bildfassung freigestellt und sichtbar. **Damit ist Liviana zugleich Produkt und Demo, wie in `SPEC.md` 7.1 beabsichtigt.**
   - Übertragen wird gzip-komprimiert: `liviana-widget.js` 9.4 KB, `liviana-widget.css` 3.7 KB, `translations.js` 37 KB. Das Bild bleibt der grösste Posten, siehe Offen.
+
+- [x] **Fix: das Eingabefeld im Chat war auf eine halbe Zeile zusammengedrückt** (Javi hat es auf dem Handy gefunden, Screenshot aus Chrome auf einem Galaxy A56). Betraf jede Bildschirmgrösse, fiel auf dem Handy nur deutlicher auf, weil dort mehr Text in weniger Feld steht. Ursache: `autoGrow()` lief einmal beim Einhängen des Widgets, also **während das Panel noch geschlossen war**. In einem `display:none`-Teilbaum ist `scrollHeight` gleich 0, daraus wurde `height: 0px`, und sichtbar blieb nur die Höhe der Innenabstände, rund 20 px. Beim ersten Tippen korrigierte sich das von selbst, weshalb es beim Bauen nicht auffiel: der Platzhalter war abgeschnitten, die eigene Eingabe nicht.
+  - Drei Änderungen: `autoGrow()` steigt jetzt aus, wenn das Feld kein Layout hat (`scrollHeight === 0`), statt eine unsinnige Höhe zu setzen; gerufen wird es beim **Öffnen** des Panels, wo das Feld messbar ist, und nicht mehr beim Einhängen; und `.liviana-input` bekommt in `css/liviana-widget.css` ein `min-height`, damit eine Zeile auch dann passt, wenn die Höhe gar nicht aus dem Skript kommt.
+  - **Zweiter Fehler in derselben Funktion mitgefunden**: ob eine Bildlaufleiste nötig ist, wurde geprüft, **nachdem** die Höhe auf den Deckel von 96 px gesetzt war. `scrollHeight` misst dann die gedeckelte Box und meldet keinen Überlauf mehr, die Leiste blieb also aus, obwohl der Text nicht mehr hineinpasste. Jetzt wird der Bedarf einmal mit `height: auto` gemessen und diese Zahl für beides benutzt.
+  - **Schriftgrösse im Feld auf dem Handy von 13.6 px auf 16 px**, mit passendem `min-height` von 46 px. 16 px ist die Grenze, unterhalb derer iOS beim Hineintippen in ein Feld hineinzoomt, und auf einem Telefon war die kleinere Schrift ohnehin unangenehm.
+  - Verifiziert bei 1920 px und in einem 390 px breiten Rahmen, jeweils nach hartem Neuladen: Feld öffnet mit voller Zeilenhöhe (40 px am Rechner, 46 px am Handy), wächst beim Tippen bis 96 px, bekommt dort eine Bildlaufleiste und fällt nach dem Absenden auf eine Zeile zurück.
 
 ## Blockiert — wartet auf Input
 

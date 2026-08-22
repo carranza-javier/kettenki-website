@@ -381,6 +381,10 @@
   flex-grow: 1;
   resize: none;
   overflow-y: hidden;
+  /* Eine Zeile plus Innenabstand und Rahmen. Fängt jeden Fall ab, in dem die
+     Höhe nicht aus dem Skript kommt, und ist zugleich eine brauchbare
+     Fingerfläche auf dem Handy. */
+  min-height: 40px;
   max-height: 96px;
   padding: 0.55rem 0.75rem;
   font-family: inherit;
@@ -486,6 +490,13 @@ body.has-liviana .scroll-top {
 
   .liviana-msg {
     max-width: 90%;
+  }
+
+  /* 16 px ist auf dem Handy die untere Grenze für bequemes Tippen, und iOS
+     zoomt bei allem darunter beim Hineintippen in das Feld. */
+  .liviana-input {
+    font-size: 16px;
+    min-height: 46px;
   }
 }
 
