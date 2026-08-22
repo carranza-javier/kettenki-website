@@ -163,31 +163,25 @@
       <div class="product-section fade-in">
         <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
         <ul class="benefits-list">
-          <li data-i18n="livianapf_did_1">Die Lambda wurde rund um Ports und Adapter entworfen: Die Fachlogik kennt nur Protokolle, die konkreten Adapter für Bedrock, S3 und DynamoDB liegen ausserhalb. Zwei zusätzliche Adapter, einer für die Ablage im Arbeitsspeicher und einer als Modell-Doppel, lassen das ganze System ohne ein AWS-Konto laufen und prüfen.</li>
-          <li data-i18n="livianapf_did_2">Ich habe den Kostenschutz in fünf Schichten entworfen und gebaut, statt eine Web Application Firewall zu mieten (siehe Technische Herausforderung).</li>
-          <li data-i18n="livianapf_did_3">Es wurden zwei DynamoDB-Tabellen statt einer angelegt: eine für den Gesprächsverlauf und eine für die Zähler. Sie haben unterschiedliche Schlüssel, unterschiedliche Lebensdauern und unterschiedliche Schreibmuster; sie zusammenzulegen hätte eine Zeile Code gespart und jede Abfrage verkompliziert.</li>
-          <li data-i18n="livianapf_did_4">Auf beide Zähler wurden bedingte Aktualisierungen angewendet. Bei einem Lesen mit anschliessendem Schreiben könnten zwei gleichzeitige Anfragen denselben Zählerstand lesen und beide noch innerhalb des Limits liegen. Mit der bedingten Aktualisierung wird daraus ein einziger atomarer Vorgang: Nur eine der beiden Anfragen kann das Limit passieren, die andere wird abgewiesen und schreibt überhaupt nichts.</li>
-          <li data-i18n="livianapf_did_5">Ich habe das Wissen über KettenKI aus dem Code herausgezogen und als einzelnes Dokument in S3 abgelegt. Was Liviana weiss und wie sie auftritt, ändert sich damit durch das Hochladen einer Datei statt durch ein Deployment.</li>
-          <li data-i18n="livianapf_did_6">Ich habe das Widget für diese Website gebaut: Zustände für das Schreiben, die Sperre, das erschöpfte Tagesbudget und den Netzwerkausfall, eine Sitzungskennung im Browser und der Sprachwechsel über dasselbe System wie der Rest der Seite.</li>
+          <li data-i18n="livianapf_did_1">Die Lambda ist mit Ports und Adaptern aufgebaut. Bedrock, S3 und DynamoDB hängen ausserhalb der Fachlogik, sodass ich das System auch lokal ohne AWS testen kann.</li>
+          <li data-i18n="livianapf_did_2">Den Kostenschutz habe ich selbst in fünf Stufen gebaut, statt dafür eine Web Application Firewall einzusetzen.</li>
+          <li data-i18n="livianapf_did_3">Gesprächsverlauf und Zähler liegen in getrennten DynamoDB-Tabellen. Die Zähler werden atomar aktualisiert, damit gleichzeitige Anfragen das Limit nicht umgehen können.</li>
+          <li data-i18n="livianapf_did_4">Das Wissen über KettenKI liegt als eigenes Dokument in S3. Für die Website habe ich ausserdem das Chat-Widget selbst gebaut, inklusive Sitzungen, Sprachwechsel und der verschiedenen Zustände bei Fehlern und Limits.</li>
         </ul>
       </div>
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
-        <p data-i18n="livianapf_challenge_intro">Ein Sprachmodell ohne Anmeldung ins Internet zu stellen heisst, einen Knopf anzubieten, der bei jedem Druck Geld kostet, und bezahlt wird er von der Betreiberin des Chatbots. Die naheliegende Lösung wäre eine Web Application Firewall gewesen, aber die verlangt ab der ersten Minute eine feste Monatsgebühr, unabhängig davon, ob überhaupt jemand vorbeikommt. Für eine Demo steht das in keinem Verhältnis. Stattdessen habe ich fünf Schichten umgesetzt, die keine Kosten verursachen:</p>
-        <ul class="benefits-list">
-          <li data-i18n="livianapf_challenge_1">Eine reservierte Nebenläufigkeit als Obergrenze für gleichzeitige Aufrufe</li>
-          <li data-i18n="livianapf_challenge_2">Die in API Gateway eingebaute Drosselung</li>
-          <li data-i18n="livianapf_challenge_3">Ein Limit von zwanzig Nachrichten pro Minute und Sitzung</li>
-          <li data-i18n="livianapf_challenge_4">Ein Tageszähler von fünfhundert Aufrufen als Sicherung</li>
-          <li data-i18n="livianapf_challenge_5">Ein Limit für die Länge von Fragen und Antworten</li>
-        </ul>
-        <p data-i18n="livianapf_challenge_outro">Interessant an der Aufgabe war weniger die Technik als die Reihenfolge: Jede Prüfung sitzt dort, wo sie am wenigsten kostet, und der Tageszähler wird erst unmittelbar vor dem bezahlten Aufruf erhöht. Eine abgewiesene Anfrage verbraucht damit nichts.</p>
+        <p data-i18n="livianapf_challenge_intro">Ein Sprachmodell öffentlich und ohne Anmeldung anzubieten bedeutet auch, dass jeder Klick Kosten verursachen kann. Für eine Demo wollte ich deshalb keine laufenden Kosten für eine Web Application Firewall haben.</p>
+        <p data-i18n="livianapf_challenge_layers">Stattdessen habe ich den Schutz selbst aufgebaut: mit der Drosselung von API Gateway, einer Begrenzung pro Sitzung, einem Tageslimit, reservierter Nebenläufigkeit und einer Begrenzung der Nachrichtenlänge.</p>
+        <p data-i18n="livianapf_challenge_outro">Wichtig war dabei vor allem die Reihenfolge der Prüfungen. Teure Anfragen werden so spät wie möglich zugelassen, und eine abgewiesene Anfrage verbraucht kein Tageskontingent.</p>
       </div>
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_result">Ergebnis & Learnings</h2>
-        <p data-i18n="livianapf_result">Liviana läuft seit August 2026 auf kettenki.com, antwortet in drei bis fünf Sekunden und in der Sprache der Besucherin. Sie ist zugleich das Produkt und der Beweis, dass es funktioniert. Die wichtigste Erkenntnis für mich: Bei einer öffentlichen Funktion auf Basis eines Sprachmodells steckt die eigentliche Ingenieurarbeit nicht im Prompt, sondern in der Frage, was passiert, wenn etwas schiefgeht. Was, wenn jemand sie flutet, wenn Bedrock ausfällt, wenn das Tagesbudget aufgebraucht ist, wenn jemand versucht, sie aus ihrer Rolle zu holen? Auf jede dieser Situationen gibt es hier eine Antwort, im Code und in einem Satz, den die Besucherin verstehen kann.</p>
+        <p data-i18n="livianapf_result_1">Liviana läuft seit August 2026 auf kettenki.com, antwortet in drei bis fünf Sekunden und wechselt automatisch die Sprache.</p>
+        <p data-i18n="livianapf_result_2">Für mich war die wichtigste Erkenntnis, dass bei einem öffentlichen Chatbot der Prompt nur ein kleiner Teil der Arbeit ist. Interessanter wird es bei den Dingen, die schiefgehen können: zu viele Anfragen, ein ausgefallener Dienst, ein erreichtes Tageslimit oder der Versuch, den Chatbot aus seiner Rolle zu bringen.</p>
+        <p data-i18n="livianapf_result_3">Liviana ist deshalb nicht nur eine Demo. Sie ist gleichzeitig das Produkt und der Beweis, dass die ganze Kette funktioniert.</p>
       </div>
 
       <div class="product-section fade-in">

@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-08-22 (Portfolio-Fiche Liviana live; Kartenreihenfolge im Index neu)_
+_Letzte Aktualisierung: 2026-08-22 (Liviana-Fiche live, Text mehrfach von Javi überarbeitet und gekürzt)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -253,6 +253,13 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   1. **Der Produktname "Guardrails" ist raus.** Javis erste Fassung sagte, im Hintergrund würden Guardrails angewendet. Nachgefragt, weil Bedrock Guardrails laut Entscheidung 20 in `DECISIONS.md` bewusst nicht angeschlossen sind, im Code und im Template kommt der Begriff nirgends vor. Javi hat die Formulierung selbst auf "medidas de seguridad" geändert, im Deutschen jetzt "Sicherheitsmassnahmen", im Englischen "security measures". Das ist sachlich richtig: Was den Themenrahmen tatsächlich hält, sind der `out_of_scope`-Block im System-Prompt mit vorbereiteter Ablehnung je Sprache, die Grounding-Regel und die Betriebsgrenzen. Falls die AWS-Funktion später dazukommt, kann der Satz konkreter werden.
   2. **Reihenfolge der Karten im Portfolio-Index geändert**, auf Javis Wunsch: Liviana, Spicy Feedback Tool, RailTrack Manager, La Guitarrita, Bambera, mini-midoffice. Vorne steht damit, was sich sofort anfassen oder nachprüfen lässt. Rein eine Umstellung der sechs `<a class="portfolio-card">`-Blöcke, kein CSS und kein Text geändert; vorher geprüft, dass keine Regel an `:first-child` oder `:nth-child` einer Karte hängt. `SPEC.md` 5.3 hält jetzt beides fest: Die Liste dort bleibt nach Beweiskraft sortiert, die Anzeigereihenfolge ist eine eigene, redaktionelle Entscheidung.
   - Verifiziert nach hartem Neuladen: Reihenfolge stimmt, je Reihe gleiche Kartenhöhe, kein Vorkommen von "Guardrail" mehr in `js/translations.js` oder `portfolio/liviana.html`, Paritätscheck DE/EN weiterhin 400 Keys je Sprache.
+
+- [x] **Die letzten drei Abschnitte der Liviana-Fiche gekürzt**, Fassung von Javi. Sie sind spürbar besser: Die sechs Punkte unter "Was ich gemacht habe" wiederholten Details, die direkt darunter in der Technischen Herausforderung noch einmal standen, und die Aufzählung der fünf Schutzstufen liest sich als ein Satz Prosa flüssiger als als Liste.
+  - **Sechs Punkte werden vier**: Ports und Adapter, Kostenschutz, die beiden Tabellen samt atomarer Zähler (vorher zwei Punkte), und das Inhaltsdokument in S3 zusammen mit dem Widget (vorher ebenfalls zwei). `livianapf_did_5` und `_6` entfallen.
+  - **Technische Herausforderung jetzt drei Absätze ohne Liste.** `livianapf_challenge_1` bis `_5` entfallen, dafür kam `livianapf_challenge_layers` dazu, das die fünf Stufen in einem Satz nennt.
+  - **Ergebnis & Learnings jetzt drei Absätze** statt eines Blocks: `livianapf_result` wurde zu `livianapf_result_1` bis `_3`.
+  - Paritätscheck danach: 396 Keys je Sprache. Zusätzlich geprüft, dass keine verwaisten `livianapf_*`-Keys zurückbleiben: 35 definiert, 35 in `portfolio/liviana.html` und `portfolio/index.html` benutzt, in beide Richtungen kein Rest. Verifiziert per lokalem Server nach hartem Neuladen in DE und EN.
+  - **Eine Aussage ist beim Kürzen verloren gegangen**, absichtlich nicht wieder eingebaut, aber notiert, falls sie jemandem fehlt: dass sich das Wissen über KettenKI durch das Hochladen einer Datei ändert und nicht durch ein Deployment. Der Punkt nennt jetzt nur noch, dass es als eigenes Dokument in S3 liegt.
 
 ## Blockiert — wartet auf Input
 
