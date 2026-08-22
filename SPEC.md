@@ -136,13 +136,16 @@ No todos los proyectos necesitan las 7 secciones (ej. un proyecto sin UI navegab
 
 ### 5.3 Selección de proyectos (curada, no exhaustiva)
 
-Basado en investigación de mejores prácticas 2026: 3-6 proyectos curados superan a listas largas, los reclutadores escanean ~8 segundos y priorizan evidencia verificable (repo/demo) sobre volumen. Portfolio final, por orden de fuerza de evidencia:
+Basado en investigación de mejores prácticas 2026: 3-6 proyectos curados superan a listas largas, los reclutadores escanean ~8 segundos y priorizan evidencia verificable (repo/demo) sobre volumen. **Seis fichas es el techo**: a partir de ahí, añadir una obliga a quitar otra. Portfolio final, por orden de fuerza de evidencia:
 
 1. **RailTrack Manager**, proyecto propio, repo público, capturas. Máxima evidencia verificable. ✅ Completado.
 2. **Spicy Feedback Tool** (spicy-kunstraum.ch), caso real: herramienta de feedback para galería de arte (Kunstraum), cliente real, en producción. ✅ Completado.
 3. **Bambera**, prototipo propio de RAG, probado durante tres meses con el equipo de Lumis Kaffeebar. Caso más fuerte de "IA aplicada de verdad", con resultados medidos (batería de 100 prompts). No afirmar que esté en producción activa ni en uso diario. ✅ Completado.
-4. **mini-midoffice**, repo propio, migración Spring 5→6 documentada y tageada en Git (preparado en contexto Umbrella AG). Pendiente.
-5. *(Opcional, añadir solo si hay tiempo/valor)* Fandango, complementa a Bambera. SBB/TIP2, sin repo propio, mejor tratado como post de blog (reflexión de arquitectura) que como ficha de portfolio.
+4. **Liviana**, chatbot propio **en producción sobre kettenki.com**, repo público. La evidencia más fuerte del portfolio y la única que el visitante puede usar en la misma visita: es a la vez producto y demo de sí misma (ver 7.1). El interés técnico no está en el prompt sino en exponer un modelo de lenguaje sin login sin que te vacíen la cuenta. ✅ Completado.
+5. **mini-midoffice**, repo propio, migración Spring 5→6 documentada y tageada en Git (preparado en contexto Umbrella AG). ✅ Completado.
+6. **La Guitarrita** (laguitarrita.ch), proyecto propio en producción, sin recorrido de pantallas ni arquitectura porque el reto fue de diseño y no técnico. ✅ Completado.
+
+*(Descartado)* Fandango, complementa a Bambera. SBB/TIP2, sin repo propio, mejor tratado como post de blog (reflexión de arquitectura) que como ficha de portfolio.
 
 **No incluir en portfolio profesional:** Iledysile (web personal para su pareja), proyecto real pero de naturaleza distinta (regalo personal, no caso de estudio técnico).
 

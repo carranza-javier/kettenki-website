@@ -382,6 +382,49 @@ const translations = {
     chat_widget_img: 'img/ketten_liviana_de.jpg',
     chat_widget_alt: 'Liviana, das Katzen-Maskottchen von KettenKI',
 
+    label_content: 'Inhalt',
+
+    livianapf_tagline: 'Öffentlicher KI-Chatbot auf kettenki.com, zugleich Produkt und eigene Demo',
+    livianapf_context: 'Liviana ist eines der drei Produkte von KettenKI: ein Chatbot, der Kundenanfragen auf der Website eines Unternehmens beantwortet. Sie auf kettenki.com selbst laufen zu lassen, macht sie zu beidem gleichzeitig. Wer hier fragt, was Bambera kann, benutzt in diesem Moment Liviana und sieht sie arbeiten. Das unterscheidet sie von jedem anderen Stück in diesem Portfolio: Es ist kein Screenshot und kein Repository, es ist ein Produkt, das die Besucherin im selben Besuch ausprobieren kann. Technisch bringt genau das die eigentliche Schwierigkeit mit sich, denn anders als Bambera steht Liviana öffentlich und ohne Login im Netz: Jeder Mensch und jeder Bot der Welt kann Anfragen schicken, die bei Amazon Bedrock Geld kosten.',
+
+    livianapf_walkthrough_closed_title: 'Der Auslöser',
+    livianapf_walkthrough_closed: 'Auf jeder kommerziellen Seite sitzt unten rechts das Maskottchen von KettenKI. Kein fremdes Chat-Symbol, sondern die Figur, die auch auf der Produktseite steht: Der Einstieg in das Gespräch ist Teil der Marke und nicht ein aufgeklebtes Fremdprodukt. In den Portfolio- und Blog-Bereich kommt sie bewusst nicht, dort ist das Publikum ein anderes.',
+    livianapf_alt_closed: 'Die Startseite von kettenki.com mit dem Katzen-Maskottchen unten rechts',
+
+    livianapf_walkthrough_greeting_title: 'Geöffnetes Fenster',
+    livianapf_walkthrough_greeting: 'Ein Klick öffnet das Fenster mit einer kurzen Begrüssung. Die Oberfläche übernimmt die Farben und die Schrift der Seite, damit der Chat wie ein Teil des Hauses wirkt. Unter dem Eingabefeld steht dauerhaft der Hinweis, dass es sich um einen Prototyp handelt und Antworten Fehler enthalten können.',
+    livianapf_alt_greeting: 'Das geöffnete Chatfenster mit der Begrüssung von Liviana',
+
+    livianapf_walkthrough_conversation_title: 'Eine echte Anfrage',
+    livianapf_walkthrough_conversation: 'Eine Yogaschule fragt, ob ein Chatbot ihr die wiederkehrenden Fragen per E-Mail und WhatsApp abnehmen könnte. Die Antwort bleibt kurz, bleibt beim Thema und endet mit dem Weg zum Kontakt. Der Aufruf zum Kontakt kommt nur bei erkennbarem Kaufinteresse und nicht unter jeder Antwort. Geantwortet wird ausserdem in der Sprache der Frage, auch auf Spanisch, obwohl die Website selbst nur Deutsch und Englisch kennt.',
+    livianapf_alt_conversation: 'Ein Gespräch über eine Yogaschule, das mit dem Hinweis auf die Kontaktadresse endet',
+
+    livianapf_walkthrough_scope_title: 'Ausserhalb des Themas',
+    livianapf_walkthrough_scope: 'Jemand versucht, ihr das Passwort zum AWS-Konto zu entlocken. Sie lehnt ab und benennt, worüber sie spricht. Der Themenrahmen steht im System-Prompt und wird nicht als Zufall behandelt: Liviana redet über KettenKI und die drei Lösungen, nie über Javier als Bewerber, nie über Preise, die es öffentlich nicht gibt, und nie über die technischen Innereien der anderen Produkte.',
+    livianapf_alt_scope: 'Liviana lehnt die Frage nach dem AWS-Passwort ab und verweist auf ihre Themen',
+
+    livianapf_architecture: 'Das Widget schickt ausschliesslich die neue Nachricht und eine Sitzungskennung an eine HTTP-API von API Gateway, die das Throttling und die erlaubte Herkunft regelt und danach die Lambda aufruft. In der Lambda läuft die Prüfung in einer bewussten Reihenfolge: erst die Sperre pro Sitzung, dann der Verlauf, dann der Tageszähler und erst danach das Modell. Die billigste Absage kommt zuerst, und der Tageszähler wird unmittelbar vor dem bezahlten Aufruf erhöht, damit eine abgewiesene Anfrage kein Kontingent verbraucht. Den Verlauf und die Zähler führen zwei DynamoDB-Tabellen mit TTL, das Wissen über KettenKI liegt als einzelnes Dokument in S3 und wird im Ausführungskontext fünf Minuten zwischengespeichert. Die eigentliche Antwort kommt von Claude Haiku 4.5 auf Bedrock. Parallel dazu melden CloudWatch-Alarme und ein AWS-Budget per SNS und E-Mail, wenn etwas aus dem Ruder läuft.',
+    livianapf_alt_architecture: 'Architekturdiagramm von Liviana: Das Widget der Website ruft eine HTTP-API von API Gateway auf, diese eine Lambda mit Sperre je Sitzung, Tageszähler und begrenzter Nebenläufigkeit. Die Lambda liest das Inhaltsdokument aus S3, führt Verlauf und Zähler in zwei DynamoDB-Tabellen mit TTL und ruft Claude Haiku 4.5 auf Bedrock auf. CloudWatch-Alarme und ein AWS-Budget melden sich per SNS und E-Mail.',
+
+    livianapf_stack_frontend: 'Widget in Vanilla JS, ohne Build-System',
+    livianapf_stack_api: 'API Gateway HTTP API, mit Throttling und fester Herkunft',
+    livianapf_stack_model: 'Claude Haiku 4.5 über Amazon Bedrock (eu-central-1)',
+    livianapf_stack_state: 'Amazon DynamoDB, zwei Tabellen mit TTL',
+    livianapf_stack_content: 'Amazon S3, ein JSON-Dokument, im Ausführungskontext zwischengespeichert',
+    livianapf_stack_infra: 'CloudFormation von Hand, ohne SAM und ohne CDK',
+    livianapf_stack_monitoring: 'CloudWatch-Alarme, SNS und ein AWS-Budget',
+
+    livianapf_did_1: 'Die Lambda nach dem Ports-und-Adapter-Muster gebaut: Die Fachlogik kennt nur Protokolle, die konkreten Adapter für Bedrock, S3 und DynamoDB hängen aussen dran. Zwei zusätzliche Adapter, ein Ablage im Arbeitsspeicher und ein Modell-Doppel, lassen das ganze System ohne ein einziges AWS-Konto laufen und testen.',
+    livianapf_did_2: 'Den Kostenschutz in fünf Schichten entworfen und umgesetzt, statt eine Web Application Firewall zu mieten (siehe Technische Herausforderung).',
+    livianapf_did_3: 'Zwei DynamoDB-Tabellen statt einer angelegt, eine für den Gesprächsverlauf und eine für die Zähler. Sie haben unterschiedliche Schlüssel, unterschiedliche Lebensdauern und unterschiedliche Schreibmuster; sie zusammenzulegen hätte nur eine Zeile Infrastruktur gespart und dafür jede Abfrage verkompliziert.',
+    livianapf_did_4: 'Beide Zähler mit einer bedingten Aktualisierung durchgesetzt. Ein Lesen mit anschliessendem Schreiben hätte zwei gleichzeitige Anfragen beide am Limit vorbeigelassen; so ist es ein einziger Rundlauf, atomar, und eine abgewiesene Anfrage schreibt gar nichts.',
+    livianapf_did_5: 'Das Wissen über KettenKI aus dem Code herausgezogen und als einzelnes Dokument nach S3 gelegt. Was Liviana weiss und wie sie auftritt, ändert sich damit durch das Hochladen einer Datei und nicht durch ein Deployment.',
+    livianapf_did_6: 'Das Widget in dieser Website gebaut: Zustände für Tippen, Sperre, erschöpftes Tagesbudget und Netzwerkausfall, Sitzungskennung im Browser, Sprachwechsel über dasselbe System wie der Rest der Seite.',
+
+    livianapf_challenge: 'Ein Sprachmodell öffentlich und ohne Login ins Netz zu stellen, heisst, einen Knopf anzubieten, der bei jedem Druck Geld kostet und den man selbst bezahlt. Die naheliegende Antwort wäre eine Web Application Firewall gewesen, aber die kostet ab der ersten Minute eine feste Monatsgebühr, unabhängig davon, ob überhaupt jemand vorbeikommt. Für eine Demo steht das in keinem Verhältnis. Stattdessen habe ich fünf Schichten übereinandergelegt, die alle nichts kosten: eine reservierte Nebenläufigkeit als harte Obergrenze gleichzeitiger Aufrufe, das Throttling des API Gateway, eine Sperre von zwanzig Nachrichten je Minute und Sitzung, einen Tageszähler von fünfhundert Aufrufen als Sicherung und ein Limit für die Länge von Frage und Antwort. Interessant an dieser Aufgabe war weniger die Technik selbst als die Reihenfolge: Jede Prüfung sitzt dort, wo sie am wenigsten kostet, und der Tageszähler wird erst unmittelbar vor dem bezahlten Aufruf erhöht. Eine abgewiesene Anfrage verbraucht damit nichts, ein fehlgeschlagener Aufruf bei Bedrock dagegen schon, denn versucht wurde er.',
+    livianapf_result: 'Liviana läuft seit August 2026 auf kettenki.com, antwortet in drei bis fünf Sekunden und in der Sprache der Besucherin. Sie ist gleichzeitig das Produkt und der Beweis, dass es funktioniert. Mitgenommen habe ich vor allem eines: Bei einer öffentlichen Funktion mit einem Sprachmodell steckt die eigentliche Ingenieurarbeit nicht im Prompt, sondern in der Frage, was passiert, wenn es schiefgeht. Was, wenn jemand sie flutet, wenn Bedrock ausfällt, wenn das Tagesbudget aufgebraucht ist, wenn jemand versucht, sie aus ihrer Rolle zu holen. Auf jede dieser Fragen gibt es hier eine Antwort im Code und einen verständlichen Satz für die Besucherin.',
+    livianapf_cta_try: 'Liviana live ausprobieren',
+
     footer_text: '© 2026 KettenKI. Entwickelt mit Präzision.',
   },
 
@@ -767,6 +810,49 @@ const translations = {
     chat_error_generic: 'Something went wrong. Please try again or write to',
     chat_widget_img: 'img/ketten_liviana.webp',
     chat_widget_alt: 'Liviana, the cat mascot of KettenKI',
+
+    label_content: 'Content',
+
+    livianapf_tagline: 'Public AI chatbot on kettenki.com, the product and its own demo at once',
+    livianapf_context: 'Liviana is one of the three KettenKI products: a chatbot that answers customer questions on a company website. Running her on kettenki.com itself makes her both things at once. Someone who asks here what Bambera does is using Liviana at that very moment and watching her work. That sets this piece apart from everything else in the portfolio: it is not a screenshot and not a repository, it is a product the visitor can try during the same visit. Technically that is exactly where the difficulty comes from, because unlike Bambera, Liviana sits on the open internet with no login: every person and every bot in the world can send requests that cost money at Amazon Bedrock.',
+
+    livianapf_walkthrough_closed_title: 'The trigger',
+    livianapf_walkthrough_closed: 'On every commercial page the KettenKI mascot sits in the bottom right corner. Not a generic chat icon, but the same character that appears on the product page: the way into the conversation is part of the brand rather than a third party product glued on top. She deliberately stays out of the portfolio and blog areas, where the audience is a different one.',
+    livianapf_alt_closed: 'The kettenki.com home page with the cat mascot in the bottom right corner',
+
+    livianapf_walkthrough_greeting_title: 'The open window',
+    livianapf_walkthrough_greeting: 'One click opens the window with a short greeting. The interface picks up the colours and the typeface of the site, so the chat reads as part of the house. A permanent note under the input field says this is a prototype and answers can contain mistakes.',
+    livianapf_alt_greeting: 'The open chat window showing the greeting from Liviana',
+
+    livianapf_walkthrough_conversation_title: 'A real enquiry',
+    livianapf_walkthrough_conversation: 'A yoga school asks whether a chatbot could take the recurring questions arriving by email and WhatsApp off their hands. The answer stays short, stays on topic and ends with the way to get in touch. That call to contact appears only on visible buying interest, not under every answer. She also replies in the language of the question, Spanish included, even though the website itself only speaks German and English.',
+    livianapf_alt_conversation: 'A conversation about a yoga school that ends by pointing at the contact address',
+
+    livianapf_walkthrough_scope_title: 'Off topic',
+    livianapf_walkthrough_scope: 'Someone tries to get the password to the AWS account out of her. She declines and names what she does talk about. The scope lives in the system prompt and is not left to chance: Liviana talks about KettenKI and the three solutions, never about Javier as a job candidate, never about prices that do not exist publicly, and never about the technical internals of the other products.',
+    livianapf_alt_scope: 'Liviana refuses the question about the AWS password and points back at her own topics',
+
+    livianapf_architecture: 'The widget sends only the new message and a session id to an HTTP API on API Gateway, which handles throttling and the allowed origin before invoking the Lambda. Inside the Lambda the checks run in a deliberate order: first the per session limit, then the history, then the daily counter, and only then the model. The cheapest rejection comes first, and the daily counter is incremented immediately before the paid call, so a rejected request never spends part of the allowance. History and counters live in two DynamoDB tables with TTL, the knowledge about KettenKI sits in S3 as a single document and is cached in the execution environment for five minutes. The answer itself comes from Claude Haiku 4.5 on Bedrock. Alongside all of that, CloudWatch alarms and an AWS budget report by SNS and email when something gets out of hand.',
+    livianapf_alt_architecture: 'Architecture diagram for Liviana: the website widget calls an HTTP API on API Gateway, which invokes a Lambda carrying the per session limit, the daily counter and a reserved concurrency cap. The Lambda reads the content document from S3, keeps history and counters in two DynamoDB tables with TTL, and calls Claude Haiku 4.5 on Bedrock. CloudWatch alarms and an AWS budget report by SNS and email.',
+
+    livianapf_stack_frontend: 'Vanilla JS widget, no build system',
+    livianapf_stack_api: 'API Gateway HTTP API, with throttling and a fixed origin',
+    livianapf_stack_model: 'Claude Haiku 4.5 on Amazon Bedrock (eu-central-1)',
+    livianapf_stack_state: 'Amazon DynamoDB, two tables with TTL',
+    livianapf_stack_content: 'Amazon S3, a single JSON document, cached in the execution environment',
+    livianapf_stack_infra: 'Handwritten CloudFormation, no SAM and no CDK',
+    livianapf_stack_monitoring: 'CloudWatch alarms, SNS and an AWS budget',
+
+    livianapf_did_1: 'Built the Lambda around ports and adapters: the domain logic knows only protocols, and the concrete adapters for Bedrock, S3 and DynamoDB hang off the outside. Two extra adapters, an in memory store and a model double, let the whole system run and be tested without a single AWS account.',
+    livianapf_did_2: 'Designed and built the cost protection in five layers instead of renting a web application firewall (see the technical challenge).',
+    livianapf_did_3: 'Created two DynamoDB tables rather than one, one for the conversation history and one for the counters. They have different keys, different lifetimes and different write patterns; merging them would have saved one line of infrastructure and complicated every query.',
+    livianapf_did_4: 'Enforced both counters with a conditional update. A read followed by a write would let two concurrent requests slip past the limit together; this way it is a single round trip, atomic, and a rejected request writes nothing at all.',
+    livianapf_did_5: 'Pulled the knowledge about KettenKI out of the code and put it in S3 as a single document. What Liviana knows and how she presents herself now changes by uploading a file rather than by deploying.',
+    livianapf_did_6: 'Built the widget in this website: states for typing, rate limiting, an exhausted daily budget and network failure, a session id in the browser, and language switching through the same system as the rest of the site.',
+
+    livianapf_challenge: 'Putting a language model on the open internet with no login means offering a button that costs money every time it is pressed, and you are the one paying. The obvious answer would have been a web application firewall, but that charges a fixed monthly fee from the first minute, whether or not anybody shows up. For a demo that is out of all proportion. Instead I stacked five layers that all cost nothing: a reserved concurrency as a hard ceiling on simultaneous invocations, the throttling built into API Gateway, a limit of twenty messages per minute and session, a daily counter of five hundred invocations as the backstop, and a cap on the length of question and answer. What made the task interesting was less the technology than the order: every check sits where it costs the least, and the daily counter is only incremented immediately before the paid call. A rejected request therefore consumes nothing, while a failed call to Bedrock does, because it was attempted.',
+    livianapf_result: 'Liviana has been running on kettenki.com since August 2026, answering in three to five seconds and in the language of the visitor. She is the product and the proof that it works at the same time. The main thing I took away: in a public feature built on a language model, the real engineering is not in the prompt but in the question of what happens when it goes wrong. What if somebody floods it, if Bedrock fails, if the daily budget is spent, if somebody tries to pull her out of her role. Every one of those has an answer here, in the code and in a sentence the visitor can understand.',
+    livianapf_cta_try: 'Try Liviana live',
 
     footer_text: '© 2026 KettenKI. Built with precision.',
   }

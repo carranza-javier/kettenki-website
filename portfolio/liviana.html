@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Liviana - Portfolio | KettenKI</title>
+  <meta name="description" content="Liviana: öffentlicher KI-Chatbot auf kettenki.com. AWS Lambda in Python, Claude Haiku 4.5 auf Bedrock, DynamoDB mit TTL, Kostenschutz ohne WAF.">
+  <meta name="keywords" content="Liviana, AWS Lambda, Bedrock, Claude Haiku, DynamoDB, Serverless, Rate Limiting, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/portfolio/liviana">
+  <meta property="og:title" content="Liviana - Portfolio | KettenKI">
+  <meta property="og:description" content="Liviana: a public AI chatbot running on kettenki.com, built with a Python Lambda, Claude Haiku 4.5 on Bedrock and DynamoDB, with cost protection built in five free layers instead of a WAF.">
+
+  <link rel="canonical" href="https://kettenki.com/portfolio/liviana">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/portfolio/liviana">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/portfolio/liviana">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact?from=portfolio" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container product-detail">
+      <div class="product-hero fade-in">
+        <div class="type-badges">
+          <span class="type-badge type-badge--own" data-i18n="portfolio_type_own">🎓 Eigenes Projekt</span>
+          <span class="type-badge type-badge--production" data-i18n="portfolio_type_production">🚀 In Produktion</span>
+        </div>
+        <h1 class="product-title">Liviana</h1>
+        <p class="product-subtitle" data-i18n="livianapf_tagline">Öffentlicher KI-Chatbot auf kettenki.com, zugleich Produkt und eigene Demo</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_context">Kontext</h2>
+        <p data-i18n="livianapf_context">Liviana ist eines der drei Produkte von KettenKI: ein Chatbot, der Kundenanfragen auf der Website eines Unternehmens beantwortet. Sie auf kettenki.com selbst laufen zu lassen, macht sie zu beidem gleichzeitig. Wer hier fragt, was Bambera kann, benutzt in diesem Moment Liviana und sieht sie arbeiten. Das unterscheidet sie von jedem anderen Stück in diesem Portfolio: Es ist kein Screenshot und kein Repository, es ist ein Produkt, das die Besucherin im selben Besuch ausprobieren kann. Technisch bringt genau das die eigentliche Schwierigkeit mit sich, denn anders als Bambera steht Liviana öffentlich und ohne Login im Netz: Jeder Mensch und jeder Bot der Welt kann Anfragen schicken, die bei Amazon Bedrock Geld kosten.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_walkthrough">Rundgang durch die Anwendung</h2>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="livianapf_walkthrough_closed_title">Der Auslöser</h3>
+          <p data-i18n="livianapf_walkthrough_closed">Auf jeder kommerziellen Seite sitzt unten rechts das Maskottchen von KettenKI. Kein fremdes Chat-Symbol, sondern die Figur, die auch auf der Produktseite steht: Der Einstieg in das Gespräch ist Teil der Marke und nicht ein aufgeklebtes Fremdprodukt. In den Portfolio- und Blog-Bereich kommt sie bewusst nicht, dort ist das Publikum ein anderes.</p>
+          <img src="img/liviana/liviana-widget-closed.png" alt="Die Startseite von kettenki.com mit dem Katzen-Maskottchen unten rechts" data-i18n-alt="livianapf_alt_closed">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="livianapf_walkthrough_greeting_title">Geöffnetes Fenster</h3>
+          <p data-i18n="livianapf_walkthrough_greeting">Ein Klick öffnet das Fenster mit einer kurzen Begrüssung. Die Oberfläche übernimmt die Farben und die Schrift der Seite, damit der Chat wie ein Teil des Hauses wirkt. Unter dem Eingabefeld steht dauerhaft der Hinweis, dass es sich um einen Prototyp handelt und Antworten Fehler enthalten können.</p>
+          <img src="img/liviana/liviana-greeting.png" alt="Das geöffnete Chatfenster mit der Begrüssung von Liviana" data-i18n-alt="livianapf_alt_greeting">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="livianapf_walkthrough_conversation_title">Eine echte Anfrage</h3>
+          <p data-i18n="livianapf_walkthrough_conversation">Eine Yogaschule fragt, ob ein Chatbot ihr die wiederkehrenden Fragen per E-Mail und WhatsApp abnehmen könnte. Die Antwort bleibt kurz, bleibt beim Thema und endet mit dem Weg zum Kontakt. Der Aufruf zum Kontakt kommt nur bei erkennbarem Kaufinteresse und nicht unter jeder Antwort. Geantwortet wird ausserdem in der Sprache der Frage, auch auf Spanisch, obwohl die Website selbst nur Deutsch und Englisch kennt.</p>
+          <img src="img/liviana/liviana-conversation.png" alt="Ein Gespräch über eine Yogaschule, das mit dem Hinweis auf die Kontaktadresse endet" data-i18n-alt="livianapf_alt_conversation">
+        </div>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="livianapf_walkthrough_scope_title">Ausserhalb des Themas</h3>
+          <p data-i18n="livianapf_walkthrough_scope">Jemand versucht, ihr das Passwort zum AWS-Konto zu entlocken. Sie lehnt ab und benennt, worüber sie spricht. Der Themenrahmen steht im System-Prompt und wird nicht als Zufall behandelt: Liviana redet über KettenKI und die drei Lösungen, nie über Javier als Bewerber, nie über Preise, die es öffentlich nicht gibt, und nie über die technischen Innereien der anderen Produkte.</p>
+          <img src="img/liviana/liviana-out-of-scope.png" alt="Liviana lehnt die Frage nach dem AWS-Passwort ab und verweist auf ihre Themen" data-i18n-alt="livianapf_alt_scope">
+        </div>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_architecture">Architektur</h2>
+        <div class="architecture-block">
+          <img src="img/liviana/liviana-architecture.svg" alt="Architekturdiagramm von Liviana" data-i18n-alt="livianapf_alt_architecture">
+          <p data-i18n="livianapf_architecture">Das Widget schickt ausschliesslich die neue Nachricht und eine Sitzungskennung an eine HTTP-API von API Gateway, die das Throttling und die erlaubte Herkunft regelt und danach die Lambda aufruft. In der Lambda läuft die Prüfung in einer bewussten Reihenfolge: erst die Sperre pro Sitzung, dann der Verlauf, dann der Tageszähler und erst danach das Modell. Die billigste Absage kommt zuerst, und der Tageszähler wird unmittelbar vor dem bezahlten Aufruf erhöht, damit eine abgewiesene Anfrage kein Kontingent verbraucht. Den Verlauf und die Zähler führen zwei DynamoDB-Tabellen mit TTL, das Wissen über KettenKI liegt als einzelnes Dokument in S3 und wird im Ausführungskontext fünf Minuten zwischengespeichert. Die eigentliche Antwort kommt von Claude Haiku 4.5 auf Bedrock. Parallel dazu melden CloudWatch-Alarme und ein AWS-Budget per SNS und E-Mail, wenn etwas aus dem Ruder läuft.</p>
+        </div>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_stack">Stack</h2>
+        <table class="stack-table">
+          <thead>
+            <tr>
+              <th data-i18n="label_layer">Ebene</th>
+              <th data-i18n="label_technology">Technologie</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Frontend</td>
+              <td data-i18n="livianapf_stack_frontend">Widget in Vanilla JS, ohne Build-System</td>
+            </tr>
+            <tr>
+              <td>API</td>
+              <td data-i18n="livianapf_stack_api">API Gateway HTTP API, mit Throttling und fester Herkunft</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_compute">Rechenleistung</td>
+              <td>AWS Lambda (Python 3.13)</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_model">Modell</td>
+              <td data-i18n="livianapf_stack_model">Claude Haiku 4.5 über Amazon Bedrock (eu-central-1)</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_persistence">Persistenz</td>
+              <td data-i18n="livianapf_stack_state">Amazon DynamoDB, zwei Tabellen mit TTL</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_content">Inhalt</td>
+              <td data-i18n="livianapf_stack_content">Amazon S3, ein JSON-Dokument, im Ausführungskontext zwischengespeichert</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_infrastructure">Infrastruktur</td>
+              <td data-i18n="livianapf_stack_infra">CloudFormation von Hand, ohne SAM und ohne CDK</td>
+            </tr>
+            <tr>
+              <td>Monitoring</td>
+              <td data-i18n="livianapf_stack_monitoring">CloudWatch-Alarme, SNS und ein AWS-Budget</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
+        <ul class="benefits-list">
+          <li data-i18n="livianapf_did_1">Die Lambda nach dem Ports-und-Adapter-Muster gebaut: Die Fachlogik kennt nur Protokolle, die konkreten Adapter für Bedrock, S3 und DynamoDB hängen aussen dran. Zwei zusätzliche Adapter, ein Ablage im Arbeitsspeicher und ein Modell-Doppel, lassen das ganze System ohne ein einziges AWS-Konto laufen und testen.</li>
+          <li data-i18n="livianapf_did_2">Den Kostenschutz in fünf Schichten entworfen und umgesetzt, statt eine Web Application Firewall zu mieten (siehe Technische Herausforderung).</li>
+          <li data-i18n="livianapf_did_3">Zwei DynamoDB-Tabellen statt einer angelegt, eine für den Gesprächsverlauf und eine für die Zähler. Sie haben unterschiedliche Schlüssel, unterschiedliche Lebensdauern und unterschiedliche Schreibmuster; sie zusammenzulegen hätte nur eine Zeile Infrastruktur gespart und dafür jede Abfrage verkompliziert.</li>
+          <li data-i18n="livianapf_did_4">Beide Zähler mit einer bedingten Aktualisierung durchgesetzt. Ein Lesen mit anschliessendem Schreiben hätte zwei gleichzeitige Anfragen beide am Limit vorbeigelassen; so ist es ein einziger Rundlauf, atomar, und eine abgewiesene Anfrage schreibt gar nichts.</li>
+          <li data-i18n="livianapf_did_5">Das Wissen über KettenKI aus dem Code herausgezogen und als einzelnes Dokument nach S3 gelegt. Was Liviana weiss und wie sie auftritt, ändert sich damit durch das Hochladen einer Datei und nicht durch ein Deployment.</li>
+          <li data-i18n="livianapf_did_6">Das Widget in dieser Website gebaut: Zustände für Tippen, Sperre, erschöpftes Tagesbudget und Netzwerkausfall, Sitzungskennung im Browser, Sprachwechsel über dasselbe System wie der Rest der Seite.</li>
+        </ul>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
+        <p data-i18n="livianapf_challenge">Ein Sprachmodell öffentlich und ohne Login ins Netz zu stellen, heisst, einen Knopf anzubieten, der bei jedem Druck Geld kostet und den man selbst bezahlt. Die naheliegende Antwort wäre eine Web Application Firewall gewesen, aber die kostet ab der ersten Minute eine feste Monatsgebühr, unabhängig davon, ob überhaupt jemand vorbeikommt. Für eine Demo steht das in keinem Verhältnis. Stattdessen habe ich fünf Schichten übereinandergelegt, die alle nichts kosten: eine reservierte Nebenläufigkeit als harte Obergrenze gleichzeitiger Aufrufe, das Throttling des API Gateway, eine Sperre von zwanzig Nachrichten je Minute und Sitzung, einen Tageszähler von fünfhundert Aufrufen als Sicherung und ein Limit für die Länge von Frage und Antwort. Interessant an dieser Aufgabe war weniger die Technik selbst als die Reihenfolge: Jede Prüfung sitzt dort, wo sie am wenigsten kostet, und der Tageszähler wird erst unmittelbar vor dem bezahlten Aufruf erhöht. Eine abgewiesene Anfrage verbraucht damit nichts, ein fehlgeschlagener Aufruf bei Bedrock dagegen schon, denn versucht wurde er.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_result">Ergebnis & Learnings</h2>
+        <p data-i18n="livianapf_result">Liviana läuft seit August 2026 auf kettenki.com, antwortet in drei bis fünf Sekunden und in der Sprache der Besucherin. Sie ist gleichzeitig das Produkt und der Beweis, dass es funktioniert. Mitgenommen habe ich vor allem eines: Bei einer öffentlichen Funktion mit einem Sprachmodell steckt die eigentliche Ingenieurarbeit nicht im Prompt, sondern in der Frage, was passiert, wenn es schiefgeht. Was, wenn jemand sie flutet, wenn Bedrock ausfällt, wenn das Tagesbudget aufgebraucht ist, wenn jemand versucht, sie aus ihrer Rolle zu holen. Auf jede dieser Fragen gibt es hier eine Antwort im Code und einen verständlichen Satz für die Besucherin.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <p>
+          <a href="https://kettenki.com/" target="_blank" rel="noopener noreferrer" class="repo-link" data-i18n="livianapf_cta_try">Liviana live ausprobieren</a>
+        </p>
+        <p>
+          <a href="https://github.com/carranza-javier/kettenki-liviana" target="_blank" rel="noopener noreferrer" class="repo-link" data-i18n="cta_view_repo">Repo auf GitHub ansehen</a>
+        </p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_portfolio">← Zurück zum Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/lightbox.js"></script>
+</body>
+</html>

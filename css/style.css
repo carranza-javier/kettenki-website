@@ -1403,6 +1403,17 @@ img.portfolio-thumbnail-placeholder {
   font-weight: var(--font-weight-bold);
 }
 
+/* LIVIANA wordmark, same construction as the BAMBERA one above: the gradient
+   sits on the inner span so background-clip: text only clips the letters and
+   leaves the white box intact. Colors come from the existing --liviana-*
+   variables, so the card matches the product page. */
+.portfolio-thumbnail-placeholder--liviana {
+  background: #ffffff;
+  font-size: 2.5rem;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-weight: var(--font-weight-bold);
+}
+
 /* La Guitarrita wordmark, matching the site's own brand colors and font
    (laguitarrita.ch): plain solid terracotta text, no gradient clip needed
    since it's a single color, unlike the Bambera wordmark above. */
