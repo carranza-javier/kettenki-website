@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-08-22 (Portfolio-Fiche Liviana gebaut, sechste und letzte Fiche; Widget live und auf Inter)_
+_Letzte Aktualisierung: 2026-08-22 (Portfolio-Fiche Liviana live, Text in Javis eigener Fassung)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -241,6 +241,13 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Karte im Portfolio-Index** ergänzt, zwischen Bambera und mini-midoffice: Wortmarke LIVIANA im Cyan-Verlauf der Marke, gleiche Bauweise wie die BAMBERA-Karte (Verlauf auf dem inneren `<span>`, damit `background-clip: text` nur die Buchstaben klippt und nicht die weisse Box). Neuer Modifier `.portfolio-thumbnail-placeholder--liviana` in `css/style.css`. Der Index zeigt jetzt sechs Karten in zwei vollen Reihen.
   - **`SPEC.md` 5.3 nachgezogen**: die Liste stand noch auf vier Einträgen, mini-midoffice fälschlich auf "Pendiente" und La Guitarrita fehlte ganz. Jetzt sechs, alle als abgeschlossen markiert, mit dem ausdrücklichen Hinweis, dass sechs die Obergrenze ist: Wer eine siebte will, nimmt eine andere heraus.
   - Verifiziert per `python -m http.server` + Chrome, nach hartem Neuladen (`css/style.css` und `js/translations.js` kamen sonst aus dem Cache und die Wortmarke erschien in Inter statt in Zalando Sans Expanded): alle 5 Bilder liefern 200, Diagramm rendert mit den vier Korrekturen, komplette Seite in DE und EN geprüft, keine deutschen Reste im englischen Text, keine Gedankenstriche, helles Thema und Inter aktiv, Wortmarke auf der Karte in Zalando Sans Expanded mit transparentem Fill wie bei BAMBERA, alle sechs Karten je Reihe gleich hoch.
+
+- [x] **Copy der Liviana-Fiche durch Javis eigene Fassung ersetzt.** Er hat den Text neu geschrieben und auf Spanisch geliefert; hier steht er wie immer nur auf Deutsch und Englisch (`SPEC.md` 3.1). Übersetzt, nicht umgeschrieben: Stimme, Ich-Form und die beiläufigen Einschübe bleiben seine.
+  - **Neue Tagline** (`livianapf_tagline`, geteilt zwischen Portfolio-Karte und Fiche-Kopf): "KI-Chatbot mit hoher Effizienz und geringem Ressourcenverbrauch" statt der bisherigen Beschreibung als öffentlicher Chatbot. Die Karte im Index zieht automatisch mit, sie hängt am selben Key.
+  - **Zwei Strukturänderungen**: Die Architektur bekommt einen Vorspann vor dem Diagramm (`livianapf_architecture_lead`), und die Technische Herausforderung ist jetzt Einleitung, Aufzählung der fünf Schichten und Abschluss statt eines einzigen Absatzes. Dafür wurde `livianapf_challenge` in `livianapf_challenge_intro`, `_1` bis `_5` und `_outro` aufgeteilt. Die Liste nutzt die bestehende Klasse `.benefits-list`, dieselbe wie "Was ich gemacht habe" auf allen Fichen, es kam also kein CSS dazu. Paritätscheck danach: 400 Keys je Sprache.
+  - **Der Einschub mit dem Zwinkersmiley bleibt drin** ("vielleicht auch nur deshalb, weil ich die Katze und die Marke selbst erfunden habe ;)"). Javi hatte im Spanischen ein "xD"; auf einer Portfolio-Seite wirkt das zu salopp, deshalb dasselbe ";)" wie im Clean-Code-Post, wo schon einmal so entschieden wurde. Falls es ganz raus soll, ist es ein Key in beiden Sprachen.
+  - **Eine Formulierung bewusst allgemein gehalten**: Javis Text sagt, im Hintergrund würden "Guardrails" angewendet. Als Gattungsbegriff stimmt das (Themenrahmen im System-Prompt, Sperren, Circuit Breaker), als Produktname wäre es falsch, denn Bedrock Guardrails sind laut Entscheidung 20 in `DECISIONS.md` bewusst **nicht** angeschlossen. Im Deutschen steht deshalb "Schutzregeln", im Englischen "guardrails" klein geschrieben. Wenn die AWS-Funktion später dazukommt, kann der Satz konkreter werden.
+  - Verifiziert per lokalem Server + Chrome nach hartem Neuladen, in DE und EN: neue Tagline an beiden Stellen, Vorspann und Liste vorhanden, keine deutschen Reste im englischen Text, keine spanischen Reste in beiden, keine Gedankenstriche.
 
 ## Blockiert — wartet auf Input
 
