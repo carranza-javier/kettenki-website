@@ -361,6 +361,27 @@ const translations = {
     rd_exp_3: 'In diesem Moment musst du kein Security Researcher sein. Du brauchst Neugier, du musst überprüfen, was du da siehst, und, falls es wirklich ein Problem ist, es verantwortungsvoll melden. GitHub stellt einen Teil der dafür nötigen Infrastruktur bereits bereit.',
     rd_exp_4: 'Vielleicht lohnt es sich beim nächsten Mal, wenn du auf so etwas stößt, statt direkt ein öffentliches Issue zu eröffnen, erst einmal zu suchen: SECURITY.md, Security Policy, Private Vulnerability Reporting, Security Advisory. Vielleicht findest du einen viel besseren Weg, es zu melden. Und nebenbei kannst du dabei richtig viel lernen.',
 
+    chat_title: 'Liviana',
+    chat_subtitle: 'KI-Assistentin von KettenKI',
+    chat_open_label: 'Chat mit Liviana öffnen',
+    chat_close_label: 'Chat schließen',
+    chat_send_label: 'Nachricht senden',
+    chat_input_label: 'Ihre Nachricht an Liviana',
+    chat_input_placeholder: 'Ihre Frage ...',
+    chat_greeting: 'Hallo! Ich bin Liviana, die Assistentin von KettenKI. Fragen Sie mich, was Sie über unsere Prototypen und Lösungen wissen möchten.',
+    chat_typing: 'Liviana schreibt ...',
+    chat_disclaimer: 'Prototyp. Antworten können Fehler enthalten.',
+    chat_cooldown: 'Weiter in {seconds} Sekunden ...',
+    chat_truncated: 'Ihre Nachricht war sehr lang und wurde gekürzt.',
+    chat_error_rate_limited: 'Einen Moment bitte, das waren gerade viele Fragen auf einmal.',
+    chat_error_budget: 'Liviana ist heute sehr gefragt und macht für heute Feierabend. Schreiben Sie uns gern direkt an',
+    chat_error_bad_request: 'Diese Nachricht konnte so nicht gesendet werden. Bitte formulieren Sie sie kurz um.',
+    chat_error_offline: 'Keine Verbindung. Bitte prüfen Sie Ihr Netz und versuchen Sie es noch einmal.',
+    chat_error_timeout: 'Das hat gerade zu lange gedauert. Bitte versuchen Sie es noch einmal.',
+    chat_error_generic: 'Da ist etwas schiefgelaufen. Versuchen Sie es bitte noch einmal oder schreiben Sie an',
+    chat_widget_img: 'img/ketten_liviana_de.jpg',
+    chat_widget_alt: 'Liviana, das Katzen-Maskottchen von KettenKI',
+
     footer_text: '© 2026 KettenKI. Entwickelt mit Präzision.',
   },
 
@@ -726,6 +747,27 @@ const translations = {
     rd_exp_3: 'In that moment you do not need to be a security researcher. You need curiosity, you need to verify what you are seeing and, if it really is a problem, report it responsibly. GitHub already provides part of the infrastructure needed to do that.',
     rd_exp_4: 'Maybe next time you find something like this, instead of opening a public Issue straight away, it is worth looking first for: SECURITY.md, Security Policy, Private Vulnerability Reporting, Security Advisory. You might find a much better path to report it. And on top of that, you can end up learning a lot along the way.',
 
+    chat_title: 'Liviana',
+    chat_subtitle: 'AI assistant by KettenKI',
+    chat_open_label: 'Open the chat with Liviana',
+    chat_close_label: 'Close the chat',
+    chat_send_label: 'Send message',
+    chat_input_label: 'Your message to Liviana',
+    chat_input_placeholder: 'Your question ...',
+    chat_greeting: 'Hi, I am Liviana, the assistant of KettenKI. Ask me anything you want to know about our prototypes and solutions.',
+    chat_typing: 'Liviana is typing ...',
+    chat_disclaimer: 'Prototype. Answers can contain mistakes.',
+    chat_cooldown: 'Ready again in {seconds} seconds ...',
+    chat_truncated: 'Your message was very long and got shortened.',
+    chat_error_rate_limited: 'One moment please, that was a lot of questions at once.',
+    chat_error_budget: 'Liviana is in high demand today and is done for now. Write to us directly at',
+    chat_error_bad_request: 'This message could not be sent that way. Please rephrase it briefly.',
+    chat_error_offline: 'No connection. Please check your network and try again.',
+    chat_error_timeout: 'That took too long. Please try again.',
+    chat_error_generic: 'Something went wrong. Please try again or write to',
+    chat_widget_img: 'img/ketten_liviana.webp',
+    chat_widget_alt: 'Liviana, the cat mascot of KettenKI',
+
     footer_text: '© 2026 KettenKI. Built with precision.',
   }
 };
@@ -761,6 +803,22 @@ function updateContent() {
     const key = element.getAttribute('data-i18n-aria-label');
     if (translations[currentLang][key]) {
       element.setAttribute('aria-label', translations[currentLang][key]);
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+    const key = element.getAttribute('data-i18n-placeholder');
+    if (translations[currentLang][key]) {
+      element.setAttribute('placeholder', translations[currentLang][key]);
+    }
+  });
+
+  // Bildquelle pro Sprache. Gebraucht für die Maskottchen im Chat-Widget, die
+  // je Sprache eine eigene Sprechblase im Bild hat.
+  document.querySelectorAll('[data-i18n-src]').forEach(element => {
+    const key = element.getAttribute('data-i18n-src');
+    if (translations[currentLang][key] && element.getAttribute('src') !== translations[currentLang][key]) {
+      element.setAttribute('src', translations[currentLang][key]);
     }
   });
 }
