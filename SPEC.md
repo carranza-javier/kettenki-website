@@ -147,6 +147,8 @@ Basado en investigación de mejores prácticas 2026: 3-6 proyectos curados super
 
 *(Descartado)* Fandango, complementa a Bambera. SBB/TIP2, sin repo propio, mejor tratado como post de blog (reflexión de arquitectura) que como ficha de portfolio.
 
+**Orden en el índice** (decisión editorial de Javi, distinta del orden de esta lista): Liviana, Spicy Feedback Tool, RailTrack Manager, La Guitarrita, Bambera, mini-midoffice. Delante va lo que se puede tocar o verificar en el momento; la lista de arriba sigue ordenada por fuerza de evidencia y no por posición en pantalla.
+
 **No incluir en portfolio profesional:** Iledysile (web personal para su pareja), proyecto real pero de naturaleza distinta (regalo personal, no caso de estudio técnico).
 
 ## 6. Blog

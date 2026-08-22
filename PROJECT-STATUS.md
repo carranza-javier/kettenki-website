@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-08-22 (Portfolio-Fiche Liviana live, Text in Javis eigener Fassung)_
+_Letzte Aktualisierung: 2026-08-22 (Portfolio-Fiche Liviana live; Kartenreihenfolge im Index neu)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -248,6 +248,11 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Der Einschub mit dem Zwinkersmiley bleibt drin** ("vielleicht auch nur deshalb, weil ich die Katze und die Marke selbst erfunden habe ;)"). Javi hatte im Spanischen ein "xD"; auf einer Portfolio-Seite wirkt das zu salopp, deshalb dasselbe ";)" wie im Clean-Code-Post, wo schon einmal so entschieden wurde. Falls es ganz raus soll, ist es ein Key in beiden Sprachen.
   - **Eine Formulierung bewusst allgemein gehalten**: Javis Text sagt, im Hintergrund würden "Guardrails" angewendet. Als Gattungsbegriff stimmt das (Themenrahmen im System-Prompt, Sperren, Circuit Breaker), als Produktname wäre es falsch, denn Bedrock Guardrails sind laut Entscheidung 20 in `DECISIONS.md` bewusst **nicht** angeschlossen. Im Deutschen steht deshalb "Schutzregeln", im Englischen "guardrails" klein geschrieben. Wenn die AWS-Funktion später dazukommt, kann der Satz konkreter werden.
   - Verifiziert per lokalem Server + Chrome nach hartem Neuladen, in DE und EN: neue Tagline an beiden Stellen, Vorspann und Liste vorhanden, keine deutschen Reste im englischen Text, keine spanischen Reste in beiden, keine Gedankenstriche.
+
+- [x] **Zwei Nachbesserungen nach Javis Durchsicht der Liviana-Fiche:**
+  1. **Der Produktname "Guardrails" ist raus.** Javis erste Fassung sagte, im Hintergrund würden Guardrails angewendet. Nachgefragt, weil Bedrock Guardrails laut Entscheidung 20 in `DECISIONS.md` bewusst nicht angeschlossen sind, im Code und im Template kommt der Begriff nirgends vor. Javi hat die Formulierung selbst auf "medidas de seguridad" geändert, im Deutschen jetzt "Sicherheitsmassnahmen", im Englischen "security measures". Das ist sachlich richtig: Was den Themenrahmen tatsächlich hält, sind der `out_of_scope`-Block im System-Prompt mit vorbereiteter Ablehnung je Sprache, die Grounding-Regel und die Betriebsgrenzen. Falls die AWS-Funktion später dazukommt, kann der Satz konkreter werden.
+  2. **Reihenfolge der Karten im Portfolio-Index geändert**, auf Javis Wunsch: Liviana, Spicy Feedback Tool, RailTrack Manager, La Guitarrita, Bambera, mini-midoffice. Vorne steht damit, was sich sofort anfassen oder nachprüfen lässt. Rein eine Umstellung der sechs `<a class="portfolio-card">`-Blöcke, kein CSS und kein Text geändert; vorher geprüft, dass keine Regel an `:first-child` oder `:nth-child` einer Karte hängt. `SPEC.md` 5.3 hält jetzt beides fest: Die Liste dort bleibt nach Beweiskraft sortiert, die Anzeigereihenfolge ist eine eigene, redaktionelle Entscheidung.
+  - Verifiziert nach hartem Neuladen: Reihenfolge stimmt, je Reihe gleiche Kartenhöhe, kein Vorkommen von "Guardrail" mehr in `js/translations.js` oder `portfolio/liviana.html`, Paritätscheck DE/EN weiterhin 400 Keys je Sprache.
 
 ## Blockiert — wartet auf Input
 
