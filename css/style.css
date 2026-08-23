@@ -20,6 +20,10 @@
   --liviana-end: #7dd3ff;
   --fandango-start: #ff6b35;
   --fandango-end: #ff0844;
+  --websites-start: #00ff88;
+  --websites-end: #00d4ff;
+  --apps-start: #b388ff;
+  --apps-end: #6c5ce7;
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -708,11 +712,6 @@ footer p {
   margin-bottom: 0;
 }
 
-/* Auf services.html stehen nur zwei Blöcke nebeneinander */
-.offer-grid--two {
-  grid-template-columns: repeat(2, 1fr);
-}
-
 /* Gegenstück zum Hinweiskasten des ersten Abschnitts: gleiche Bauweise, aber
    in den Akzentfarben statt in Warnfarben. Der erste Abschnitt warnt vor
    Prototypen ohne Garantie, dieser hier verspricht das Gegenteil, und beide
@@ -813,6 +812,14 @@ footer p {
   background: linear-gradient(90deg, var(--fandango-start), var(--fandango-end));
 }
 
+.product-card.websites-card::before {
+  background: linear-gradient(90deg, var(--websites-start), var(--websites-end));
+}
+
+.product-card.apps-card::before {
+  background: linear-gradient(90deg, var(--apps-start), var(--apps-end));
+}
+
 .product-card:hover::before {
   transform: scaleX(1);
 }
@@ -835,6 +842,16 @@ footer p {
 .product-card.fandango-card:hover {
   border-color: var(--fandango-start);
   box-shadow: 0 20px 40px rgba(255, 107, 53, 0.15);
+}
+
+.product-card.websites-card:hover {
+  border-color: var(--websites-start);
+  box-shadow: 0 20px 40px rgba(0, 255, 136, 0.15);
+}
+
+.product-card.apps-card:hover {
+  border-color: var(--apps-start);
+  box-shadow: 0 20px 40px rgba(179, 136, 255, 0.15);
 }
 
 /* Product Name with Gradients */
@@ -860,6 +877,20 @@ footer p {
 
 .fandango-gradient {
   background: linear-gradient(135deg, var(--fandango-start), var(--fandango-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.websites-gradient {
+  background: linear-gradient(135deg, var(--websites-start), var(--websites-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.apps-gradient {
+  background: linear-gradient(135deg, var(--apps-start), var(--apps-end));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -937,6 +968,28 @@ footer p {
 .fandango-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+}
+
+.websites-btn {
+  background: linear-gradient(135deg, var(--websites-start), var(--websites-end));
+  border-color: transparent;
+  color: var(--color-bg);
+}
+
+.websites-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+}
+
+.apps-btn {
+  background: linear-gradient(135deg, var(--apps-start), var(--apps-end));
+  border-color: transparent;
+  color: var(--color-bg);
+}
+
+.apps-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(179, 136, 255, 0.3);
 }
 
 /* ============================================

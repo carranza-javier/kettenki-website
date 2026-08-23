@@ -17,6 +17,9 @@ const translations = {
     offer_websites_text: 'Schnell, professionell und individuell für Ihr Unternehmen.',
     offer_apps_title: 'Apps nach Mass',
     offer_apps_text: 'Werkzeuge für das, was Ihr Betrieb wirklich braucht.',
+    offer_websites_detail: 'Responsive, schnell und mit den SEO-Grundlagen für Google.',
+    offer_apps_detail: 'Entwickelt nach Ihren Anforderungen, mit klarem Umfang von Anfang an.',
+    cta_get_in_touch: 'Jetzt anfragen',
     process_title: 'So arbeite ich',
     process_text: 'Sie sagen mir, was Sie brauchen. Ich baue eine erste funktionierende Version. Gefällt sie Ihnen, sprechen wir über den Preis. Wenn nicht, schulden Sie nichts.',
     
@@ -459,6 +462,9 @@ const translations = {
     offer_websites_text: 'Fast, professional and built specifically for your business.',
     offer_apps_title: 'Custom apps',
     offer_apps_text: 'Tools for what your business actually needs.',
+    offer_websites_detail: 'Responsive, fast and with the SEO basics for Google.',
+    offer_apps_detail: 'Built to your requirements, with a clear scope from the start.',
+    cta_get_in_touch: 'Get in touch',
     process_title: 'How I work',
     process_text: 'You tell me what you need. I build a first working version. If you like it, we talk about the price. If not, you owe nothing.',
     
