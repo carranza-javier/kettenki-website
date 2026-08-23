@@ -103,8 +103,9 @@
     padding: var(--spacing-md);
   }
   
-  /* Angebotsblöcke der Startseite: aus drei Spalten wird eine */
-  .offer-grid {
+  /* Angebotsblöcke: aus drei bzw. zwei Spalten wird eine */
+  .offer-grid,
+  .offer-grid--two {
     grid-template-columns: 1fr;
   }
 

@@ -8,7 +8,8 @@ const translations = {
     nav_blog: 'Blog',
     logo_subtitle: 'Javier Carranza',
 
-    hero_title: 'Software, die Sie testen, bevor Sie dafür bezahlen.',
+    hero_title: 'KettenKI',
+    hero_slogan: 'Warum weniger tun, wenn man mehr tun kann',
     hero_subtitle: 'KI-Chatbots, Websites und Apps für KMU in Bern und der Schweiz.',
     offer_chatbots_title: 'KI-Chatbots und Assistenten',
     offer_chatbots_text: 'Ein Assistent, der Fragen zu Ihren Inhalten beantwortet. Rund um die Uhr, in mehreren Sprachen.',
@@ -31,8 +32,10 @@ const translations = {
     about_text8: 'KettenKI entwickelt sich kontinuierlich weiter, wächst von Tag zu Tag und erweitert ihr solides Wissensfundament. Dieses Wissen unterstützt Menschen dabei, ihre Aufgaben effizienter und flexibler zu erledigen.',
     about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen eine effektive und verlässige Unterstützung zu bieten.',
 
-    services_title: 'Unsere Prototypen',
-    services_subtitle: 'Experimentelle KI-Lösungen zum Testen',
+    services_title: 'Lösungen',
+    services_ready_title: 'Fertige Lösungen zum Testen',
+    services_custom_title: 'Individuelle Entwicklung',
+    services_promise_title: 'Kein Risiko für Sie',
     services_disclaimer_title: '🧪 Wichtiger Hinweis',
     services_disclaimer_text: 'Diese Lösungen sind experimentelle Prototypen. Sie sind kostenlos zum Testen, funktional und getestet, aber ohne Garantie oder SLA. Bei Erfolg: Gemeinsame Weiterentwicklung möglich.',
     
@@ -53,7 +56,7 @@ const translations = {
     bambera_case2_answer: 'Fehler E347: Temperatursensor defekt.\n\n1. Maschine ausschalten\n2. 10 Minuten warten\n3. Servicetechniker unter +41 31 XXX kontaktieren',
     
     liviana_title: 'LIVIANA',
-    liviana_tagline: 'Intelligente Chatbot für Ihre Website',
+    liviana_tagline: 'Intelligenter Chatbot für Ihre Website',
     liviana_description: 'LIVIANA beantwortet Kundenanfragen auf Ihrer Website automatisch. Reduziert E-Mails und Telefonanrufe. Verfügbar 24 Stunden.',
     liviana_for_whom: 'Fitnessstudios, medizinische Kliniken, professionelle Dienstleistungen, Wellness.',
     liviana_benefit1: 'Automatisierter 24/7-Kundenservice',
@@ -447,7 +450,8 @@ const translations = {
     nav_blog: 'Blog',
     logo_subtitle: 'Javier Carranza',
 
-    hero_title: 'Software you test before you pay for it.',
+    hero_title: 'KettenKI',
+    hero_slogan: 'Why do less when more is possible',
     hero_subtitle: 'AI chatbots, websites and apps for small and medium businesses in Bern and across Switzerland.',
     offer_chatbots_title: 'AI chatbots and assistants',
     offer_chatbots_text: 'An assistant that answers questions about your content. Around the clock, in several languages.',
@@ -470,8 +474,10 @@ const translations = {
     about_text8: 'KettenKI continuously evolves, growing day by day and expanding its solid knowledge base. This knowledge helps people perform their tasks more efficiently and flexibly.',
     about_text9: 'The goal is not to replace people, but to provide them with effective and reliable support.',
     
-    services_title: 'Our Prototypes',
-    services_subtitle: 'Experimental AI solutions for testing',
+    services_title: 'Solutions',
+    services_ready_title: 'Ready solutions to test',
+    services_custom_title: 'Custom development',
+    services_promise_title: 'No risk for you',
     services_disclaimer_title: '🧪 Important Notice',
     services_disclaimer_text: 'These solutions are experimental prototypes. They are free to test, functional and tested, but without guarantee or SLA. On success: Joint development possible.',
     

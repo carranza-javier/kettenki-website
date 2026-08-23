@@ -8,6 +8,10 @@
   --color-accent-start: #00d4ff;
   --color-accent-end: #00ff88;
   --color-border: #2a2a2a;
+  /* Wurde von .prototype-disclaimer benutzt, war aber nie definiert: der
+     Kasten blieb dadurch eckig. Jetzt derselbe Radius wie bei den übrigen
+     Karten. */
+  --border-radius: 12px;
   
   /* Product Colors */
   --bambera-start: #d790d2;
@@ -661,6 +665,17 @@ footer p {
   transform: translateY(-5px);
 }
 
+/* Zwischenüberschrift der beiden Abschnitte auf services.html. Kleiner als
+   .section-title, die dort der Seitentitel bleibt, und links statt zentriert,
+   damit sie als Abschnittsmarke gelesen wird und nicht als zweiter Titel. */
+.services-section-title {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
 /* Angebot auf der Startseite: drei gleichrangige Blöcke.
    Bewusst schlichter als .product-card auf services.html, kein Farbbalken und
    kein Hover-Akzent: Die drei Blöcke sollen gleich viel wiegen und keine
@@ -691,6 +706,37 @@ footer p {
   line-height: 1.6;
   color: var(--color-text-secondary);
   margin-bottom: 0;
+}
+
+/* Auf services.html stehen nur zwei Blöcke nebeneinander */
+.offer-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Gegenstück zum Hinweiskasten des ersten Abschnitts: gleiche Bauweise, aber
+   in den Akzentfarben statt in Warnfarben. Der erste Abschnitt warnt vor
+   Prototypen ohne Garantie, dieser hier verspricht das Gegenteil, und beide
+   sollen nicht miteinander verwechselt werden. */
+.promise-box {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 255, 136, 0.04));
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.promise-box h3 {
+  color: var(--color-accent-start);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.3rem;
+}
+
+.promise-box p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Der Ablauf steht unter den drei Blöcken und trägt die ganze Breite, damit er
