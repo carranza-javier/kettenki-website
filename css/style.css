@@ -661,6 +661,61 @@ footer p {
   transform: translateY(-5px);
 }
 
+/* Angebot auf der Startseite: drei gleichrangige Blöcke.
+   Bewusst schlichter als .product-card auf services.html, kein Farbbalken und
+   kein Hover-Akzent: Die drei Blöcke sollen gleich viel wiegen und keine
+   Rangfolge suggerieren. Farben, Abstände und Radius kommen unverändert aus
+   den bestehenden Variablen. */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+.offer-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: var(--spacing-md);
+}
+
+.offer-title {
+  font-size: 1.35rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.offer-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+/* Der Ablauf steht unter den drei Blöcken und trägt die ganze Breite, damit er
+   als eigener Schritt gelesen wird und nicht als vierter Block. */
+.process-block {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  max-width: 720px;
+}
+
+.process-title {
+  font-size: 1.35rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.process-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
 /* Products Grid (2+1 layout) */
 .products-grid {
   display: grid;

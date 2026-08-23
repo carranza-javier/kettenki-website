@@ -39,15 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
   
-  // Parallax effect for hero section
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const parallax = scrolled * 0.5;
-      hero.style.transform = `translateY(${parallax}px)`;
-    });
-  }
+  // Der Parallax-Effekt des Kopfbereichs ist entfallen. Er verschob den
+  // Kopfbereich beim Scrollen um die halbe Strecke nach unten, was so lange
+  // unsichtbar blieb, wie darunter nichts stand. Seit die Startseite die
+  // Angebotsblöcke trägt, schob sich der Kopfbereich sichtbar über sie:
+  // bei 600 px Scrollhöhe ragte er 154 px in die erste Karte hinein.
+  // .hero gibt es ausserdem nur auf index.html, hier hängt nichts anderes dran.
   
   // Active nav link highlighting
   const currentPage = window.location.pathname.split('/').pop() || 'index';

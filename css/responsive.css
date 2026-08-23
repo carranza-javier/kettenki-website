@@ -103,6 +103,11 @@
     padding: var(--spacing-md);
   }
   
+  /* Angebotsblöcke der Startseite: aus drei Spalten wird eine */
+  .offer-grid {
+    grid-template-columns: 1fr;
+  }
+
   /* Products Grid - Tablets */
   .products-grid {
     grid-template-columns: 1fr;

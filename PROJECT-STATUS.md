@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-08-22 (Liviana-Fiche live, Text mehrfach von Javi überarbeitet und gekürzt)_
+_Letzte Aktualisierung: 2026-08-22 (Startseite neu positioniert: Chatbots, Websites und Apps statt nur KI-Prototypen)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -260,6 +260,17 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Ergebnis & Learnings jetzt drei Absätze** statt eines Blocks: `livianapf_result` wurde zu `livianapf_result_1` bis `_3`.
   - Paritätscheck danach: 396 Keys je Sprache. Zusätzlich geprüft, dass keine verwaisten `livianapf_*`-Keys zurückbleiben: 35 definiert, 35 in `portfolio/liviana.html` und `portfolio/index.html` benutzt, in beide Richtungen kein Rest. Verifiziert per lokalem Server nach hartem Neuladen in DE und EN.
   - **Eine Aussage ist beim Kürzen verloren gegangen**, absichtlich nicht wieder eingebaut, aber notiert, falls sie jemandem fehlt: dass sich das Wissen über KettenKI durch das Hochladen einer Datei ändert und nicht durch ein Deployment. Der Punkt nennt jetzt nur noch, dass es als eigenes Dokument in S3 liegt.
+
+- [x] **Startseite auf die erweiterte Positionierung umgeschrieben** (`index.html`): KettenKI bietet nicht mehr nur KI-Prototypen an, sondern auch Websites und Apps nach Mass für KMU in Bern und der Schweiz. Der Haken bleibt derselbe ("testen, bevor Sie zahlen"), er hängt nur nicht mehr allein an KI. Reine Copy- und Blockänderung: dunkles Thema, Zalando Sans Expanded, Header und Liviana-Widget unverändert (`SPEC.md` 3.1 und 3.2).
+  - **Kopfbereich**: Titel "Software, die Sie testen, bevor Sie dafür bezahlen.", Untertitel "KI-Chatbots, Websites und Apps für KMU in Bern und der Schweiz." Durchgehend Sie-Form.
+  - **Vier neue Blöcke**: drei gleichrangige Angebote (Chatbots, Websites, Apps nach Mass) und darunter der Ablauf "So arbeite ich". **Bewusst ohne Referenzen, Kundenlogos, Fallstudien oder Links ins Portfolio**, und ohne erklärende Zusatzabsätze; die Kürze ist Absicht und kein fehlender Text.
+  - **Neue Klassen** `.offer-grid`, `.offer-card`, `.offer-title`, `.offer-text`, `.process-block`, `.process-title`, `.process-text` in `css/style.css`, plus eine Zeile in `css/responsive.css` (drei Spalten werden unter 768 px zu einer). Bewusst schlichter gehalten als `.product-card` auf `services.html`: kein Farbbalken, kein Hover-Akzent, damit die drei Blöcke gleich viel wiegen und keine Rangfolge suggerieren. Farben, Abstände und Radien kommen unverändert aus den bestehenden Variablen.
+  - **Der grosse Schriftzug "KettenKI" im Kopfbereich ist entfallen**, ebenso der alte Slogan "Warum weniger tun, wenn man mehr tun kann" (Key `hero_slogan` als verwaist entfernt, DE und EN). Der Kopfbereich hat jetzt Titel und Untertitel, wie in der Aufgabe beschrieben, und der neue Titel ist das `<h1>`: Auf einer kommerziellen Startseite gehört das Wertversprechen in die Hauptüberschrift, die Marke steht im Header. **Die CSS-Regel `.hero-logo` wurde absichtlich stehen gelassen**, obwohl sie niemand mehr benutzt: So ist der Schriftzug eine Zeile HTML weit entfernt, falls Javi ihn zurückhaben möchte.
+  - **Parallax-Effekt aus `js/main.js` entfernt, weil er zum Fehler wurde.** Er verschob den Kopfbereich beim Scrollen um die halbe Strecke nach unten. Solange darunter nichts stand, sah das niemand; mit den Angebotsblöcken schob sich der Kopfbereich sichtbar darüber, gemessen 154 px in die erste Karte hinein bei 600 px Scrollhöhe, und sein Text schien zwischen den Karten durch. `.hero` gibt es nur auf `index.html`, es hängt also nichts anderes daran. Nach dem Entfernen: `transform: none`, 176 px Abstand statt Überlappung.
+  - **Kopfdaten und strukturierte Daten nachgezogen**, sie sprachen ausschliesslich von KI-Prototypen: `<title>`, `meta description`, `meta keywords`, `og:title` und `og:description` (weiterhin englisch, wie überall) sowie im JSON-LD die `description` und die `serviceType`-Liste, die jetzt Webentwicklung und App-Entwicklung voranstellt.
+  - **Nicht angefasst**, wie gefordert: `services.html`, `about.html`, `contact.html`, `sitemap.xml`, `portfolio/`, `blog/` und das Liviana-Widget.
+  - Verifiziert per `python -m http.server` + Chrome nach hartem Neuladen: Kopfbereich und vier Blöcke in DE und EN korrekt, keine deutschen Reste im englischen Durchgang, keine Gedankenstriche, Paritätscheck 403 Keys je Sprache. Widget geprüft (öffnet, schliesst, Maskottchen freigestellt, Eingabefeld 40 px). Bei 390 px Breite stehen die drei Blöcke untereinander.
+  - **Offen dazu**: `services.html` beschreibt weiterhin nur die drei KI-Prototypen und weiss nichts von Websites und Apps. Die Startseite verspricht damit mehr, als die Lösungsseite einlöst. Bewusst nicht angefasst, sie stand auf der Nicht-anfassen-Liste, aber der nächste Schritt wäre dort.
 
 ## Blockiert — wartet auf Input
 
