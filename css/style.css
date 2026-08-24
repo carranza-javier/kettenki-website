@@ -821,9 +821,20 @@ footer p {
   transition: opacity var(--transition-slow);
 }
 
-/* Sobald wirklich gescrollt wird, hat der Hinweis seine Aufgabe erfüllt. */
+/* Sobald wirklich gescrollt wird, hat der Hinweis seine Aufgabe erfüllt.
+   Gilt nur für den im Kopfbereich, der zweite unter dem Video bleibt stehen. */
 .scroll-cue.is-spent {
   opacity: 0;
+}
+
+/* Derselbe Strich unter dem Video, ohne Beschriftung und ohne Verschwinden. Im
+   Kopfbereich erklärt er, dass die Seite scrollt; hier weiss man das längst, und
+   er ist nur noch die Wegmarke, dass unter dem Bild etwas folgt. Er steht im
+   Textfluss zwischen den beiden Abschnitten statt am Rand eines Elements. */
+.scroll-cue--flow {
+  position: static;
+  transform: none;
+  margin-top: var(--spacing-md);
 }
 
 .scroll-cue-label {
@@ -924,23 +935,37 @@ footer p {
   object-fit: cover;
 }
 
-/* Das erste Bild des Videos ist heller Himmel, darüber steht der schwarze
-   Kopfbereich. Ohne diesen Verlauf ist der Übergang eine harte Kante. Er sitzt
-   im Rahmen und nicht im ganzen klebenden Bereich, damit er an der Oberkante des
-   Bildes ansetzt und nicht ein Drittel des Videos abdunkelt. */
+/* Das Video sitzt zwischen zwei schwarzen Flächen: oben der Kopfbereich, unten
+   das Angebot. Ohne Verlauf sind beide Übergänge eine harte Kante, oben umso
+   mehr, weil das erste Bild heller Himmel ist. Beide Verläufe sitzen im Rahmen
+   und nicht im ganzen klebenden Bereich, damit sie an den Bildkanten ansetzen
+   und nicht je ein Drittel des Videos abdunkeln. */
 .scrollvideo-veil {
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
   height: 22%;
+  pointer-events: none;
+}
+
+.scrollvideo-veil--top {
+  top: 0;
   background: linear-gradient(
     to bottom,
     var(--color-bg) 0%,
     rgba(10, 10, 10, 0.55) 45%,
     rgba(10, 10, 10, 0) 100%
   );
-  pointer-events: none;
+}
+
+.scrollvideo-veil--bottom {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    var(--color-bg) 0%,
+    rgba(10, 10, 10, 0.55) 45%,
+    rgba(10, 10, 10, 0) 100%
+  );
 }
 
 /* Hinweis über dem Video. Er sagt nicht nur, dass weitergescrollt werden soll,

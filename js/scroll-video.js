@@ -15,8 +15,10 @@
 
 // Der Hinweis im Kopfbereich steht vor der Video-Weiche: Er gehört auch auf
 // Geräte, die das Video gar nicht laden, denn gescrollt wird dort genauso.
+// Ausdrücklich der im Kopfbereich: Der zweite unter dem Video trägt dieselbe
+// Klasse, soll aber stehen bleiben und nicht beim ersten Scrollen verschwinden.
 (function () {
-  const cue = document.querySelector('.scroll-cue');
+  const cue = document.querySelector('.hero .scroll-cue');
   if (!cue) return;
 
   function spend() {
