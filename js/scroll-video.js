@@ -7,7 +7,9 @@
 //     wie weit der Abschnitt durchgescrollt ist.
 //   - Auf dem Handy wäre genau das die falsche Technik. Das programmgesteuerte
 //     Springen im Video ruckelt dort und greift unter iOS Safari teils gar
-//     nicht. Also läuft das Video da einfach einmal ab, sobald es im Bild ist.
+//     nicht. Also läuft das Video da einfach einmal ab, sobald es im Bild ist,
+//     frühestens aber nach dem ersten Scrollen: Beim Aufsetzen der Seite soll
+//     sich nichts von allein bewegen.
 // Bei reduzierter Bewegung passiert beides nicht, dann bleibt das Standbild aus
 // dem Markup stehen und es wird nichts geladen.
 
@@ -75,48 +77,64 @@
   frame.insertBefore(video, frame.querySelector('.scrollvideo-veil'));
 
   if (!scrubs) {
-    playWhenVisible();
+    playAfterFirstScroll();
     return;
   }
 
   // --------------------------------------------------------------------------
-  // Handy und Tablet: einmal abspielen, sobald es im Bild ist
+  // Handy und Tablet: nach dem ersten Scrollen abspielen, sobald es im Bild ist
   // --------------------------------------------------------------------------
-  function playWhenVisible() {
-    // Ohne IntersectionObserver bleibt es beim Standbild, das ist kein Verlust.
-    if (!('IntersectionObserver' in window)) return;
-
+  // Bewusst ohne IntersectionObserver. Der Anstoss ist ohnehin das Scrollen, und
+  // was sichtbar ist, verrät getBoundingClientRect genauso. Damit hängt der
+  // ganze Zweig an nichts, was ein älteres Handy nicht könnte: Wer ein Video
+  // abspielen kann, kann das hier auch.
+  function playAfterFirstScroll() {
     let done = false;
 
     // Am Ende auf dem letzten Bild stehen bleiben, genau wie am Scrollrad, und
     // nicht bei jedem Vorbeiscrollen von vorn anfangen.
     video.addEventListener('ended', function () {
       done = true;
-      observer.disconnect();
+      detach();
     });
 
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (done) return;
-          if (entry.isIntersecting) {
-            // Schlägt fehl, wenn der Browser das Abspielen verweigert, etwa im
-            // Stromsparmodus. Dann bleibt einfach das Standbild stehen, deshalb
-            // wird der Fehler geschluckt statt in der Konsole zu landen.
-            const started = video.play();
-            if (started && started.catch) started.catch(function () {});
-          } else {
-            // Aus dem Bild gescrollt: anhalten, aber die Stelle behalten.
-            video.pause();
-          }
-        });
-      },
-      // Erst ab einem guten Drittel im Bild, sonst startet es, während vom
-      // Video nur ein Streifen am unteren Rand zu sehen ist.
-      { threshold: 0.35 }
-    );
+    // Ein gutes Drittel muss zu sehen sein, sonst liefe das Video, während davon
+    // nur ein Streifen am unteren Rand steht. Bei einem Abschnitt, der höher ist
+    // als das Fenster, zählt der Bildschirm als Massstab, sonst käme das Drittel
+    // nie zusammen.
+    function visibleEnough() {
+      const box = section.getBoundingClientRect();
+      const screen = window.innerHeight;
+      const shown = Math.min(box.bottom, screen) - Math.max(box.top, 0);
+      return shown > 0 && shown >= Math.min(box.height, screen) * 0.35;
+    }
 
-    observer.observe(section);
+    function onScroll() {
+      if (done) return;
+      if (visibleEnough()) {
+        if (video.paused) {
+          // Schlägt fehl, wenn der Browser das Abspielen verweigert, etwa im
+          // Stromsparmodus. Dann bleibt einfach das Standbild stehen, deshalb
+          // wird der Fehler geschluckt statt in der Konsole zu landen.
+          const started = video.play();
+          if (started && started.catch) started.catch(function () {});
+        }
+      } else if (!video.paused) {
+        // Aus dem Bild gescrollt: anhalten, aber die Stelle behalten.
+        video.pause();
+      }
+    }
+
+    function detach() {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    // Hier steht mit Absicht kein erster Aufruf von onScroll. Solange nicht
+    // gescrollt wurde, läuft nichts, auch wenn vom Video beim Aufsetzen schon
+    // ein Stück zu sehen ist.
   }
 
   // --------------------------------------------------------------------------
