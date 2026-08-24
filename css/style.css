@@ -646,9 +646,18 @@ footer p {
 
 /* Aufklappmenü unter "Lösungen". Führt zu den beiden Abschnitten von
    services.html, die Beschriftungen teilen sich die Schlüssel mit deren
-   Überschriften: So können Menü und Seite nicht auseinanderlaufen. */
+   Überschriften: So können Menü und Seite nicht auseinanderlaufen.
+
+   Es öffnet auf drei Wegen, und alle drei landen auf demselben Zustand:
+   Zeigen am Rechner, Tabben mit der Tastatur, und Tippen auf den Pfeil. Der
+   Pfeil ist ein echter Knopf mit aria-expanded, kein Zierrat: Auf dem Handy
+   gibt es kein Hover, dort ist er der einzige Weg, und er soll überall
+   dieselbe Wirkung haben statt an einer Stelle wirkungslos zu sein. */
 .nav-item-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 /* Unsichtbare Brücke über den Spalt zwischen Menüpunkt und Klappe. Ohne sie
@@ -663,11 +672,79 @@ footer p {
   height: 0.9rem;
 }
 
-.nav-submenu {
+.nav-submenu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-submenu-toggle:hover {
+  opacity: 1;
+}
+
+/* Der Pfeil ist aus zwei Rahmenkanten gebaut statt aus einem Zeichen: So trifft
+   er die Schriftfarbe genau, bleibt bei jeder Zoomstufe scharf und lässt sich
+   drehen, ohne dass eine Schriftart mitspielen muss. */
+.nav-caret {
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform var(--transition-normal);
+}
+
+.nav-item-dropdown.is-open .nav-caret {
+  transform: rotate(-135deg) translate(-1px, -1px);
+}
+
+.nav-submenu-wrap {
   position: absolute;
   top: 100%;
   left: 0;
   margin-top: 0.9rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast),
+    visibility var(--transition-fast);
+  z-index: 1001;
+}
+
+.nav-item-dropdown.is-open .nav-submenu-wrap {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Zeigen und Tabben öffnen zusätzlich, aber nur auf Geräten, die überhaupt
+   zeigen können. Auf einem Touchscreen bleibt ein Tipp als Hover hängen, und
+   ohne diese Schranke ginge das Menü beim blossen Berühren auf und liesse sich
+   danach nur schwer wieder schliessen. Die Schranke steht hier und nicht als
+   Gegenregel im Handy-Stylesheet: Eine Regel, die eine andere zurücknimmt,
+   endet unweigerlich in einem Streit um Spezifität. */
+@media (hover: hover) and (pointer: fine) {
+  .nav-item-dropdown:hover .nav-submenu-wrap,
+  .nav-item-dropdown:focus-within .nav-submenu-wrap {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-item-dropdown:hover .nav-caret,
+  .nav-item-dropdown:focus-within .nav-caret {
+    transform: rotate(-135deg) translate(-1px, -1px);
+  }
+}
+
+.nav-submenu {
   min-width: 230px;
   list-style: none;
   display: flex;
@@ -678,19 +755,6 @@ footer p {
   backdrop-filter: blur(10px);
   border: 1px solid var(--color-border);
   border-radius: 10px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-  transition: all var(--transition-fast);
-  z-index: 1001;
-}
-
-/* focus-within nimmt die Tastatur mit: Wer sich durchtabbt, klappt genauso auf. */
-.nav-item-dropdown:hover .nav-submenu,
-.nav-item-dropdown:focus-within .nav-submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
 }
 
 .nav-submenu a {

@@ -44,6 +44,7 @@ const translations = {
     about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen eine effektive und verlässige Unterstützung zu bieten.',
 
     services_title: 'Lösungen',
+    nav_submenu_toggle: 'Untermenü ein- und ausblenden',
     services_ai_title: 'KI-Lösungen',
     services_custom_title: 'Individuelle Entwicklung',
     services_promise_title: 'Kein Risiko für Sie',
@@ -495,6 +496,7 @@ const translations = {
     about_text9: 'The goal is not to replace people, but to provide them with effective and reliable support.',
     
     services_title: 'Solutions',
+    nav_submenu_toggle: 'Show or hide submenu',
     services_ai_title: 'AI Solutions',
     services_custom_title: 'Custom Development',
     services_promise_title: 'No risk for you',

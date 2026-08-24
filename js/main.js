@@ -8,14 +8,62 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+      const opened = navMenu.classList.toggle('active');
       mobileMenuBtn.classList.toggle('active');
+      // Zugeklapptes Menü heisst zugeklappte Unterpunkte: Sonst steht die Klappe
+      // beim nächsten Öffnen schon offen, obwohl niemand sie angetippt hat.
+      if (!opened) closeDropdowns();
     });
   }
   
+  // Aufklappmenü unter "Lösungen".
+  // Am Rechner öffnet es schon beim Zeigen, das steht im Stylesheet. Hier geht
+  // es um den Weg, den es dort nicht gibt: den Fingertipp. Der Knopf ist die
+  // einzige Bedienung auf dem Handy, und aria-expanded sagt die Wahrheit über
+  // beides, damit auch ein Screenreader weiss, ob offen oder zu ist.
+  const dropdowns = Array.from(document.querySelectorAll('.nav-item-dropdown'));
+
+  function closeDropdowns(except) {
+    dropdowns.forEach((item) => {
+      if (item === except) return;
+      item.classList.remove('is-open');
+      const toggle = item.querySelector('.nav-submenu-toggle');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  dropdowns.forEach((item) => {
+    const toggle = item.querySelector('.nav-submenu-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', (e) => {
+      // Der Knopf steht neben einem Link. Ohne das hier trüge der Klick weiter
+      // und schlösse gleich wieder, was er gerade geöffnet hat.
+      e.preventDefault();
+      e.stopPropagation();
+      const open = !item.classList.contains('is-open');
+      closeDropdowns(item);
+      item.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  });
+
   // Close mobile menu when clicking outside
   document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-item-dropdown')) closeDropdowns();
+
     if (navMenu && !e.target.closest('nav')) {
+      navMenu.classList.remove('active');
+      if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+      closeDropdowns();
+    }
+  });
+
+  // Escape schliesst, was offen ist: erst die Klappe, dann das Menü selbst.
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    closeDropdowns();
+    if (navMenu) {
       navMenu.classList.remove('active');
       if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
     }

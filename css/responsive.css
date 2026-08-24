@@ -65,27 +65,88 @@
     visibility: visible;
   }
   
-  /* Im aufgeklappten Hamburger-Menü gibt es kein Hover. Die Unterpunkte stehen
-     deshalb einfach eingerückt unter "Lösungen", ohne Klappe und ohne Schalter,
-     der erst noch bedient werden müsste. */
-  .nav-submenu {
+  /* Im Hamburger-Menü gibt es kein Hover, hier führt allein der Pfeilknopf.
+     Zu ist der Ausgangszustand: Die Unterpunkte stehen erst da, wenn jemand
+     tippt, nicht schon beim Aufklappen des Menüs.
+
+     Die Höhe wird über grid-template-rows von 0fr auf 1fr animiert. Das ist der
+     einzige Weg, auf die tatsächliche Inhaltshöhe zu animieren, ohne sie vorher
+     in Pixeln zu kennen: Ein max-height-Wert müsste geraten werden und liefe
+     entweder zu früh an oder hinge am Ende nach. Dafür braucht das Kind
+     overflow: hidden und min-height: 0, sonst weigert es sich zu schrumpfen. */
+  /* Link und Pfeil teilen sich dieselbe Rasterzelle, statt zwei Spalten zu
+     bilden. Sonst nähme der Pfeil dem Link Breite weg, und "Lösungen" stünde
+     ein Stück links neben der Mitte, während die übrigen Menüpunkte mittig
+     sitzen. So füllt der Link die ganze Zeile und zentriert wie seine
+     Nachbarn, und der Pfeil legt sich rechts darüber. */
+  .nav-item-dropdown {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* Die Zelle ist so breit wie der längste Unterpunkt, nicht wie das Wort
+     "Lösungen". Ohne diese Zeile begänne der Link am linken Rand dieser Breite
+     und stünde damit sichtbar links neben seinen Nachbarn, die als schmale
+     Kästchen von der Flexbox mittig gesetzt werden. */
+  .nav-item-dropdown > a {
+    grid-row: 1;
+    grid-column: 1;
+    text-align: center;
+  }
+
+  .nav-submenu-toggle {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+  }
+
+  .nav-submenu-wrap {
     position: static;
+    grid-row: 2;
+    grid-column: 1;
     opacity: 1;
     visibility: visible;
     transform: none;
+    margin-top: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--transition-normal);
+  }
+
+  .nav-item-dropdown.is-open .nav-submenu-wrap {
+    grid-template-rows: 1fr;
+  }
+
+  .nav-submenu {
+    overflow: hidden;
+    min-height: 0;
     min-width: 0;
-    margin-top: var(--spacing-xs);
-    padding: 0 0 0 var(--spacing-sm);
+    /* Kein Innenabstand am Rahmen: Der bliebe im zugeklappten Zustand als
+       sichtbarer Streifen stehen. Der Abstand sitzt an den Einträgen. */
+    padding: 0;
+    gap: 0;
     background: none;
     backdrop-filter: none;
     border: none;
-    border-left: 1px solid var(--color-border);
     border-radius: 0;
   }
 
   .nav-submenu a {
-    padding: var(--spacing-xs) 0;
+    padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-sm);
+    border-left: 1px solid var(--color-border);
+    border-radius: 0;
     white-space: normal;
+  }
+
+  .nav-submenu li:first-child a {
+    margin-top: var(--spacing-xs);
+  }
+
+  /* Grösseres Ziel für den Finger. */
+  .nav-submenu-toggle {
+    padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-sm);
   }
 
   /* Die Hover-Brücke ergibt ohne Klappe keinen Sinn und läge nur im Weg. */

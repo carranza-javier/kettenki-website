@@ -49,10 +49,15 @@
         <li><a href="about" data-i18n="nav_about">Über mich</a></li>
         <li class="nav-item-dropdown">
           <a href="services" data-i18n="nav_services">Lösungen</a>
-          <ul class="nav-submenu">
-            <li><a href="services#ai-solutions" data-i18n="services_ai_title">KI-Lösungen</a></li>
-            <li><a href="services#custom-development" data-i18n="services_custom_title">Individuelle Entwicklung</a></li>
-          </ul>
+          <button type="button" class="nav-submenu-toggle" aria-expanded="false" aria-controls="nav-submenu-solutions" data-i18n-aria-label="nav_submenu_toggle">
+            <span class="nav-caret" aria-hidden="true"></span>
+          </button>
+          <div class="nav-submenu-wrap" id="nav-submenu-solutions">
+            <ul class="nav-submenu">
+              <li><a href="services#ai-solutions" data-i18n="services_ai_title">KI-Lösungen</a></li>
+              <li><a href="services#custom-development" data-i18n="services_custom_title">Individuelle Entwicklung</a></li>
+            </ul>
+          </div>
         </li>
         <li><a href="contact" data-i18n="nav_contact">Kontakt</a></li>
         
