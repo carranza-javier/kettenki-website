@@ -714,11 +714,19 @@ footer p {
    Die Logik dazu steht in js/scroll-video.js. */
 .scrollvideo {
   position: relative;
-  /* Ohne Scrubbing gibt es keine Scrollstrecke abzumessen, der Abschnitt ist
-     einfach so hoch wie das Bild darin. Bewusst unter einem vollen Bildschirm:
-     Nach dem ebenfalls bildschirmhohen Kopfbereich wären zwei volle Schirme
-     hintereinander zu viel, und so schaut das Angebot darunter schon hervor. */
-  height: 72vh;
+  /* Ohne Scrubbing gibt es keine Scrollstrecke abzumessen. Der Abschnitt bekommt
+     deshalb genau die Form des Videos: volle Breite, 16:9 hoch. Damit wird nichts
+     beschnitten und es bleiben keine schwarzen Balken, denn Behälter und Bild
+     haben dasselbe Seitenverhältnis.
+     Eine feste Höhe war hier falsch: 72vh sind auf einem hochkanten Handy viel
+     höher als breit, und ein 16:9-Bild darin musste über die Hälfte seiner Breite
+     verlieren, um die Fläche zu füllen. Das sah dann heranzoomt und verschoben aus.
+     Nebenbei löst sich damit auch der zu grosse Abstand nach oben und unten: Der
+     Abschnitt ist nur noch so hoch, wie das Bild ihn braucht. */
+  aspect-ratio: 16 / 9;
+  /* Notbremse für flache Fenster, etwa ein quer gehaltenes Handy: Der Abschnitt
+     soll nie höher werden als der Bildschirm. */
+  max-height: 100vh;
   /* section trägt sonst grosszügige Innenabstände, hier soll das Bild an allen
      vier Kanten anliegen. */
   padding: 0;
@@ -843,6 +851,10 @@ footer p {
    und die gedeckelte Anzeigegrösse. Der Rückfall darunter bleibt formatfüllend. */
 @media (min-width: 901px) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .scrollvideo {
+    /* Feste Scrollstrecke statt Bildform: Hier bestimmt die Höhe, wie lange
+       gescrubbt wird, das Bild darin klebt und füllt den Bildschirm. */
+    aspect-ratio: auto;
+    max-height: none;
     height: 2800px;
   }
 

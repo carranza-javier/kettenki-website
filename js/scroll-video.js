@@ -51,7 +51,15 @@
   video.className = 'scrollvideo-video';
   video.muted = true;
   video.playsInline = true;
-  video.poster = 'img/landscape-last-frame.jpg';
+  // Zwei Standbilder, zwei Rollen. Am Scrollrad steht das Video beim Aufsetzen
+  // sofort auf der Stelle, die der Scrollstand vorgibt, das Plakat ist dort nur
+  // eine Notlösung fürs Laden. Auf dem Handy dagegen ist das Plakat minutenlang
+  // das, was man sieht, bevor abgespielt wird: Da muss das **erste** Bild
+  // stehen. Mit dem letzten sprang die Ansicht beim Start sichtbar vom
+  // Drahtgitter zurück auf die Wiese.
+  video.poster = scrubs
+    ? 'img/landscape-last-frame.jpg'
+    : 'img/landscape-first-frame.jpg';
   // Am Scrollrad muss jede Stelle sofort greifbar sein, deshalb dort alles im
   // Voraus. Auf dem Handy zuerst nur die Metadaten: Die vollen Megabyte fallen
   // erst an, wenn das Video wirklich im Bild ist und losläuft.
