@@ -1,8 +1,25 @@
-// Vom Scrollen gesteuerte Landschaft auf der Startseite.
+// Was auf der Startseite am Scrollen hängt: die gesteuerte Landschaft und die
+// beiden leisen Hinweise, die zum Scrollen einladen.
 //
 // Das Video läuft nie von selbst. Es gibt kein play(), keinen Ton und keine
 // Schleife: Die einzige Grösse, die hier gesetzt wird, ist currentTime, und die
 // hängt allein daran, wie weit der Abschnitt durchgescrollt ist.
+
+// Der Hinweis im Kopfbereich steht vor der Video-Weiche: Er gehört auch auf
+// Geräte, die das Video gar nicht laden, denn gescrollt wird dort genauso.
+(function () {
+  const cue = document.querySelector('.scroll-cue');
+  if (!cue) return;
+
+  function spend() {
+    if (window.scrollY < 40) return;
+    cue.classList.add('is-spent');
+    window.removeEventListener('scroll', spend);
+  }
+
+  window.addEventListener('scroll', spend, { passive: true });
+  spend(); // Beim Neuladen mitten auf der Seite gar nicht erst aufblitzen lassen.
+})();
 
 (function () {
   const section = document.querySelector('[data-scrollvideo]');
@@ -53,11 +70,23 @@
     return Math.min(1, Math.max(0, travelled / range));
   }
 
+  let running = false;
+
   function seek() {
     // Genau auf duration zu springen liegt hinter dem letzten Bild, manche
     // Browser fallen dann auf das erste zurück. Knapp davor bleibt das letzte
     // Bild stehen, ganz ohne Sonderfall am Ende der Strecke.
     video.currentTime = Math.min(current, 0.999) * duration;
+
+    // Speist den Fortschrittsbalken des Hinweises.
+    section.style.setProperty('--scrub-progress', current.toFixed(4));
+
+    // Nur beim Wechsel anfassen, nicht bei jedem Einzelbild.
+    const moved = current > 0.03;
+    if (moved !== running) {
+      running = moved;
+      section.classList.toggle('is-running', running);
+    }
   }
 
   // Der Scrollwert wird nicht direkt übernommen, sondern pro Bild ein Stück weit
@@ -89,6 +118,9 @@
       current = scrollProgress();
       target = current;
       seek();
+
+      // Ab hier gibt es etwas zu sehen, also darf der Hinweis erscheinen.
+      section.classList.add('is-scrubbing');
 
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onScroll);

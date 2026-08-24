@@ -649,6 +649,64 @@ footer p {
   margin-bottom: var(--spacing-md);
 }
 
+/* Hinweis am unteren Rand des Kopfbereichs. Der Kopfbereich füllt den ganzen
+   Bildschirm, es gibt also keinen sichtbaren Anhaltspunkt, dass darunter noch
+   etwas kommt. Absichtlich leise gehalten: kleine Versalien in gedecktem Grau
+   und ein 1px-Strich, auf dem ein Punkt nach unten wandert. Die Bewegung macht
+   die Arbeit, nicht die Grösse. */
+.scroll-cue {
+  position: absolute;
+  bottom: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  pointer-events: none;
+  transition: opacity var(--transition-slow);
+}
+
+/* Sobald wirklich gescrollt wird, hat der Hinweis seine Aufgabe erfüllt. */
+.scroll-cue.is-spent {
+  opacity: 0;
+}
+
+.scroll-cue-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+}
+
+.scroll-cue-track {
+  position: relative;
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(to bottom, rgba(0, 212, 255, 0.35), rgba(0, 212, 255, 0));
+  overflow: hidden;
+}
+
+.scroll-cue-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 3px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--color-accent-start);
+  animation: scroll-cue-travel 2.4s ease-in-out infinite;
+}
+
+@keyframes scroll-cue-travel {
+  0% { transform: translateY(-9px); opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateY(44px); opacity: 0; }
+}
+
 /* Vom Scrollen gesteuerte Landschaft zwischen Kopfbereich und Angebot.
    Der Abschnitt ist bewusst viel höher als der Bildschirm: Seine Höhe ist die
    Strecke, über die gescrubbt wird. Das Bild darin klebt oben fest, sodass es
@@ -733,6 +791,61 @@ footer p {
     rgba(10, 10, 10, 0) 100%
   );
   pointer-events: none;
+}
+
+/* Hinweis über dem Video. Er sagt nicht nur, dass weitergescrollt werden soll,
+   er zeigt den Zusammenhang auch: Der Balken füllt sich genau mit dem
+   Scrollfortschritt, den js/scroll-video.js in --scrub-progress schreibt. Wer
+   einmal scrollt, sieht sofort, woran das Bild hängt.
+   Standardmässig unsichtbar. Sichtbar wird er nur, wenn wirklich gescrubbt
+   wird, also nicht im Rückfall mit Standbild, wo es nichts zu sehen gäbe. */
+.scrollvideo-cue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--spacing-sm);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: min(220px, 60%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-slow);
+}
+
+.scrollvideo.is-scrubbing .scrollvideo-cue {
+  opacity: 1;
+}
+
+.scrollvideo-cue-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 244, 0.75);
+  /* Der Hintergrund wechselt beim Scrubben von hellem Himmel zu dunklem
+     Drahtgitter, ein reiner Schatten trägt hier zuverlässiger als eine Farbe. */
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+  transition: opacity var(--transition-slow);
+}
+
+/* Sobald das Video sichtbar läuft, ist die Aufforderung überflüssig. Der Balken
+   bleibt, er ist ab da die eigentliche Information. */
+.scrollvideo.is-running .scrollvideo-cue-label {
+  opacity: 0;
+}
+
+.scrollvideo-cue-track {
+  width: 100%;
+  height: 1px;
+  background: rgba(244, 244, 244, 0.18);
+}
+
+.scrollvideo-cue-bar {
+  display: block;
+  height: 100%;
+  width: calc(var(--scrub-progress, 0) * 100%);
+  background: var(--color-accent-start);
 }
 
 /* Angebot auf der Startseite: drei gleichrangige Blöcke.
