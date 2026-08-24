@@ -41,7 +41,15 @@
   // Wer weniger Bewegung möchte, bekommt gar keine: kein Video, kein Laden,
   // keine Listener. Diese Prüfung steht zuerst, damit sie beide Spielarten
   // abfängt und nicht nur die am Scrollrad.
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Nur hier zeigt das Standbild das Ende der Verwandlung statt ihren Anfang:
+    // Wer die Bewegung nie zu sehen bekommt, soll wenigstens ihr Ergebnis sehen.
+    // Überall sonst bleibt das erste Bild stehen, sonst blitzt beim Laden kurz
+    // der Schluss auf, bevor das Video den Anfang darüberlegt.
+    const still = frame.querySelector('.scrollvideo-still');
+    if (still) still.src = 'img/landscape-last-frame.jpg';
+    return;
+  }
 
   // Dieselbe Bedingung steht als Media Query in css/style.css und gibt dem
   // Abschnitt dort seine Scrollhöhe. Wird eine der beiden geändert, muss die
@@ -55,15 +63,12 @@
   video.className = 'scrollvideo-video';
   video.muted = true;
   video.playsInline = true;
-  // Zwei Standbilder, zwei Rollen. Am Scrollrad steht das Video beim Aufsetzen
-  // sofort auf der Stelle, die der Scrollstand vorgibt, das Plakat ist dort nur
-  // eine Notlösung fürs Laden. Auf dem Handy dagegen ist das Plakat minutenlang
-  // das, was man sieht, bevor abgespielt wird: Da muss das **erste** Bild
-  // stehen. Mit dem letzten sprang die Ansicht beim Start sichtbar vom
-  // Drahtgitter zurück auf die Wiese.
-  video.poster = scrubs
-    ? 'img/landscape-last-frame.jpg'
-    : 'img/landscape-first-frame.jpg';
+  // Das Plakat ist dasselbe Bild wie das Standbild darunter, und zwar in beiden
+  // Spielarten. Es ist der Zustand, den das Video sowieso als erstes zeigt: auf
+  // dem Handy, weil es von vorn abspielt, am Scrollrad, weil der Scrollstand
+  // beim Aufsetzen bei null steht. Weil es dasselbe Bild ist, liegt es beim
+  // Einsetzen des Videos längst im Zwischenspeicher und es blitzt nichts auf.
+  video.poster = 'img/landscape-first-frame.jpg';
   // Am Scrollrad muss jede Stelle sofort greifbar sein, deshalb dort alles im
   // Voraus. Auf dem Handy zuerst nur die Metadaten: Die vollen Megabyte fallen
   // erst an, wenn das Video wirklich im Bild ist und losläuft.
