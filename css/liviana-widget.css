@@ -468,17 +468,6 @@
 }
 
 /* --------------------------------------------------------------------------
-   Kollision mit dem bestehenden "nach oben"-Knopf
-   Der liegt auf allen Seiten unten rechts. Auf den Seiten mit Widget rückt er
-   nach oben, damit sich beide nicht überlagern. Portfolio und Blog bleiben
-   unangetastet, dort gibt es die Klasse am body nicht.
-   -------------------------------------------------------------------------- */
-
-body.has-liviana .scroll-top {
-  bottom: calc(1rem + 116px + 0.75rem);
-}
-
-/* --------------------------------------------------------------------------
    Mobil
    -------------------------------------------------------------------------- */
 
@@ -513,10 +502,6 @@ body.has-liviana .scroll-top {
     bottom: 0.5rem;
     right: 0.5rem;
     height: 92px;
-  }
-
-  body.has-liviana .scroll-top {
-    bottom: calc(0.5rem + 92px + 0.5rem);
   }
 }
 

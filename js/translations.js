@@ -22,6 +22,12 @@ const translations = {
     cta_get_in_touch: 'Jetzt anfragen',
     process_title: 'So arbeite ich',
     process_text: 'Sie sagen mir, was Sie brauchen. Ich baue eine erste funktionierende Version. Gefällt sie Ihnen, sprechen wir über den Preis. Wenn nicht, schulden Sie nichts.',
+    /* Dieselbe Aussage in vier Schritten, für die Startseite. services.html trägt
+       weiterhin den Fliesstext oben. */
+    process_step_1: 'Sie sagen mir, was Sie brauchen.',
+    process_step_2: 'Ich baue eine erste funktionierende Version.',
+    process_step_3: 'Gefällt sie Ihnen, sprechen wir über den Preis.',
+    process_step_4: 'Wenn nicht, schulden Sie nichts.',
     
     about_title: 'Über mich',
     about_text: 'Javier Carranza ist ein Softwareingenieur, der bewusst abseits des Lärms und der Eile arbeitet, die die heutige Technologiewelt dominieren. Mit mehr als 14 Jahren Erfahrung in internationalen Projekten verfügt er über umfassende Kenntnisse in unterschiedlichsten technischen Umgebungen.',
@@ -467,6 +473,10 @@ const translations = {
     cta_get_in_touch: 'Get in touch',
     process_title: 'How I work',
     process_text: 'You tell me what you need. I build a first working version. If you like it, we talk about the price. If not, you owe nothing.',
+    process_step_1: 'You tell me what you need.',
+    process_step_2: 'I build a first working version.',
+    process_step_3: 'If you like it, we talk about the price.',
+    process_step_4: 'If not, you owe nothing.',
     
     about_title: 'About Me',
     about_text: 'Javier Carranza is a software engineer who deliberately works away from the noise and rush that dominate today\'s technology world. With over 14 years of experience in international projects, he has extensive knowledge in a wide range of technical environments.',

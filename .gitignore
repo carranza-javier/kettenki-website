@@ -1,0 +1,5 @@
+# Quelldatei der Landschaftsanimation. Die Seite lädt ausschliesslich die
+# neu kodierte Fassung (kettenki_landscape_scrub.mp4), die hier im Repo liegt.
+# Das Original bleibt lokal, damit die 5 MB nicht dauerhaft in der Git-History
+# stehen. Zum erneuten Kodieren siehe PROJECT-STATUS.md.
+vid/kettenki_landscape_transformation.mp4

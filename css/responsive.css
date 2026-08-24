@@ -21,6 +21,12 @@
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Ablauf der Startseite: vier Schritte nebeneinander werden auf dieser
+     Breite zu schmal, zwei mal zwei bleibt lesbar. */
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Tablets */
@@ -106,6 +112,12 @@
   /* Angebotsblöcke der Startseite: aus drei Spalten wird eine */
   .offer-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Und aus den vier Ablaufschritten eine Spalte */
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
   }
 
   /* Products Grid - Tablets */
@@ -236,13 +248,6 @@
     text-align: center;
   }
   
-  .scroll-top {
-    bottom: 1rem;
-    right: 1rem;
-    width: 45px;
-    height: 45px;
-  }
-  
   /* Products - Mobile */
   .product-name {
     font-size: 1.5rem;
@@ -332,7 +337,6 @@
 @media print {
   header,
   footer,
-  .scroll-top,
   .mobile-menu-btn,
   .lang-selector {
     display: none;

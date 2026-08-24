@@ -54,15 +54,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-// Scroll to top button
-window.addEventListener('scroll', () => {
-  const scrollTop = document.querySelector('.scroll-top');
-  if (scrollTop) {
-    if (window.pageYOffset > 300) {
-      scrollTop.classList.add('visible');
-    } else {
-      scrollTop.classList.remove('visible');
-    }
-  }
-});

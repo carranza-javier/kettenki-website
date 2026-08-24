@@ -638,37 +638,6 @@ footer p {
   transform: translateY(0);
 }
 
-/* Scroll to top button */
-.scroll-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--transition-normal);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-bg);
-  font-size: 1.5rem;
-}
-
-.scroll-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.scroll-top:hover {
-  transform: translateY(-5px);
-}
-
 /* Zwischenüberschrift der beiden Abschnitte auf services.html. Kleiner als
    .section-title, die dort der Seitentitel bleibt, und links statt zentriert,
    damit sie als Abschnittsmarke gelesen wird und nicht als zweiter Titel. */
@@ -680,35 +649,162 @@ footer p {
   margin-bottom: var(--spacing-md);
 }
 
+/* Vom Scrollen gesteuerte Landschaft zwischen Kopfbereich und Angebot.
+   Der Abschnitt ist bewusst viel höher als der Bildschirm: Seine Höhe ist die
+   Strecke, über die gescrubbt wird. Das Bild darin klebt oben fest, sodass es
+   einen Bildschirm lang stehen bleibt, während die Strecke abgescrollt wird.
+   Die Logik dazu steht in js/scroll-video.js. */
+.scrollvideo {
+  position: relative;
+  /* Ohne Video ist der Abschnitt genau ein Bildschirm hoch: ein Standbild,
+     keine Scrollstrecke, die durch ein stehendes Bild führen würde. */
+  height: 100vh;
+  /* section trägt sonst grosszügige Innenabstände, hier soll das Bild an allen
+     vier Kanten anliegen. */
+  padding: 0;
+  background: var(--color-bg);
+  /* Hier steht bewusst kein overflow: hidden. Ein Vorfahr mit overflow ausser
+     visible macht position: sticky am Kind wirkungslos, das Bild scrollt dann
+     einfach mit weg. Zugeschnitten wird eine Ebene tiefer, an .scrollvideo-stage,
+     die das klebende Element selbst ist. */
+}
+
+/* Dieselbe Bedingung steht als SCRUB_QUERY in js/scroll-video.js und entscheidet
+   dort, ob das Video überhaupt geladen wird. Beide gehören zusammen. */
+@media (min-width: 901px) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .scrollvideo {
+    height: 2800px;
+  }
+}
+
+.scrollvideo-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Die Quelle ist 1280x720. Formatfüllend über den ganzen Bildschirm musste sie
+   auf grossen Monitoren hochskaliert werden (1280 auf 1920 sind Faktor 1.5),
+   und genau das sah unscharf aus. Der Rahmen deckelt die Anzeige deshalb auf die
+   native Breite: Auf grossen Bildschirmen wird nichts mehr hochgerechnet, auf
+   kleineren nur herunter, was nicht unscharf wird.
+   max-height hält den Rahmen auch auf flachen Fenstern im Bild. Klemmt sie,
+   weicht die Rahmenform vom Seitenverhältnis ab, aber object-fit: contain unten
+   sorgt dafür, dass das Bild selbst nie verzerrt oder beschnitten wird. */
+.scrollvideo-frame {
+  position: relative;
+  width: min(92vw, 1280px);
+  max-height: 82vh;
+  aspect-ratio: 16 / 9;
+}
+
+/* Das Standbild liegt immer da und ist zugleich der Rückfall, wenn das Video
+   nicht lädt. Das Video wird per JavaScript darüber gehängt und verdeckt es.
+   contain statt cover: lieber schmale schwarze Ränder auf schwarzem Grund, die
+   man ohnehin nicht sieht, als ein beschnittenes Bild. */
+.scrollvideo-still,
+.scrollvideo-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Das erste Bild des Videos ist heller Himmel, darüber steht der schwarze
+   Kopfbereich. Ohne diesen Verlauf ist der Übergang eine harte Kante. Er sitzt
+   im Rahmen und nicht im ganzen klebenden Bereich, damit er an der Oberkante des
+   Bildes ansetzt und nicht ein Drittel des Videos abdunkelt. */
+.scrollvideo-veil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22%;
+  background: linear-gradient(
+    to bottom,
+    var(--color-bg) 0%,
+    rgba(10, 10, 10, 0.55) 45%,
+    rgba(10, 10, 10, 0) 100%
+  );
+  pointer-events: none;
+}
+
 /* Angebot auf der Startseite: drei gleichrangige Blöcke.
-   Bewusst schlichter als .product-card auf services.html, kein Farbbalken und
-   kein Hover-Akzent: Die drei Blöcke sollen gleich viel wiegen und keine
-   Rangfolge suggerieren. Farben, Abstände und Radius kommen unverändert aus
-   den bestehenden Variablen. */
+   Die drei Angebote wiegen weiterhin gleich viel, aber sie sind nicht mehr
+   dieselbe Karte in dreifacher Ausführung: Akzentstrich, Maskottchen und
+   Kartenfläche machen sie auf einen Blick unterscheidbar.
+   --offer-accent trägt die Farbe der jeweiligen Karte, gesetzt weiter unten
+   von den drei Modifikatoren, und speist Strich und Maskottchenkreis. */
 .offer-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-md);
+  /* Jede Karte endet an ihrem eigenen Inhalt. Ohne das streckt das Raster alle
+     drei auf die Höhe der längsten, und die beiden kurzen bekommen unten ein
+     leeres Feld. */
+  align-items: start;
 }
 
 .offer-card {
-  background: var(--color-surface);
+  /* Eine Spur heller als der Seitenhintergrund (#0a0a0a). --color-surface war
+     mit #131313 zu nah dran, die Karten verschwanden im Hintergrund. */
+  background: #141414;
   border: 1px solid var(--color-border);
+  border-top: 2px solid var(--offer-accent);
   border-radius: 12px;
   padding: var(--spacing-md);
 }
 
+.offer-card--chatbots {
+  --offer-accent: #00d4ff;
+}
+
+.offer-card--websites {
+  --offer-accent: #00ff88;
+}
+
+.offer-card--apps {
+  --offer-accent: #ffa94d;
+}
+
+/* Maskottchen oben links, im Kreis in der Akzentfarbe der Karte bei 12 Prozent
+   Deckkraft. color-mix hält die Deckkraft an dieselbe Variable gebunden, statt
+   pro Karte eine zweite Farbe von Hand zu pflegen. */
+.offer-mascot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--offer-accent) 12%, transparent);
+  margin-bottom: var(--spacing-sm);
+  overflow: hidden;
+}
+
+.offer-mascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .offer-title {
-  font-size: 1.35rem;
+  font-size: 16px;
   font-weight: var(--font-weight-medium);
-  color: var(--color-text);
+  color: #ffffff;
   margin-bottom: var(--spacing-xs);
 }
 
 .offer-text {
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 1.6;
-  color: var(--color-text-secondary);
+  color: #9a9a9a;
   margin-bottom: 0;
 }
 
@@ -739,26 +835,44 @@ footer p {
 }
 
 /* Der Ablauf steht unter den drei Blöcken und trägt die ganze Breite, damit er
-   als eigener Schritt gelesen wird und nicht als vierter Block. */
+   als eigener Schritt gelesen wird und nicht als vierter Block. Vier nummerierte
+   Schritte statt eines Fliesstexts: Der Ablauf ist eine Abfolge, und als Reihe
+   liest man sofort, wie viele Schritte es sind und wo man steht. */
 .process-block {
   margin-top: var(--spacing-lg);
   padding-top: var(--spacing-md);
   border-top: 1px solid var(--color-border);
-  max-width: 720px;
 }
 
 .process-title {
   font-size: 1.35rem;
   font-weight: var(--font-weight-medium);
   color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.process-step-number {
+  display: block;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent-start);
   margin-bottom: var(--spacing-xs);
 }
 
-.process-text {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--color-text-secondary);
-  margin-bottom: 0;
+.process-step-text {
+  display: block;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #c9c9c9;
 }
 
 /* Products Grid (2+1 layout) */
