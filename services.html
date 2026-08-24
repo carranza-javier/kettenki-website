@@ -48,7 +48,13 @@
       <ul class="nav-menu">
         <li><a href="index" data-i18n="nav_home">Start</a></li>
         <li><a href="about" data-i18n="nav_about">Über mich</a></li>
-        <li><a href="services" data-i18n="nav_services">Lösungen</a></li>
+        <li class="nav-item-dropdown">
+          <a href="services" data-i18n="nav_services">Lösungen</a>
+          <ul class="nav-submenu">
+            <li><a href="services#ai-solutions" data-i18n="services_ai_title">KI-Lösungen</a></li>
+            <li><a href="services#custom-development" data-i18n="services_custom_title">Individuelle Entwicklung</a></li>
+          </ul>
+        </li>
         <li><a href="contact" data-i18n="nav_contact">Kontakt</a></li>
         
         <li class="lang-selector">
@@ -64,19 +70,14 @@
       <h1 class="section-title fade-in" data-i18n="services_title">Lösungen</h1>
 
       <!-- Abschnitt 1: fertige Prototypen. Der Hinweis mit dem Kolben gilt
-           ausschliesslich hier und nicht für die individuelle Entwicklung. -->
-      <h2 class="services-section-title fade-in" data-i18n="services_ready_title">Fertige Lösungen zum Testen</h2>
+           ausschliesslich hier und nicht für die individuelle Entwicklung, und
+           steht deshalb am Ende dieses Abschnitts, so wie das Versprechen am
+           Ende des zweiten steht. Beide fassen ihren Abschnitt zusammen, statt
+           ihn anzukündigen. -->
+      <div class="services-block" id="ai-solutions">
+        <h2 class="services-section-title fade-in" data-i18n="services_ai_title">KI-Lösungen</h2>
 
-      <!-- Prototype Disclaimer -->
-      <div class="prototype-disclaimer fade-in">
-        <h3 data-i18n="services_disclaimer_title">🧪 Wichtiger Hinweis</h3>
-        <p data-i18n="services_disclaimer_text">
-          Diese Lösungen sind experimentelle Prototypen. Sie sind kostenlos zum Testen, 
-          funktional und getestet, aber ohne Garantie oder SLA. Bei Erfolg: Gemeinsame Weiterentwicklung möglich.
-        </p>
-      </div>
-      
-      <div class="products-grid">
+        <div class="products-grid">
         <article class="product-card bambera-card fade-in">
           <img src="img/ketten_bambera.webp" alt="" class="product-mascot" loading="lazy">
           
@@ -138,16 +139,26 @@
           </p>
           
           <a href="fandango" class="btn-product fandango-btn" data-i18n="cta_learn_more">Mehr erfahren</a>
-        </article>
+          </article>
+        </div>
+
+        <div class="prototype-disclaimer fade-in">
+          <h3 data-i18n="services_disclaimer_title">🧪 Wichtiger Hinweis</h3>
+          <p data-i18n="services_disclaimer_text">
+            Diese Lösungen sind experimentelle Prototypen. Sie sind kostenlos zum Testen, 
+            funktional und getestet, aber ohne Garantie oder SLA. Bei Erfolg: Gemeinsame Weiterentwicklung möglich.
+          </p>
+        </div>
       </div>
 
       <!-- Abschnitt 2: Auftragsarbeit. Eigenes Versprechen, bewusst ohne die
            Worte experimentell und ohne Garantie, die zum ersten Abschnitt
            gehören. Blocktexte und Versprechen teilen sich die Keys mit der
            Startseite, damit beide Seiten nicht auseinanderlaufen. -->
-      <h2 class="services-section-title fade-in" data-i18n="services_custom_title">Individuelle Entwicklung</h2>
+      <div class="services-block" id="custom-development">
+        <h2 class="services-section-title fade-in" data-i18n="services_custom_title">Individuelle Entwicklung</h2>
 
-      <div class="products-grid">
+        <div class="products-grid">
         <article class="product-card websites-card fade-in">
           <img src="img/ketten_websites.webp" alt="" class="product-mascot" loading="lazy">
 
@@ -177,9 +188,10 @@
         </article>
       </div>
 
-      <div class="promise-box fade-in">
-        <h3 data-i18n="services_promise_title">Kein Risiko für Sie</h3>
-        <p data-i18n="process_text">Sie sagen mir, was Sie brauchen. Ich baue eine erste funktionierende Version. Gefällt sie Ihnen, sprechen wir über den Preis. Wenn nicht, schulden Sie nichts.</p>
+        <div class="promise-box fade-in">
+          <h3 data-i18n="services_promise_title">Kein Risiko für Sie</h3>
+          <p data-i18n="process_text">Sie sagen mir, was Sie brauchen. Ich baue eine erste funktionierende Version. Gefällt sie Ihnen, sprechen wir über den Preis. Wenn nicht, schulden Sie nichts.</p>
+        </div>
       </div>
     </section>
   </main>

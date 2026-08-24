@@ -316,9 +316,15 @@ section {
   padding: var(--spacing-xl) var(--spacing-md);
 }
 
+/* Seitentitel der kommerziellen Seiten (Lösungen, Über mich, Kontakt).
+   Die allgemeine h1-Regel geht bis 5rem, das ist für eine Überschrift, die
+   nur den Namen der Seite trägt, zu laut: Sie frisst auf einem Laptop den
+   halben ersten Bildschirm, bevor irgendein Inhalt kommt. Hier deutlich
+   kleiner, und mit weniger Abstand nach unten, damit der Inhalt eher anfängt. */
 .section-title {
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
   text-align: center;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
   background: linear-gradient(135deg, var(--color-text), var(--color-text-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -636,6 +642,89 @@ footer p {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Aufklappmenü unter "Lösungen". Führt zu den beiden Abschnitten von
+   services.html, die Beschriftungen teilen sich die Schlüssel mit deren
+   Überschriften: So können Menü und Seite nicht auseinanderlaufen. */
+.nav-item-dropdown {
+  position: relative;
+}
+
+/* Unsichtbare Brücke über den Spalt zwischen Menüpunkt und Klappe. Ohne sie
+   fällt der Zeiger auf dem Weg nach unten aus dem Hover und die Klappe schliesst
+   sich, bevor man sie erreicht. */
+.nav-item-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 0.9rem;
+}
+
+.nav-submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.9rem;
+  min-width: 230px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.4rem;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: all var(--transition-fast);
+  z-index: 1001;
+}
+
+/* focus-within nimmt die Tastatur mit: Wer sich durchtabbt, klappt genauso auf. */
+.nav-item-dropdown:hover .nav-submenu,
+.nav-item-dropdown:focus-within .nav-submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-submenu a {
+  display: block;
+  padding: 0.5rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.nav-submenu a:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Der mitwachsende Unterstrich der Hauptnavigation sieht in einer Klappe falsch
+   aus, hier markiert stattdessen die Fläche. */
+.nav-submenu a::after {
+  display: none;
+}
+
+/* Die beiden Abschnitte von services.html. Sie sind die Sprungziele des
+   Aufklappmenüs, deshalb der Abstand nach oben: Der Kopfbereich ist fest
+   verankert und läge sonst über der Überschrift, zu der gesprungen wurde. */
+.services-block {
+  scroll-margin-top: 110px;
+}
+
+/* Sichtbare Grenze zwischen den beiden Abschnitten. Vorher stiessen die Karten
+   des einen direkt an die Überschrift des anderen, und es war nicht zu sehen,
+   wo der eine aufhört. */
+.services-block + .services-block {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
 }
 
 /* Zwischenüberschrift der beiden Abschnitte auf services.html. Kleiner als

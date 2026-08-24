@@ -44,7 +44,7 @@ const translations = {
     about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen eine effektive und verlässige Unterstützung zu bieten.',
 
     services_title: 'Lösungen',
-    services_ready_title: 'Fertige Lösungen zum Testen',
+    services_ai_title: 'KI-Lösungen',
     services_custom_title: 'Individuelle Entwicklung',
     services_promise_title: 'Kein Risiko für Sie',
     services_disclaimer_title: '🧪 Wichtiger Hinweis',
@@ -495,8 +495,8 @@ const translations = {
     about_text9: 'The goal is not to replace people, but to provide them with effective and reliable support.',
     
     services_title: 'Solutions',
-    services_ready_title: 'Ready solutions to test',
-    services_custom_title: 'Custom development',
+    services_ai_title: 'AI Solutions',
+    services_custom_title: 'Custom Development',
     services_promise_title: 'No risk for you',
     services_disclaimer_title: '🧪 Important Notice',
     services_disclaimer_text: 'These solutions are experimental prototypes. They are free to test, functional and tested, but without guarantee or SLA. On success: Joint development possible.',
