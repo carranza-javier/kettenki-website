@@ -151,18 +151,16 @@
       <div class="product-section fade-in">
         <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
         <ul class="benefits-list">
-          <li data-i18n="bamberapf_did_1">Die komplette Pipeline entworfen und gebaut, von der API bis zum Prompt Engineering, mit Claude Haiku 4.5 auf Bedrock.</li>
-          <li data-i18n="bamberapf_did_2">Die Wissensbasis in 7 JSON-Dateien strukturiert (Rezepte, Zutaten und Allergene, Checklisten, Serviceregeln, Notfälle), mit expliziten booleschen Feldern (vegan, glutenfrei, laktosefrei), statt die Information nur im Fließtext zu belassen.</li>
-          <li data-i18n="bamberapf_did_3">Einen Datenfilter für Fragen zu Ernährungseigenschaften implementiert: statt sich nur darauf zu verlassen, dass das Modell ein boolesches Feld richtig interpretiert, filtere ich den Datensatz selbst, bevor er in den Prompt geht, damit das Modell erst gar nicht die Möglichkeit hat, Produkte außerhalb des angefragten Kriteriums zu sehen.</li>
-          <li data-i18n="bamberapf_did_4">Den System Prompt mit XML-Blöcken entworfen, nach den von Anthropic empfohlenen Praktiken für lange Kontexte, inklusive eines verpflichtenden Chain-of-Thought-Blocks für Allergenfragen: Das Modell muss Zutaten und Allergene explizit auflisten, bevor es eine Schlussfolgerung zieht, was ein Widerspruchsmuster beseitigte, das in frühen Versionen auftrat.</li>
-          <li data-i18n="bamberapf_did_5">Eine Testbatterie mit 100 Prompts und erwarteten Ergebnissen aufgebaut, um objektiv zu messen, ob eine Änderung die Antworten verbesserte oder verschlechterte.</li>
-          <li data-i18n="bamberapf_did_6">Das Routing-System für den Kontext komplett neu entworfen, nachdem eine Kaskade subtiler Bugs entdeckt wurde (siehe Technische Herausforderung).</li>
+          <li data-i18n="bamberapf_did_1">Die komplette Pipeline von der API bis zum Prompt Engineering mit Claude Haiku 4.5 auf Bedrock entworfen und gebaut.</li>
+          <li data-i18n="bamberapf_did_2">Die Wissensbasis in 7 strukturierten JSON-Dateien aufgebaut, mit expliziten Feldern für Ernährungseigenschaften wie vegan, glutenfrei und laktosefrei. Fragen zu diesen Eigenschaften werden vor dem Prompt zusätzlich datenbasiert gefiltert.</li>
+          <li data-i18n="bamberapf_did_3">Einen System Prompt mit XML-Blöcken entwickelt und eine Testbatterie mit 100 Prompts aufgebaut, um Änderungen an Antworten objektiv zu messen.</li>
         </ul>
       </div>
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
-        <p data-i18n="bamberapf_challenge">Die erste Version nutzte ein Keyword-basiertes Routing-System, um zu entscheiden, welche Abschnitte der Wissensbasis je nach Frage an das Modell geschickt werden. Auf dem Papier klang das vernünftig, aber im praktischen Einsatz erzeugte es eine Kaskade subtiler, schwer vorhersehbarer Bugs, von der Art, bei der ein kurzes Wort in einer Sprache mit einem Wortteil in einer anderen Sprache kollidiert. Die Lehre daraus war nicht, für jeden Fall mehr Logik draufzupacken, sondern die Architektur zu vereinfachen: das Kernwissen immer mitzuschicken und nur die selteneren operativen Abschnitte bedingt hinzuzufügen. Das bestätigte etwas, das ich schon vermutet hatte: In einem RAG-System zählt die Qualität des Kontexts mehr als seine Größe.</p>
+        <p data-i18n="bamberapf_challenge_1">Die erste Version nutzte ein Keyword-basiertes Routing-System, um zu entscheiden, welche Abschnitte der Wissensbasis je nach Frage an das Modell geschickt werden. Auf dem Papier klang das vernünftig, aber im praktischen Einsatz erzeugte es eine Kaskade subtiler, schwer vorhersehbarer Bugs, von der Art, bei der ein kurzes Wort in einer Sprache mit einem Wortteil in einer anderen Sprache kollidiert.</p>
+        <p data-i18n="bamberapf_challenge_2">Die Lösung war nicht, für jeden Fall mehr Logik draufzupacken, sondern die Architektur zu vereinfachen: Das Kernwissen wird immer mitgeschickt, nur die selteneren operativen Abschnitte werden bedingt hinzugefügt. Das bestätigte etwas, das ich schon vermutet hatte: In einem RAG-System zählt die Qualität des Kontexts mehr als seine Grösse.</p>
       </div>
 
       <div class="product-section fade-in">
