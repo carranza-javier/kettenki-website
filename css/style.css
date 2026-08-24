@@ -714,9 +714,11 @@ footer p {
    Die Logik dazu steht in js/scroll-video.js. */
 .scrollvideo {
   position: relative;
-  /* Ohne Video ist der Abschnitt genau ein Bildschirm hoch: ein Standbild,
-     keine Scrollstrecke, die durch ein stehendes Bild führen würde. */
-  height: 100vh;
+  /* Ohne Scrubbing gibt es keine Scrollstrecke abzumessen, der Abschnitt ist
+     einfach so hoch wie das Bild darin. Bewusst unter einem vollen Bildschirm:
+     Nach dem ebenfalls bildschirmhohen Kopfbereich wären zwei volle Schirme
+     hintereinander zu viel, und so schaut das Angebot darunter schon hervor. */
+  height: 72vh;
   /* section trägt sonst grosszügige Innenabstände, hier soll das Bild an allen
      vier Kanten anliegen. */
   padding: 0;
@@ -727,40 +729,11 @@ footer p {
      die das klebende Element selbst ist. */
 }
 
-/* Dieselbe Bedingung steht als SCRUB_QUERY in js/scroll-video.js und entscheidet
-   dort, ob das Video überhaupt geladen wird. Beide gehören zusammen.
-   Alles, was hier drinsteht, gilt nur für den Fall mit Video: die Scrollstrecke
-   und die gedeckelte Anzeigegrösse. Der Rückfall darunter bleibt formatfüllend. */
-@media (min-width: 901px) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .scrollvideo {
-    height: 2800px;
-  }
-
-  /* Die Quelle ist 1280x720. Formatfüllend über den ganzen Bildschirm musste sie
-     auf grossen Monitoren hochskaliert werden (1280 auf 1920 sind Faktor 1.5),
-     und genau das sah unscharf aus. Der Rahmen deckelt die Anzeige deshalb auf
-     die native Breite: Auf grossen Bildschirmen wird nichts mehr hochgerechnet,
-     auf kleineren nur herunter, was nicht unscharf wird.
-     max-height hält den Rahmen auch auf flachen Fenstern im Bild. Klemmt sie,
-     weicht die Rahmenform vom Seitenverhältnis ab, aber object-fit: contain
-     sorgt dafür, dass das Bild selbst nie verzerrt oder beschnitten wird. */
-  .scrollvideo-frame {
-    width: min(92vw, 1280px);
-    height: auto;
-    max-height: 82vh;
-    aspect-ratio: 16 / 9;
-  }
-
-  .scrollvideo-still,
-  .scrollvideo-video {
-    object-fit: contain;
-  }
-}
-
+/* Ohne Scrubbing gibt es nichts festzukleben, das Bild füllt einfach den
+   Abschnitt. Die klebende Fassung steht unten in der Media Query. */
 .scrollvideo-stage {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  position: static;
+  height: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -770,7 +743,7 @@ footer p {
 /* Grundzustand ist der Rückfall ohne Video: Das Standbild füllt den Bildschirm,
    wie für Handys vorgesehen. Ein gedeckelter Rahmen wäre hier falsch, er liesse
    auf einem hochkanten Display einen schmalen Streifen Bild in viel Schwarz
-   stehen. Die gedeckelte Fassung steht oben in der Media Query und gilt nur da,
+   stehen. Die gedeckelte Fassung steht unten in der Media Query und gilt nur da,
    wo auch wirklich gescrubbt wird. */
 .scrollvideo-frame {
   position: relative;
@@ -862,6 +835,44 @@ footer p {
   height: 100%;
   width: calc(var(--scrub-progress, 0) * 100%);
   background: var(--color-accent-start);
+}
+
+/* Dieselbe Bedingung steht als SCRUB_QUERY in js/scroll-video.js und entscheidet
+   dort, ob das Video überhaupt geladen wird. Beide gehören zusammen.
+   Alles, was hier drinsteht, gilt nur für den Fall mit Video: die Scrollstrecke
+   und die gedeckelte Anzeigegrösse. Der Rückfall darunter bleibt formatfüllend. */
+@media (min-width: 901px) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .scrollvideo {
+    height: 2800px;
+  }
+
+  /* Erst hier wird das Bild festgeklebt: Es soll einen Bildschirm lang stehen
+     bleiben, während die 2800 px darunter durchgescrollt werden. */
+  .scrollvideo-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  /* Die Quelle ist 1280x720. Formatfüllend über den ganzen Bildschirm musste sie
+     auf grossen Monitoren hochskaliert werden (1280 auf 1920 sind Faktor 1.5),
+     und genau das sah unscharf aus. Der Rahmen deckelt die Anzeige deshalb auf
+     die native Breite: Auf grossen Bildschirmen wird nichts mehr hochgerechnet,
+     auf kleineren nur herunter, was nicht unscharf wird.
+     max-height hält den Rahmen auch auf flachen Fenstern im Bild. Klemmt sie,
+     weicht die Rahmenform vom Seitenverhältnis ab, aber object-fit: contain
+     sorgt dafür, dass das Bild selbst nie verzerrt oder beschnitten wird. */
+  .scrollvideo-frame {
+    width: min(92vw, 1280px);
+    height: auto;
+    max-height: 82vh;
+    aspect-ratio: 16 / 9;
+  }
+
+  .scrollvideo-still,
+  .scrollvideo-video {
+    object-fit: contain;
+  }
 }
 
 /* Angebot auf der Startseite: drei gleichrangige Blöcke.

@@ -1,9 +1,15 @@
-// Was auf der Startseite am Scrollen hängt: die gesteuerte Landschaft und die
-// beiden leisen Hinweise, die zum Scrollen einladen.
+// Was auf der Startseite am Scrollen hängt: die Landschaft und die beiden
+// leisen Hinweise, die zum Scrollen einladen.
 //
-// Das Video läuft nie von selbst. Es gibt kein play(), keinen Ton und keine
-// Schleife: Die einzige Grösse, die hier gesetzt wird, ist currentTime, und die
-// hängt allein daran, wie weit der Abschnitt durchgescrollt ist.
+// Die Landschaft läuft in zwei Spielarten, je nach Gerät:
+//   - Am Rechner mit Maus hängt sie am Scrollrad. Kein play(), keine Schleife,
+//     kein Ton: gesetzt wird ausschliesslich currentTime, und die hängt daran,
+//     wie weit der Abschnitt durchgescrollt ist.
+//   - Auf dem Handy wäre genau das die falsche Technik. Das programmgesteuerte
+//     Springen im Video ruckelt dort und greift unter iOS Safari teils gar
+//     nicht. Also läuft das Video da einfach einmal ab, sobald es im Bild ist.
+// Bei reduzierter Bewegung passiert beides nicht, dann bleibt das Standbild aus
+// dem Markup stehen und es wird nichts geladen.
 
 // Der Hinweis im Kopfbereich steht vor der Video-Weiche: Er gehört auch auf
 // Geräte, die das Video gar nicht laden, denn gescrollt wird dort genauso.
@@ -28,38 +34,91 @@
   const frame = section.querySelector('.scrollvideo-frame');
   if (!frame) return;
 
+  // Wer weniger Bewegung möchte, bekommt gar keine: kein Video, kein Laden,
+  // keine Listener. Diese Prüfung steht zuerst, damit sie beide Spielarten
+  // abfängt und nicht nur die am Scrollrad.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
   // Dieselbe Bedingung steht als Media Query in css/style.css und gibt dem
   // Abschnitt dort seine Scrollhöhe. Wird eine der beiden geändert, muss die
   // andere mit: Sonst bekommt die Seite 2800 px Scrollstrecke ohne Video oder
   // ein Video ohne Strecke, auf der es sich bewegen könnte.
-  // Auf schmalen Bildschirmen und bei Zeigegeräten ohne Maus ruckelt das
-  // programmgesteuerte Springen im Video, unter iOS Safari greift es teils gar
-  // nicht. Dort bleibt es beim Standbild aus dem Markup, und das Video wird
-  // nicht geladen.
   const SCRUB_QUERY =
     '(min-width: 901px) and (pointer: fine) and (prefers-reduced-motion: no-preference)';
-  if (!window.matchMedia(SCRUB_QUERY).matches) return;
+  const scrubs = window.matchMedia(SCRUB_QUERY).matches;
 
   const video = document.createElement('video');
   video.className = 'scrollvideo-video';
   video.muted = true;
   video.playsInline = true;
-  video.preload = 'auto';
   video.poster = 'img/landscape-last-frame.jpg';
+  // Am Scrollrad muss jede Stelle sofort greifbar sein, deshalb dort alles im
+  // Voraus. Auf dem Handy zuerst nur die Metadaten: Die vollen Megabyte fallen
+  // erst an, wenn das Video wirklich im Bild ist und losläuft.
+  video.preload = scrubs ? 'auto' : 'metadata';
   // Die Eigenschaften allein reichen manchen Browsern nicht, die Attribute
-  // müssen ebenfalls am Element stehen.
+  // müssen ebenfalls am Element stehen. Ohne muted und playsinline verweigert
+  // iOS Safari das Abspielen ohne Fingertipp.
   video.setAttribute('muted', '');
   video.setAttribute('playsinline', '');
   video.src = 'vid/kettenki_landscape_scrub.mp4';
-  // In den Rahmen, der die Anzeigegrösse deckelt: hinter das Standbild, das es
-  // damit verdeckt, sobald es Bilder hat, aber vor den Verlauf, der weiter
-  // obenauf liegen soll.
+  // In den Rahmen: hinter das Standbild, das es damit verdeckt, sobald es
+  // Bilder hat, aber vor den Verlauf, der weiter obenauf liegen soll.
   frame.insertBefore(video, frame.querySelector('.scrollvideo-veil'));
 
+  if (!scrubs) {
+    playWhenVisible();
+    return;
+  }
+
+  // --------------------------------------------------------------------------
+  // Handy und Tablet: einmal abspielen, sobald es im Bild ist
+  // --------------------------------------------------------------------------
+  function playWhenVisible() {
+    // Ohne IntersectionObserver bleibt es beim Standbild, das ist kein Verlust.
+    if (!('IntersectionObserver' in window)) return;
+
+    let done = false;
+
+    // Am Ende auf dem letzten Bild stehen bleiben, genau wie am Scrollrad, und
+    // nicht bei jedem Vorbeiscrollen von vorn anfangen.
+    video.addEventListener('ended', function () {
+      done = true;
+      observer.disconnect();
+    });
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (done) return;
+          if (entry.isIntersecting) {
+            // Schlägt fehl, wenn der Browser das Abspielen verweigert, etwa im
+            // Stromsparmodus. Dann bleibt einfach das Standbild stehen, deshalb
+            // wird der Fehler geschluckt statt in der Konsole zu landen.
+            const started = video.play();
+            if (started && started.catch) started.catch(function () {});
+          } else {
+            // Aus dem Bild gescrollt: anhalten, aber die Stelle behalten.
+            video.pause();
+          }
+        });
+      },
+      // Erst ab einem guten Drittel im Bild, sonst startet es, während vom
+      // Video nur ein Streifen am unteren Rand zu sehen ist.
+      { threshold: 0.35 }
+    );
+
+    observer.observe(section);
+  }
+
+  // --------------------------------------------------------------------------
+  // Rechner mit Maus: das Scrollrad führt
+  // --------------------------------------------------------------------------
   let duration = 0;
   let current = 0; // die gezeigte Position, 0 bis 1
   let target = 0; // die vom Scrollstand geforderte Position, 0 bis 1
   let rafId = null;
+  let running = false;
 
   function scrollProgress() {
     // Die Strecke, über die gescrubbt wird, ist die Höhe des Abschnitts abzüglich
@@ -69,8 +128,6 @@
     const travelled = -section.getBoundingClientRect().top;
     return Math.min(1, Math.max(0, travelled / range));
   }
-
-  let running = false;
 
   function seek() {
     // Genau auf duration zu springen liegt hinter dem letzten Bild, manche

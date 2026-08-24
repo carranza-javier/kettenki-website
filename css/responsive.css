@@ -109,6 +109,13 @@
     padding: var(--spacing-md);
   }
   
+  /* Auf dem Handy folgt das Angebot dichter auf die Landschaft. Der grosszügige
+     Abschnittsabstand ist für Textabschnitte gedacht; hinter einem randlosen
+     Bild liest er sich als Leerlauf. */
+  .scrollvideo + .offer {
+    padding-top: var(--spacing-md);
+  }
+
   /* Angebotsblöcke der Startseite: aus drei Spalten wird eine */
   .offer-grid {
     grid-template-columns: 1fr;
