@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-08-24 (Startseite neu: Angebotskarten, Scroll-Video mit Handy-Fassung, Scroll-Hinweise; kommerzielle Seiten: kleinere Titel, Aufklappmenü, services.html geteilt)_
+_Letzte Aktualisierung: 2026-08-24 (Startseite neu: Angebotskarten, Scroll-Video mit Handy-Fassung, zwei Scroll-Hinweise, weiche Bildkanten; kommerzielle Seiten: kleinere Titel, Aufklappmenü mit Tipp-Bedienung, services.html geteilt)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -380,15 +380,15 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
 
 ## Nächster Schritt
 
-1. **Javi sieht sich die Startseite am Handy an.** Aus der Sitzung vom 2026-08-24 blieben drei Dinge ungeprüft, weil sich in der Automatisierung kein schmales Fenster herstellen liess (Chrome verweigert das Verkleinern des maximierten Fensters, `innerWidth` blieb 1920) und der Renderer beim Abspielen mehrfach einfror:
-   - Ob das Video **beim Herausscrollen pausiert** und beim Zurückkommen weiterläuft, statt neu zu starten.
-   - Ob nach dem Ende **kein Neustart** mehr erfolgt, wenn man erneut daran vorbeiscrollt.
-   - Ob die Abschnittsform (`aspect-ratio: 16 / 9`, volle Breite) und der engere Abstand zum Angebot sich am Gerät richtig anfühlen. Beides ist je eine Zahl an einer Stelle und schnell nachjustiert.
-   Der Rest der Handy-Fassung ist geprüft: kein Abspielen vor dem ersten Scrollen, Start beim Hereinscrollen, richtiges Plakat, `preload: metadata`.
-2. **Ebenfalls am Handy: das neue Aufklappmenü** unter "Lösungen". Am Rechner ist es geprüft (Hover, Tastatur, Sprungziele), auf dem Handy steht es eingerückt im Hamburger-Menü und ist dort nur im Stylesheet nachgewiesen, nicht am Gerät gesehen.
-3. **Javi liest die deutsche Fassung von `railtrack_context` in `js/translations.js` gegen** (der literarische Einstieg "Als Liebhaber von Zügen und Schweizer Pünktlichkeit…" — bewusst nicht flach übersetzt, aber noch nicht von Javi freigegeben).
-4. **Liviana ist live.** Javi geht am besten einmal selbst mit dem Handy und am Rechner über die sieben kommerziellen Seiten und stellt ein paar echte Fragen. Bei Arbeiten am Widget gilt weiter: von `localhost` aus antwortet die API nicht (`AllowedOrigin` ist `https://kettenki.com`), für die Optik `?mock=true` anhängen.
-5. **Alle 6 Portfolio-Fichen sind vollständig** (die 4 kuratierten aus `SPEC.md` 5.3 plus La Guitarrita). **Live sind zwei Blog-Posts** (Canary-Migration und Clean Code); der dritte (Responsible Disclosure) ist fertig, liegt auf `draft/responsible-disclosure` und wartet darauf, dass das Fix-Release des betroffenen Projekts erscheint, siehe Erledigt und Offen. Nächster inhaltlicher Block ist ein weiterer Blog-Post.
+1. **Javi sieht sich am Handy die vier Sachen an, die nach seinem letzten Durchgang dazugekommen sind.** Er hat die Startseite auf mehreren Geräten geprüft und für gut befunden ("ha quedado genial en ambas plataformas"), dabei aber das Aufblitzen des Schlussbildes gefunden. Das ist behoben, und mit ihm kamen drei weitere Änderungen, die **noch kein echtes Gerät gesehen hat**, nur ein 390 px breiter iframe:
+   - **Das Aufblitzen beim Laden** (Standbild und Plakat sind jetzt dasselbe erste Einzelbild). Sollte weg sein, will aber am Gerät bestätigt werden.
+   - **Das neu gebaute Aufklappmenü** unter "Lösungen": zu, bis jemand auf den Pfeil tippt.
+   - **Der zweite Scroll-Strich** unter dem Video und die **weiche Unterkante** des Bildes.
+   Zwei Kleinigkeiten sind ausserdem weiterhin nur im Code belegt und nirgends beobachtet: ob das Video **beim Herausscrollen pausiert** und beim Zurückkommen weiterläuft, und ob es nach dem Ende **nicht neu startet**, wenn man erneut daran vorbeiscrollt. Einmal daran vorbei und wieder zurück scrollen beantwortet beides.
+   Die Abschnittsform (`aspect-ratio: 16 / 9`) und der Abstand zum Angebot gelten dagegen als abgenommen.
+2. **Javi liest die deutsche Fassung von `railtrack_context` in `js/translations.js` gegen** (der literarische Einstieg "Als Liebhaber von Zügen und Schweizer Pünktlichkeit…" — bewusst nicht flach übersetzt, aber noch nicht von Javi freigegeben).
+3. **Liviana ist live.** Javi geht am besten einmal selbst mit dem Handy und am Rechner über die sieben kommerziellen Seiten und stellt ein paar echte Fragen. Bei Arbeiten am Widget gilt weiter: von `localhost` aus antwortet die API nicht (`AllowedOrigin` ist `https://kettenki.com`), für die Optik `?mock=true` anhängen.
+4. **Alle 6 Portfolio-Fichen sind vollständig** (die 4 kuratierten aus `SPEC.md` 5.3 plus La Guitarrita). **Live sind zwei Blog-Posts** (Canary-Migration und Clean Code); der dritte (Responsible Disclosure) ist fertig, liegt auf `draft/responsible-disclosure` und wartet darauf, dass das Fix-Release des betroffenen Projekts erscheint, siehe Erledigt und Offen. Nächster inhaltlicher Block ist ein weiterer Blog-Post.
 
 ## Offen (noch nicht begonnen)
 
@@ -425,6 +425,8 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
 - **Kundendaten kommen nie ins Produkt-Repo.** Die Wissensbasis eines Kunden (Handbuch-JSONs, Logo) liegt in seinem eigenen S3-Bucket. Sie enthält typischerweise Namen, Handynummern und Lieferantenkontakte. `.gitignore` in `kettenki-bambera` ist entsprechend gesetzt, aber die Regel ist die Absicht, nicht die Datei.
 
 ## Offene Fragen an Javi
+
+- **Bekommt das Video eine Überschrift?** Javi hat über so etwas wie "Digitalisieren Sie Ihre Träume" nachgedacht und selbst gefragt, ob das zu kitschig klingt. **Empfehlung: nein, mindestens vorerst nicht**, aus drei Gründen. Erstens spricht die ganze Seite bewusst nüchtern ("Wenn nicht, schulden Sie nichts.", der ehrliche Hinweis auf Prototypen ohne SLA, die absichtlich schlichten Angebotskarten); ein Werbespruch wäre die einzige Stelle in diesem Ton, und im Deutschen mit Sie-Anrede klingt er noch steifer als im Spanischen. Zweitens erklärt er ein Bild, das für sich spricht: Der Übergang von echter Landschaft zu Drahtgitter **ist** die Aussage, und sie wirkt stärker, wenn der Besucher sie selbst zieht. Drittens steht eine Bildschirmhöhe darüber schon der Anspruch aus Lema und Untertitel, ein zweiter Titel teilt die Aufmerksamkeit, statt sie zu bündeln, und auf dem Handy müsste er entweder auf unruhigem Bildinhalt sitzen oder den gerade erst verschlankten Abschnitt wieder wachsen lassen. Falls doch etwas hin soll, dann kein Versprechen, sondern eine Beschreibung dessen, was zu sehen ist, etwa "Vom Foto zur Software" / "From photograph to software". Entschieden ist nichts, das Video steht derzeit ohne Titel.
 
 - **Soll "Bern" auch aus den SEO-Angaben von `index.html` verschwinden?** Aus der Ansprache ist es raus (Untertitel, Titel, Beschreibung, Open Graph, JSON-LD-Beschreibung), die Seite spricht jetzt die ganze Schweiz an. Stehen geblieben sind bewusst drei Stellen, die keine Werbebotschaft sind: `addressLocality` und `geo.placename` (die tatsächliche Anschrift, im JSON-LD Teil der `ProfessionalService`-Auszeichnung) sowie die `keywords`, die absichtlich auf lokale Suche zielen ("Webentwicklung Bern", "App Entwicklung Bern", "Webdesign Bern"). Das dort zu entfernen ist eine SEO-Entscheidung, keine Textkorrektur: Es kostet die lokale Sichtbarkeit in Bern. Deshalb nicht von sich aus gemacht.
 
