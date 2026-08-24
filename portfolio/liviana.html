@@ -74,7 +74,9 @@
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_context">Kontext</h2>
-        <p data-i18n="livianapf_context">Liviana ist eines der Produkte, die ich mit KettenKI anbiete: ein Chatbot, der die Fragen von Kundinnen und Kunden auf der Website eines Unternehmens beantwortet. Nützlich für jedes KMU, jedes Projekt und jedes Webportal, das potenziellen Neukunden schneller passende und präzise Antworten geben möchte. Liviana läuft unter meiner eigenen Marke KettenKI und erfüllt dort beide Aufgaben gleichzeitig: Wer hier fragt, welche Lösungen ich anbiete, benutzt in genau diesem Moment Liviana und sieht ihr bei der Arbeit zu. Das unterscheidet sie vom Rest des Portfolios: Sie ist kein Bildschirmfoto und kein Repository, sondern ein Produkt, das die Besucherin während ihres Besuchs ausprobieren kann. Technisch liegt genau darin die Schwierigkeit, denn Liviana ist ohne Anmeldung im Internet zugänglich: Jede Person kann Anfragen schicken, die einem abgesicherten Ablauf bis zu Amazon Bedrock folgen.</p>
+        <p data-i18n="livianapf_context_1">Liviana ist eines der Produkte, die ich mit KettenKI anbiete: ein Chatbot, der die Fragen von Kundinnen und Kunden auf der Website eines Unternehmens beantwortet.</p>
+        <p data-i18n="livianapf_context_2">Liviana läuft unter meiner eigenen Marke KettenKI und erfüllt dort gleichzeitig zwei Aufgaben: Wer hier fragt, welche Lösungen ich anbiete, benutzt in genau diesem Moment Liviana und sieht sie bei der Arbeit. Sie ist damit kein Screenshot und kein Repository, sondern ein Produkt, das während des Besuchs ausprobiert werden kann.</p>
+        <p data-i18n="livianapf_context_3">Technisch liegt genau darin die Schwierigkeit: Liviana ist ohne Anmeldung öffentlich zugänglich, und jede Person kann Anfragen schicken, die einen abgesicherten Ablauf bis zu Amazon Bedrock durchlaufen.</p>
       </div>
 
       <div class="product-section fade-in">
@@ -88,19 +90,19 @@
 
         <div class="screen-walkthrough-item">
           <h3 data-i18n="livianapf_walkthrough_greeting_title">Geöffnetes Fenster</h3>
-          <p data-i18n="livianapf_walkthrough_greeting">Ein Klick öffnet das Fenster mit einer kurzen Begrüssung. Die Oberfläche übernimmt die Farben und die Schrift der Seite, sodass sich der Chat nahtlos in die Website einfügt. Ein dauerhaft eingeblendeter Hinweis unter dem Eingabefeld sagt, dass es sich um einen Prototyp handelt und Antworten Fehler enthalten können.</p>
+          <p data-i18n="livianapf_walkthrough_greeting">Ein Klick öffnet das Fenster mit einer kurzen Begrüssung. Die Oberfläche übernimmt Farben und Schrift der Seite, sodass sich der Chat in die Website einfügt. Unter dem Eingabefeld weist ein dauerhafter Hinweis darauf hin, dass es sich um einen Prototyp handelt und Antworten Fehler enthalten können.</p>
           <img src="img/liviana/liviana-greeting.png" alt="Das geöffnete Chatfenster mit der Begrüssung von Liviana" data-i18n-alt="livianapf_alt_greeting">
         </div>
 
         <div class="screen-walkthrough-item">
           <h3 data-i18n="livianapf_walkthrough_conversation_title">Eine echte Anfrage</h3>
-          <p data-i18n="livianapf_walkthrough_conversation">Eine Yogaschule fragt, ob ein Chatbot die wiederkehrenden Fragen beantworten könnte, die sie per E-Mail und WhatsApp bekommt. Die Antwort ist kurz, bleibt beim Thema und endet mit einer Möglichkeit zur Kontaktaufnahme. Dieser Aufruf erscheint nur, wenn Kaufinteresse erkennbar ist, und nicht unter jeder Antwort. Ausserdem antwortet sie in der Sprache der Frage.</p>
+          <p data-i18n="livianapf_walkthrough_conversation">Eine Yogaschule fragt, ob ein Chatbot die wiederkehrenden Fragen beantworten könnte, die sie per E-Mail und WhatsApp bekommt. Liviana antwortet kurz, bleibt beim Thema und bietet bei erkennbarem Kaufinteresse eine Kontaktmöglichkeit an. Ausserdem antwortet sie in der Sprache der Frage.</p>
           <img src="img/liviana/liviana-conversation.png" alt="Ein Gespräch über eine Yogaschule, das mit dem Hinweis auf die Kontaktadresse endet" data-i18n-alt="livianapf_alt_conversation">
         </div>
 
         <div class="screen-walkthrough-item">
           <h3 data-i18n="livianapf_walkthrough_scope_title">Ausserhalb des Themas</h3>
-          <p data-i18n="livianapf_walkthrough_scope">Jemand versucht, ihr das Passwort zum AWS-Konto zu entlocken. Sie lehnt ab und antwortet grundsätzlich nicht zu Themen, die nicht als sicher hinterlegt sind oder nicht zum Geschäft selbst gehören. Im Hintergrund greifen Sicherheitsmassnahmen, damit das ganze Gespräch in einem sicheren Rahmen bleibt.</p>
+          <p data-i18n="livianapf_walkthrough_scope">Jemand versucht, ihr das Passwort zum AWS-Konto zu entlocken. Sie lehnt ab und antwortet grundsätzlich nicht zu Themen, die nicht sicher hinterlegt sind oder nicht zum Geschäft gehören.</p>
           <img src="img/liviana/liviana-out-of-scope.png" alt="Liviana lehnt die Frage nach dem AWS-Passwort ab und verweist auf ihre Themen" data-i18n-alt="livianapf_alt_scope">
         </div>
       </div>
@@ -109,8 +111,9 @@
         <h2 data-i18n="label_architecture">Architektur</h2>
         <p data-i18n="livianapf_architecture_lead">Und jetzt der Teil, den ich selbst am interessantesten finde: etwas wirklich Einfaches, das sich in wenigen Stunden umsetzen lässt.</p>
         <div class="architecture-block">
-          <img src="img/liviana/liviana-architecture.svg" alt="Architekturdiagramm von Liviana" data-i18n-alt="livianapf_alt_architecture">
-          <p data-i18n="livianapf_architecture">Das Widget schickt ausschliesslich die neue Nachricht und eine Sitzungskennung an eine HTTP-API von API Gateway, die die Drosselung und die erlaubte Herkunft regelt, bevor sie die Lambda aufruft. Innerhalb der Lambda laufen die Prüfungen in einer bestimmten Reihenfolge: erst die Sperre pro Sitzung, dann der Verlauf, dann der Tageszähler und erst danach das Modell. Die billigste Absage kommt zuerst, und der Tageszähler wird unmittelbar vor dem bezahlten Aufruf erhöht, sodass eine abgewiesene Anfrage nie einen Teil des Kontingents verbraucht. Verlauf und Zähler liegen in zwei DynamoDB-Tabellen mit TTL, das Wissen über KettenKI liegt als einzelnes Dokument in S3 und wird im Ausführungskontext fünf Minuten zwischengespeichert. Die Antwort kommt von Claude Haiku 4.5 auf Bedrock. Zusätzlich melden sich CloudWatch-Alarme und ein AWS-Budget per SNS und E-Mail, wenn etwas aus dem Ruder läuft.</p>
+          <img src="img/liviana/liviana-architecture.svg" alt="Architekturdiagramm von Liviana: Das Widget der Website ruft eine HTTP-API von API Gateway auf, diese eine Lambda mit Sperre je Sitzung, Tageszähler und begrenzter Nebenläufigkeit. Die Lambda liest das Inhaltsdokument aus S3, führt Verlauf und Zähler in zwei DynamoDB-Tabellen mit TTL und ruft Claude Haiku 4.5 auf Bedrock auf. CloudWatch-Alarme und ein AWS-Budget melden sich per SNS und E-Mail, wenn etwas aus dem Ruder läuft." data-i18n-alt="livianapf_alt_architecture">
+          <p data-i18n="livianapf_architecture_1">Das Widget schickt die neue Nachricht und eine Sitzungskennung an eine HTTP-API von API Gateway. Die Lambda prüft zuerst die Sperre pro Sitzung, dann den Verlauf und Tageszähler und erst danach das Modell. Die billigste Absage kommt zuerst; der Tageszähler wird unmittelbar vor dem bezahlten Aufruf erhöht.</p>
+          <p data-i18n="livianapf_architecture_2">Verlauf und Zähler liegen in zwei DynamoDB-Tabellen mit TTL. Das Wissen über KettenKI liegt als einzelnes Dokument in S3 und wird im Ausführungskontext fünf Minuten zwischengespeichert. Die Antwort kommt von Claude Haiku 4.5 auf Bedrock. CloudWatch-Alarme und ein AWS-Budget melden sich per SNS und E-Mail, wenn etwas aus dem Ruder läuft.</p>
         </div>
       </div>
 
@@ -164,9 +167,9 @@
         <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
         <ul class="benefits-list">
           <li data-i18n="livianapf_did_1">Die Lambda ist mit Ports und Adaptern aufgebaut. Bedrock, S3 und DynamoDB hängen ausserhalb der Fachlogik, sodass ich das System auch lokal ohne AWS testen kann.</li>
-          <li data-i18n="livianapf_did_2">Den Kostenschutz habe ich selbst in fünf Stufen gebaut, statt dafür eine Web Application Firewall einzusetzen.</li>
+          <li data-i18n="livianapf_did_2">Den Kostenschutz habe ich selbst gebaut, statt dafür eine Web Application Firewall einzusetzen.</li>
           <li data-i18n="livianapf_did_3">Gesprächsverlauf und Zähler liegen in getrennten DynamoDB-Tabellen. Die Zähler werden atomar aktualisiert, damit gleichzeitige Anfragen das Limit nicht umgehen können.</li>
-          <li data-i18n="livianapf_did_4">Das Wissen über KettenKI liegt als eigenes Dokument in S3. Für die Website habe ich ausserdem das Chat-Widget selbst gebaut, inklusive Sitzungen, Sprachwechsel und der verschiedenen Zustände bei Fehlern und Limits.</li>
+          <li data-i18n="livianapf_did_4">Das Chat-Widget habe ich selbst gebaut, inklusive Sitzungen, Sprachwechsel und der verschiedenen Zustände bei Fehlern und Limits.</li>
         </ul>
       </div>
 
