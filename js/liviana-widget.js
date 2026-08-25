@@ -102,11 +102,11 @@
       <div class="liviana-messages" role="log" aria-live="polite" aria-atomic="false"></div>
 
       <form class="liviana-composer" novalidate>
-        <label class="liviana-visually-hidden" for="liviana-input" data-i18n="chat_input_label">Ihre Nachricht an Liviana</label>
+        <label class="liviana-visually-hidden" for="liviana-input" data-i18n="chat_input_label">Deine Nachricht an Liviana</label>
         <textarea class="liviana-input" id="liviana-input" rows="1"
                   maxlength="${LIVIANA_CONFIG.maxMessageLength}"
                   data-i18n-placeholder="chat_input_placeholder"
-                  placeholder="Ihre Frage ..."></textarea>
+                  placeholder="Deine Frage ..."></textarea>
         <button type="submit" class="liviana-send" data-i18n-aria-label="chat_send_label"
                 aria-label="Nachricht senden">${SEND_ICON}</button>
       </form>
@@ -408,12 +408,12 @@
      ------------------------------------------------------------------------ */
   const MOCK_ANSWERS = {
     de: {
-      bambera: 'BAMBERA digitalisiert Betriebshandbücher und macht daraus eine Assistentin, die Ihr Team in natürlicher Sprache fragen kann. Gedacht für Gastronomie, Industrie und Kinderbetreuung.',
-      liviana: 'Das bin ich. LIVIANA beantwortet Kundenanfragen auf Ihrer Website rund um die Uhr, in mehreren Sprachen. Was Sie gerade sehen, ist genau dieses Produkt im Einsatz.',
-      fandango: 'FANDANGO automatisiert wiederkehrende Abläufe, damit Ihr Team sich auf die Arbeit konzentrieren kann, die wirklich Aufmerksamkeit braucht.',
-      kontakt: 'Am schnellsten geht es per E-Mail an info@kettenki.com. Sie erreichen uns auch über das Kontaktformular auf dieser Seite.',
-      preis: 'Unsere Prototypen haben keine öffentliche Preisliste. Sie sind kostenlos zum Testen, und bei Erfolg sprechen wir über die gemeinsame Weiterentwicklung. Schreiben Sie an info@kettenki.com.',
-      default: 'KettenKI baut experimentelle KI-Prototypen für Schweizer Unternehmen: kostenlos testen, bei Erfolg gemeinsam skalieren. Fragen Sie mich gern nach BAMBERA, LIVIANA oder FANDANGO.'
+      bambera: 'BAMBERA digitalisiert Betriebshandbücher und macht daraus eine Assistentin, die dein Team in natürlicher Sprache fragen kann. Gedacht für Gastronomie, Industrie und Kinderbetreuung.',
+      liviana: 'Das bin ich. LIVIANA beantwortet Kundenanfragen auf deiner Website rund um die Uhr, in mehreren Sprachen. Was du gerade siehst, ist genau dieses Produkt im Einsatz.',
+      fandango: 'FANDANGO automatisiert wiederkehrende Abläufe, damit dein Team sich auf die Arbeit konzentrieren kann, die wirklich Aufmerksamkeit braucht.',
+      kontakt: 'Am schnellsten geht es per E-Mail an info@kettenki.com. Du erreichst uns auch über das Kontaktformular auf dieser Seite.',
+      preis: 'Unsere Prototypen haben keine öffentliche Preisliste. Sie sind kostenlos zum Testen, und bei Erfolg sprechen wir über die gemeinsame Weiterentwicklung. Schreib an info@kettenki.com.',
+      default: 'KettenKI baut experimentelle KI-Prototypen für Schweizer Unternehmen: kostenlos testen, bei Erfolg gemeinsam skalieren. Frag mich gern nach BAMBERA, LIVIANA oder FANDANGO.'
     },
     en: {
       bambera: 'BAMBERA turns operating manuals into an assistant your team can ask in plain language. Built for hospitality, industry and childcare.',
