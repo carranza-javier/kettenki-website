@@ -51,12 +51,21 @@ const translations = {
     about_text8: 'KettenKI entwickelt sich kontinuierlich weiter, wächst von Tag zu Tag und erweitert ihr solides Wissensfundament. Dieses Wissen unterstützt Menschen dabei, ihre Aufgaben effizienter und flexibler zu erledigen.',
     about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen eine effektive und verlässige Unterstützung zu bieten.',
 
-    services_title: 'Lösungen',
+    services_title: 'Was wir für dein Unternehmen bauen',
+    /* Untertitel unter dem Seitentitel. Nimmt das Versprechen vorweg, das
+       direkt darunter im Kasten steht. */
+    services_subtitle: 'KI-Assistenten, Websites und Apps nach Mass — und du siehst das Ergebnis, bevor du dich festlegst.',
+    /* Eigene Keys statt cta_learn_more: den teilt sich sonst portfolio/index.html,
+       und dort passt "BAMBERA ansehen" nicht. Ein CTA, der das Ziel benennt,
+       trägt weiter als "Mehr erfahren". */
+    cta_view_bambera: 'BAMBERA ansehen',
+    cta_view_liviana: 'LIVIANA ansehen',
+    cta_view_fandango: 'FANDANGO ansehen',
     nav_submenu_toggle: 'Untermenü ein- und ausblenden',
     services_ai_title: 'KI-Lösungen',
     services_custom_title: 'Individuelle Entwicklung',
     services_promise_title: 'Kein Risiko für dich',
-    services_disclaimer_title: '🧪 Wichtiger Hinweis',
+    services_disclaimer_title: 'Was diese Prototypen sind',
     services_disclaimer_text: 'Diese Lösungen sind experimentelle Prototypen. Sie sind kostenlos zum Testen, funktional und getestet, aber ohne Garantie oder SLA. Bei Erfolg: Gemeinsame Weiterentwicklung möglich.',
     
     bambera_title: 'BAMBERA',
@@ -505,12 +514,16 @@ const translations = {
     about_text8: 'KettenKI continuously evolves, growing day by day and expanding its solid knowledge base. This knowledge helps people perform their tasks more efficiently and flexibly.',
     about_text9: 'The goal is not to replace people, but to provide them with effective and reliable support.',
     
-    services_title: 'Solutions',
+    services_title: 'What we build for your business',
+    services_subtitle: 'AI assistants, websites and custom apps — and you see the result before you commit.',
+    cta_view_bambera: 'See BAMBERA',
+    cta_view_liviana: 'See LIVIANA',
+    cta_view_fandango: 'See FANDANGO',
     nav_submenu_toggle: 'Show or hide submenu',
     services_ai_title: 'AI Solutions',
     services_custom_title: 'Custom Development',
     services_promise_title: 'No risk for you',
-    services_disclaimer_title: '🧪 Important Notice',
+    services_disclaimer_title: 'What these prototypes are',
     services_disclaimer_text: 'These solutions are experimental prototypes. They are free to test, functional and tested, but without guarantee or SLA. On success: Joint development possible.',
     
     bambera_title: 'BAMBERA',

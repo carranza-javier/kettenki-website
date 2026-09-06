@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v2
+**Document version:** v3
 **Last updated:** 2026-09-06
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
@@ -337,6 +337,45 @@ any marketing action worked.
 
 ---
 
+## Page notes — `services.html` (Lösungen)
+
+CRO pass run 2026-09-06 (`marketing-skills:cro`), measured in-browser. **No analytics exist, so these
+were reasoned from CRO principles plus scroll measurements, not from this site's data.** Treat the
+result as a hypothesis that has never been validated.
+
+**What was wrong.** The page was built against its own goal. The conversion goal is contact, yet the
+first two screens were three free prototypes whose CTAs lead *away* to product pages, and the
+strongest asset — the risk-reversal promise — sat at **3.02 screens on desktop / 3.43 on mobile**,
+i.e. last. The `h1` was "Lösungen", a nav label in the most valuable space on the page. The single
+most visually prominent element on the whole page was an **amber warning box** about the company's
+own offer.
+
+**Applied (the five quick wins):**
+1. Promise box moved from the bottom to directly under the header — **3.02 → 0.36 screens**
+   (mobile 3.43 → 0.45). It now covers both sections; it does not contradict the prototypes, which
+   are free anyway.
+2. `h1` "Lösungen" → *"Was wir für dein Unternehmen bauen"* / *"What we build for your business"*,
+   plus a subtitle in the existing unused `.section-subtitle` (no new CSS) carrying the
+   differentiator.
+3. Disclaimer de-escalated: amber gradient + 2px amber border + 🧪 + *"Wichtiger Hinweis"* → neutral
+   surface, 1px standard border, heading *"Was diese Prototypen sind"*. **The body text is unchanged,
+   word for word** — the honesty was never the problem, the volume was.
+4. `Für wen` moved above the description in all three product cards; its separator moved from
+   `border-top` to `border-bottom` to keep the rhythm. Self-identification now precedes explanation.
+5. `Mehr erfahren` → `BAMBERA/LIVIANA/FANDANGO ansehen`. **New keys `cta_view_*` rather than editing
+   `cta_learn_more`** — that key is shared with `portfolio/index.html`, which is out of scope.
+
+**Known trade-off, accepted.** The first contact CTA moved slightly *deeper*, 2.81 → 3.00 screens,
+because the promise box added height at the top. The fix is the section swap below, deliberately not
+done yet.
+
+**Not applied — the two high-impact items, waiting on Javi:**
+- **Swap the two sections so `Individuelle Entwicklung` comes first.** It is the work that produces
+  clients; the prototypes are proof and work better after the offer. This is also what fixes the CTA
+  depth above.
+- **Put the spicy kunstraum reference and a testimonial next to the paid CTAs.** The commercial site
+  still carries zero third-party proof.
+
 ## Open questions
 
 1. **Pricing model.** Fixed price per project, hourly, or retainer? Required before any pricing,
@@ -367,6 +406,9 @@ any marketing action worked.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v3 (2026-09-06) — Added "Page notes — services.html": CRO pass applied the five quick wins (promise
+  box to the top, h1 with content, disclaimer de-escalated, Für wen raised, product-specific CTAs) and
+  recorded the two high-impact items left open plus the accepted CTA-depth trade-off.
 - v2 (2026-09-06) — Proof Points rewritten after Javi's answers: recorded spicy kunstraum as the one
   real production client (testimonial obtainable, not yet asked) and pinned the 14-year claim as
   correct (11 salaried + 3 freelance) so it stops being "corrected" down. Closed the meta-description

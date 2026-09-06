@@ -1386,12 +1386,17 @@ footer p {
   flex-grow: 1;
 }
 
+/* "Für wen" steht seit dem 2026-09-06 über der Beschreibung statt darunter:
+   Es ist die Zeile, an der sich jemand wiedererkennt ("Gastronomie, das bin
+   ich"), und Wiedererkennen entscheidet, ob der Absatz darunter überhaupt
+   gelesen wird. Der Trennstrich ist mitgewandert — er sitzt jetzt unter dem
+   Block statt darüber und teilt weiterhin "für wen" von "was es tut". */
 .product-for-whom {
   font-size: 0.95rem;
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-md);
-  padding-top: var(--spacing-md);
-  border-top: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .product-for-whom strong {
@@ -1742,9 +1747,15 @@ footer p {
    PROTOTYPE DISCLAIMER & BADGES
    ============================================ */
 
+/* Der Hinweis zu den Prototypen war bis zum 2026-09-06 in Bernstein gehalten,
+   mit 2px-Rahmen und Kolben-Emoji, und damit das auffälligste Element der
+   ganzen Seite. Der Inhalt ist richtig und bleibt Wort für Wort stehen — die
+   Lautstärke war es nicht: Das Erste, worauf das Auge einer fremden Besucherin
+   fiel, war eine Warnung vor dem eigenen Angebot. Jetzt ein ruhiger Kasten in
+   denselben Farben wie der Rest der Seite. Ehrlich bleibt es, laut nicht mehr. */
 .prototype-disclaimer {
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.05));
-  border: 2px solid rgba(255, 193, 7, 0.3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   padding: var(--spacing-md);
   margin: var(--spacing-lg) 0;
@@ -1752,9 +1763,10 @@ footer p {
 }
 
 .prototype-disclaimer h3 {
-  color: #ffc107;
+  color: var(--color-text);
   margin-bottom: var(--spacing-sm);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-medium);
 }
 
 .prototype-disclaimer p {
