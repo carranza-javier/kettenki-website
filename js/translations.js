@@ -27,17 +27,17 @@ const translations = {
        Auszeichnung mitten im Satz. */
     videolead: 'Digitalisiere deine Träume',
     process_title: 'Unser Vorgehen',
-    process_text: 'Du sagst mir, was du brauchst. Ich baue eine erste funktionierende Version. Gefällt sie dir, sprechen wir über den Preis. Wenn nicht, schuldest du nichts.',
-    /* Die vier Schritte der Startseite. Sie sprechen seit dem 2026-09-06 im Wir
-       und ohne Anrede, und sie nennen keinen Preis mehr, sondern die nächsten
-       Schritte. process_text darüber ist der Fliesstext im Versprechenskasten
-       von services.html und steht bewusst noch in der alten Fassung ("Du sagst
-       mir…", "über den Preis"); die beiden sagen also nicht mehr dasselbe.
-       Wer den Kasten dort nachzieht, ändert process_text, nicht diese Keys. */
-    process_step_1: 'Wir klären die Anforderungen.',
+    process_text: 'Wir klären deine Anforderungen und entwickeln eine erste funktionierende Version. Überzeugt dich das Ergebnis, besprechen wir die nächsten Schritte. Andernfalls entstehen keine Kosten.',
+    /* Die vier Schritte der Startseite. Seit dem 2026-09-06 spricht hier die
+       Firma im Wir statt Javi im Ich, und Schritt 3 führt zu den nächsten
+       Schritten statt zum Preisgespräch. Geduzt wird weiterhin, wie überall
+       sonst auf der Seite. process_text oben sagt dasselbe als Fliesstext, für
+       den Versprechenskasten auf services.html: Wer den einen ändert, muss den
+       anderen mitnehmen, sonst steht dieselbe Zusage in zwei Fassungen da. */
+    process_step_1: 'Wir klären deine Anforderungen.',
     process_step_2: 'Wir entwickeln eine erste funktionierende Version.',
-    process_step_3: 'Überzeugt das Ergebnis, besprechen wir die nächsten Schritte.',
-    process_step_4: 'Andernfalls entstehen keine Kosten.',
+    process_step_3: 'Überzeugt dich das Ergebnis, besprechen wir die nächsten Schritte.',
+    process_step_4: 'Andernfalls entstehen für dich keine Kosten.',
     
     about_title: 'Über mich',
     about_text: 'Javier Carranza ist ein Softwareingenieur, der bewusst abseits des Lärms und der Eile arbeitet, die die heutige Technologiewelt dominieren. Mit mehr als 14 Jahren Erfahrung in internationalen Projekten verfügt er über umfassende Kenntnisse in unterschiedlichsten technischen Umgebungen.',
@@ -487,11 +487,11 @@ const translations = {
     scrollvideo_cue: 'Keep scrolling',
     videolead: 'Digitize your dreams',
     process_title: 'Our approach',
-    process_text: 'You tell me what you need. I build a first working version. If you like it, we talk about the price. If not, you owe nothing.',
-    process_step_1: 'We clarify the requirements.',
+    process_text: 'We clarify your requirements and build a first working version. If the result convinces you, we discuss the next steps. Otherwise, there are no costs.',
+    process_step_1: 'We clarify your requirements.',
     process_step_2: 'We build a first working version.',
-    process_step_3: 'If the result is convincing, we discuss the next steps.',
-    process_step_4: 'Otherwise, there are no costs.',
+    process_step_3: 'If the result convinces you, we discuss the next steps.',
+    process_step_4: 'Otherwise, there are no costs for you.',
     
     about_title: 'About Me',
     about_text: 'Javier Carranza is a software engineer who deliberately works away from the noise and rush that dominate today\'s technology world. With over 14 years of experience in international projects, he has extensive knowledge in a wide range of technical environments.',
