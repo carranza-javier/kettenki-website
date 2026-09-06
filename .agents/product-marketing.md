@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v3
-**Last updated:** 2026-09-06
+**Document version:** v4
+**Last updated:** 2026-09-07
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
 > quoted verbatim in German and English and must be copied exactly, never re-translated.**
@@ -369,12 +369,30 @@ own offer.
 because the promise box added height at the top. The fix is the section swap below, deliberately not
 done yet.
 
-**Not applied — the two high-impact items, waiting on Javi:**
-- **Swap the two sections so `Individuelle Entwicklung` comes first.** It is the work that produces
-  clients; the prototypes are proof and work better after the offer. This is also what fixes the CTA
-  depth above.
+**Sections swapped 2026-09-07 — `Individuelle Entwicklung` now leads.** It is the work that produces
+clients; the prototypes are proof of capability and land better after the offer than before it.
+**The first contact CTA moved from 3.00 to 1.05 screens on desktop (1.22 on mobile)** — against 2.81
+before this whole pass started. The nav submenu was reordered to match in all seven pages that carry
+it, so the menu cannot contradict the page; both anchors still resolve.
+
+**The swap exposed a contradiction in the page's own metadata, now fixed.** The `<title>` and
+description described only the prototypes — and called them **"Bewährte KI-Lösungen" / "Proven AI
+solutions"**, while the page itself calls them experimental prototypes without warranty or SLA. That
+is precisely the claim banned under Proof Points, and it was in the line Google displays. Replaced
+with wording that covers what the page now leads with, in the terms an SME actually searches:
+- `<title>` *"Websites, Apps und KI-Assistenten für Schweizer KMU | KettenKI"* (62 chars)
+- description *"Individuelle Websites, Apps und KI-Assistenten für Schweizer KMU. Du siehst eine
+  funktionierende Version, bevor du dich festlegst."* (130 chars)
+
+> **Lesson worth keeping:** the page copy had already been corrected twice while the metadata kept
+> saying something the page contradicted. **When page copy changes, check `<title>`, `meta
+> description` and the `og:` tags in the same pass** — they are copy too, and they are the copy most
+> people read first.
+
+**Still not applied — waiting on Javi:**
 - **Put the spicy kunstraum reference and a testimonial next to the paid CTAs.** The commercial site
-  still carries zero third-party proof.
+  still carries zero third-party proof. Javi does not have the quote yet but can get it; this is the
+  one remaining high-impact item.
 
 ## Open questions
 
@@ -406,6 +424,10 @@ done yet.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v4 (2026-09-07) — Sections on services.html swapped so custom development leads (first contact CTA
+  3.00 → 1.05 screens); submenu reordered in seven pages to match; page metadata rewritten after the
+  swap exposed that it still promised "Bewährte"/"Proven" AI solutions the page itself calls
+  experimental prototypes.
 - v3 (2026-09-06) — Added "Page notes — services.html": CRO pass applied the five quick wins (promise
   box to the top, h1 with content, disclaimer de-escalated, Für wen raised, product-specific CTAs) and
   recorded the two high-impact items left open plus the accepted CTA-depth trade-off.
