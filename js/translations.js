@@ -22,12 +22,10 @@ const translations = {
     cta_get_in_touch: 'Jetzt anfragen',
     scroll_cue: 'Nach unten scrollen',
     scrollvideo_cue: 'Weiterscrollen',
-    /* Die Zeile über dem Video. Zwei Schlüssel, weil sie zweizeilig steht:
-       leicht und weiss oben, im Farbverlauf des Schriftzugs unten. Sie gehören
-       zusammen und müssen in jeder Sprache an derselben Stelle geteilt werden,
-       sonst ergibt die zweite Zeile keinen Satz. */
-    videolead_line1: 'Digitalisiere',
-    videolead_line2: 'deine Träume',
+    /* Die Zeile über dem Video, ein Satz in einem Schlüssel. Sie spricht mit
+       derselben Stimme wie hero_slogan, deshalb keine Aufteilung und keine
+       Auszeichnung mitten im Satz. */
+    videolead: 'Digitalisiere deine Träume',
     process_title: 'So arbeite ich',
     process_text: 'Du sagst mir, was du brauchst. Ich baue eine erste funktionierende Version. Gefällt sie dir, sprechen wir über den Preis. Wenn nicht, schuldest du nichts.',
     /* Dieselbe Aussage in vier Schritten, für die Startseite. services.html trägt
@@ -483,8 +481,7 @@ const translations = {
     cta_get_in_touch: 'Get in touch',
     scroll_cue: 'Scroll down',
     scrollvideo_cue: 'Keep scrolling',
-    videolead_line1: 'Digitize',
-    videolead_line2: 'your dreams',
+    videolead: 'Digitize your dreams',
     process_title: 'How I work',
     process_text: 'You tell me what you need. I build a first working version. If you like it, we talk about the price. If not, you owe nothing.',
     process_step_1: 'You tell me what you need.',
