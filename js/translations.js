@@ -26,14 +26,18 @@ const translations = {
        derselben Stimme wie hero_slogan, deshalb keine Aufteilung und keine
        Auszeichnung mitten im Satz. */
     videolead: 'Digitalisiere deine Träume',
-    process_title: 'So arbeite ich',
+    process_title: 'Unser Vorgehen',
     process_text: 'Du sagst mir, was du brauchst. Ich baue eine erste funktionierende Version. Gefällt sie dir, sprechen wir über den Preis. Wenn nicht, schuldest du nichts.',
-    /* Dieselbe Aussage in vier Schritten, für die Startseite. services.html trägt
-       weiterhin den Fliesstext oben. */
-    process_step_1: 'Du sagst mir, was du brauchst.',
-    process_step_2: 'Ich baue eine erste funktionierende Version.',
-    process_step_3: 'Gefällt sie dir, sprechen wir über den Preis.',
-    process_step_4: 'Wenn nicht, schuldest du nichts.',
+    /* Die vier Schritte der Startseite. Sie sprechen seit dem 2026-09-06 im Wir
+       und ohne Anrede, und sie nennen keinen Preis mehr, sondern die nächsten
+       Schritte. process_text darüber ist der Fliesstext im Versprechenskasten
+       von services.html und steht bewusst noch in der alten Fassung ("Du sagst
+       mir…", "über den Preis"); die beiden sagen also nicht mehr dasselbe.
+       Wer den Kasten dort nachzieht, ändert process_text, nicht diese Keys. */
+    process_step_1: 'Wir klären die Anforderungen.',
+    process_step_2: 'Wir entwickeln eine erste funktionierende Version.',
+    process_step_3: 'Überzeugt das Ergebnis, besprechen wir die nächsten Schritte.',
+    process_step_4: 'Andernfalls entstehen keine Kosten.',
     
     about_title: 'Über mich',
     about_text: 'Javier Carranza ist ein Softwareingenieur, der bewusst abseits des Lärms und der Eile arbeitet, die die heutige Technologiewelt dominieren. Mit mehr als 14 Jahren Erfahrung in internationalen Projekten verfügt er über umfassende Kenntnisse in unterschiedlichsten technischen Umgebungen.',
@@ -482,12 +486,12 @@ const translations = {
     scroll_cue: 'Scroll down',
     scrollvideo_cue: 'Keep scrolling',
     videolead: 'Digitize your dreams',
-    process_title: 'How I work',
+    process_title: 'Our approach',
     process_text: 'You tell me what you need. I build a first working version. If you like it, we talk about the price. If not, you owe nothing.',
-    process_step_1: 'You tell me what you need.',
-    process_step_2: 'I build a first working version.',
-    process_step_3: 'If you like it, we talk about the price.',
-    process_step_4: 'If not, you owe nothing.',
+    process_step_1: 'We clarify the requirements.',
+    process_step_2: 'We build a first working version.',
+    process_step_3: 'If the result is convincing, we discuss the next steps.',
+    process_step_4: 'Otherwise, there are no costs.',
     
     about_title: 'About Me',
     about_text: 'Javier Carranza is a software engineer who deliberately works away from the noise and rush that dominate today\'s technology world. With over 14 years of experience in international projects, he has extensive knowledge in a wide range of technical environments.',
