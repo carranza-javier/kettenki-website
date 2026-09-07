@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-09-07 (die kommerzielle Seite hat wieder Wege zum Kontakt: Formular, Aufrufe auf Start und Über mich, Footer-Navigation, Querverweise)_
+_Letzte Aktualisierung: 2026-09-07 (Kontakt-Lambda steht und antwortet, aber die Mail wird abgewiesen — es fehlt DKIM im DNS; Formular läuft solange über den E-Mail-Rückfall)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -420,10 +420,18 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Querverweise zwischen den drei Fichen** und **LIVIANA steht jetzt vor BAMBERA** — Javis Einschätzung, sie verkaufe sich am ehesten, und sie ist die einzige, die auf dieser Website live läuft und sich sofort ausprobieren lässt.
   - **Nebenbefund beim Messen am Handy: Knöpfe waren 40 px hoch.** Unter 44 px gehen Treffer daneben. Jetzt `min-height: 44px` in der Media Query von `css/responsive.css`; betroffen war vor allem der `<button>` des Formulars, dessen Zeilenhöhe kleiner ausfällt als die der `<a>`-Knöpfe. Gemessen wurde das erst nach einem erzwungenen Neuladen der Stylesheets — der Browser hielt im iframe die alte `responsive.css` fest und zeigte dadurch zuerst ein falsches Ergebnis.
   Geprüft: alle sieben Seiten in DE und EN ohne fehlende Übersetzung (445 Schlüssel je Sprache, kein Versatz), die Formularprüfung blockt leeres Absenden und setzt den Fokus ins erste fehlende Feld, im 390-px-iframe kein Überlauf und Schriftgrösse 16 px in den Feldern (darunter zoomt iOS beim Antippen hinein).
+- [x] **Kontakt-Endpunkt gebaut und ausgerollt — er antwortet, aber die Mail kommt (noch) nicht an.** Stack `kettenki-contact` im Repo `kettenki-liviana` (`infra/contact.yaml`, `src/contact/handler.py`, `scripts/deploy-contact.ps1`): HTTP API → Lambda → SES, eigener Stack neben Liviana, damit ein Fehler hier den Chatbot nicht mitnimmt. Javi hat die Identität `info@kettenki.com` verifiziert und den Rollout freigegeben. Endpunkt: `https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact`. Geprüft und in Ordnung: Drosselung 2/s, reservierte Nebenläufigkeit 2, IAM auf `ses:FromAddress` eingegrenzt, CORS nur für `https://kettenki.com` (Vorabflug von fremder Herkunft bekommt keine Kopfzeile), die drei Fehlerpfade weisen in ~1.5 ms ab, ohne SES anzufassen, und die Logs enthalten Fehlercodes, nie Anfragetexte.
+  **Der Versand scheitert trotzdem, und die Ursache ist der Absender.** Die Mail geht als `info@kettenki.com` über SES hinaus. Das Postfach liegt hinter Zoho (`MX: mx.zoho.eu`), und der SPF-Eintrag der Domain lautet `v=spf1 include:zohomail.eu ~all` — SES steht dort nicht drin, und eine DKIM-Signatur gab es auch nicht. Die Gegenseite sieht damit Post, die vorgibt, aus der eigenen Domain zu kommen, von einem Server, den die Domain nicht autorisiert. Ergebnis: abgewiesen. Die Rückläufer kommen an (sie stammen von `amazonses.com`, das SES sauber authentifiziert), die Anfragen selbst nicht. Gmail schreibt es im Klartext dazu: "a message that pretended to be sent from your email address". Keine Adresse wurde unterdrückt, es ist also nichts weiter kaputt.
+  **Merksatz, teuer gelernt:** *SES nimmt an* heisst nicht *zugestellt*. Die Funktion gab `{"ok": true}` zurück und die Sendestatistik zählte vier Mails — gemeldet wurde daraufhin, es funktioniere. Der einzige Beweis, der zählt, ist eine Mail im Posteingang.
+  **Das Formular läuft deshalb wieder über den E-Mail-Rückfall** (`ENDPOINT` in `js/contact-form.js` steht leer, die URL liegt als Kommentar daneben). Ein Formular, das Erfolg meldet, während die Anfrage abgewiesen wird, ist schlechter als keines. Wieder anschliessen, sobald eine Testmail nachweislich im Posteingang liegt — nicht schon, wenn SES sie annimmt.
 
 ## Blockiert — wartet auf Input
 
 _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind geliefert und eingebaut (siehe Erledigt)._
+
+**Kontaktformular: wartet auf drei DNS-Einträge, die nur Javi setzen kann.** Der DNS der Domain liegt bei INWX (`ns.inwx.de`), nicht bei Route 53 — von hier aus nicht erreichbar. Die Domain-Identität `kettenki.com` ist in SES bereits angelegt und steht auf `PENDING`; sie verifiziert sich selbst, sobald die Einträge da sind. Nötig sind drei CNAMEs
+`<token>._domainkey.kettenki.com` → `<token>.dkim.amazonses.com` mit den Tokens
+`wlxymqomfrwuvfaulseixshq3qu7mwqm`, `o6bgyuoolhe563r6iv55czojbax2osae`, `a4kro5dmrezzenbj6c4a2w2w4pq2pjks` (jederzeit wieder abrufbar über `aws sesv2 get-email-identity --email-identity kettenki.com --region eu-central-1`), und im bestehenden SPF-TXT zusätzlich `include:amazonses.com`. **Das DKIM ist das, was es behebt** — es signiert für die Domain und übersteht auch die Weiterleitung; der SPF-Eintrag ist Beiwerk, weil SES standardmässig eine eigene Rücklaufdomain benutzt.
 
 ## Nächster Schritt
 
