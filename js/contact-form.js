@@ -24,17 +24,14 @@
 (function () {
   'use strict';
 
-  // Vorübergehend leer, seit dem 2026-09-07. Der Endpunkt steht und antwortet
-  // (Stack kettenki-contact), aber die Mail kommt nicht an: Der Absender ist
-  // info@kettenki.com, das Postfach liegt bei Zoho, und der SPF-Eintrag der
-  // Domain erlaubt nur Zoho — nicht SES. Ohne DKIM-Signatur sieht Zoho eine
-  // Mail, die vorgibt, aus der eigenen Domain zu kommen, und behandelt sie
-  // entsprechend. Bis die drei DKIM-CNAMEs im DNS stehen und eine Testmail
-  // nachweislich im Posteingang liegt, ist der vorbereitete E-Mail-Rückfall
-  // der ehrlichere Weg: Er kommt an. Ein Formular, das Erfolg meldet, während
-  // die Anfrage im Spam verschwindet, ist schlimmer als gar keines.
-  // Wieder eintragen: 'https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact'
-  var ENDPOINT = '';
+  // Der Versand lief einen Abend lang ins Leere: Absender info@kettenki.com,
+  // Postfach hinter Zoho, und der SPF der Domain kannte nur Zoho — ohne
+  // DKIM-Signatur wies die Gegenseite jede Mail als Fälschung ab. Seit die drei
+  // DKIM-CNAMEs im DNS bei INWX stehen, signiert SES für kettenki.com, und die
+  // Post landet im Posteingang. Nachgewiesen am 2026-09-07, im Posteingang
+  // gesehen — nicht bloss von SES angenommen. Der Unterschied hat den Abend
+  // gekostet und steht deshalb hier.
+  var ENDPOINT = 'https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact';
   var MAILTO = 'info@kettenki.com';
 
   var PRODUKTE = { liviana: 'LIVIANA', bambera: 'BAMBERA', fandango: 'FANDANGO' };

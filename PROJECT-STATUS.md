@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-09-07 (Kontakt-Lambda steht und antwortet, aber die Mail wird abgewiesen — es fehlt DKIM im DNS; Formular läuft solange über den E-Mail-Rückfall)_
+_Letzte Aktualisierung: 2026-09-07 (das Kontaktformular sendet, und die Post kommt an — DKIM steht, im Posteingang bestätigt)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -423,15 +423,13 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
 - [x] **Kontakt-Endpunkt gebaut und ausgerollt — er antwortet, aber die Mail kommt (noch) nicht an.** Stack `kettenki-contact` im Repo `kettenki-liviana` (`infra/contact.yaml`, `src/contact/handler.py`, `scripts/deploy-contact.ps1`): HTTP API → Lambda → SES, eigener Stack neben Liviana, damit ein Fehler hier den Chatbot nicht mitnimmt. Javi hat die Identität `info@kettenki.com` verifiziert und den Rollout freigegeben. Endpunkt: `https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact`. Geprüft und in Ordnung: Drosselung 2/s, reservierte Nebenläufigkeit 2, IAM auf `ses:FromAddress` eingegrenzt, CORS nur für `https://kettenki.com` (Vorabflug von fremder Herkunft bekommt keine Kopfzeile), die drei Fehlerpfade weisen in ~1.5 ms ab, ohne SES anzufassen, und die Logs enthalten Fehlercodes, nie Anfragetexte.
   **Der Versand scheitert trotzdem, und die Ursache ist der Absender.** Die Mail geht als `info@kettenki.com` über SES hinaus. Das Postfach liegt hinter Zoho (`MX: mx.zoho.eu`), und der SPF-Eintrag der Domain lautet `v=spf1 include:zohomail.eu ~all` — SES steht dort nicht drin, und eine DKIM-Signatur gab es auch nicht. Die Gegenseite sieht damit Post, die vorgibt, aus der eigenen Domain zu kommen, von einem Server, den die Domain nicht autorisiert. Ergebnis: abgewiesen. Die Rückläufer kommen an (sie stammen von `amazonses.com`, das SES sauber authentifiziert), die Anfragen selbst nicht. Gmail schreibt es im Klartext dazu: "a message that pretended to be sent from your email address". Keine Adresse wurde unterdrückt, es ist also nichts weiter kaputt.
   **Merksatz, teuer gelernt:** *SES nimmt an* heisst nicht *zugestellt*. Die Funktion gab `{"ok": true}` zurück und die Sendestatistik zählte vier Mails — gemeldet wurde daraufhin, es funktioniere. Der einzige Beweis, der zählt, ist eine Mail im Posteingang.
-  **Das Formular läuft deshalb wieder über den E-Mail-Rückfall** (`ENDPOINT` in `js/contact-form.js` steht leer, die URL liegt als Kommentar daneben). Ein Formular, das Erfolg meldet, während die Anfrage abgewiesen wird, ist schlechter als keines. Wieder anschliessen, sobald eine Testmail nachweislich im Posteingang liegt — nicht schon, wenn SES sie annimmt.
+  **Noch am selben Abend behoben.** Javi hat bei INWX die drei DKIM-CNAMEs gesetzt und `include:amazonses.com` in den SPF aufgenommen. SES hat die Domain-Identität `kettenki.com` daraufhin selbst verifiziert und signiert seither; die nächste Testmail lag **im Posteingang** — von Javi bestätigt, nicht aus der Sendestatistik geschlossen — ohne Rückläufer und ohne Unterdrückung. `ENDPOINT` in `js/contact-form.js` ist wieder eingetragen.
+  **Das DKIM war die Lösung, nicht der SPF-Eintrag.** Die Signatur gilt für die Domain und übersteht die Weiterleitung von Zoho ins Gmail-Postfach; ein SPF-Treffer tut das nicht, und SES benutzt ohnehin standardmässig eine eigene Rücklaufdomain. Der `include` schadet nicht, allein hätte er nichts geändert.
+  **Der E-Mail-Rückfall bleibt** als Netz für die lokale Entwicklung (von localhost antwortet die API nicht, `AllowedOrigin` steht auf `https://kettenki.com`) und für einen Ausfall der API.
 
 ## Blockiert — wartet auf Input
 
 _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind geliefert und eingebaut (siehe Erledigt)._
-
-**Kontaktformular: wartet auf drei DNS-Einträge, die nur Javi setzen kann.** Der DNS der Domain liegt bei INWX (`ns.inwx.de`), nicht bei Route 53 — von hier aus nicht erreichbar. Die Domain-Identität `kettenki.com` ist in SES bereits angelegt und steht auf `PENDING`; sie verifiziert sich selbst, sobald die Einträge da sind. Nötig sind drei CNAMEs
-`<token>._domainkey.kettenki.com` → `<token>.dkim.amazonses.com` mit den Tokens
-`wlxymqomfrwuvfaulseixshq3qu7mwqm`, `o6bgyuoolhe563r6iv55czojbax2osae`, `a4kro5dmrezzenbj6c4a2w2w4pq2pjks` (jederzeit wieder abrufbar über `aws sesv2 get-email-identity --email-identity kettenki.com --region eu-central-1`), und im bestehenden SPF-TXT zusätzlich `include:amazonses.com`. **Das DKIM ist das, was es behebt** — es signiert für die Domain und übersteht auch die Weiterleitung; der SPF-Eintrag ist Beiwerk, weil SES standardmässig eine eigene Rücklaufdomain benutzt.
 
 ## Nächster Schritt
 

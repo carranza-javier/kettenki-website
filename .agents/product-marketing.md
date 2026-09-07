@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v5
+**Document version:** v6
 **Last updated:** 2026-09-07
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
@@ -413,10 +413,19 @@ running live on this site, so it is the only one a visitor can try immediately.
 
 **Deliberately not done:** `og:image`. Every shared link still previews as bare text. Javi's call.
 
-> **The form has no backend yet, and that is handled honestly.** `ENDPOINT` in `js/contact-form.js`
-> is empty; while empty, submitting opens a pre-filled email instead of pretending to send. Never
-> ship a form that appears to succeed and discards the enquiry — for a business with one client, a
-> silently dropped lead is the most expensive bug on the site.
+> **The form sends for real** (2026-09-07): API Gateway → Lambda → SES, stack `kettenki-contact` in
+> the `kettenki-liviana` repo. Enquiries land in `info@kettenki.com` with the sender in Reply-To, so
+> hitting reply writes straight back to the customer.
+>
+> It took two goes, and the reason is worth keeping. The first version was reported as working
+> because SES accepted the message and the send counter moved. It was not working: every mail was
+> refused, because the domain authorised only Zoho to send as `@kettenki.com` and there was no DKIM
+> signature, so the receiving side saw mail pretending to come from its own domain. **SES accepting a
+> message is not delivery. The only proof that counts is a message in the inbox.**
+>
+> The pre-filled email fallback stays, for local development and for an outage. Never ship a form
+> that appears to succeed and discards the enquiry — for a business with one client, a silently
+> dropped lead is the most expensive bug on the site.
 
 **Proof is still unused.** The assets under Proof Points remain uncited on the commercial pages —
 above all that **LIVIANA is running in the corner of every page and nothing says so.** The audit put
@@ -452,6 +461,9 @@ it first for a reason: a visitor can verify it in five seconds, and it costs one
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v6 (2026-09-07) — Contact form is live and delivering: Lambda + SES behind it, DKIM added at INWX
+  after every mail was refused for failing domain authentication. Recorded the rule that SES accepting
+  a message is not delivery.
 - v5 (2026-09-07) — Added "Page notes — whole commercial site" after the site-wide audit: home and
   about had no CTAs at all, product CTAs promised a trial and delivered a mailto, footers were dead
   ends. All fixed except og:image. Contact form added with no backend yet, failing safe to email.
