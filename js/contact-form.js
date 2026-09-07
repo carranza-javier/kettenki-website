@@ -5,27 +5,26 @@
  * schwächste Stelle: mailto öffnet auf vielen Handys gar nichts, und wer doch
  * schreibt, weiss nicht, was wir wissen müssen.
  *
- * WICHTIG — der Versand hat noch kein Backend.
- * ENDPOINT ist absichtlich leer. Solange er leer ist, verschickt das Formular
- * nichts über das Netz, sondern öffnet eine vorbereitete E-Mail mit allen
- * eingegebenen Feldern. Das ist immer noch besser als der nackte mailto-Link
- * von vorher (die Angaben sind strukturiert und gehen nicht verloren) und
- * vermeidet den einzigen wirklich schlimmen Fall: ein Formular, das aussieht,
- * als hätte es gesendet, und die Anfrage in Wahrheit wegwirft.
+ * Der Versand läuft seit dem 2026-09-07 über eine eigene Lambda: HTTP API →
+ * Lambda → SES, Stack `kettenki-contact` im Repo kettenki-liviana
+ * (infra/contact.yaml). Die Anfrage landet im Postfach info@kettenki.com, mit
+ * der Adresse der Absenderin im Reply-To — Antworten geht also direkt an sie.
  *
- * Sobald es eine Lambda gibt, hier die URL eintragen — sonst nichts. Der Rest
- * ist vorbereitet: POST als JSON, { name, email, company, message, interest, lang }.
- * Vorbild ist js/liviana-widget.js, das gegen die Liviana-API im Repo
- * kettenki-liviana läuft. Zu beachten, weil es dort schon einmal aufgefallen
- * ist: Die AllowedOrigin der API steht auf https://kettenki.com, von localhost
- * aus antwortet sie nicht. Ein Kontakt-Endpunkt braucht dieselbe Freigabe und
- * zusätzlich eine Bremse gegen Spam — das Formular ist öffentlich und ohne
- * Login, genau wie das Chat-Widget.
+ * Wie beim Chat-Widget gilt: AllowedOrigin der API steht auf
+ * https://kettenki.com. **Von localhost antwortet sie nicht.** Das ist kein
+ * Fehler, sondern der Schutz davor, dass eine fremde Seite ins Postfach
+ * schreibt. Zum Maquettieren genügt es, ENDPOINT hier leer zu setzen: dann
+ * greift der Rückfall unten und öffnet eine vorbereitete E-Mail.
+ *
+ * Der Rückfall bleibt mit Absicht stehen. Er deckt zwei Fälle ab, die es
+ * weiterhin gibt: die lokale Entwicklung und einen Ausfall der API. Was er
+ * verhindert, ist der einzige wirklich schlimme Fall — ein Formular, das
+ * aussieht, als hätte es gesendet, und die Anfrage in Wahrheit wegwirft.
  */
 (function () {
   'use strict';
 
-  var ENDPOINT = ''; // <- hier die URL der Kontakt-Lambda eintragen
+  var ENDPOINT = 'https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact';
   var MAILTO = 'info@kettenki.com';
 
   var PRODUKTE = { liviana: 'LIVIANA', bambera: 'BAMBERA', fandango: 'FANDANGO' };
