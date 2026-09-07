@@ -125,6 +125,12 @@
           </div>
 
           <div class="field">
+            <label for="cf-email" data-i18n="contact_form_email">E-Mail</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required>
+            <span class="field-error" id="cf-email-error" data-i18n="contact_form_err_email" hidden>Ohne E-Mail können wir dir nicht antworten.</span>
+          </div>
+
+          <div class="field">
             <label for="cf-company" data-i18n="contact_form_company">Unternehmen (optional)</label>
             <input type="text" id="cf-company" name="company" autocomplete="organization">
           </div>

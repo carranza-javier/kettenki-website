@@ -146,6 +146,11 @@ const translations = {
        mailto-Link und LinkedIn — auf dem Handy heisst das oft: gar nichts. */
     contact_form_interest: 'Anfrage zu:',
     contact_form_name: 'Name',
+    /* Ohne Adresse ist jede Anfrage unbeantwortbar. Beim mailto-Rückfall fiel
+       das nicht auf, weil die Mail aus dem Postfach des Absenders kam; sobald
+       eine Lambda verschickt, fehlt der Rückweg. Pflichtfeld. */
+    contact_form_email: 'E-Mail',
+    contact_form_err_email: 'Ohne E-Mail können wir dir nicht antworten.',
     contact_form_company: 'Unternehmen (optional)',
     contact_form_message: 'Was brauchst du?',
     contact_form_message_ph: 'Zum Beispiel: ein Assistent, der Fragen unserer Gäste beantwortet. Oder eine neue Website. Ein paar Sätze genügen.',
@@ -629,6 +634,8 @@ const translations = {
     contact_cta: 'Let\'s discuss your project',
     contact_form_interest: 'Enquiry about:',
     contact_form_name: 'Name',
+    contact_form_email: 'Email',
+    contact_form_err_email: 'Without an email address we cannot reply.',
     contact_form_company: 'Company (optional)',
     contact_form_message: 'What do you need?',
     contact_form_message_ph: 'For example: an assistant that answers our guests’ questions. Or a new website. A few sentences are enough.',

@@ -14,7 +14,7 @@
  * als hätte es gesendet, und die Anfrage in Wahrheit wegwirft.
  *
  * Sobald es eine Lambda gibt, hier die URL eintragen — sonst nichts. Der Rest
- * ist vorbereitet: POST als JSON, { name, company, message, interest, lang }.
+ * ist vorbereitet: POST als JSON, { name, email, company, message, interest, lang }.
  * Vorbild ist js/liviana-widget.js, das gegen die Liviana-API im Repo
  * kettenki-liviana läuft. Zu beachten, weil es dort schon einmal aufgefallen
  * ist: Die AllowedOrigin der API steht auf https://kettenki.com, von localhost
@@ -56,6 +56,7 @@
     }
 
     var nameField = document.getElementById('cf-name');
+    var emailField = document.getElementById('cf-email');
     var companyField = document.getElementById('cf-company');
     var messageField = document.getElementById('cf-message');
     var status = document.getElementById('contact-status');
@@ -80,17 +81,28 @@
       if (el) field.setAttribute('aria-describedby', show ? errorId : '');
     }
 
-    function validate() {
-      var okName = nameField.value.trim().length > 0;
-      var okMessage = messageField.value.trim().length > 0;
-      setError(nameField, 'cf-name-error', !okName);
-      setError(messageField, 'cf-message-error', !okMessage);
-      if (!okName) nameField.focus();
-      else if (!okMessage) messageField.focus();
-      return okName && okMessage;
+    // Bewusst grosszügig: alles mit @ und einem Punkt dahinter. Strengere
+    // Muster weisen echte Adressen ab, und der einzige Preis für eine falsche
+    // ist eine Mail, die nicht ankommt — der für eine abgewiesene Anfrage ist
+    // ein verlorener Kunde.
+    function looksLikeEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     }
 
-    [nameField, messageField].forEach(function (field) {
+    function validate() {
+      var okName = nameField.value.trim().length > 0;
+      var okEmail = looksLikeEmail(emailField.value.trim());
+      var okMessage = messageField.value.trim().length > 0;
+      setError(nameField, 'cf-name-error', !okName);
+      setError(emailField, 'cf-email-error', !okEmail);
+      setError(messageField, 'cf-message-error', !okMessage);
+      if (!okName) nameField.focus();
+      else if (!okEmail) emailField.focus();
+      else if (!okMessage) messageField.focus();
+      return okName && okEmail && okMessage;
+    }
+
+    [nameField, emailField, messageField].forEach(function (field) {
       field.addEventListener('input', function () {
         if (field.value.trim()) {
           setError(field, field.id + '-error', false);
@@ -115,6 +127,7 @@
         '',
         '—',
         'Name: ' + data.name,
+        'E-Mail: ' + data.email,
         data.company ? 'Unternehmen: ' + data.company : null,
         interest ? 'Interesse: ' + interest : null
       ].filter(Boolean).join('\n');
@@ -129,6 +142,7 @@
 
       var data = {
         name: nameField.value.trim(),
+        email: emailField.value.trim(),
         company: companyField.value.trim(),
         message: messageField.value.trim(),
         interest: interest,
