@@ -382,10 +382,18 @@
     font-size: 0.8rem;
   }
   
+  /* Auf dem Handy sind die Knöpfe kleiner, sonst füllen sie die Karte. Die
+     Untergrenze ist aber der Finger, nicht die Optik: Ab 2026-09-07 hält
+     min-height sie bei 44 px, dem Mass, unter dem Treffer danebengehen.
+     Gemessen waren es vorher 40. */
   .btn-product,
   .btn-cta {
     padding: 0.65rem 1.25rem;
     font-size: 0.95rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   
   /* About Images - Mobile */

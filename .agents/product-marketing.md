@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v4
+**Document version:** v5
 **Last updated:** 2026-09-07
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
@@ -394,6 +394,34 @@ with wording that covers what the page now leads with, in the terms an SME actua
   still carries zero third-party proof. Javi does not have the quote yet but can get it; this is the
   one remaining high-impact item.
 
+## Page notes — whole commercial site
+
+Site-wide audit 2026-09-07 (`marketing-skills:site-architecture`), all seven commercial pages;
+portfolio and blog deliberately out of scope. Full report:
+<https://claude.ai/code/artifact/e08b59b9-3034-4673-a4af-fe51abe733b5>
+
+**The site described the offer and never invited anyone to act.** The home page carried **zero calls
+to action in its content** — the three offer cards linked nowhere, and the only route to writing was
+the nav bar. `Über mich` was the same, its single outbound link pointing at `/portfolio/`, i.e. at
+recruiters rather than customers. The three product pages promised a free trial and delivered a
+`mailto:`. Every footer was a copyright line and nothing else.
+
+**Fixed:** contact form (three fields), CTAs on home and about, footer navigation on all seven pages,
+cross-links between the three product pages, and product-specific trial CTAs that carry the interest
+through to the form. **LIVIANA now leads BAMBERA** — Javi's call, and defensible: it is the only one
+running live on this site, so it is the only one a visitor can try immediately.
+
+**Deliberately not done:** `og:image`. Every shared link still previews as bare text. Javi's call.
+
+> **The form has no backend yet, and that is handled honestly.** `ENDPOINT` in `js/contact-form.js`
+> is empty; while empty, submitting opens a pre-filled email instead of pretending to send. Never
+> ship a form that appears to succeed and discards the enquiry — for a business with one client, a
+> silently dropped lead is the most expensive bug on the site.
+
+**Proof is still unused.** The assets under Proof Points remain uncited on the commercial pages —
+above all that **LIVIANA is running in the corner of every page and nothing says so.** The audit put
+it first for a reason: a visitor can verify it in five seconds, and it costs one sentence.
+
 ## Open questions
 
 1. **Pricing model.** Fixed price per project, hourly, or retainer? Required before any pricing,
@@ -424,6 +452,9 @@ with wording that covers what the page now leads with, in the terms an SME actua
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v5 (2026-09-07) — Added "Page notes — whole commercial site" after the site-wide audit: home and
+  about had no CTAs at all, product CTAs promised a trial and delivered a mailto, footers were dead
+  ends. All fixed except og:image. Contact form added with no backend yet, failing safe to email.
 - v4 (2026-09-07) — Sections on services.html swapped so custom development leads (first contact CTA
   3.00 → 1.05 screens); submenu reordered in seven pages to match; page metadata rewritten after the
   swap exposed that it still promised "Bewährte"/"Proven" AI solutions the page itself calls

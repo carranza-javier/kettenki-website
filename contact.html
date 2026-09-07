@@ -105,6 +105,44 @@
           Lass uns über dein Projekt sprechen
         </p>
         
+        <!-- Das Formular. Bis zum 2026-09-07 bestand diese Seite aus einem
+             mailto-Link und LinkedIn — auf dem Handy heisst mailto oft, dass
+             sich gar nichts öffnet, und wer schreibt, weiss nicht, was wir
+             wissen müssen. Drei Felder, mehr nicht: Jedes weitere kostet
+             Anfragen. Es erscheint nur im kommerziellen Teil; mit
+             ?from=portfolio/blog bleibt es aus, dort wollen Recruiter eine
+             E-Mail-Adresse und kein Projektbriefing. Siehe js/contact-form.js. -->
+        <form class="contact-form fade-in" id="contact-form" novalidate hidden>
+          <p class="contact-form-interest" id="contact-interest" hidden>
+            <span data-i18n="contact_form_interest">Anfrage zu:</span>
+            <strong id="contact-interest-name"></strong>
+          </p>
+
+          <div class="field">
+            <label for="cf-name" data-i18n="contact_form_name">Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+            <span class="field-error" id="cf-name-error" data-i18n="contact_form_err_name" hidden>Bitte trag deinen Namen ein.</span>
+          </div>
+
+          <div class="field">
+            <label for="cf-company" data-i18n="contact_form_company">Unternehmen (optional)</label>
+            <input type="text" id="cf-company" name="company" autocomplete="organization">
+          </div>
+
+          <div class="field">
+            <label for="cf-message" data-i18n="contact_form_message">Was brauchst du?</label>
+            <textarea id="cf-message" name="message" rows="5" required
+                      data-i18n-placeholder="contact_form_message_ph"
+                      placeholder="Zum Beispiel: ein Assistent, der Fragen unserer Gäste beantwortet. Oder eine neue Website. Ein paar Sätze genügen."></textarea>
+            <span class="field-error" id="cf-message-error" data-i18n="contact_form_err_message" hidden>Beschreib kurz, worum es geht.</span>
+          </div>
+
+          <button type="submit" class="btn-cta contact-form-submit" data-i18n="contact_form_submit">Anfrage senden</button>
+          <p class="contact-form-note" data-i18n="contact_form_reply">Wir antworten innerhalb von 24 Stunden. Kein Newsletter, keine Weitergabe.</p>
+          <p class="contact-form-status" id="contact-status" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <p class="contact-links-label" id="contact-links-label" data-i18n="contact_form_or" hidden>Lieber direkt:</p>
         <div class="contact-links">
           <a href="mailto:info@kettenki.com" class="contact-link fade-in">
             <span class="contact-label" data-i18n="contact_email">E-Mail</span>
@@ -123,6 +161,13 @@
   <!-- Footer -->
   <footer>
     <div class="container-footer">
+      <nav class="footer-nav" aria-labelledby="footer-nav-label">
+        <h2 id="footer-nav-label" class="visually-hidden" data-i18n="footer_nav_label">Seiten</h2>
+        <a href="index" data-i18n="nav_home">Start</a>
+        <a href="services" data-i18n="nav_services">Lösungen</a>
+        <a href="about" data-i18n="nav_about">Über mich</a>
+        <a href="contact" data-i18n="nav_contact">Kontakt</a>
+      </nav>
       <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
     </div>
   </footer>
@@ -133,6 +178,7 @@
        dunkle Hintergrund kurz auf). Der Menütausch selbst hängt nicht an
        der Reihenfolge, er läuft in DOMContentLoaded. -->
   <script src="js/contact-nav.js"></script>
+  <script src="js/contact-form.js"></script>
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
   <script src="js/liviana-widget.js"></script>

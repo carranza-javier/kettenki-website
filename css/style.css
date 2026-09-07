@@ -2682,3 +2682,265 @@ body.theme-light .blog-post li {
   font-family: 'Lora', Georgia, 'Times New Roman', serif;
 }
 
+
+/* ============================================
+   WEGE ZUM KONTAKT — 2026-09-07
+   Startseite, Über mich, Produktfichen und Kontaktformular hatten bis dahin
+   zusammen genau null Aufrufe im Inhalt. Alles hier unten baut den Weg, den
+   ein Besucher zum Schreiben braucht.
+   ============================================ */
+
+/* Für Überschriften, die die Vorlesesoftware braucht und das Auge nicht.
+   Fehlte bisher im Projekt; die Footer-Navigation ist die erste Stelle,
+   die sie benötigt. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Der Verweis am Fuss jeder Angebotskarte auf der Startseite. Die drei Karten
+   beschrieben das Angebot und führten nirgendwohin. Der Strich wächst beim
+   Überfahren von links, damit sich die ganze Karte als anfassbar anfühlt. */
+.offer-link {
+  position: relative;
+  display: inline-block;
+  margin-top: var(--spacing-sm);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--offer-accent, var(--color-accent-start));
+  text-decoration: none;
+}
+
+.offer-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast);
+}
+
+/* Die ganze Karte wird zur Fläche des Links. Der Linktext bleibt trotzdem
+   echter Text, damit die Linkliste der Vorlesesoftware lesbar bleibt. */
+.offer-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.offer-card {
+  position: relative;
+}
+
+.offer-card:hover .offer-link::before,
+.offer-link:focus-visible::before {
+  transform: scaleX(1);
+}
+
+/* Aufruf am Ende der Startseite und von Über mich. Bewusst schlicht: eine
+   Zeile und ein Knopf, mittig, mit viel Luft darüber, damit er als Abschluss
+   gelesen wird und nicht als weitere Karte. */
+.home-cta {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.home-cta-text {
+  font-size: 1.15rem;
+  font-weight: var(--font-weight-light);
+  color: var(--color-text);
+  margin: 0;
+  max-width: 42ch;
+}
+
+/* Der einzige Knopf im Haus, der die Markenfarben trägt statt einer
+   Produktfarbe: Er führt nicht zu einem Produkt, sondern zu uns. */
+.home-cta-btn,
+.contact-form-submit {
+  background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
+  color: var(--color-bg);
+  border-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.home-cta-btn:hover,
+.contact-form-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.25);
+}
+
+.contact-form-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Querverweise am Fuss der drei Produktfichen. */
+.product-more {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.product-more-title {
+  font-size: 1.15rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.product-more-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.product-sibling {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.product-sibling:hover {
+  opacity: 0.75;
+}
+
+/* Footer-Navigation. Der Fuss trug auf allen sieben Seiten nur die
+   Copyright-Zeile: Wer unten ankam, war am Ende des Wegs. */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-nav a {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-nav a:hover {
+  color: var(--color-accent-start);
+}
+
+/* ---------- Kontaktformular ---------- */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto var(--spacing-lg);
+  text-align: left;
+}
+
+.contact-form-interest {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.contact-form-interest strong {
+  color: var(--color-accent-start);
+}
+
+.contact-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-form label {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+/* Eigene Klassen statt nackter input/textarea: css/style.css stylt an anderen
+   Stellen blanke Elemente, und genau daran hat sich das Chat-Widget schon
+   einmal die Finger verbrannt. */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color var(--transition-fast);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #6a6a6a;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-start);
+}
+
+.contact-form input[aria-invalid="true"],
+.contact-form textarea[aria-invalid="true"] {
+  border-color: #ff8a7a;
+}
+
+.field-error {
+  font-size: 0.85rem;
+  color: #ff8a7a;
+}
+
+.contact-form-note,
+.contact-form-status {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.contact-form-status.is-ok {
+  color: var(--color-accent-end);
+}
+
+.contact-form-status.is-error {
+  color: #ff8a7a;
+}
+
+/* Trennt das Formular von E-Mail und LinkedIn darunter: Die bleiben, aber als
+   zweiter Weg, nicht als einziger. */
+.contact-links-label {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}

@@ -17,6 +17,15 @@ const translations = {
     offer_websites_text: 'Schnell, professionell und individuell für dein Unternehmen.',
     offer_apps_title: 'Apps nach Mass',
     offer_apps_text: 'Werkzeuge für das, was dein Betrieb wirklich braucht.',
+    /* Die drei Karten waren bis zum 2026-09-07 reiner Text und verlinkten
+       nirgendwohin. Eigene Beschriftung je Karte statt dreimal "Mehr dazu":
+       im Screenreader steht die Linkliste sonst dreimal gleich da. */
+    offer_chatbots_link: 'KI-Chatbots ansehen',
+    offer_websites_link: 'Websites ansehen',
+    offer_apps_link: 'Apps nach Mass ansehen',
+    /* Der Hauptaufruf der Startseite, direkt hinter dem Ablauf: Dort endet
+       gerade der Satz, dass nichts kostet, was nicht überzeugt. */
+    home_cta_text: 'Erzähl uns, was du brauchst. Der erste Schritt kostet dich nichts.',
     offer_websites_detail: 'Responsive, schnell und mit den SEO-Grundlagen für Google.',
     offer_apps_detail: 'Entwickelt nach deinen Anforderungen, mit klarem Umfang von Anfang an.',
     cta_get_in_touch: 'Jetzt anfragen',
@@ -119,6 +128,13 @@ const translations = {
     label_benefits: 'Hauptvorteile',
     label_for_whom: 'Für wen',
     label_use_cases: 'Anwendungsbeispiele',
+    product_more_title: 'Weitere Lösungen',
+    /* Der Knopf versprach "Gratis testen" und führte auf eine Seite mit einer
+       E-Mail-Adresse. Jetzt sagt er, um welches Produkt es geht, und die
+       Kontaktseite nimmt das über ?produkt= entgegen. */
+    cta_try_bambera: 'BAMBERA kostenlos testen',
+    cta_try_liviana: 'LIVIANA kostenlos testen',
+    cta_try_fandango: 'FANDANGO kostenlos testen',
     label_question: 'Frage',
     label_answer: 'Antwort',
     
@@ -126,9 +142,27 @@ const translations = {
     contact_email: 'E-Mail',
     contact_linkedin: 'LinkedIn',
     contact_cta: 'Lass uns über dein Projekt sprechen',
+    /* Das Formular. Bis zum 2026-09-07 bot die Kontaktseite nur einen
+       mailto-Link und LinkedIn — auf dem Handy heisst das oft: gar nichts. */
+    contact_form_interest: 'Anfrage zu:',
+    contact_form_name: 'Name',
+    contact_form_company: 'Unternehmen (optional)',
+    contact_form_message: 'Was brauchst du?',
+    contact_form_message_ph: 'Zum Beispiel: ein Assistent, der Fragen unserer Gäste beantwortet. Oder eine neue Website. Ein paar Sätze genügen.',
+    contact_form_submit: 'Anfrage senden',
+    contact_form_reply: 'Wir antworten innerhalb von 24 Stunden. Kein Newsletter, keine Weitergabe.',
+    contact_form_err_name: 'Bitte trag deinen Namen ein.',
+    contact_form_err_message: 'Beschreib kurz, worum es geht.',
+    contact_form_sending: 'Wird gesendet …',
+    contact_form_sent: 'Danke, deine Anfrage ist angekommen. Wir melden uns innerhalb von 24 Stunden.',
+    contact_form_error: 'Das Senden hat nicht geklappt. Schreib uns bitte direkt an info@kettenki.com.',
+    contact_form_or: 'Lieber direkt:',
 
     portfolio_callout_text: 'Möchtest du meinen Werdegang als Ingenieur sehen?',
     portfolio_callout_link: 'Zum Portfolio →',
+    /* Über mich hatte bisher nur einen Ausgang, und der führte ins Portfolio,
+       also zu den Recruitern. Wer hier Vertrauen fasst, ist aber oft Kundschaft. */
+    about_cta_text: 'Hast du ein Projekt im Kopf?',
 
     portfolio_title: 'Portfolio',
     portfolio_subtitle: 'Wenn ich nicht gerade wandere, Gitarre spiele oder einen Roman lese, um mein Deutsch zu verbessern, mache ich das hier.',
@@ -469,6 +503,7 @@ const translations = {
     livianapf_cta_try: 'Liviana live ausprobieren',
 
     footer_text: '© 2026 KettenKI. Entwickelt mit Präzision.',
+    footer_nav_label: 'Seiten',
   },
 
   en: {
@@ -489,6 +524,10 @@ const translations = {
     offer_websites_text: 'Fast, professional and built specifically for your business.',
     offer_apps_title: 'Custom apps',
     offer_apps_text: 'Tools for what your business actually needs.',
+    offer_chatbots_link: 'See AI chatbots',
+    offer_websites_link: 'See websites',
+    offer_apps_link: 'See custom apps',
+    home_cta_text: 'Tell us what you need. The first step costs you nothing.',
     offer_websites_detail: 'Responsive, fast and with the SEO basics for Google.',
     offer_apps_detail: 'Built to your requirements, with a clear scope from the start.',
     cta_get_in_touch: 'Get in touch',
@@ -577,6 +616,10 @@ const translations = {
     label_benefits: 'Key Benefits',
     label_for_whom: 'For Whom',
     label_use_cases: 'Use Cases',
+    product_more_title: 'More solutions',
+    cta_try_bambera: 'Try BAMBERA for free',
+    cta_try_liviana: 'Try LIVIANA for free',
+    cta_try_fandango: 'Try FANDANGO for free',
     label_question: 'Question',
     label_answer: 'Answer',
     
@@ -584,9 +627,23 @@ const translations = {
     contact_email: 'Email',
     contact_linkedin: 'LinkedIn',
     contact_cta: 'Let\'s discuss your project',
+    contact_form_interest: 'Enquiry about:',
+    contact_form_name: 'Name',
+    contact_form_company: 'Company (optional)',
+    contact_form_message: 'What do you need?',
+    contact_form_message_ph: 'For example: an assistant that answers our guests’ questions. Or a new website. A few sentences are enough.',
+    contact_form_submit: 'Send enquiry',
+    contact_form_reply: 'We answer within 24 hours. No newsletter, nothing passed on.',
+    contact_form_err_name: 'Please enter your name.',
+    contact_form_err_message: 'Briefly describe what this is about.',
+    contact_form_sending: 'Sending …',
+    contact_form_sent: 'Thank you, your enquiry has arrived. We will get back to you within 24 hours.',
+    contact_form_error: 'Sending failed. Please write to us directly at info@kettenki.com.',
+    contact_form_or: 'Or directly:',
 
     portfolio_callout_text: 'Want to see my track record as an engineer?',
     portfolio_callout_link: 'View portfolio →',
+    about_cta_text: 'Got a project in mind?',
 
     portfolio_title: 'Portfolio',
     portfolio_subtitle: 'When I\'m not hiking, playing guitar, or reading a novel to improve my German, this is what I do.',
@@ -927,6 +984,7 @@ const translations = {
     livianapf_cta_try: 'Try Liviana live',
 
     footer_text: '© 2026 KettenKI. Built with precision.',
+    footer_nav_label: 'Pages',
   }
 };
 
