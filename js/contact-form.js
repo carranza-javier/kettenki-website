@@ -24,7 +24,17 @@
 (function () {
   'use strict';
 
-  var ENDPOINT = 'https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact';
+  // Vorübergehend leer, seit dem 2026-09-07. Der Endpunkt steht und antwortet
+  // (Stack kettenki-contact), aber die Mail kommt nicht an: Der Absender ist
+  // info@kettenki.com, das Postfach liegt bei Zoho, und der SPF-Eintrag der
+  // Domain erlaubt nur Zoho — nicht SES. Ohne DKIM-Signatur sieht Zoho eine
+  // Mail, die vorgibt, aus der eigenen Domain zu kommen, und behandelt sie
+  // entsprechend. Bis die drei DKIM-CNAMEs im DNS stehen und eine Testmail
+  // nachweislich im Posteingang liegt, ist der vorbereitete E-Mail-Rückfall
+  // der ehrlichere Weg: Er kommt an. Ein Formular, das Erfolg meldet, während
+  // die Anfrage im Spam verschwindet, ist schlimmer als gar keines.
+  // Wieder eintragen: 'https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact'
+  var ENDPOINT = '';
   var MAILTO = 'info@kettenki.com';
 
   var PRODUKTE = { liviana: 'LIVIANA', bambera: 'BAMBERA', fandango: 'FANDANGO' };
