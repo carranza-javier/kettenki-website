@@ -21,8 +21,7 @@
  * verhindert, ist der einzige wirklich schlimme Fall — ein Formular, das
  * aussieht, als hätte es gesendet, und die Anfrage in Wahrheit wegwirft.
  */
-(function () {
-  'use strict';
+(() => {
 
   // Der Versand lief einen Abend lang ins Leere: Absender info@kettenki.com,
   // Postfach hinter Zoho, und der SPF der Domain kannte nur Zoho — ohne
@@ -31,13 +30,13 @@
   // Post landet im Posteingang. Nachgewiesen am 2026-09-07, im Posteingang
   // gesehen — nicht bloss von SES angenommen. Der Unterschied hat den Abend
   // gekostet und steht deshalb hier.
-  var ENDPOINT = 'https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact';
-  var MAILTO = 'info@kettenki.com';
+  const ENDPOINT = 'https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact';
+  const MAILTO = 'info@kettenki.com';
 
-  var PRODUKTE = { liviana: 'LIVIANA', bambera: 'BAMBERA', fandango: 'FANDANGO' };
+  const PRODUKTE = { liviana: 'LIVIANA', bambera: 'BAMBERA', fandango: 'FANDANGO' };
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var form = document.getElementById('contact-form');
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
     if (!form) return;
 
     // Im hellen Thema kommt der Besucher aus Portfolio oder Blog, ist also
@@ -47,58 +46,54 @@
     if (document.body.classList.contains('theme-light')) return;
 
     form.hidden = false;
-    var label = document.getElementById('contact-links-label');
+    const label = document.getElementById('contact-links-label');
     if (label) label.hidden = false;
 
     // Kommt jemand über "LIVIANA kostenlos testen", steht das Produkt schon
     // fest. Es wird angezeigt und mitgeschickt, statt den Text vorzuschreiben:
     // Was jemand braucht, formuliert er besser selbst.
-    var interest = '';
-    var wanted = new URLSearchParams(window.location.search).get('produkt');
+    let interest = '';
+    const wanted = new URLSearchParams(window.location.search).get('produkt');
     if (wanted && Object.prototype.hasOwnProperty.call(PRODUKTE, wanted)) {
       interest = PRODUKTE[wanted];
       document.getElementById('contact-interest-name').textContent = interest;
       document.getElementById('contact-interest').hidden = false;
     }
 
-    var nameField = document.getElementById('cf-name');
-    var emailField = document.getElementById('cf-email');
-    var companyField = document.getElementById('cf-company');
-    var messageField = document.getElementById('cf-message');
-    var status = document.getElementById('contact-status');
-    var submit = form.querySelector('button[type="submit"]');
+    const nameField = document.getElementById('cf-name');
+    const emailField = document.getElementById('cf-email');
+    const companyField = document.getElementById('cf-company');
+    const messageField = document.getElementById('cf-message');
+    const status = document.getElementById('contact-status');
+    const submit = form.querySelector('button[type="submit"]');
 
-    function t(key, fallback) {
-      try {
-        var lang = (typeof currentLang !== 'undefined' && currentLang) ? currentLang : 'de';
-        if (typeof translations !== 'undefined' && translations[lang] && translations[lang][key]) {
-          return translations[lang][key];
-        }
-      } catch (e) { /* Übersetzungen nicht geladen: Rückfalltext genügt */ }
-      return fallback;
-    }
+    const lang = () => (typeof currentLang !== 'undefined' && currentLang) ? currentLang : 'de';
+
+    const t = (key, fallback) => {
+      // Übersetzungen nicht geladen: Rückfalltext genügt
+      const dict = typeof translations !== 'undefined' ? translations[lang()] : null;
+      return (dict && dict[key]) || fallback;
+    };
 
     // Fehler hängen am Feld, nicht in einer Liste am Kopf des Formulars: Wer
     // etwas vergisst, soll sehen wo, ohne zu suchen.
-    function setError(field, errorId, show) {
-      var el = document.getElementById(errorId);
+    const setError = (field, errorId, show) => {
+      const el = document.getElementById(errorId);
       if (el) el.hidden = !show;
       field.setAttribute('aria-invalid', show ? 'true' : 'false');
       if (el) field.setAttribute('aria-describedby', show ? errorId : '');
-    }
+    };
 
     // Bewusst grosszügig: alles mit @ und einem Punkt dahinter. Strengere
     // Muster weisen echte Adressen ab, und der einzige Preis für eine falsche
     // ist eine Mail, die nicht ankommt — der für eine abgewiesene Anfrage ist
     // ein verlorener Kunde.
-    function looksLikeEmail(value) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    }
+    const looksLikeEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
-    function validate() {
-      var okName = nameField.value.trim().length > 0;
-      var okEmail = looksLikeEmail(emailField.value.trim());
-      var okMessage = messageField.value.trim().length > 0;
+    const validate = () => {
+      const okName = nameField.value.trim().length > 0;
+      const okEmail = looksLikeEmail(emailField.value.trim());
+      const okMessage = messageField.value.trim().length > 0;
       setError(nameField, 'cf-name-error', !okName);
       setError(emailField, 'cf-email-error', !okEmail);
       setError(messageField, 'cf-message-error', !okMessage);
@@ -106,29 +101,29 @@
       else if (!okEmail) emailField.focus();
       else if (!okMessage) messageField.focus();
       return okName && okEmail && okMessage;
-    }
+    };
 
-    [nameField, emailField, messageField].forEach(function (field) {
-      field.addEventListener('input', function () {
+    [nameField, emailField, messageField].forEach(field => {
+      field.addEventListener('input', () => {
         if (field.value.trim()) {
           setError(field, field.id + '-error', false);
         }
       });
     });
 
-    function say(message, kind) {
+    const say = (message, kind) => {
       status.textContent = message;
       status.hidden = false;
       status.className = 'contact-form-status' + (kind ? ' is-' + kind : '');
-    }
+    };
 
     // Ohne Endpunkt: eine fertig ausgefüllte E-Mail öffnen. Die Anfrage liegt
     // dann im Postausgang des Besuchers und nicht im Nichts.
-    function fallbackMail(data) {
-      var subject = interest
+    const fallbackMail = data => {
+      const subject = interest
         ? 'Anfrage zu ' + interest + ' — ' + data.name
         : 'Anfrage von ' + data.name;
-      var body = [
+      const body = [
         data.message,
         '',
         '—',
@@ -140,19 +135,19 @@
       window.location.href = 'mailto:' + MAILTO +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(body);
-    }
+    };
 
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', event => {
       event.preventDefault();
       if (!validate()) return;
 
-      var data = {
+      const data = {
         name: nameField.value.trim(),
         email: emailField.value.trim(),
         company: companyField.value.trim(),
         message: messageField.value.trim(),
         interest: interest,
-        lang: (typeof currentLang !== 'undefined' && currentLang) ? currentLang : 'de'
+        lang: lang()
       };
 
       if (!ENDPOINT) {
@@ -168,13 +163,13 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       })
-        .then(function (response) {
+        .then(response => {
           if (!response.ok) throw new Error('HTTP ' + response.status);
           form.reset();
           say(t('contact_form_sent', 'Danke, deine Anfrage ist angekommen.'), 'ok');
           submit.hidden = true;
         })
-        .catch(function () {
+        .catch(() => {
           // Nichts verschlucken: Wer hier landet, bekommt den direkten Weg
           // genannt, statt vor einem stummen Formular zu sitzen.
           submit.disabled = false;
