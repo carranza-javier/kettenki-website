@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v6
-**Last updated:** 2026-09-07
+**Document version:** v7
+**Last updated:** 2026-09-09
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
 > quoted verbatim in German and English and must be copied exactly, never re-translated.**
@@ -461,6 +461,14 @@ it first for a reason: a visitor can verify it in five seconds, and it costs one
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v7 (2026-09-09) — `about.html` "Über KettenKI" realigned with the settled category: the block
+  described KettenKI as an AI project, not as custom software development for KMU. Paragraphs 1 and 3
+  replaced in DE and EN — 1 now states the category and the three offers, 3 carries "Erst entwickeln,
+  dann entscheiden" instead of a generic "we keep growing our knowledge base" line. The security /
+  compliance sentence and *"Es geht nicht darum, Menschen zu ersetzen"* are untouched. `about_text9`
+  in `translations.js` (DE) was misspelled "verlässige" and is now aligned with the `about.html`
+  wording; the `about_text6` "Kette"/"Verbindung" split between HTML and JS disappeared with the
+  rewrite.
 - v6 (2026-09-07) — Contact form is live and delivering: Lambda + SES behind it, DKIM added at INWX
   after every mail was refused for failing domain authentication. Recorded the rule that SES accepting
   a message is not delivery.

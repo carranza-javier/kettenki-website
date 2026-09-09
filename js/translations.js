@@ -55,10 +55,10 @@ const translations = {
     about_text4: 'Er hat die Entstehung einer neuen technologischen Ära miterlebt und gestaltet diesen Transformationsprozess aktiv mit.',
     about_text5: 'Er lebt in Bern, Schweiz, und ist offen für neue Herausforderungen, um andere bei der Optimierung ihrer Arbeit zu unterstützen.',
     about_title2: 'Über KettenKI',
-    about_text6: 'KettenKI entstand mit der Idee, eine robuste und moderne Verbindung zwischen Menschen und Künstlicher Intelligenz zu schaffen, geleitet von ethischen und verantwortungsvollen Werten.',
+    about_text6: 'KettenKI entwickelt individuelle Software für kleine und mittlere Unternehmen in der Schweiz: KI-Assistenten, Websites und Apps nach Mass.',
     about_text7: 'Wir legen großen Wert auf Sicherheit und die Einhaltung gesetzlicher Vorschriften, da diese Technologien Schwachstellen aufweisen können, wenn sie nicht korrekt verwaltet werden.',
-    about_text8: 'KettenKI entwickelt sich kontinuierlich weiter, wächst von Tag zu Tag und erweitert ihr solides Wissensfundament. Dieses Wissen unterstützt Menschen dabei, ihre Aufgaben effizienter und flexibler zu erledigen.',
-    about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen eine effektive und verlässige Unterstützung zu bieten.',
+    about_text8: 'Erst entwickeln, dann entscheiden: Eine funktionierende Version entsteht, bevor sich jemand festlegt. Überzeugt sie, sprechen wir über die nächsten Schritte. Wenn nicht, entstehen keine Kosten.',
+    about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen effektive und verlässliche Unterstützung zu bieten.',
 
     services_title: 'Was wir für dein Unternehmen bauen',
     /* Untertitel unter dem Seitentitel. Nimmt das Versprechen vorweg, das
@@ -553,9 +553,9 @@ const translations = {
     about_text4: 'He has witnessed the emergence of a new technological era and actively contributes to shaping this transformation process.',
     about_text5: 'He lives in Bern, Switzerland, and is open to new challenges, helping others optimize their work.',
     about_title2: 'About KettenKI',
-    about_text6: 'KettenKI was created with the idea of building a robust and modern connection between humans and artificial intelligence, guided by ethical and responsible values.',
+    about_text6: 'KettenKI builds custom software for small and medium businesses in Switzerland: AI assistants, websites and custom apps.',
     about_text7: 'We place great emphasis on security and compliance with regulations, as these technologies can have vulnerabilities if not properly managed.',
-    about_text8: 'KettenKI continuously evolves, growing day by day and expanding its solid knowledge base. This knowledge helps people perform their tasks more efficiently and flexibly.',
+    about_text8: 'Build first, decide after: a working version exists before anyone commits. If it convinces you, we discuss the next steps. If not, there are no costs.',
     about_text9: 'The goal is not to replace people, but to provide them with effective and reliable support.',
     
     services_title: 'What we build for your business',
