@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v7
+**Document version:** v8
 **Last updated:** 2026-09-09
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
@@ -452,6 +452,14 @@ it first for a reason: a visitor can verify it in five seconds, and it costs one
   Javi). Moved from a question to a next action under Proof Points.
 
 ### Noticed, not acted on
+- **`about.html` and `translations.js` disagree on four "Über mich" strings** (`about_text`,
+  `about_text2`, `about_text3`, `about_text5`), found 2026-09-09 while syncing the "Über KettenKI"
+  block. `translations.js` overwrites the HTML on every page load, so the JS wording is the published
+  one and the HTML is what crawlers without JS read. Two are stylistic, but two matter: the HTML
+  `about_text` has the "Raumschiffe" passage the JS drops, and the HTML `about_text5` says *"um dich
+  bei der Optimierung deiner Arbeit"* while the JS still says *"um andere … ihrer Arbeit"* — i.e. the
+  du-decision of 2026-09-06 reached the HTML but never reached the file that renders. Left alone
+  deliberately: the personal bio is Javi's copy to settle.
 - **`index.html` Open Graph tags are in English while the page is German.** `og:locale` is `de_CH`,
   but `og:title` and `og:description` are English, so a German link shared on LinkedIn or WhatsApp
   previews in the wrong language. Pre-existing, unrelated to the price fix, left alone deliberately —
@@ -461,6 +469,12 @@ it first for a reason: a visitor can verify it in five seconds, and it costs one
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v8 (2026-09-09) — Security/compliance sentence synced: `about.html` carried an older wording
+  ("Wir kümmern uns um die Sicherheit…") while `translations.js` — the version quoted under
+  Differentiation 3, and the only one a visitor with JS ever sees — carried the canonical one. The
+  HTML now matches the JS exactly. **This corrects v7, which said the sentence was untouched.** All
+  five keys in the "Über KettenKI" block are now identical in both files; four keys in "Über mich"
+  still diverge, recorded under "Noticed, not acted on".
 - v7 (2026-09-09) — `about.html` "Über KettenKI" realigned with the settled category: the block
   described KettenKI as an AI project, not as custom software development for KMU. Paragraphs 1 and 3
   replaced in DE and EN — 1 now states the category and the three offers, 3 carries "Erst entwickeln,
