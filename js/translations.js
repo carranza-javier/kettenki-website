@@ -56,7 +56,7 @@ const translations = {
     about_text5: 'Er lebt in Bern, Schweiz, und ist offen für neue Herausforderungen, um andere bei der Optimierung ihrer Arbeit zu unterstützen.',
     about_title2: 'Über KettenKI',
     about_text6: 'KettenKI entwickelt individuelle Software für kleine und mittlere Unternehmen in der Schweiz: KI-Assistenten, Websites und Apps nach Mass.',
-    about_text7: 'Wir legen großen Wert auf Sicherheit und die Einhaltung gesetzlicher Vorschriften, da diese Technologien Schwachstellen aufweisen können, wenn sie nicht korrekt verwaltet werden.',
+    about_text7: 'Wir legen grossen Wert auf Sicherheit und die Einhaltung gesetzlicher Vorschriften, da diese Technologien Schwachstellen aufweisen können, wenn sie nicht korrekt verwaltet werden.',
     about_text8: 'Erst entwickeln, dann entscheiden: Eine funktionierende Version entsteht, bevor sich jemand festlegt. Überzeugt sie, sprechen wir über die nächsten Schritte. Wenn nicht, entstehen keine Kosten.',
     about_text9: 'Es geht nicht darum, Menschen zu ersetzen, sondern ihnen effektive und verlässliche Unterstützung zu bieten.',
 
@@ -211,7 +211,7 @@ const translations = {
     label_build: 'Build',
     label_dns: 'DNS und Domain',
     label_email: 'E-Mail',
-    lightbox_close: 'Schließen',
+    lightbox_close: 'Schliessen',
 
     railtrack_title: 'RailTrack Manager',
     railtrack_tagline: 'Verwaltung von Gleisabschnitten und Störungen',
@@ -440,7 +440,7 @@ const translations = {
     chat_title: 'Liviana',
     chat_subtitle: 'KI-Assistentin von KettenKI',
     chat_open_label: 'Chat mit Liviana öffnen',
-    chat_close_label: 'Chat schließen',
+    chat_close_label: 'Chat schliessen',
     chat_send_label: 'Nachricht senden',
     chat_input_label: 'Deine Nachricht an Liviana',
     chat_input_placeholder: 'Deine Frage ...',

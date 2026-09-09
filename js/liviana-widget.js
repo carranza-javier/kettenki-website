@@ -96,7 +96,7 @@
           <span class="liviana-panel-subtitle" data-i18n="chat_subtitle">KI-Assistentin von KettenKI</span>
         </span>
         <button type="button" class="liviana-close" data-i18n-aria-label="chat_close_label"
-                aria-label="Chat schließen">&times;</button>
+                aria-label="Chat schliessen">&times;</button>
       </div>
 
       <div class="liviana-messages" role="log" aria-live="polite" aria-atomic="false"></div>

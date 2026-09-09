@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v8
+**Document version:** v9
 **Last updated:** 2026-09-09
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
@@ -142,7 +142,7 @@ Falls short invisibly — there is no bill, so the cost never appears anywhere.
    builds. No account layer, no hand-off, no brief lost in translation.
 3. **Real engineering depth, not a template shop.** Backend/full-stack engineering on international
    projects, and AI built with attention to security and legal compliance
-   (*"Wir legen großen Wert auf Sicherheit und die Einhaltung gesetzlicher Vorschriften"*).
+   (*"Wir legen grossen Wert auf Sicherheit und die Einhaltung gesetzlicher Vorschriften"*).
 4. **Multilingual by default** — the assistants work in DE, FR, IT, EN, ES, which matters in
    Switzerland and is rarely offered at this size.
 
@@ -220,6 +220,11 @@ front of staff and looking foolish if it fails.
 - **"du"** for the reader. The whole site uses du (decided 2026-09-06); never "Sie".
 - Direkter Kontakt, ohne Zwischenstellen · funktionierende Version · Anforderungen · KMU ·
   individuell · nach Mass · Prototyp (only where the disclaimer is present).
+
+**Orthography — Swiss, always.** German copy uses **ss, never ß** (Javi's call, 2026-09-09):
+*grossen*, *Schliessen*, *nach Mass*. This is the Swiss standard and the audience is Swiss, so it is
+not a typo to "fix" back. It applies to every German string on every surface, including the canonical
+quotes in this document.
 
 **Words to avoid:**
 - **"Ein-Mann-Agentur"** and every variant (Einzelunternehmer, Freelancer, solo, one-man). The
@@ -469,6 +474,11 @@ it first for a reason: a visitor can verify it in five seconds, and it costs one
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v9 (2026-09-09) — German copy switched to Swiss orthography (ss, not ß) across the commercial site
+  and the shared UI: *grossen Wert* in the security sentence, *Schliessen* / *Chat schliessen* in the
+  lightbox and chat widget. The canonical quote under Differentiation 3 was updated to match, and the
+  rule is now recorded under Customer Language so it stops being re-introduced. Portfolio and blog
+  prose still carry ß and were left alone pending Javi's call.
 - v8 (2026-09-09) — Security/compliance sentence synced: `about.html` carried an older wording
   ("Wir kümmern uns um die Sicherheit…") while `translations.js` — the version quoted under
   Differentiation 3, and the only one a visitor with JS ever sees — carried the canonical one. The
