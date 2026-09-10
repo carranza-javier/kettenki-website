@@ -75,16 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
     rootMargin: '0px 0px -50px 0px'
   };
   
-  const observer = new IntersectionObserver((entries) => {
+  function reveal(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       }
     });
-  }, observerOptions);
-  
+  }
+
+  const observer = new IntersectionObserver(reveal, observerOptions);
+
+  // Angebot und Ablauf der Startseite blenden erst ein, wenn sie ein Stück
+  // weit im Bild sind. Mit der allgemeinen Schwelle begann das Einblenden,
+  // sobald die Karten gut 70 px über dem unteren Rand standen, und war nach
+  // 0.8 s vorbei, bevor sie richtig im Blick waren: Man sah sie nur noch
+  // stehen. Jetzt beginnt es, sobald die Oberkante das untere Fünftel des
+  // Fensters verlässt. Nur hier, weil die allgemeine Schwelle anderswo
+  // gebraucht wird: Auf kurzen Seiten käme der letzte Block womöglich nie so
+  // weit nach oben.
+  const lateObserver = new IntersectionObserver(reveal, {
+    threshold: 0,
+    rootMargin: '0px 0px -20% 0px'
+  });
+
   document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
+    (el.closest('.offer') ? lateObserver : observer).observe(el);
   });
   
   // Der Parallax-Effekt des Kopfbereichs ist entfallen. Er verschob den

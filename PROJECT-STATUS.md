@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-09-07 (das Kontaktformular sendet, und die Post kommt an — DKIM steht, im Posteingang bestätigt)_
+_Letzte Aktualisierung: 2026-09-10 (Angebotskarten und Ablauf der Startseite blenden sichtbar beim Scrollen ein, die Karten gestaffelt)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -426,6 +426,10 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   **Noch am selben Abend behoben.** Javi hat bei INWX die drei DKIM-CNAMEs gesetzt und `include:amazonses.com` in den SPF aufgenommen. SES hat die Domain-Identität `kettenki.com` daraufhin selbst verifiziert und signiert seither; die nächste Testmail lag **im Posteingang** — von Javi bestätigt, nicht aus der Sendestatistik geschlossen — ohne Rückläufer und ohne Unterdrückung. `ENDPOINT` in `js/contact-form.js` ist wieder eingetragen.
   **Das DKIM war die Lösung, nicht der SPF-Eintrag.** Die Signatur gilt für die Domain und übersteht die Weiterleitung von Zoho ins Gmail-Postfach; ein SPF-Treffer tut das nicht, und SES benutzt ohnehin standardmässig eine eigene Rücklaufdomain. Der `include` schadet nicht, allein hätte er nichts geändert.
   **Der E-Mail-Rückfall bleibt** als Netz für die lokale Entwicklung (von localhost antwortet die API nicht, `AllowedOrigin` steht auf `https://kettenki.com`) und für einen Ausfall der API.
+- [x] **Angebotskarten, Ablauf und Aufruf der Startseite blenden jetzt sichtbar beim Scrollen ein** (2026-09-10, Javi: sie sollen "salir al hacer scroll" wie die Zeile über dem Video). **Die Klasse `.fade-in` trugen sie schon, und der Effekt lief auch — nur ungesehen.** Die allgemeine Schwelle in `js/main.js` (`threshold: 0.1`, `rootMargin: -50px`) löste aus, sobald die Karten gut 70 px über dem unteren Rand standen, und nach 0.8 s war alles vorbei, bevor der Blick dort ankam. Dazu kamen alle drei Karten im selben Moment, also wie ein Block. Bei der Videozeile fällt das nicht auf, weil über ihr nichts anderes den Blick bindet.
+  - **Späterer Auslöser nur für `section.offer`:** ein zweiter Observer mit `threshold: 0` und `rootMargin: 0px 0px -20% 0px`, gewählt über `el.closest('.offer')`. Die allgemeine Schwelle bleibt für alle anderen Seiten unverändert, weil auf kurzen Seiten der letzte Block die 80-Prozent-Linie womöglich nie erreicht (und die langen Blogposts hängen an ihr, siehe weiter oben).
+  - **Die drei Karten kommen gestaffelt** (0 / 0.15 / 0.3 s) über `transition-delay` in `css/style.css`, nur ab 769 px und ohne reduzierte Bewegung. Untereinander auf dem Handy kommt jede ohnehin einzeln ins Bild. **Nebenbefund:** Die Staffelung in `css/animations.css` (`.fade-in:nth-child(n)`) ist wirkungslos, sie setzt `animation-delay`, `.fade-in` blendet aber per `transition` ein. Nicht angefasst.
+  - **Geprüft** auf 1920 × 855 in 8-px-Schritten mit Abfrage pro Bild: alle fünf Elemente werden bei 76 % der Fensterhöhe sichtbar (Linie bei 80 %), auch der Aufruf ganz unten, Verzögerungen 0s / 0.15s / 0.3s. Im 390-px-iframe ohne Verzögerung und ohne Überlauf. **Falle beim Messen, schon zum zweiten Mal:** `python -m http.server` schickt nur `Last-Modified`, Chrome hielt `style.css` deshalb aus dem Zwischenspeicher fest und die erste Messung zeigte den alten Stand. Vor dem Messen die Dateien mit `fetch(url, {cache: 'reload'})` neu holen.
 
 ## Blockiert — wartet auf Input
 

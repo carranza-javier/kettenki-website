@@ -1110,6 +1110,21 @@ footer p {
   align-items: start;
 }
 
+/* Die drei Karten kommen nacheinander herein statt als ein Block. Die
+   Staffelung in css/animations.css greift hier nicht: Sie setzt
+   animation-delay, .fade-in blendet aber über transition ein.
+   Nur solange die Karten nebeneinander stehen. Untereinander kommt jede
+   ohnehin einzeln ins Bild, eine Verzögerung wäre dort nur Warten. */
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+  .offer-grid .fade-in:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+
+  .offer-grid .fade-in:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+}
+
 .offer-card {
   /* Eine Spur heller als der Seitenhintergrund (#0a0a0a). --color-surface war
      mit #131313 zu nah dran, die Karten verschwanden im Hintergrund. */
