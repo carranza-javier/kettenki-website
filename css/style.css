@@ -352,8 +352,12 @@ section {
   color: var(--color-text-secondary);
 }
 
+/* Neben dem breiten Foto bleibt nur eine schmale Spalte. Im Blocksatz reissen
+   die langen deutschen Wörter dort Löcher zwischen die Wörter, darum trennen. */
 .about-me {
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .about-kettenki {
@@ -380,6 +384,12 @@ section {
 .about-image-right {
   float: right;
   shape-outside: margin-box;
+}
+
+/* Das Porträt am Teich ist ein Querformat: auf 280px geschrumpft wird die
+   Person darin zur Briefmarke. Breiter zeigen, der Text umfliesst es weiter. */
+.about-image-wide {
+  max-width: 380px;
 }
 
 /* Cat image - blend with background */

@@ -284,6 +284,10 @@
     max-width: 220px;
   }
   
+  .about-image-wide {
+    max-width: 300px;
+  }
+  
   .about-image-left {
     margin: 0.5rem var(--spacing-md) var(--spacing-md) 0;
   }
@@ -403,6 +407,11 @@
     display: block;
     margin: var(--spacing-md) auto;
     max-width: 200px;
+  }
+
+  /* Ohne Umfluss darf das Querformat die ganze Spalte haben. */
+  .about-image-wide {
+    max-width: 100%;
   }
 
   .about-me {

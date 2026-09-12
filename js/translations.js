@@ -1000,6 +1000,8 @@ let currentLang = 'de';
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('preferredLanguage', lang);
+  // Die Silbentrennung im Blocksatz braucht die richtige Sprache am <html>.
+  document.documentElement.lang = lang;
   updateContent();
   
   document.querySelectorAll('.lang-option').forEach(option => {
