@@ -102,11 +102,21 @@ a {
   padding-top: 50px;
 }
 
+/* Der Fuss steht auf einer Zeile: Links links, Copyright rechts. Fehlt die
+   Navigation (Portfolio, Blog), rückt die Zeile in die Mitte. */
 .container-footer {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
-  padding-top: 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  column-gap: var(--spacing-md);
+  row-gap: var(--spacing-xs);
+}
+
+.container-footer:has(.footer-nav) {
+  justify-content: space-between;
 }
 
 /* Header & Navigation */
@@ -628,18 +638,34 @@ section {
   color: var(--color-text);
 }
 
-/* Footer */
+/* Footer. Trug bis zum 2026-09-13 vier Zeilen Hoehe mit sich herum; jetzt
+   eine einzige, ruhige Zeile. */
 footer {
+  position: relative;
   background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  padding: var(--spacing-lg) var(--spacing-md);
-  text-align: center;
+  padding: var(--spacing-sm) var(--spacing-md);
   margin-top: var(--spacing-xl);
+}
+
+/* Haarlinie statt durchgezogener Kante: sie verliert sich zu den Raendern
+   hin, damit der Fuss die Seite nicht abschneidet, sondern abschliesst. */
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--color-border) 15%,
+    var(--color-border) 85%,
+    transparent);
 }
 
 footer p {
   color: var(--color-text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
 }
 
 /* Utility Classes */
@@ -2852,17 +2878,22 @@ body.theme-light .blog-post li {
 
 /* Footer-Navigation. Der Fuss trug auf allen sieben Seiten nur die
    Copyright-Zeile: Wer unten ankam, war am Ende des Wegs. */
+/* Das allgemeine nav {} der Kopfzeile greift auch hier und schob dem Fuss
+   64px Polsterung unter: zurücksetzen. */
 .footer-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--spacing-sm) var(--spacing-md);
-  margin-bottom: var(--spacing-sm);
+  gap: var(--spacing-xs) var(--spacing-md);
+  padding: 0;
+  margin: 0;
+  max-width: none;
 }
 
 .footer-nav a {
   color: var(--color-text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
   text-decoration: none;
   transition: color var(--transition-fast);
 }
