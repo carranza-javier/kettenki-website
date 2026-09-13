@@ -279,18 +279,6 @@
     margin-bottom: var(--spacing-md);
   }
   
-  /* Auf schmalen Schirmen passen Links und Copyright nicht mehr
-     nebeneinander: stapeln statt umbrechen lassen. */
-  .container-footer {
-    flex-direction: column;
-    align-items: center;
-    row-gap: var(--spacing-xs);
-  }
-
-  .container-footer:has(.footer-nav) {
-    justify-content: center;
-  }
-
   /* About Images - Tablets */
   .about-image {
     max-width: 220px;

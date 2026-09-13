@@ -102,21 +102,18 @@ a {
   padding-top: 50px;
 }
 
-/* Der Fuss steht auf einer Zeile: Links links, Copyright rechts. Fehlt die
-   Navigation (Portfolio, Blog), rückt die Zeile in die Mitte. */
+/* Alles im Fuss steht mittig: die Links auf einer Zeile, das Copyright
+   darunter, beide zentriert und mit gleichem Abstand nach oben und unten. */
 .container-footer {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  column-gap: var(--spacing-md);
   row-gap: var(--spacing-xs);
-}
-
-.container-footer:has(.footer-nav) {
-  justify-content: space-between;
+  text-align: center;
 }
 
 /* Header & Navigation */
@@ -666,6 +663,9 @@ footer p {
   font-size: 0.8rem;
   letter-spacing: 0.02em;
   opacity: 0.75;
+  /* Der allgemeine Absatzabstand sass sonst unter der letzten Zeile und
+     ruecke den Fuss aus der Mitte. */
+  margin: 0;
 }
 
 /* Utility Classes */
