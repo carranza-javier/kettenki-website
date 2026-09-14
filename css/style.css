@@ -2792,21 +2792,6 @@ body.theme-light .blog-post li {
   z-index: 1;
 }
 
-/* Zweiter Link in derselben Karte: Er zeigt auf die Demo statt auf die
-   Leistungsseite und muss deshalb ueber der Klickflaeche der Karte liegen. */
-.offer-link--demo {
-  z-index: 2;
-  color: var(--color-text-secondary);
-}
-
-.offer-link--demo::after {
-  content: none;
-}
-
-.offer-link--demo:hover {
-  color: var(--offer-accent, var(--color-accent-start));
-}
-
 .offer-card {
   position: relative;
 }
@@ -2915,6 +2900,165 @@ body.theme-light .blog-post li {
 
 .footer-nav a:hover {
   color: var(--color-accent-start);
+}
+
+/* Link von der Websites-Karte zu den Beispielen. Er sieht bewusst nicht wie
+   der Knopf darunter aus: Anschauen ist der kleinere Schritt. */
+.product-examples {
+  display: inline-block;
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--websites-start);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.product-examples:hover {
+  border-bottom-color: currentColor;
+}
+
+/* ---------- Beispiele ----------
+   Die Demos beweisen den Satz, mit dem die ganze Seite wirbt: erst bauen,
+   dann entscheiden. Die erste Karte liegt quer über beide Spalten, damit die
+   Sektion auch mit einem einzigen Beispiel nicht halbleer wirkt; alles
+   weitere fällt darunter ins normale Raster. */
+
+.examples-intro {
+  max-width: 62ch;
+  margin: 0 auto var(--spacing-lg);
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.example-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #141414;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-normal), transform var(--transition-normal);
+}
+
+.example-card:hover {
+  border-color: var(--websites-start);
+  transform: translateY(-4px);
+}
+
+.examples-grid > .example-card:first-child {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+}
+
+.example-media {
+  display: block;
+  overflow: hidden;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.examples-grid > .example-card:first-child .example-media {
+  height: 100%;
+  border-bottom: 0;
+  border-right: 1px solid var(--color-border);
+}
+
+.example-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transform: scale(1.001);
+  transition: transform 0.9s ease;
+}
+
+.example-card:hover .example-media img {
+  transform: scale(1.04);
+}
+
+.example-body {
+  padding: var(--spacing-md);
+}
+
+.example-tag {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--websites-start);
+}
+
+.example-name {
+  margin-top: 0.6rem;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.example-text {
+  margin-top: var(--spacing-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.example-link {
+  position: relative;
+  display: inline-block;
+  margin-top: var(--spacing-sm);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--websites-start);
+  text-decoration: none;
+}
+
+.example-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast);
+}
+
+.example-card:hover .example-link::before,
+.example-link:focus-visible::before {
+  transform: scaleX(1);
+}
+
+/* Die ganze Karte ist anklickbar; der Link darin bleibt das, was Tastatur
+   und Vorlesegeräte ansteuern. */
+.example-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.example-card {
+  position: relative;
+}
+
+.examples-more {
+  margin-top: var(--spacing-md);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 /* ---------- Kontaktformular ---------- */

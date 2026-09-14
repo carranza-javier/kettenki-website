@@ -334,12 +334,16 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Nur die Fotos ziehen beim Darüberfahren leicht an. Das Video bleibt, wo
+   es ist: skaliert ruckelt das laufende Bild, weil es neu gerastert wird. */
+.tile__media img {
   transform: scale(1.001);
   transition: transform 1.1s var(--ease);
 }
 
-.tile:hover .tile__media img,
-.tile:hover .tile__media video {
+.tile:hover .tile__media img {
   transform: scale(1.045);
 }
 
