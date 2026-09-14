@@ -2925,15 +2925,6 @@ body.theme-light .blog-post li {
    Sektion auch mit einem einzigen Beispiel nicht halbleer wirkt; alles
    weitere fällt darunter ins normale Raster. */
 
-.examples-intro {
-  max-width: 62ch;
-  margin: 0 auto var(--spacing-lg);
-  color: var(--color-text-secondary);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  text-align: center;
-}
-
 .examples-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
