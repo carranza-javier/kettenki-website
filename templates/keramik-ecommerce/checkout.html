@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasse — Atelier Lehm</title>
+  <meta name="description" content="Kasse im Beispielshop von Atelier Lehm. Eine Attrappe: es wird nichts belastet und nichts verschickt.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='%23a8593a'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="shell masthead__row">
+      <a class="wordmark" href="index.html">
+        Atelier Lehm
+        <span class="wordmark__tag">Demo</span>
+      </a>
+      <nav class="masthead__nav" aria-label="Hauptnavigation">
+        <a href="index.html">Kollektion</a>
+        <a class="bag" href="cart.html">
+          Warenkorb
+          <span class="bag__count" data-cart-count hidden></span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell shell--narrow">
+    <a class="back" href="cart.html">&larr; Warenkorb</a>
+
+    <div class="page-head">
+      <p class="eyebrow">Kasse</p>
+      <h1 class="section-title">Fast fertig.</h1>
+    </div>
+
+    <p class="notice">
+      <strong>Attrappe.</strong>
+      Diese Kasse zeigt nur, wie sie aussieht. Es wird nichts abgeschickt, nichts gespeichert
+      und keine Zahlung ausgelöst — die Zahlungsfelder sind deshalb gesperrt.
+    </p>
+
+    <div class="checkout">
+      <div>
+        <form data-checkout-form novalidate>
+          <fieldset class="fieldset">
+            <legend class="fieldset__title">Kontakt</legend>
+            <div class="fields">
+              <label class="field">
+                <span>E-Mail</span>
+                <input type="email" name="email" placeholder="du@beispiel.ch" autocomplete="off">
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="fieldset__title">Lieferung</legend>
+            <div class="fields fields--two">
+              <label class="field">
+                <span>Vorname</span>
+                <input type="text" name="firstname" placeholder="Vorname" autocomplete="off">
+              </label>
+              <label class="field">
+                <span>Nachname</span>
+                <input type="text" name="lastname" placeholder="Nachname" autocomplete="off">
+              </label>
+            </div>
+            <div class="fields">
+              <label class="field">
+                <span>Strasse und Nummer</span>
+                <input type="text" name="street" placeholder="Mattenenge 12" autocomplete="off">
+              </label>
+            </div>
+            <div class="fields fields--two">
+              <label class="field">
+                <span>PLZ</span>
+                <input type="text" name="zip" placeholder="3011" autocomplete="off">
+              </label>
+              <label class="field">
+                <span>Ort</span>
+                <input type="text" name="city" placeholder="Bern" autocomplete="off">
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="fieldset__title">Zahlung</legend>
+            <div class="fields">
+              <label class="field">
+                <span>Karte — in dieser Demo gesperrt</span>
+                <input type="text" value="•••• •••• •••• ••••" disabled>
+              </label>
+            </div>
+            <div class="fields fields--two">
+              <label class="field">
+                <span>Gültig bis</span>
+                <input type="text" value="••/••" disabled>
+              </label>
+              <label class="field">
+                <span>Prüfziffer</span>
+                <input type="text" value="•••" disabled>
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="btn btn--solid" type="submit">Bestellung abschliessen</button>
+        </form>
+
+        <section class="done" data-checkout-done hidden>
+          <h2 class="done__title">Danke — im echten Leben wäre das jetzt bestellt.</h2>
+          <p>
+            Bestellsumme <strong data-order-total></strong>. In einem richtigen Shop ginge hier
+            die Bestätigung raus, die Zahlung an den Anbieter und der Auftrag ins Atelier.
+            Hier bleibt es beim Bild davon.
+          </p>
+          <a class="btn btn--line" href="index.html">Zurück zur Kollektion</a>
+        </section>
+      </div>
+
+      <div data-checkout-summary></div>
+    </div>
+  </main>
+
+  <footer class="colophon">
+    <div class="shell">
+      <div class="colophon__row">
+        <div>
+          <p class="colophon__mark">Atelier Lehm</p>
+          <p class="colophon__lines">Mattenenge 12, 3011 Bern — Werkstatt offen jeden ersten Samstag</p>
+        </div>
+        <nav class="colophon__nav" aria-label="Fussnavigation">
+          <a href="index.html">Kollektion</a>
+          <a href="cart.html">Warenkorb</a>
+        </nav>
+      </div>
+      <p class="colophon__demo">
+        Beispielprojekt von <a href="https://kettenki.com" target="_blank" rel="noopener">KettenKI</a>.
+        Atelier Lehm ist erfunden — die Stücke, die Preise und die Bestellungen ebenso.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

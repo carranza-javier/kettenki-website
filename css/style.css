@@ -2792,6 +2792,21 @@ body.theme-light .blog-post li {
   z-index: 1;
 }
 
+/* Zweiter Link in derselben Karte: Er zeigt auf die Demo statt auf die
+   Leistungsseite und muss deshalb ueber der Klickflaeche der Karte liegen. */
+.offer-link--demo {
+  z-index: 2;
+  color: var(--color-text-secondary);
+}
+
+.offer-link--demo::after {
+  content: none;
+}
+
+.offer-link--demo:hover {
+  color: var(--offer-accent, var(--color-accent-start));
+}
+
 .offer-card {
   position: relative;
 }

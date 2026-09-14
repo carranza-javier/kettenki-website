@@ -22,6 +22,7 @@ const translations = {
        im Screenreader steht die Linkliste sonst dreimal gleich da. */
     offer_chatbots_link: 'KI-Chatbots ansehen',
     offer_websites_link: 'Websites ansehen',
+    offer_websites_demo: 'Beispiel ansehen: Keramik-Shop ↗',
     offer_apps_link: 'Apps nach Mass ansehen',
     /* Der Hauptaufruf der Startseite, direkt hinter dem Ablauf: Dort endet
        gerade der Satz, dass nichts kostet, was nicht überzeugt. */
@@ -531,6 +532,7 @@ const translations = {
     offer_apps_text: 'Tools for what your business actually needs.',
     offer_chatbots_link: 'See AI chatbots',
     offer_websites_link: 'See websites',
+    offer_websites_demo: 'See an example: ceramics shop ↗',
     offer_apps_link: 'See custom apps',
     home_cta_text: 'Tell us what you need. The first step costs you nothing.',
     offer_websites_detail: 'Responsive, fast and with the SEO basics for Google.',
