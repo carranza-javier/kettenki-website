@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mein Lernbereich — Sprachwerk Bern</title>
+  <meta name="description" content="Persönlicher Lernbereich: nächster Termin, Material, Aufgaben und Fortschritt.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230e3a5c'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23fff' text-anchor='middle'>S</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="shell masthead__row">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">S</span>
+        <span class="brand__name">Sprachwerk Bern</span>
+        <span class="brand__tag">Demo</span>
+      </a>
+
+      <nav class="nav" aria-label="Lernbereich">
+        <a href="student-area.html" aria-current="page">Übersicht</a>
+        <a href="#material">Material</a>
+        <a href="#aufgaben">Aufgaben</a>
+        <a href="booking.html">Termin buchen</a>
+        <a class="btn btn--ghost nav__cta" href="index.html">Abmelden</a>
+      </nav>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-drawer" id="nav-drawer" hidden>
+      <a href="#material">Material</a>
+      <a href="#aufgaben">Aufgaben</a>
+      <a href="booking.html">Termin buchen</a>
+      <a href="index.html">Abmelden</a>
+    </div>
+  </header>
+
+  <main class="shell dash">
+    <div class="dash__welcome">
+      <div>
+        <p class="eyebrow">Lernbereich</p>
+        <h1 class="h-lg">Hallo Marco.</h1>
+      </div>
+      <p class="muted" data-today></p>
+    </div>
+
+    <div class="dash__grid">
+      <div>
+        <!-- Nächster Termin. Wer vorher etwas gebucht hat, sieht hier den
+             eigenen Termin statt des Beispiels. -->
+        <section class="next" data-next>
+          <p class="next__label">Nächster Termin</p>
+          <p class="next__when" data-next-when>Donnerstag, 18. September, 18:30 Uhr</p>
+          <p class="next__meta" data-next-meta>
+            <span>Einzellektion mit Nina Brunner</span>
+            <span>60 Minuten</span>
+            <span>Effingerstrasse 12</span>
+          </p>
+          <div class="next__actions">
+            <a class="btn btn--light" href="booking.html">Verschieben</a>
+            <a class="btn btn--ghost" href="#material">Material zur Lektion</a>
+          </div>
+        </section>
+
+        <section class="card" id="material">
+          <div class="card__head">
+            <h2 class="card__title">Material</h2>
+            <span class="muted u-small">Kapitel 7 — Arbeitswelt</span>
+          </div>
+
+          <div class="files">
+            <a class="file" href="#" data-demo-file>
+              <span class="file__type">PDF</span>
+              <span>
+                <span class="file__name">Kursbuch Kapitel 7 — Arbeitswelt</span><br>
+                <span class="file__meta">2.4 MB — hochgeladen am 9. September</span>
+              </span>
+              <span class="file__go">Öffnen</span>
+            </a>
+            <a class="file" href="#" data-demo-file>
+              <span class="file__type">PDF</span>
+              <span>
+                <span class="file__name">Wortschatzliste: Bewerbung und Vorstellungsgespräch</span><br>
+                <span class="file__meta">340 KB — hochgeladen am 9. September</span>
+              </span>
+              <span class="file__go">Öffnen</span>
+            </a>
+            <a class="file" href="#" data-demo-file>
+              <span class="file__type file__type--audio">MP3</span>
+              <span>
+                <span class="file__name">Hörübung: Telefonat mit dem Personalbüro</span><br>
+                <span class="file__meta">8:12 Minuten — mit Transkript</span>
+              </span>
+              <span class="file__go">Anhören</span>
+            </a>
+            <a class="file" href="#" data-demo-file>
+              <span class="file__type">PDF</span>
+              <span>
+                <span class="file__name">Grammatik: Konjunktiv II in der Höflichkeit</span><br>
+                <span class="file__meta">610 KB — mit Lösungen</span>
+              </span>
+              <span class="file__go">Öffnen</span>
+            </a>
+            <a class="file" href="#" data-demo-file>
+              <span class="file__type">DOCX</span>
+              <span>
+                <span class="file__name">Vorlage: Motivationsschreiben</span><br>
+                <span class="file__meta">48 KB — zum Ausfüllen</span>
+              </span>
+              <span class="file__go">Öffnen</span>
+            </a>
+          </div>
+          <p class="muted u-mt-2 u-xs" data-file-note hidden>
+            In dieser Demo sind die Dateien nur Platzhalter — es öffnet sich nichts.
+          </p>
+        </section>
+
+        <section class="card" id="aufgaben">
+          <div class="card__head">
+            <h2 class="card__title">Aufgaben</h2>
+            <span class="muted u-small">2 offen</span>
+          </div>
+
+          <div class="tasks">
+            <div class="task">
+              <span>
+                <span class="task__name">Schriftliche Bewerbung, eine Seite</span><br>
+                <span class="task__due">Abgabe bis Donnerstag, 18. September</span>
+              </span>
+              <span class="badge badge--open">offen</span>
+            </div>
+            <div class="task">
+              <span>
+                <span class="task__name">Übungsblatt 12 — Konjunktiv II</span><br>
+                <span class="task__due">Abgabe bis Montag, 22. September</span>
+              </span>
+              <span class="badge badge--open">offen</span>
+            </div>
+            <div class="task">
+              <span>
+                <span class="task__name">Hörverstehen Kapitel 6</span><br>
+                <span class="task__due">Abgegeben am 5. September</span>
+              </span>
+              <span class="badge badge--graded">korrigiert — 17/20</span>
+            </div>
+            <div class="task">
+              <span>
+                <span class="task__name">Wortschatztest Alltag</span><br>
+                <span class="task__due">Abgegeben am 1. September</span>
+              </span>
+              <span class="badge badge--done">bestanden</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <section class="card">
+          <div class="card__head">
+            <h2 class="card__title">Dein Fortschritt</h2>
+          </div>
+
+          <div class="progress__top">
+            <span class="progress__level">B1.2</span>
+            <span class="progress__pct"><span data-progress-pct>0</span>&nbsp;% bis B2</span>
+          </div>
+          <div class="bar">
+            <span class="bar__fill" data-progress-bar style="width:0%"></span>
+          </div>
+          <div class="scale" aria-hidden="true">
+            <span>A1</span><span>A2</span><span data-now>B1</span><span>B2</span><span>C1</span><span>C2</span>
+          </div>
+          <p class="muted u-mt-2 u-small">
+            Noch 4 Lektionen bis zur Einstufung für B2. Deine stärkste Fertigkeit ist zurzeit das
+            Hörverstehen, die schwächste das freie Schreiben.
+          </p>
+        </section>
+
+        <section class="card">
+          <div class="card__head">
+            <h2 class="card__title">Kommende Gruppentermine</h2>
+          </div>
+          <div class="tasks">
+            <div class="task">
+              <span>
+                <span class="task__name">B1.2 Gruppenkurs</span><br>
+                <span class="task__due">Dienstag, 18:00 — Raum 2</span>
+              </span>
+              <span class="badge badge--graded">wöchentlich</span>
+            </div>
+            <div class="task">
+              <span>
+                <span class="task__name">Konversation am Mittag</span><br>
+                <span class="task__due">Freitag, 12:15 — Online</span>
+              </span>
+              <span class="badge badge--open">frei</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="word">
+          <p class="word__label">Wort der Woche</p>
+          <p class="word__term">die Feierabendbier-Frage</p>
+          <p class="word__sense">umgangssprachlich: die Frage, die man erst nach Arbeitsschluss stellt</p>
+          <p class="word__example">„Das ist eine Feierabendbier-Frage — die klären wir morgen.“</p>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="shell">
+      <p class="foot__brand">Sprachwerk Bern</p>
+      <p class="foot__demo u-mt-3">
+        Beispielprojekt von <a href="https://kettenki.com" target="_blank" rel="noopener">KettenKI</a>.
+        Sprachwerk Bern ist erfunden, ebenso Marco Ferrari, sein Kurs und sein Material.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/student.js"></script>
+</body>
+</html>

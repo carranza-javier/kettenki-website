@@ -2946,7 +2946,10 @@ body.theme-light .blog-post li {
   transform: translateY(-4px);
 }
 
-.examples-grid > .example-card:first-child {
+/* Nur solange eine einzige Demo dasteht, legt sie sich quer über beide
+   Spalten — sonst sähe die Sektion halbleer aus. Ab der zweiten ordnen sie
+   sich von selbst ins normale Raster ein. */
+.examples-grid > .example-card:only-child {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -2960,7 +2963,7 @@ body.theme-light .blog-post li {
   border-bottom: 1px solid var(--color-border);
 }
 
-.examples-grid > .example-card:first-child .example-media {
+.examples-grid > .example-card:only-child .example-media {
   height: 100%;
   border-bottom: 0;
   border-right: 1px solid var(--color-border);

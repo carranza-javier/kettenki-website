@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termin buchen — Sprachwerk Bern</title>
+  <meta name="description" content="Freie Zeit auswählen und Probelektion, Einzellektion oder Konversationsstunde beim Sprachwerk Bern buchen.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230e3a5c'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23fff' text-anchor='middle'>S</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="shell masthead__row">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">S</span>
+        <span class="brand__name">Sprachwerk Bern</span>
+        <span class="brand__tag">Demo</span>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="index.html#kurse">Kurse</a>
+        <a href="index.html#ablauf">Ablauf</a>
+        <a href="index.html#standort">Standort</a>
+        <a href="login.html">Lernbereich</a>
+        <a class="btn btn--primary nav__cta" href="booking.html" aria-current="page">Termin buchen</a>
+      </nav>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-drawer" id="nav-drawer" hidden>
+      <a href="index.html#kurse">Kurse</a>
+      <a href="index.html#ablauf">Ablauf</a>
+      <a href="index.html#standort">Standort</a>
+      <a href="login.html">Lernbereich</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="shell">
+        <p class="eyebrow">Termin</p>
+        <h1 class="h-lg">Such dir eine freie Zeit aus.</h1>
+        <p class="muted">
+          Die Probelektion dauert 25 Minuten und kostet nichts. Du bekommst nach der Buchung
+          eine Bestätigung per E-Mail — und der Termin steht in deinem Lernbereich.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell booking">
+      <div>
+        <ol class="stepper">
+          <li data-step="1" data-active><span class="stepper__dot">1</span> Art der Lektion</li>
+          <li data-step="2"><span class="stepper__dot">2</span> Datum und Zeit</li>
+          <li data-step="3"><span class="stepper__dot">3</span> Deine Angaben</li>
+        </ol>
+
+        <div data-flow>
+          <section class="panel">
+            <h2 class="panel__title">1. Was möchtest du buchen?</h2>
+            <div class="kinds" data-kinds></div>
+          </section>
+
+          <section class="panel">
+            <h2 class="panel__title">2. Wann passt es dir?</h2>
+
+            <div class="weekbar">
+              <span class="weekbar__label" data-week-label>—</span>
+              <span class="weekbar__nav">
+                <button class="icon-btn" type="button" data-week="-1" aria-label="Woche zurück">&#8592;</button>
+                <button class="icon-btn" type="button" data-week="1" aria-label="Woche vorwärts">&#8594;</button>
+              </span>
+            </div>
+
+            <div class="days" data-days role="group" aria-label="Tag auswählen"></div>
+
+            <div class="slots-head">
+              <h3 data-slots-head>Wähle zuerst einen Tag</h3>
+              <span data-slots-count></span>
+            </div>
+            <div class="slots" data-slots role="group" aria-label="Uhrzeit auswählen"></div>
+
+            <label class="check u-mt-3">
+              <input type="checkbox" data-online>
+              <span>Lieber online — ich bekomme den Link per E-Mail.</span>
+            </label>
+          </section>
+
+          <section class="panel" data-form-panel hidden>
+            <h2 class="panel__title">3. Deine Angaben</h2>
+            <form data-form novalidate>
+              <div class="fields fields--two">
+                <label class="field">
+                  <span>Vorname</span>
+                  <input type="text" name="vorname" autocomplete="off" required>
+                </label>
+                <label class="field">
+                  <span>Nachname</span>
+                  <input type="text" name="nachname" autocomplete="off" required>
+                </label>
+              </div>
+              <div class="fields fields--two">
+                <label class="field">
+                  <span>E-Mail</span>
+                  <input type="email" name="email" autocomplete="off" required>
+                </label>
+                <label class="field">
+                  <span>Telefon (optional)</span>
+                  <input type="tel" name="telefon" autocomplete="off">
+                </label>
+              </div>
+              <div class="fields">
+                <label class="field">
+                  <span>Was möchtest du erreichen? (optional)</span>
+                  <textarea name="ziel" rows="3" placeholder="Zum Beispiel: Ich brauche B2 für meine Bewerbung im Frühling."></textarea>
+                </label>
+              </div>
+              <label class="check u-mt-3">
+                <input type="checkbox" required>
+                <span>Ich habe verstanden, dass dies eine Demo ist und kein Termin zustande kommt.</span>
+              </label>
+              <button class="btn btn--primary btn--wide u-mt-4" type="submit">Termin verbindlich buchen</button>
+            </form>
+          </section>
+        </div>
+
+        <section class="done" data-confirmation hidden>
+          <span class="done__mark" aria-hidden="true">✓</span>
+          <div>
+            <h2 class="h-md">Termin bestätigt.</h2>
+            <p class="muted u-mt-1">
+              Wir haben dir eine Bestätigung geschickt — in der Demo natürlich nur auf dem Papier.
+            </p>
+          </div>
+          <dl class="done__list">
+            <div><dt>Wer</dt><dd data-c-name></dd></div>
+            <div><dt>Was</dt><dd data-c-kind></dd></div>
+            <div><dt>Wann</dt><dd data-c-when></dd></div>
+            <div><dt>Wo</dt><dd data-c-where></dd></div>
+            <div><dt>Preis</dt><dd data-c-price></dd></div>
+          </dl>
+          <div class="done__actions">
+            <a class="btn btn--primary" href="student-area.html">Im Lernbereich ansehen</a>
+            <a class="btn btn--ghost" href="index.html">Zurück zur Startseite</a>
+          </div>
+        </section>
+      </div>
+
+      <aside class="summary">
+        <h2 class="summary__title">Deine Auswahl</h2>
+        <dl class="summary__rows" data-summary></dl>
+        <p class="summary__hint">
+          Absagen oder verschieben kannst du bis 24 Stunden vorher, kostenlos.
+        </p>
+        <button class="btn btn--primary btn--wide" type="button" data-go-form disabled>Weiter zu deinen Angaben</button>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="shell">
+      <div class="foot__grid">
+        <div>
+          <p class="foot__brand">Sprachwerk Bern</p>
+          <p class="u-mt-1">Effingerstrasse 12, 3011 Bern<br>031 000 00 00</p>
+        </div>
+        <nav class="foot__nav" aria-label="Kurse">
+          <p class="foot__title">Kurse</p>
+          <a href="index.html#kurse">Gruppenkurse A1–C2</a>
+          <a href="booking.html">Einzelunterricht</a>
+        </nav>
+        <nav class="foot__nav" aria-label="Schule">
+          <p class="foot__title">Schule</p>
+          <a href="index.html#stimmen">Stimmen</a>
+          <a href="index.html#standort">Standort</a>
+          <a href="login.html">Lernbereich</a>
+        </nav>
+      </div>
+      <p class="foot__demo">
+        Beispielprojekt von <a href="https://kettenki.com" target="_blank" rel="noopener">KettenKI</a>.
+        Sprachwerk Bern ist erfunden — es wird nichts verschickt und kein Termin reserviert.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprachwerk Bern — Deutschkurse in Bern und online</title>
+  <meta name="description" content="Deutschkurse von A1 bis C2 in Bern und online. Kleine Gruppen, Einzelunterricht und Prüfungsvorbereitung — mit kostenloser Probelektion.">
+  <!-- Beispielschule, keine echte Marke: gehört nicht in den Suchindex. -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230e3a5c'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23fff' text-anchor='middle'>S</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="shell masthead__row">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">S</span>
+        <span class="brand__name">Sprachwerk Bern</span>
+        <span class="brand__tag">Demo</span>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#kurse">Kurse</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#stimmen">Stimmen</a>
+        <a href="#standort">Standort</a>
+        <a href="login.html">Lernbereich</a>
+        <a class="btn btn--primary nav__cta" href="booking.html">Probelektion buchen</a>
+      </nav>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-drawer" id="nav-drawer" hidden>
+      <a href="#kurse">Kurse</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#stimmen">Stimmen</a>
+      <a href="#standort">Standort</a>
+      <a href="login.html">Lernbereich</a>
+      <a class="btn btn--primary btn--wide" href="booking.html">Probelektion buchen</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="shell hero">
+      <div class="hero__grid">
+        <div>
+          <p class="eyebrow">Deutschkurse in Bern und online</p>
+          <h1 class="h-xl hero__title">Deutsch lernen für das Leben <em>hier</em>.</h1>
+          <p class="lead hero__text">
+            Für die Arbeit, für die Behörden, für das Gespräch im Treppenhaus. Kleine Gruppen,
+            klare Ziele und Lehrpersonen, die sich deinen Namen merken.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="booking.html">Kostenlose Probelektion buchen</a>
+            <a class="btn btn--ghost" href="#kurse">Kurse ansehen</a>
+          </div>
+        </div>
+
+        <figure class="hero__media">
+          <img src="img/classroom-group-sm.webp"
+               srcset="img/classroom-group-sm.webp 688w, img/classroom-group-lg.webp 1376w"
+               sizes="(min-width: 900px) 46vw, 92vw"
+               alt="Kursgruppe an einem hellen Tisch im Unterricht"
+               width="1376" height="768" fetchpriority="high">
+          <figcaption class="hero__badge">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span>4.9 bei Google — 128 Bewertungen</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Vertrauensleiste -->
+    <section class="trust" aria-label="Zahlen zur Schule">
+      <div class="shell">
+        <div class="trust__row">
+          <div class="trust__item">
+            <p class="trust__value">4.9 <span class="stars" aria-hidden="true">★</span></p>
+            <p class="trust__label">bei Google, 128 Bewertungen</p>
+          </div>
+          <div class="trust__item">
+            <p class="trust__value">seit 2012</p>
+            <p class="trust__label">an der Effingerstrasse</p>
+          </div>
+          <div class="trust__item">
+            <p class="trust__value">3'200+</p>
+            <p class="trust__label">Teilnehmende bisher</p>
+          </div>
+          <div class="trust__item">
+            <p class="trust__value">max. 8</p>
+            <p class="trust__label">Personen pro Gruppe</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kurse -->
+    <section class="section" id="kurse">
+      <div class="shell">
+        <div class="section-head reveal">
+          <p class="eyebrow">Kurse</p>
+          <h2 class="h-lg">Von den ersten Sätzen bis zum Sprachdiplom.</h2>
+          <p class="muted">
+            Jeder Kurs startet mit einer kostenlosen Einstufung. Du steigst dort ein, wo du stehst —
+            nicht dort, wo das Lehrbuch anfängt.
+          </p>
+        </div>
+
+        <div class="courses">
+          <article class="course reveal">
+            <div class="course__top">
+              <span class="level">A1</span>
+              <span class="course__price">CHF 490</span>
+            </div>
+            <h3 class="course__name">Erste Schritte</h3>
+            <p class="course__text">Vorstellen, einkaufen, nach dem Weg fragen. Du beginnst bei null und sprichst ab der ersten Lektion.</p>
+            <div class="tags">
+              <span class="tag">8 Wochen</span>
+              <span class="tag">2× pro Woche</span>
+              <span class="tag tag--green">Präsenz &amp; Online</span>
+            </div>
+          </article>
+
+          <article class="course reveal">
+            <div class="course__top">
+              <span class="level">A2</span>
+              <span class="course__price">CHF 490</span>
+            </div>
+            <h3 class="course__name">Alltag auf Deutsch</h3>
+            <p class="course__text">Termine, Wohnung, Arztbesuch. Der Kurs für alles, was in Bern zwischen Montag und Freitag passiert.</p>
+            <div class="tags">
+              <span class="tag">8 Wochen</span>
+              <span class="tag">2× pro Woche</span>
+              <span class="tag tag--green">Präsenz &amp; Online</span>
+            </div>
+          </article>
+
+          <article class="course reveal">
+            <div class="course__top">
+              <span class="level">B1</span>
+              <span class="course__price">CHF 590</span>
+            </div>
+            <h3 class="course__name">Sicher im Gespräch</h3>
+            <p class="course__text">Meinung sagen, widersprechen, erzählen. Wir üben das Sprechen, bis es auch mit Zeitdruck funktioniert.</p>
+            <div class="tags">
+              <span class="tag">10 Wochen</span>
+              <span class="tag">2× pro Woche</span>
+              <span class="tag tag--amber">Beliebt</span>
+            </div>
+          </article>
+
+          <article class="course reveal course--adv">
+            <div class="course__top">
+              <span class="level">B2</span>
+              <span class="course__price">CHF 690</span>
+            </div>
+            <h3 class="course__name">Beruf und Behörden</h3>
+            <p class="course__text">Bewerbung, Sitzung, Schriftverkehr mit dem Amt. Mit Übungen aus echten Unterlagen aus dem Kanton.</p>
+            <div class="tags">
+              <span class="tag">10 Wochen</span>
+              <span class="tag">2× pro Woche</span>
+              <span class="tag tag--green">Präsenz &amp; Online</span>
+            </div>
+          </article>
+
+          <article class="course reveal course--adv">
+            <div class="course__top">
+              <span class="level">C1</span>
+              <span class="course__price">CHF 790</span>
+            </div>
+            <h3 class="course__name">Feinschliff</h3>
+            <p class="course__text">Nuancen, Register, Stil. Für alle, die verstanden werden — und jetzt genau so klingen wollen, wie sie es meinen.</p>
+            <div class="tags">
+              <span class="tag">12 Wochen</span>
+              <span class="tag">1× pro Woche</span>
+              <span class="tag">Kleine Gruppe</span>
+            </div>
+          </article>
+
+          <article class="course reveal course--adv">
+            <div class="course__top">
+              <span class="level">C2</span>
+              <span class="course__price">CHF 890</span>
+            </div>
+            <h3 class="course__name">Prüfungsvorbereitung</h3>
+            <p class="course__text">Gezielte Vorbereitung auf anerkannte Sprachdiplome, mit Probeprüfungen unter Zeit und Korrektur im Einzelgespräch.</p>
+            <div class="tags">
+              <span class="tag">12 Wochen</span>
+              <span class="tag">1× pro Woche</span>
+              <span class="tag tag--amber">Mit Probeprüfung</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="reveal u-mt-5">
+          <a class="link-arrow" href="booking.html">Lieber Einzelunterricht? Termin mit Nina buchen</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Ablauf -->
+    <section class="section section--cream" id="ablauf">
+      <div class="shell">
+        <div class="section-head reveal">
+          <p class="eyebrow">So läuft es ab</p>
+          <h2 class="h-lg">Vier Schritte, keine Überraschungen.</h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <h3>Probelektion</h3>
+            <p>25 Minuten, kostenlos und unverbindlich. Du wählst online eine freie Zeit aus.</p>
+          </li>
+          <li class="step reveal">
+            <h3>Einstufung</h3>
+            <p>Kurzer Test und ein Gespräch. Danach weisst du, welches Niveau wirklich zu dir passt.</p>
+          </li>
+          <li class="step reveal">
+            <h3>Kurs oder Einzelstunden</h3>
+            <p>Gruppe von maximal acht Personen oder Unterricht allein — im Kursraum oder online.</p>
+          </li>
+          <li class="step reveal">
+            <h3>Lernbereich</h3>
+            <p>Material, Aufgaben und deine Termine stehen jederzeit in deinem persönlichen Bereich.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Lehrerin -->
+    <section class="section">
+      <div class="shell teacher">
+        <figure class="teacher__media reveal">
+          <img src="img/teacher-student-sm.webp"
+               srcset="img/teacher-student-sm.webp 688w, img/teacher-student-lg.webp 1376w"
+               sizes="(min-width: 900px) 44vw, 92vw"
+               alt="Lehrerin und Teilnehmer arbeiten gemeinsam an einem Lehrbuch"
+               width="1376" height="768" loading="lazy">
+        </figure>
+
+        <div class="reveal">
+          <p class="eyebrow">Die Schulleitung</p>
+          <blockquote class="teacher__quote">
+            „Niemand lernt eine Sprache, weil er die Grammatik mag. Man lernt sie, weil man etwas zu
+            sagen hat — und mein Job ist es, dir den Weg dorthin zu verkürzen.“
+          </blockquote>
+          <p class="teacher__name">Nina Brunner</p>
+          <p class="teacher__role">Schulleiterin und Kursleiterin, seit 2012 in Bern</p>
+          <p class="muted u-mt-2 u-narrow">
+            Ausgebildete Sprachlehrerin, aufgewachsen in Thun, sieben Jahre in Leipzig unterrichtet.
+            Unterrichtet heute B2, C1 und den gesamten Einzelunterricht.
+          </p>
+          <p class="u-mt-3">
+            <a class="btn btn--amber" href="booking.html">Termin mit Nina buchen</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stimmen -->
+    <section class="section section--cream" id="stimmen">
+      <div class="shell">
+        <div class="section-head reveal">
+          <p class="eyebrow">Stimmen</p>
+          <h2 class="h-lg">Was Teilnehmende sagen.</h2>
+          <p class="muted">Durchschnitt 4.9 von 5 aus 128 Google-Bewertungen.</p>
+        </div>
+
+        <div class="voices">
+          <article class="voice reveal">
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="voice__text">
+              „Nach drei Monaten habe ich mein Vorstellungsgespräch auf Deutsch geführt — und die
+              Stelle bekommen. Im Kurs hatten wir genau diese Situation zweimal geübt.“
+            </p>
+            <div class="voice__who">
+              <span class="avatar" aria-hidden="true">MF</span>
+              <span>
+                <span class="voice__name">Marco Ferrari</span><br>
+                <span class="voice__meta">B2-Kurs, Herbst 2025</span>
+              </span>
+            </div>
+          </article>
+
+          <article class="voice reveal">
+            <p class="stars" aria-label="5 von 5 Sternen">★★★★★</p>
+            <p class="voice__text">
+              „Ich hatte Deutsch schon zweimal aufgegeben. Hier war ich zum ersten Mal in einer
+              Gruppe, in der acht Leute sitzen und jeder drankommt.“
+            </p>
+            <div class="voice__who">
+              <span class="avatar" aria-hidden="true">AR</span>
+              <span>
+                <span class="voice__name">Ana Rodrigues</span><br>
+                <span class="voice__meta">A2-Kurs, Frühling 2026</span>
+              </span>
+            </div>
+          </article>
+
+          <article class="voice reveal">
+            <p class="stars" aria-label="4 von 5 Sternen">★★★★<span class="star-off">★</span></p>
+            <p class="voice__text">
+              „Der Online-Unterricht funktioniert erstaunlich gut, das Material im Lernbereich ist
+              sauber sortiert. Einzig die Kurse am Abend sind schnell ausgebucht.“
+            </p>
+            <div class="voice__who">
+              <span class="avatar" aria-hidden="true">YD</span>
+              <span>
+                <span class="voice__name">Yusuf Demir</span><br>
+                <span class="voice__meta">Einzelunterricht, laufend</span>
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Standort -->
+    <section class="section" id="standort">
+      <div class="shell">
+        <div class="section-head reveal">
+          <p class="eyebrow">Standort</p>
+          <h2 class="h-lg">Drei Minuten vom Bahnhof Bern.</h2>
+        </div>
+
+        <div class="place">
+          <div class="reveal">
+            <dl class="facts">
+              <div class="fact">
+                <dt>Adresse</dt>
+                <dd>Effingerstrasse 12<br>3011 Bern</dd>
+              </div>
+              <div class="fact">
+                <dt>Sekretariat</dt>
+                <dd>Mo–Fr 08:30–12:00 und 13:30–17:30</dd>
+              </div>
+              <div class="fact">
+                <dt>Unterricht</dt>
+                <dd>Mo–Fr 08:00–21:00, Sa 09:00–13:00</dd>
+              </div>
+              <div class="fact">
+                <dt>Telefon</dt>
+                <dd>031 000 00 00</dd>
+              </div>
+              <div class="fact">
+                <dt>E-Mail</dt>
+                <dd>hallo@sprachwerk-bern.example</dd>
+              </div>
+            </dl>
+            <p class="u-mt-4">
+              <a class="btn btn--primary" href="booking.html">Probelektion buchen</a>
+            </p>
+          </div>
+
+          <div class="place__map reveal">
+            <iframe
+              src="https://www.google.com/maps?q=Effingerstrasse%2012%2C%203011%20Bern%2C%20Schweiz&amp;output=embed"
+              title="Karte mit dem Standort an der Effingerstrasse 12 in Bern"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Abschluss -->
+    <section class="section section--navy">
+      <div class="shell closer">
+        <h2 class="h-lg">Die erste Lektion kostet dich nichts.</h2>
+        <p>25 Minuten, in denen wir herausfinden, wo du stehst und was du erreichen willst. Danach entscheidest du.</p>
+        <a class="btn btn--light" href="booking.html">Freie Zeit auswählen</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="shell">
+      <div class="foot__grid">
+        <div>
+          <p class="foot__brand">Sprachwerk Bern</p>
+          <p class="u-mt-1">Effingerstrasse 12, 3011 Bern<br>031 000 00 00</p>
+        </div>
+        <nav class="foot__nav" aria-label="Kurse">
+          <p class="foot__title">Kurse</p>
+          <a href="#kurse">Gruppenkurse A1–C2</a>
+          <a href="booking.html">Einzelunterricht</a>
+          <a href="#kurse">Prüfungsvorbereitung</a>
+        </nav>
+        <nav class="foot__nav" aria-label="Schule">
+          <p class="foot__title">Schule</p>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#stimmen">Stimmen</a>
+          <a href="#standort">Standort</a>
+          <a href="login.html">Lernbereich</a>
+        </nav>
+      </div>
+      <p class="foot__demo">
+        Beispielprojekt von <a href="https://kettenki.com" target="_blank" rel="noopener">KettenKI</a>.
+        Sprachwerk Bern ist erfunden — die Kurse, die Preise, die Bewertungen und die Termine ebenso.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

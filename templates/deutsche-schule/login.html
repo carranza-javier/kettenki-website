@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lernbereich — Sprachwerk Bern</title>
+  <meta name="description" content="Anmeldung zum Lernbereich des Sprachwerks Bern: Termine, Material und Fortschritt an einem Ort.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230e3a5c'/><text x='16' y='23' font-size='19' font-family='Georgia,serif' fill='%23fff' text-anchor='middle'>S</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="shell masthead__row">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">S</span>
+        <span class="brand__name">Sprachwerk Bern</span>
+        <span class="brand__tag">Demo</span>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="index.html#kurse">Kurse</a>
+        <a href="index.html#ablauf">Ablauf</a>
+        <a href="index.html#standort">Standort</a>
+        <a href="login.html" aria-current="page">Lernbereich</a>
+        <a class="btn btn--primary nav__cta" href="booking.html">Termin buchen</a>
+      </nav>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav-drawer" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-drawer" id="nav-drawer" hidden>
+      <a href="index.html#kurse">Kurse</a>
+      <a href="index.html#ablauf">Ablauf</a>
+      <a href="index.html#standort">Standort</a>
+      <a href="booking.html">Termin buchen</a>
+    </div>
+  </header>
+
+  <main class="login">
+    <div class="shell login__grid">
+      <div class="login__card">
+        <p class="eyebrow">Lernbereich</p>
+        <h1>Willkommen zurück.</h1>
+        <p class="muted u-mt-1">
+          Deine Termine, dein Material und dein Fortschritt — alles an einem Ort.
+        </p>
+
+        <form class="fields" action="student-area.html" method="get">
+          <label class="field">
+            <span>E-Mail</span>
+            <input type="email" name="user" placeholder="marco.ferrari@beispiel.ch" autocomplete="off">
+          </label>
+          <label class="field">
+            <span>Passwort</span>
+            <input type="password" name="pass" placeholder="••••••••" autocomplete="off">
+          </label>
+          <button class="btn btn--primary btn--wide" type="submit">Anmelden</button>
+        </form>
+
+        <p class="login__note">
+          <strong>Demo:</strong> Die Anmeldung prüft nichts. Klick einfach auf „Anmelden“ —
+          es werden keine Eingaben geprüft, gespeichert oder verschickt.
+        </p>
+
+        <p class="muted u-mt-3 u-small">
+          Noch kein Zugang? <a class="link-arrow" href="booking.html">Probelektion buchen</a>
+        </p>
+      </div>
+
+      <div class="login__aside">
+        <img src="img/notebook-writing-sm.webp"
+             srcset="img/notebook-writing-sm.webp 688w, img/notebook-writing-lg.webp 1376w"
+             sizes="(min-width: 900px) 46vw, 92vw"
+             alt="Hand schreibt Notizen neben einem Laptop und einer Tasse Kaffee"
+             width="1376" height="768" loading="lazy">
+        <ul class="login__points">
+          <li>Nächster Termin und ganzer Stundenplan auf einen Blick</li>
+          <li>Material und Hörübungen zu jeder Lektion</li>
+          <li>Aufgaben abgeben und korrigiert zurückbekommen</li>
+          <li>Dein Fortschritt von A1 bis C2</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="shell">
+      <p class="foot__brand">Sprachwerk Bern</p>
+      <p class="foot__demo u-mt-3">
+        Beispielprojekt von <a href="https://kettenki.com" target="_blank" rel="noopener">KettenKI</a>.
+        Sprachwerk Bern ist erfunden. Diese Anmeldung ist eine Attrappe ohne Konto, ohne Prüfung und ohne Speicherung.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
