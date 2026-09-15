@@ -1,4 +1,4 @@
-/* Atelier Lehm — Demo-Shop für KettenKI.
+/* Atelier Lehm, Demo-Shop für KettenKI.
    Ein einziges Stylesheet, mobile first, keine Abhängigkeiten ausser den
    beiden Schriften von Google Fonts. */
 
@@ -1103,7 +1103,7 @@ a {
 
 /* ---------- Auftauchen beim Scrollen ---------- */
 
-/* Versteckt wird nur, wenn JavaScript läuft — sonst stünde die Seite ohne
+/* Versteckt wird nur, wenn JavaScript läuft. Sonst stünde die Seite ohne
    Skript leer da. Die Kacheln blenden ohne transform ein, damit sie sich
    nicht mit dem Versatz der mittleren Spalte streiten. */
 .js .reveal {

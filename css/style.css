@@ -2947,7 +2947,7 @@ body.theme-light .blog-post li {
 }
 
 /* Nur solange eine einzige Demo dasteht, legt sie sich quer über beide
-   Spalten — sonst sähe die Sektion halbleer aus. Ab der zweiten ordnen sie
+   Spalten, sonst sähe die Sektion halbleer aus. Ab der zweiten ordnen sie
    sich von selbst ins normale Raster ein. */
 .examples-grid > .example-card:only-child {
   grid-column: 1 / -1;

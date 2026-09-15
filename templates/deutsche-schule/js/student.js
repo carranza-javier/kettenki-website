@@ -39,7 +39,7 @@
     }
   }
 
-  /* Der Balken füllt sich erst, wenn er im Bild ist — vorher sieht man die
+  /* Der Balken füllt sich erst, wenn er im Bild ist. Vorher sieht man die
      Bewegung nicht, und sie ist der halbe Sinn der Anzeige. */
   const bar = document.querySelector('[data-progress-bar]');
   const pct = document.querySelector('[data-progress-pct]');

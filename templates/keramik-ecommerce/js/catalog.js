@@ -20,7 +20,7 @@ const PRODUCTS = [
     alt: 'Zwei Teller mit dunkler Schieferglasur auf grauem Leinen',
     lead: 'Zwei Teller, im Holzofen bis fast an die Grenze gebrannt.',
     story: [
-      'Die dunkle Glasur entsteht aus Holzasche und Feldspat aus dem Jura. Im Ofen läuft sie über den Rand und zieht sich beim Abkühlen wieder zurück — deshalb trägt jeder Teller eine andere Kante.',
+      'Die dunkle Glasur entsteht aus Holzasche und Feldspat aus dem Jura. Im Ofen läuft sie über den Rand und zieht sich beim Abkühlen wieder zurück. Deshalb trägt jeder Teller eine andere Kante.',
       'Gedacht für Brot, Antipasti und alles, was man in die Mitte des Tisches stellt.',
     ],
     details: ['Steinzeug, im Holzofen gebrannt', 'Ø 24 cm und Ø 21 cm', 'Set zu zwei Tellern', 'Spülmaschinenfest'],
@@ -34,7 +34,7 @@ const PRODUCTS = [
     alt: 'Skulpturale Vase aus sandfarbenem Ton mit verschlungener Form',
     lead: 'Eine Vase, die aussieht, als hätte sie sich selbst gefaltet.',
     story: [
-      'Von Hand aufgebaut, ohne Drehscheibe. Der Ton wird in Bändern gelegt und so lange bewegt, bis er von selbst stehen bleibt — der Moment davor entscheidet über die Form.',
+      'Von Hand aufgebaut, ohne Drehscheibe. Der Ton wird in Bändern gelegt und so lange bewegt, bis er von selbst stehen bleibt. Der Moment davor entscheidet über die Form.',
       'Unglasiert gelassen, damit die Oberfläche das Licht so aufnimmt wie der Sand, aus dem sie kommt.',
     ],
     details: ['Schamottierter Ton, unglasiert', 'Höhe 26 cm', 'Innen versiegelt, wasserdicht', 'Einzelstück'],
@@ -133,7 +133,7 @@ const PRODUCTS = [
     lead: 'Ein Pinselzug, der in der Mitte anfängt und nicht zurückkommt.',
     story: [
       'Die grünen Spuren sind Eisenoxid, mit einem breiten Pinsel in einer einzigen Bewegung aufgetragen. Wer zweimal ansetzt, fängt den Teller neu an.',
-      'Der Rand bleibt unregelmässig — er erinnert daran, dass hier eine Hand im Spiel war.',
+      'Der Rand bleibt unregelmässig. Er erinnert daran, dass hier eine Hand im Spiel war.',
     ],
     details: ['Steinzeug, hell glasiert', 'Ø 22 cm', 'Stapelbar', 'Spülmaschinenfest'],
   },
@@ -175,7 +175,7 @@ const PRODUCTS = [
     lead: 'Sechs kleine Stücke aus sechs verschiedenen Bränden.',
     story: [
       'Am Ende jedes Brandes bleibt Platz für ein paar kleine Formen. Aus einem Jahr solcher Reste stellen wir diese Sammlung zusammen.',
-      'Zwei Becher, zwei Schalen, eine Miniaturvase und ein Löffel — nie zweimal in derselben Kombination.',
+      'Zwei Becher, zwei Schalen, eine Miniaturvase und ein Löffel, nie zweimal in derselben Kombination.',
     ],
     details: ['Steinzeug, gemischte Glasuren', 'Sechs Stücke', 'Zusammenstellung variiert', 'Von Hand waschen'],
   },

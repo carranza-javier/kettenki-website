@@ -1,5 +1,5 @@
 /* Laden: Raster, Produktseite, Warenkorb und Kasse.
-   Der Warenkorb lebt im localStorage — kein Server, kein Konto, nichts, was
+   Der Warenkorb lebt im localStorage. Kein Server, kein Konto, nichts, was
    diese Demo nicht halten könnte. */
 
 const CART_KEY = 'atelier-lehm-cart';
@@ -161,7 +161,7 @@ function renderProduct() {
     return;
   }
 
-  document.title = product.name + ' — ' + SHOP.brand;
+  document.title = product.name + ' | ' + SHOP.brand;
   const description = document.querySelector('meta[name="description"]');
   if (description) description.setAttribute('content', product.lead);
 
@@ -335,7 +335,7 @@ function renderCheckout() {
             );
           }).join('') +
         '</ul>'
-      : '<p class="summary__hint">Der Warenkorb ist leer — die Kasse zeigt hier trotzdem, wie sie aussieht.</p>') +
+      : '<p class="summary__hint">Der Warenkorb ist leer. Die Kasse zeigt hier trotzdem, wie sie aussieht.</p>') +
     summaryBlock(totals, '');
 
   const form = document.querySelector('[data-checkout-form]');

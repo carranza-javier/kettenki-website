@@ -1,4 +1,4 @@
-/* Terminbuchung — Attrappe, aber mit echtem Ablauf.
+/* Terminbuchung. Attrappe, aber mit echtem Ablauf.
    Nichts geht an einen Server: Die freien Zeiten werden aus dem Datum
    berechnet, damit derselbe Tag immer dieselben Lücken zeigt, und der
    gebuchte Termin landet im localStorage, wo ihn der Lernbereich abholt. */
@@ -9,7 +9,7 @@
   const KINDS = [
     { id: 'probe', name: 'Probelektion', minutes: 25, price: 0, note: 'Kennenlernen, Einstufung, offene Fragen' },
     { id: 'einzel', name: 'Einzellektion', minutes: 60, price: 85, note: 'Unterricht allein, Thema nach Wunsch' },
-    { id: 'konversation', name: 'Konversationsstunde', minutes: 45, price: 65, note: 'Nur sprechen, mit Korrektur am Schluss' },
+    { id: 'konversation', name: 'Konversationsstunde', minutes: 45, price: 65, note: 'nur sprechen, mit Korrektur am Schluss' },
   ];
 
   const BOOKING_KEY = 'sprachwerk-termin';
@@ -118,7 +118,7 @@
           '<span class="kind__radio" aria-hidden="true"></span>' +
           '<span>' +
             '<span class="kind__name">' + kind.name + '</span><br>' +
-            '<span class="kind__meta">' + kind.minutes + ' Minuten — ' + kind.note + '</span>' +
+            '<span class="kind__meta">' + kind.minutes + ' Minuten, ' + kind.note + '</span>' +
           '</span>' +
           '<span class="kind__price">' + price + '</span>' +
         '</button>'
@@ -159,7 +159,7 @@
     const list = slotsFor(state.day, state.kind);
     const free = list.filter((slot) => slot.free).length;
     el.slotsHead.textContent = fmtLong.format(state.day);
-    el.slotsCount.textContent = free + ' von ' + list.length + ' Zeiten frei — alle Angaben in Ortszeit Bern';
+    el.slotsCount.textContent = free + ' von ' + list.length + ' Zeiten frei, alle Angaben in Ortszeit Bern';
 
     el.slots.innerHTML = list.map(function (slot) {
       const selected = state.time === slot.time;
@@ -177,7 +177,7 @@
     const price = kind.price === 0 ? 'gratis' : 'CHF ' + kind.price;
     const when = state.day && state.time
       ? fmtLong.format(state.day) + ', ' + state.time + ' Uhr'
-      : '—';
+      : 'noch offen';
 
     el.summary.innerHTML =
       '<div><dt>Art</dt><dd>' + kind.name + '</dd></div>' +

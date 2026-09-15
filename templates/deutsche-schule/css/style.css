@@ -1,4 +1,4 @@
-/* Sprachwerk Bern — Demo-Website für KettenKI.
+/* Sprachwerk Bern, Demo-Website für KettenKI.
    Ein Stylesheet für alle vier Seiten, mobile first, ohne Abhängigkeiten
    ausser den beiden Schriften von Google Fonts.
    Schweizer Schreibweise: ss, nie ß. */
@@ -78,7 +78,7 @@ img, video, iframe {
 }
 
 /* Klassen wie .done setzen display und gewinnen sonst gegen das
-   hidden-Attribut — dann steht die Bestätigung schon da, bevor jemand
+   hidden-Attribut. Dann steht die Bestätigung schon da, bevor jemand
    gebucht hat. */
 [hidden] {
   display: none !important;
