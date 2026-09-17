@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v9
-**Last updated:** 2026-09-09
+**Document version:** v12
+**Last updated:** 2026-09-16
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
 > quoted verbatim in German and English and must be copied exactly, never re-translated.**
@@ -224,7 +224,16 @@ front of staff and looking foolish if it fails.
 **Orthography — Swiss, always.** German copy uses **ss, never ß** (Javi's call, 2026-09-09):
 *grossen*, *Schliessen*, *nach Mass*. This is the Swiss standard and the audience is Swiss, so it is
 not a typo to "fix" back. It applies to every German string on every surface, including the canonical
-quotes in this document.
+quotes in this document. **Completed 2026-09-12** — blog and portfolio prose carried the eszett for
+three days longer than the commercial site; there is no ß anywhere on the site now.
+
+**Punctuation — no em or en dashes in customer-facing copy** (2026-09-15). A long dash reads as
+machine-written prose, which is the one thing a deliberately sober site cannot afford. Use a comma, a
+full stop, a colon where it labels something, or nothing at all; page titles use a pipe (`|`) like
+the rest of the site. **Rewrite the sentence rather than just swapping the punctuation** — a
+re-punctuated dash sentence reads clipped. Applied in full to the two demos under `templates/`. The
+older dashes in the `services` copy and in code comments are still there and are Javi's call (see
+`PROJECT-STATUS.md`, Offen). This document is internal and keeps its own dashes.
 
 **Words to avoid:**
 - **"Ein-Mann-Agentur"** and every variant (Einzelunternehmer, Freelancer, solo, one-man). The
@@ -309,6 +318,29 @@ number — it is not, it is the incomplete one.
 > "trusted by Swiss SMEs". Reach for the strength of the single reference instead: it shipped, it
 > runs in production, and the client would say so.
 
+**Demos — `Beispiele` at `/templates/` (since 2026-09-14). A new kind of proof, and the only one
+that scales without a client.** Two clickable demo sites for invented Swiss businesses:
+- **Atelier Lehm** — a ceramics studio in Bern; a complete shop with catalogue, product pages, cart
+  and checkout. Photography carries the page.
+- **Sprachwerk Bern** — a language school; lesson booking, a student area and a course overview. The
+  booking calendar actually works: free slots derive from the date, the confirmed appointment
+  persists and the student dashboard reads it back.
+
+> **They are openly fictional and must stay that way.** Every demo page carries a `Demo` tag beside
+> the wordmark, `noindex`, and a footer line that says it outright: *"Beispielprojekt von KettenKI.
+> Atelier Lehm ist erfunden. Die Stücke, die Preise und die Bestellungen ebenso."* The shop's card
+> fields are disabled and say so; the school's login openly checks nothing. **This is not a
+> limitation to hide — it is the same published-honesty move as the prototype disclaimer**, and it is
+> what keeps a demo from reading as a false client reference. Never present a demo as a client
+> project, a case study or a "site we built for a customer", in any language.
+
+> **Watch the wording collision.** Objections and Switching Dynamics both sell on *"a working version
+> of their own case, not a generic demo"*, and the value theme below says *"not templates"* — while
+> the section is served from `/templates/` and is called Beispiele. **These are not the same thing
+> and copy must not blur them:** the demos show what finished work looks like *before* a conversation;
+> the promise is still that what they get is built for their case. If a line has to choose, the
+> promise wins.
+
 **Testimonials:** None collected yet — **and one is obtainable.** Javi has confirmed the spicy
 kunstraum client is very satisfied and that he can ask.
 > **Next action, highest value for the effort in this whole document.** One quote from a satisfied
@@ -322,6 +354,7 @@ kunstraum client is very satisfied and that he can ask.
 | You see it before you commit | The process itself: a working version precedes any commitment |
 | Direct contact, no hand-offs | One person from first conversation to delivery |
 | Real depth, not templates | Documented engineering case studies; three working AI prototypes |
+| You can see finished work today | Two clickable demo sites under `Beispiele` — openly fictional, no client needed |
 | Works in Swiss reality | Assistants answer in DE, FR, IT, EN, ES |
 | Honest about limits | The prototype disclaimer is published rather than hidden |
 
@@ -436,6 +469,51 @@ running live on this site, so it is the only one a visitor can try immediately.
 above all that **LIVIANA is running in the corner of every page and nothing says so.** The audit put
 it first for a reason: a visitor can verify it in five seconds, and it costs one sentence.
 
+## Page notes — `templates/` (Beispiele)
+
+Added 2026-09-14, second demo 2026-09-15. **A new top-level section, fifth in the main nav between
+Lösungen and Kontakt** — the order a visitor walks: what we build, proof we can, then contact. It
+exists because the commercial site had no way to show finished work: the one real client reference is
+uncited (see Proof Points) and the portfolio is written for recruiters.
+
+**Why a section and not a link.** The first demo was reachable only through a hand-written line on
+the Websites card naming it by hand. That does not survive the second demo, let alone the tenth. The
+gallery page carries the site's own dark design and both languages; the demos behind it keep their
+own design and are German-only, because they portray a Swiss business rather than KettenKI. The
+Websites card on `services.html` links into the section, because someone reading about websites wants
+to see one.
+
+**`Beispiele` is in the main nav although portfolio and blog are deliberately not.** No
+contradiction: the nav rule is about audience. Portfolio and blog serve recruiters; the demos serve
+customers, so they belong in the customer menu.
+
+**The page sells with pictures, not paragraphs — Javi's call, 2026-09-14.** The intro paragraph was
+removed and the subtitle and card descriptions cut to one line each. What is left says what the demo
+is and where to click. **Do not re-add explanatory prose here.** Canonical copy:
+- Title — DE: *"Beispiele"* / EN: *"Examples"*
+- Subtitle — DE: *"Fertige Seiten, durch die du dich wirklich klicken kannst."* /
+  EN: *"Finished sites you can actually click through."*
+- Link — DE: *"Demo öffnen ↗"* / EN: *"Open the demo ↗"*
+- Footer line — DE: *"Weitere Beispiele kommen dazu, sobald sie fertig sind."* /
+  EN: *"More examples will follow as they are finished."*
+- CTA — DE: *"Soll deine Seite hier als Nächstes stehen?"* + *"Jetzt anfragen"* /
+  EN: *"Should your site be the next one here?"* + *"Get in touch"*
+
+**Card copy (verbatim, DE / EN):**
+| Demo | Tag | Name | Description |
+|---|---|---|---|
+| Atelier Lehm | Onlineshop / Online shop | *Atelier Lehm, Keramikstudio* / *Atelier Lehm, ceramics studio* | *Ein kompletter Onlineshop für ein Keramikatelier, mit Katalog, Produktseiten, Warenkorb und Kasse.* / *A complete ecommerce site for a ceramics studio, with catalogue, product pages, cart and checkout.* |
+| Sprachwerk Bern | Sprachschule / Language school | *Sprachwerk Bern, Deutschkurse* / *Sprachwerk Bern, German courses* | *Eine Website für eine Sprachschule, mit Terminbuchung, Lernbereich für Teilnehmende und Kursübersicht.* / *A website for a language school, with lesson booking, a student area and a course overview.* |
+
+**Rules for the next demo.** Openly fictional and labelled as such, `noindex`, nothing that looks
+like it takes money or makes a real appointment, and **no invented name that evokes a real brand**
+(the school's sample student was renamed Ferrari → Rossi on 2026-09-16). Only `/templates/` itself is
+indexable and in `sitemap.xml`.
+
+**Open, and it matters for positioning:** both demos are in ceramics and language teaching, neither
+of which is an ICP sector (gastronomy, clinics, fitness, trades). A demo in a named ICP sector would
+be worth more than a third one anywhere else — see Open questions.
+
 ## Open questions
 
 1. **Pricing model.** Fixed price per project, hourly, or retainer? Required before any pricing,
@@ -444,7 +522,13 @@ it first for a reason: a visitor can verify it in five seconds, and it costs one
    validated until something is measured.
 3. **Sector proof.** The one production reference is in culture, while the ICP names gastronomy,
    clinics, fitness and industry. Either widen the stated ICP to match reality, or treat the next
-   client as a deliberate sector beachhead.
+   client as a deliberate sector beachhead. **The two demos widen the gap rather than close it** —
+   ceramics and language teaching are neither the ICP nor the real reference's sector.
+4. **What the demos are allowed to promise.** They are the first asset a visitor can inspect without
+   talking to anyone, and nothing on them or around them says what a comparable real project
+   involves — no scope, no timeline, nothing. Leaving that open is defensible while there is no
+   pricing model (question 1), but it means the strongest new asset on the site ends in a generic
+   *"Jetzt anfragen"*. Worth deciding deliberately rather than by default.
 
 ### Resolved
 - ~~11 or 14 years of experience?~~ **14+ is correct** (2026-09-06, Javi): 11 salaried + 3 freelance.
@@ -474,6 +558,28 @@ it first for a reason: a visitor can verify it in five seconds, and it costs one
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v12 (2026-09-16) — **New copy rule: no em or en dashes in customer-facing copy**, recorded under
+  Customer Language next to the Swiss-orthography rule and for the same reason — it kept being
+  re-introduced. Every dash in the two demos was replaced by a comma, a full stop, a colon or
+  nothing, with the sentences rewritten rather than just re-punctuated; page titles use a pipe. The
+  older dashes in the `services` copy and in code comments were deliberately left and are Javi's
+  call. Also recorded: **invented names in demos must not evoke a real brand** — the Sprachwerk Bern
+  sample student was renamed Ferrari → Rossi. The commit gives no reason, so the rule is stated as
+  the rule and not as Javi's stated rationale.
+- v11 (2026-09-14/15) — **`Beispiele` added as a top-level section at `/templates/`, fifth in the
+  main nav**, with two clickable demo sites for invented Swiss businesses (Atelier Lehm, a ceramics
+  shop; Sprachwerk Bern, a language school with a working booking calendar). **This is a new class of
+  proof** — the first thing on the commercial site a visitor can inspect without a client existing —
+  and it is recorded under Proof Points with the constraint that keeps it honest: the demos are
+  openly fictional, `noindex`, labelled `Demo`, and say so in their own footer. Never presented as
+  client work. New page-notes section carries the verbatim DE/EN copy and **Javi's call that the page
+  sells with pictures, not paragraphs** (intro paragraph removed, subtitle and card text cut to one
+  line). Two flags raised rather than resolved: the wording collision with *"not a generic demo"* /
+  *"not templates"* used elsewhere in this document, and that neither demo sits in an ICP sector.
+- v10 (2026-09-12) — Swiss **ss** finished: the blog posts, the portfolio fichas and their
+  translation keys still carried ß three days after the commercial site switched. Eighteen words in
+  six files, same text otherwise. **This closes the item v9 left open pending Javi's call** — there
+  is no ß anywhere on the site now, and the rule under Customer Language is updated to say so.
 - v9 (2026-09-09) — German copy switched to Swiss orthography (ss, not ß) across the commercial site
   and the shared UI: *grossen Wert* in the security sentence, *Schliessen* / *Chat schliessen* in the
   lightbox and chat widget. The canonical quote under Differentiation 3 was updated to match, and the
