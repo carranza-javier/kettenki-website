@@ -5,18 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Meta Tags -->
-  <title>Über mich - Javier Carranza | KettenKI</title>
-  <meta name="description" content="Javier Carranza - Softwareingenieur spezialisiert auf KI-Lösungen und Cloud-Architekturen. Ethische, verantwortungsvolle und nachhaltige Technologie.">
+  <title>Über KettenKI | Individuelle Softwareentwicklung für KMU</title>
+  <meta name="description" content="KettenKI steht für individuelle Softwareentwicklung für KMU in der Schweiz, von KI-Assistenten über Websites bis zu massgeschneiderten Apps. Direkt mit dem Entwickler.">
   <meta name="keywords" content="Javier Carranza, Software Engineer Switzerland, AI Engineer Bern, Cloud Architect, AWS Specialist">
   <meta name="author" content="Javier Carranza - KettenKI">
   <meta name="robots" content="index, follow">
   
   <!-- Open Graph -->
-  <meta property="og:type" content="profile">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://kettenki.com/about">
-  <meta property="og:title" content="About Javier Carranza - KettenKI">
-  <meta property="og:description" content="Software engineer building ethical, sustainable AI solutions in Switzerland.">
-  
+  <meta property="og:title" content="Über KettenKI | Individuelle Softwareentwicklung für KMU">
+  <meta property="og:description" content="KettenKI steht für individuelle Softwareentwicklung für KMU in der Schweiz, von KI-Assistenten über Websites bis zu massgeschneiderten Apps. Direkt mit dem Entwickler.">
+  <meta property="og:image" content="https://kettenki.com/img/landscape-last-frame.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Ein Steinbock in einer Berglandschaft, als Drahtgittermodell gezeichnet">
+  <meta property="og:locale" content="de_CH">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Über KettenKI | Individuelle Softwareentwicklung für KMU">
+  <meta name="twitter:description" content="KettenKI steht für individuelle Softwareentwicklung für KMU in der Schweiz, von KI-Assistenten über Websites bis zu massgeschneiderten Apps. Direkt mit dem Entwickler.">
+  <meta name="twitter:image" content="https://kettenki.com/img/landscape-last-frame.jpg">
+  <meta name="twitter:image:alt" content="Ein Steinbock in einer Berglandschaft, als Drahtgittermodell gezeichnet">
+
   <!-- Canonical URL -->
   <link rel="canonical" href="https://kettenki.com/about">
   
@@ -43,30 +56,55 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Javier Carranza",
-    "jobTitle": "Software Engineer & AI Solutions Architect",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "KettenKI"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bern",
-      "addressCountry": "CH"
-    },
-    "email": "info@kettenki.com",
-    "url": "https://kettenki.com",
-    "sameAs": [
-      "https://linkedin.com/company/kettenki"
-    ],
-    "alumniOf": "Software Engineering",
-    "knowsAbout": [
-      "Artificial Intelligence",
-      "Cloud Architecture",
-      "AWS Bedrock",
-      "Machine Learning",
-      "RAG Systems"
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://kettenki.com/about#webpage",
+        "url": "https://kettenki.com/about",
+        "name": "Über KettenKI | Individuelle Softwareentwicklung für KMU",
+        "inLanguage": "de-CH",
+        "about": [
+          { "@id": "https://kettenki.com/#organization" },
+          { "@id": "https://kettenki.com/about#javier-carranza" }
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://kettenki.com/#organization",
+        "name": "KettenKI",
+        "url": "https://kettenki.com",
+        "description": "KettenKI entwickelt individuelle Software für kleine und mittlere Unternehmen in der Schweiz: KI-Assistenten, Websites und Apps nach Mass.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bern",
+          "addressCountry": "CH"
+        },
+        "founder": { "@id": "https://kettenki.com/about#javier-carranza" },
+        "sameAs": [
+          "https://linkedin.com/company/kettenki"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://kettenki.com/about#javier-carranza",
+        "name": "Javier Carranza",
+        "jobTitle": "Softwareingenieur",
+        "image": "https://kettenki.com/img/aboutme_javier.webp",
+        "worksFor": { "@id": "https://kettenki.com/#organization" },
+        "homeLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bern",
+            "addressCountry": "CH"
+          }
+        },
+        "knowsAbout": [
+          "Softwareentwicklung",
+          "Cloud-Architektur",
+          "Künstliche Intelligenz"
+        ]
+      }
     ]
   }
   </script>

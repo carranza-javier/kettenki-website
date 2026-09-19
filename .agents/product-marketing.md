@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v12
-**Last updated:** 2026-09-16
+**Document version:** v13
+**Last updated:** 2026-09-19
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
 > quoted verbatim in German and English and must be copied exactly, never re-translated.**
@@ -514,6 +514,42 @@ indexable and in `sitemap.xml`.
 of which is an ICP sector (gastronomy, clinics, fitness, trades). A demo in a named ICP sector would
 be worth more than a third one anywhere else — see Open questions.
 
+## Page notes — metadata of `contact.html` and `about.html`
+
+Rewritten 2026-09-19 on Javi's brief. Both pages still described an AI and cloud consultancy in the
+lines Google and LinkedIn show first (contact: *"professionelle KI-Lösungen und Cloud-Architekturen"*;
+about: *"spezialisiert auf KI-Lösungen und Cloud-Architekturen"*), while the pages themselves sell
+custom software for KMU. Same failure as the `services` metadata in v4: the copy moved, the
+metadata did not. **Cloud architecture is not part of the current offer and stays out of the
+descriptions**; it remains in the about page's bio text and in `knowsAbout` because the page states it.
+
+**Canonical metadata (DE only; the share previews are German now):**
+| Page | `<title>` / `og:title` / `twitter:title` | description / `og:description` / `twitter:description` |
+|---|---|---|
+| contact | *"Kontakt \| KettenKI"* | *"Erzähl uns, was du brauchst. Individuelle Softwareentwicklung für KMU, mit direktem Kontakt und einer funktionierenden Version, bevor du dich festlegst."* (152 chars) |
+| about | *"Über KettenKI \| Individuelle Softwareentwicklung für KMU"* | *"KettenKI steht für individuelle Softwareentwicklung für KMU in der Schweiz, von KI-Assistenten über Websites bis zu massgeschneiderten Apps. Direkt mit dem Entwickler."* (167 chars) |
+
+> The brief carried an en dash in both descriptions. It was replaced by a comma under the v12 rule;
+> the wording is otherwise Javi's, unchanged. The about description is ~10 characters over what
+> Google usually displays, so *"Direkt mit dem Entwickler."* may be cut in results.
+
+**Share image:** `img/landscape-last-frame.jpg` (the wireframe ibex, last frame of the home scroll
+video, 1280×720 JPG), with a German `og:image:alt`. Chosen because it is the site's own brand
+image and already live; JPG rather than WebP because LinkedIn does not reliably render WebP.
+`og:locale` `de_CH` plus `og:locale:alternate` `en_US`, matching `index.html` and the `de`/`en`
+hreflang. `og:type` on about went from `profile` to `website`: the title now names KettenKI, not a
+person.
+
+**About JSON-LD rebuilt as a graph** (`AboutPage` → `ProfessionalService` KettenKI with `founder` →
+`Person` Javier Carranza). Rules applied, worth keeping for the next structured-data edit:
+- **Only facts the page itself states.** Removed `alumniOf: "Software Engineering"` (not an
+  organisation, and not to be replaced by an invented one), `AWS Bedrock`, `Machine Learning`,
+  `RAG Systems` (not on the page) and the email (published on `contact`, not here).
+  `jobTitle` is now *"Softwareingenieur"*, the page's own word, instead of *"Software Engineer & AI
+  Solutions Architect"*. The organisation's description is `about_text6` verbatim.
+- **`sameAs` LinkedIn moved from the Person to the organisation** — it is the company page.
+- **No `logo`**: the site has no logo file; the text logo is not an image.
+
 ## Open questions
 
 1. **Pricing model.** Fixed price per project, hourly, or retainer? Required before any pricing,
@@ -549,6 +585,15 @@ be worth more than a third one anywhere else — see Open questions.
   bei der Optimierung deiner Arbeit"* while the JS still says *"um andere … ihrer Arbeit"* — i.e. the
   du-decision of 2026-09-06 reached the HTML but never reached the file that renders. Left alone
   deliberately: the personal bio is Javi's copy to settle.
+- **`index.html` JSON-LD still carries the old profile** (2026-09-19, not touched: index was out
+  of scope). `logo` points at `https://kettenki.com/assets/logo.png`, which returns 404;
+  `founder.jobTitle` is *"Software Engineer & AI Solutions Architect"*; `serviceType` lists
+  *"Cloud Architektur"*; and `priceRange: "$$"` is a price signal the no-price rule would question.
+- **`meta keywords` on `about` and `contact` still read as recruiter/cloud** (*"Cloud Architect, AWS
+  Specialist"*, *"Cloud Solutions Bern"*). Google ignores the tag, so it was left out of the
+  2026-09-19 metadata pass; worth clearing for consistency.
+- **`about.html` is titled "Über KettenKI" in results but "Über mich" in the nav and `h1`** since
+  2026-09-19. A deliberate SEO choice by Javi; noted so the mismatch is known.
 - **`index.html` Open Graph tags are in English while the page is German.** `og:locale` is `de_CH`,
   but `og:title` and `og:description` are English, so a German link shared on LinkedIn or WhatsApp
   previews in the wrong language. Pre-existing, unrelated to the price fix, left alone deliberately —
@@ -558,6 +603,14 @@ be worth more than a third one anywhere else — see Open questions.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v13 (2026-09-19) — **Metadata of `contact` and `about` realigned with the category**: titles,
+  descriptions, Open Graph and new Twitter/X cards, all in German, all with a share image. Both
+  descriptions had still sold *"KI-Lösungen und Cloud-Architekturen"*; cloud architecture is no
+  longer named in any description. Javi's copy used verbatim except the en dash, replaced by a comma
+  under the v12 rule. About JSON-LD rebuilt as a graph with only facts the page states (`alumniOf`
+  and the unmentioned technologies removed, LinkedIn moved to the organisation); validated with
+  0 errors and 0 warnings at validator.schema.org. New page-notes section and three new items
+  under "Noticed, not acted on" (index JSON-LD, meta keywords, about title vs `h1`).
 - v12 (2026-09-16) — **New copy rule: no em or en dashes in customer-facing copy**, recorded under
   Customer Language next to the Swiss-orthography rule and for the same reason — it kept being
   re-introduced. Every dash in the two demos was replaced by a comma, a full stop, a colon or

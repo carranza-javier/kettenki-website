@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-09-19 (Über mich: Portfolio-Hinweis und Aufruf wieder mittig)_
+_Letzte Aktualisierung: 2026-09-19 (Metadaten, Vorschaubild und JSON-LD von Kontakt und Über mich)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -461,6 +461,11 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
 - [x] **Über mich: zwei Kästen am Seitenende standen schief** (2026-09-19, nur `css/style.css`).
   - **Der Portfolio-Hinweis** ("Möchtest du meinen Werdegang als Ingenieur sehen?") sass nicht vertikal mittig in seinem Kasten: Das globale `p`-Margin lag nur unten und schob den Text nach oben. `.portfolio-callout p` hat jetzt kein Margin mehr, gemessen 33 px oben und 33 px unten.
   - **Der Aufruf "Hast du ein Projekt im Kopf?"** stand links neben der Mitte, weil die floatende Katze über das Textende hinausragt und den Flex-Block schmaler machte. `.about-content + .home-cta` bekommt `clear: both`; Knopf und Text stehen jetzt genau in der Mitte des Abschnitts.
+- [x] **Metadaten von Kontakt und Über mich neu, auf Javis Vorgabe** (2026-09-19, `contact.html`, `about.html`; nicht deployt).
+  - **Titel und Beschreibung** verkauften noch *"KI-Lösungen und Cloud-Architekturen"*. Jetzt: *"Kontakt | KettenKI"* und *"Über KettenKI | Individuelle Softwareentwicklung für KMU"*, Beschreibungen nach Javis Wortlaut. **Einzige Abweichung:** der Gedankenstrich in beiden Beschreibungen ist ein Komma, wegen der Regel in `.agents/product-marketing.md`. Die Beschreibung von Über mich hat 167 Zeichen, Google zeigt meist um die 155; das Ende kann abgeschnitten werden.
+  - **Open Graph auf Deutsch**, dazu `og:image` (`img/landscape-last-frame.jpg`, der Drahtgitter-Steinbock aus dem Startvideo, 1280×720 JPG, schon live), `og:image:alt`, `og:locale` `de_CH` und `og:locale:alternate` `en_US` wie auf der Startseite. Über mich hat `og:type` jetzt `website` statt `profile`.
+  - **Twitter/X-Karten neu** auf beiden Seiten (`summary_large_image`, Titel, Beschreibung, Bild, Alt-Text).
+  - **JSON-LD von Über mich als Graph neu** (`AboutPage`, `ProfessionalService` KettenKI, `Person` Javier Carranza). Raus: `alumniOf`, AWS Bedrock, Machine Learning, RAG und die E-Mail, weil die Seite nichts davon sagt. LinkedIn hängt jetzt an der Firma statt an der Person. **validator.schema.org: 0 Fehler, 0 Warnungen** auf beiden Seiten.
 
 ## Blockiert — wartet auf Input
 
@@ -482,6 +487,8 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
 
 ## Offen (noch nicht begonnen)
 
+- [ ] **Vorschau von Kontakt und Über mich nach dem Deployment im LinkedIn Post Inspector prüfen** (`https://www.linkedin.com/post-inspector/`, braucht Javis Login). Erst nach dem Deployment möglich, weil LinkedIn die Live-Seite liest; der Inspector leert dabei auch den Cache, der sonst noch die alte englische Vorschau zeigt. Erwartet: deutscher Titel, deutsche Beschreibung, Steinbock-Bild.
+- [ ] **Liegen gelassen beim Metadaten-Durchgang, weil ausserhalb des Auftrags:** das JSON-LD der Startseite zeigt mit `logo` auf `/assets/logo.png` (404), führt noch *"Cloud Architektur"* und *"Software Engineer & AI Solutions Architect"* und trägt `priceRange: "$$"`; die `meta keywords` von Kontakt und Über mich sind noch englisch und auf Cloud ausgerichtet. Details in `.agents/product-marketing.md` (Noticed, not acted on).
 - [ ] **Entscheiden, ob die langen Gedankenstriche auch aus der älteren Copy verschwinden.** In den zwei Demos unter `templates/` sind sie alle ersetzt (siehe Erledigt). Stehen geblieben sind die, die vorher schon da waren: in der `services`-Copy und in älteren Code-Kommentaren. **Rein eine Frage des Tons, nichts ist kaputt** — die Regel für Neues steht in `.agents/product-marketing.md` (Customer Language). Javis Entscheidung, ob der Altbestand nachzieht.
 - [ ] **Die beiden Demos hat noch kein echtes Gerät gesehen.** Beide sind auf 1920 px und im schmalen iframe geprüft, `Sprachwerk Bern` zusätzlich gegen die drei beim Testen gefundenen Fehler. Was ein Gerät beantworten muss: ob der Atelierfilm im Raster auf dem Handy wirklich läuft statt schwarz zu bleiben, ob die Buchungsspalte sich mit echten Fingern bedienen lässt, und ob die 16:9-Zellen auf einem schmalen Schirm noch etwas zeigen. Gehört in denselben Durchgang wie Punkt 2 unter Nächster Schritt.
 - [ ] **Drittes Beispiel, falls die Sektion tragen soll.** Zwei Demos füllen das Raster noch nicht — die erste Karte liegt bewusst über beide Spalten, damit es nicht auffällt. Die Sektion sagt selbst *"Weitere Beispiele kommen dazu, sobald sie fertig sind."* Offen ist vor allem, **welche Branche als Nächstes**: die ICP-Sektoren in `.agents/product-marketing.md` nennen Gastronomie, Kliniken, Fitness und Gewerbe, und die zwei bestehenden Demos (Keramik, Sprachschule) treffen keinen davon.
