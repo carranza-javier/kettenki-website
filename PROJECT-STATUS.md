@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-09-16 (zweites Demo "Sprachwerk Bern" mit Terminbuchung in der neuen Sektion Beispiele)_
+_Letzte Aktualisierung: 2026-09-19 (Über mich: Portfolio-Hinweis und Aufruf wieder mittig)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -458,6 +458,9 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Die 22 JPEGs** waren die Originale, aus denen die WebP-Dateien entstanden sind, und nichts hat je darauf gezeigt. **`templates/` fällt von 18 MB auf 5 MB.**
   - **Die Gedankenstriche.** Sie waren durch beide Demos gestreut und lesen sich als maschinengeschriebene Prosa. Jeder einzelne in den zwei Templates ist jetzt ein Komma, ein Punkt, ein Doppelpunkt wo er etwas beschriftet, oder gar nichts: Seitentitel benutzen einen Senkrechtstrich wie der Rest der Seite, und das leere Feld in der Buchungsübersicht sagt "noch offen" statt als Strich dazustehen. **Sätze wurden umgeschrieben, nicht bloss neu interpunktiert**, damit nichts abgeschnitten klingt. Ein Wort verlor seinen Grossbuchstaben, wo es jetzt einem Komma folgt.
   - **Bewusst stehen geblieben:** die Striche, die vor dieser Sitzung schon da waren, in der `services`-Copy und in älteren Kommentaren. Die sind Javis Entscheidung, siehe Offen.
+- [x] **Über mich: zwei Kästen am Seitenende standen schief** (2026-09-19, nur `css/style.css`).
+  - **Der Portfolio-Hinweis** ("Möchtest du meinen Werdegang als Ingenieur sehen?") sass nicht vertikal mittig in seinem Kasten: Das globale `p`-Margin lag nur unten und schob den Text nach oben. `.portfolio-callout p` hat jetzt kein Margin mehr, gemessen 33 px oben und 33 px unten.
+  - **Der Aufruf "Hast du ein Projekt im Kopf?"** stand links neben der Mitte, weil die floatende Katze über das Textende hinausragt und den Flex-Block schmaler machte. `.about-content + .home-cta` bekommt `clear: both`; Knopf und Text stehen jetzt genau in der Mitte des Abschnitts.
 
 ## Blockiert — wartet auf Input
 

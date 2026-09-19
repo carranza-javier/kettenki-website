@@ -406,6 +406,12 @@ section {
   box-shadow: none;
 }
 
+/* Die Katze floatet über das Ende des Textes hinaus. Ohne clear drückte sie
+   den Aufruf darunter nach links, statt ihn mittig stehen zu lassen. */
+.about-content + .home-cta {
+  clear: both;
+}
+
 /* Services/Cases Section */
 .cases-grid {
   display: grid;
@@ -2624,6 +2630,11 @@ img.portfolio-thumbnail-placeholder {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   background: var(--color-surface);
+}
+
+/* Das globale p-Margin sass nur unten und schob den Text im Kasten nach oben. */
+.portfolio-callout p {
+  margin: 0;
 }
 
 .portfolio-callout a {
