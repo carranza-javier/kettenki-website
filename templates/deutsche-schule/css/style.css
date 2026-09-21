@@ -438,10 +438,6 @@ h1, h2, h3, h4 {
   margin-top: 1rem;
 }
 
-.hero__title em {
-  font-style: italic;
-  color: var(--navy);
-}
 
 .hero__text {
   margin-top: 1.25rem;

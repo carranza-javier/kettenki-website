@@ -502,14 +502,40 @@ is and where to click. **Do not re-add explanatory prose here.** Canonical copy:
 **Card copy (verbatim, DE / EN):**
 | Demo | Tag | Name | Description |
 |---|---|---|---|
-| Atelier Lehm | Onlineshop / Online shop | *Atelier Lehm, Keramikstudio* / *Atelier Lehm, ceramics studio* | *Ein kompletter Onlineshop für ein Keramikatelier, mit Katalog, Produktseiten, Warenkorb und Kasse.* / *A complete ecommerce site for a ceramics studio, with catalogue, product pages, cart and checkout.* |
-| Sprachwerk Bern | Sprachschule / Language school | *Sprachwerk Bern, Deutschkurse* / *Sprachwerk Bern, German courses* | *Eine Website für eine Sprachschule, mit Terminbuchung, Lernbereich für Teilnehmende und Kursübersicht.* / *A website for a language school, with lesson booking, a student area and a course overview.* |
-| Halle Neun | Galerie und Portfolio / Gallery and portfolio | *Halle Neun, Atelier und Galerie* / *Halle Neun, studio and gallery* | *Ein Portfolio für Kunst und Fotografie, mit grossem Werkraster, Seiten zu jeder Arbeit und einer bewegten Aufnahme mittendrin.* / *A portfolio for art and photography, with a large work grid, a page for every piece and one moving shot in the middle of it.* |
+| Atelier Lehm | Onlineshop / Online shop | *Atelier Lehm verkauft Keramik* / *Atelier Lehm sells ceramics* | *Leg ein Stück in den Warenkorb und geh bis zur Kasse. Es funktioniert alles, nur abgebucht wird nichts.* / *Put a piece in the basket and go all the way to checkout. Everything works, only nothing is ever charged.* |
+| Sprachwerk Bern | Sprachschule / Language school | *Sprachwerk Bern* / *Sprachwerk Bern* | *Hinter der Seite liegen zwei Dinge, die sonst Geld kosten: ein Buchungskalender und ein Lernbereich mit Material, Aufgaben und Terminen.* / *Behind the page sit two things that usually cost money: a booking calendar and a student area with material, exercises and dates.* |
+| Halle Neun | Galerie und Portfolio / Gallery and portfolio | *Ausstellungsraum Halle Neun* / *Halle Neun exhibition space* | *So sieht eine Seite aus, die ganz der Arbeit gehört: grosse Bilder auf fast schwarzem Grund, eine Seite pro Werk, eine Aufnahme, die sich bewegt.* / *This is what a page looks like when it belongs entirely to the work: large images on near black, a page per piece, one shot that moves.* |
+
+**Rewritten 2026-09-21, because all three cards had the same skeleton**: title *"[Marke], [Branche]"* three
+times, description *"Ein/Eine [Artefakt] für [Kunde], mit A, B und C."* three times. The slots stay the
+same (tag, name, text, link) because they are one component, and the link label stays identical on all
+three for the same reason: it is an affordance, not copy. What varies now is the **move** each card
+makes: the shop invites the visitor to do something, the school names what is built behind the page,
+the gallery describes how the page looks. The three titles use three shapes: brand with a verb, brand
+alone, category before brand.
 
 **Rules for the next demo.** Openly fictional and labelled as such, `noindex`, nothing that looks
 like it takes money or makes a real appointment, and **no invented name that evokes a real brand**
 (the school's sample student was renamed Ferrari → Rossi on 2026-09-16). Only `/templates/` itself is
 indexable and in `sitemap.xml`.
+
+**Each demo gets its own voice, and the voice is decided before the copy is written** (rule added
+2026-09-21, after Javi found the opposite). All three demos had been writing in the same register: a
+single italicised word inside every main headline, every headline a short laconic sentence closed by a
+full stop, and the same *"[Zahl] + Substantiv, lakonischer Nachsatz"* construction in each of the three
+(*"Neun Brände im Jahr, ..."*, *"Vier Schritte, keine Überraschungen."*, *"Drei Minuten vom Bahnhof
+Bern."*). Two of the three also opened with the exact same hero component. Read side by side they were
+one writer with three logos. The assignment now:
+
+| Demo | Voice | Headline device | Address |
+|---|---|---|---|
+| Atelier Lehm | material and process, the maker's hand | lists of things, often without a verb | no direct address, *wir* |
+| Sprachwerk Bern | practical, encouraging, close to the learner | verbs and before/after, the reader is in the sentence | *du* |
+| Halle Neun | dry, institutional, about the room | statements with a subordinate clause; one invitation | *Sie* |
+
+**Italics are now reserved for one job**: in the gallery, work titles are set in italic because that is
+how catalogues set them, marked up as `<cite>`. Nowhere else in any demo. A device that appears in all
+three demos is not a device, it is a tic.
 
 **The third demo is deliberately two hooks in one.** `Halle Neun` is written to be recognisable both
 to galleries and to photographers: the work is generic and unattributed, the studio has no named
@@ -613,6 +639,13 @@ person.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v15 (2026-09-21) — **The three demos stopped sounding like one writer.** Javi found that every main
+  headline across the demos used the same trick (one italicised word) and that the same sentence
+  formulas recurred between them. Headlines rewritten so each demo has its own voice, recorded as a
+  rule and a table under the `templates/` page notes; italics kept only where they carry meaning
+  (work titles in the gallery, as `<cite>`). The three Beispiele cards were rewritten too, since all
+  three used one title skeleton and one description skeleton; the new canonical copy is in the table
+  above.
 - v14 (2026-09-21) — **Third demo in `templates/`: `art-gallery` / Halle Neun**, a portfolio for art
   and photography. Card copy recorded above, page notes extended with why this one is written as two
   hooks (galleries and photographers) and with the state of the ICP gap: three demos, none in a named

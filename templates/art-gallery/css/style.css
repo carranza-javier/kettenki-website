@@ -112,9 +112,10 @@ a {
   text-wrap: balance;
 }
 
-.display em {
+/* Werktitel stehen kursiv, so wie es jeder Katalog macht. Sonst nichts:
+   Die Überschriften der Seite kommen ohne aus. */
+cite {
   font-style: italic;
-  color: var(--sand);
 }
 
 .eyebrow {
@@ -248,27 +249,41 @@ a {
   padding-block: clamp(4rem, 13vw, 11rem) clamp(3rem, 8vw, 7rem);
 }
 
-.opener__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 1.6rem;
-  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+/* Was gerade hängt, als Aushang unter dem Auftakt. */
+.onview {
+  margin-top: clamp(3rem, 8vw, 5.5rem);
+  border-top: 1px solid var(--line-soft);
 }
 
-.opener__meta span {
-  position: relative;
+.onview > div {
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--line-soft);
 }
 
-.opener__meta span + span::before {
-  content: '';
-  position: absolute;
-  left: -0.85rem;
-  top: 50%;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--chalk-faint);
-  transform: translateY(-50%);
+.onview dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--chalk-faint);
+  margin-bottom: 0.25rem;
+}
+
+.onview dd {
+  font-size: 1rem;
+  color: var(--chalk);
+}
+
+@media (min-width: 760px) {
+  .onview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 var(--gap);
+  }
+
+  .onview > div {
+    padding-block: 1.1rem 0;
+    border-bottom: 0;
+  }
 }
 
 .opener__title {
@@ -786,6 +801,11 @@ a {
 .piece__title {
   font-size: clamp(2.4rem, 5.5vw, 4rem);
   margin-block: 0.6rem 1.6rem;
+}
+
+.piece__title cite,
+.pager__name cite {
+  font-style: italic;
 }
 
 .piece__note {

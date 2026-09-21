@@ -109,7 +109,7 @@ function renderPiece() {
     '<div class="piece__panel">' +
       '<p class="piece__no">' + workNumber(work.id) + ' / ' + String(WORKS.length).padStart(2, '0') +
         ' &middot; ' + work.kind + '</p>' +
-      '<h1 class="display piece__title">' + work.title + '</h1>' +
+      '<h1 class="display piece__title"><cite>' + work.title + '</cite></h1>' +
       '<div class="piece__note">' +
         work.note.map((part) => '<p>' + part + '</p>').join('') +
       '</div>' +
@@ -141,7 +141,7 @@ function renderPager(current) {
     return (
       '<a href="work.html?w=' + row[1].id + '">' +
         '<span class="pager__dir">' + row[0] + '</span>' +
-        '<span class="pager__name">' + row[1].title + '</span>' +
+        '<span class="pager__name"><cite>' + row[1].title + '</cite></span>' +
       '</a>'
     );
   }).join('');
