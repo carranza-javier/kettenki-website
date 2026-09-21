@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbeit | Halle Neun</title>
+  <meta name="description" content="Eine Arbeit aus dem Werkverzeichnis von Halle Neun, mit Technik, Mass, Jahr und einer kurzen Notiz aus dem Atelier.">
+  <!-- Beispielseite, kein echtes Studio: gehört nicht in den Suchindex. -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0d'/><circle cx='16' cy='16' r='7' fill='%23d3bf9d'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="shell masthead__row">
+      <a class="wordmark" href="index.html">
+        Halle Neun
+        <span class="wordmark__tag">Demo</span>
+      </a>
+      <nav class="masthead__nav" aria-label="Hauptnavigation">
+        <a href="index.html#werke">Werke</a>
+        <a href="index.html#atelier">Atelier</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell piece">
+    <a class="piece__crumb" href="index.html#werke">&#8592;&nbsp; Werkverzeichnis</a>
+    <article class="piece__layout" data-piece></article>
+    <nav class="pager" data-pager aria-label="Weitere Arbeiten"></nav>
+  </main>
+
+  <footer class="colophon">
+    <div class="shell">
+      <div class="colophon__row">
+        <div>
+          <p class="colophon__mark">Halle Neun</p>
+          <p class="colophon__lines">Werkgasse 9, 3018 Bern. Atelierbesuch nach Vereinbarung</p>
+        </div>
+        <nav class="colophon__nav" aria-label="Fussnavigation">
+          <a href="index.html#werke">Werke</a>
+          <a href="index.html#atelier">Atelier</a>
+          <a href="index.html#kontakt">Kontakt</a>
+        </nav>
+      </div>
+      <p class="colophon__demo">
+        Demo-Website, kein echtes Studio. Beispielprojekt von
+        <a href="https://kettenki.com" target="_blank" rel="noopener">KettenKI</a>.
+        Halle Neun ist erfunden, ebenso die Arbeiten, die Jahreszahlen und die Adresse.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/works.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

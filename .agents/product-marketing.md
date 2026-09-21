@@ -471,7 +471,7 @@ it first for a reason: a visitor can verify it in five seconds, and it costs one
 
 ## Page notes — `templates/` (Beispiele)
 
-Added 2026-09-14, second demo 2026-09-15. **A new top-level section, fifth in the main nav between
+Added 2026-09-14, second demo 2026-09-15, third demo 2026-09-21. **A new top-level section, fifth in the main nav between
 Lösungen and Kontakt** — the order a visitor walks: what we build, proof we can, then contact. It
 exists because the commercial site had no way to show finished work: the one real client reference is
 uncited (see Proof Points) and the portfolio is written for recruiters.
@@ -504,15 +504,23 @@ is and where to click. **Do not re-add explanatory prose here.** Canonical copy:
 |---|---|---|---|
 | Atelier Lehm | Onlineshop / Online shop | *Atelier Lehm, Keramikstudio* / *Atelier Lehm, ceramics studio* | *Ein kompletter Onlineshop für ein Keramikatelier, mit Katalog, Produktseiten, Warenkorb und Kasse.* / *A complete ecommerce site for a ceramics studio, with catalogue, product pages, cart and checkout.* |
 | Sprachwerk Bern | Sprachschule / Language school | *Sprachwerk Bern, Deutschkurse* / *Sprachwerk Bern, German courses* | *Eine Website für eine Sprachschule, mit Terminbuchung, Lernbereich für Teilnehmende und Kursübersicht.* / *A website for a language school, with lesson booking, a student area and a course overview.* |
+| Halle Neun | Galerie und Portfolio / Gallery and portfolio | *Halle Neun, Atelier und Galerie* / *Halle Neun, studio and gallery* | *Ein Portfolio für Kunst und Fotografie, mit grossem Werkraster, Seiten zu jeder Arbeit und einer bewegten Aufnahme mittendrin.* / *A portfolio for art and photography, with a large work grid, a page for every piece and one moving shot in the middle of it.* |
 
 **Rules for the next demo.** Openly fictional and labelled as such, `noindex`, nothing that looks
 like it takes money or makes a real appointment, and **no invented name that evokes a real brand**
 (the school's sample student was renamed Ferrari → Rossi on 2026-09-16). Only `/templates/` itself is
 indexable and in `sitemap.xml`.
 
-**Open, and it matters for positioning:** both demos are in ceramics and language teaching, neither
-of which is an ICP sector (gastronomy, clinics, fitness, trades). A demo in a named ICP sector would
-be worth more than a third one anywhere else — see Open questions.
+**The third demo is deliberately two hooks in one.** `Halle Neun` is written to be recognisable both
+to galleries and to photographers: the work is generic and unattributed, the studio has no named
+artist, and the about section is short enough for a real client to drop their own bio into. That is
+why it is worth more than a single-trade demo, and it is also the reason it exists at all — the
+discipline is one where the site *is* the product, so the demo argues for itself.
+
+**Still open, and it matters for positioning:** all three demos sit outside the ICP — ceramics,
+language teaching, art and photography, against a stated ICP of gastronomy, clinics, fitness and
+trades. The gallery demo widens the reach (two trades instead of one) without closing that gap. A
+fourth demo is only worth building inside a named ICP sector — see Open questions.
 
 ## Page notes — metadata of `contact.html` and `about.html`
 
@@ -558,8 +566,10 @@ person.
    validated until something is measured.
 3. **Sector proof.** The one production reference is in culture, while the ICP names gastronomy,
    clinics, fitness and industry. Either widen the stated ICP to match reality, or treat the next
-   client as a deliberate sector beachhead. **The two demos widen the gap rather than close it** —
-   ceramics and language teaching are neither the ICP nor the real reference's sector.
+   client as a deliberate sector beachhead. **The three demos widen the gap rather than close it** —
+   ceramics, language teaching and the art gallery are neither the ICP nor the real reference's
+   sector. The gallery demo at least points back at culture, where the one real reference sits, so
+   the cheapest way to close this is to widen the stated ICP rather than to keep building demos.
 4. **What the demos are allowed to promise.** They are the first asset a visitor can inspect without
    talking to anyone, and nothing on them or around them says what a comparable real project
    involves — no scope, no timeline, nothing. Leaving that open is defensible while there is no
@@ -603,6 +613,11 @@ person.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v14 (2026-09-21) — **Third demo in `templates/`: `art-gallery` / Halle Neun**, a portfolio for art
+  and photography. Card copy recorded above, page notes extended with why this one is written as two
+  hooks (galleries and photographers) and with the state of the ICP gap: three demos, none in a named
+  ICP sector. Open question 3 updated accordingly — the recommendation is now to widen the stated ICP
+  rather than to build a fourth demo outside it.
 - v13 (2026-09-19) — **Metadata of `contact` and `about` realigned with the category**: titles,
   descriptions, Open Graph and new Twitter/X cards, all in German, all with a share image. Both
   descriptions had still sold *"KI-Lösungen und Cloud-Architekturen"*; cloud architecture is no
