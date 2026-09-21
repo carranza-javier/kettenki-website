@@ -533,9 +533,13 @@ one writer with three logos. The assignment now:
 | Sprachwerk Bern | practical, encouraging, close to the learner | verbs and before/after, the reader is in the sentence | *du* |
 | Halle Neun | dry, institutional, about the room | statements with a subordinate clause; one invitation | *Sie* |
 
-**Italics are now reserved for one job**: in the gallery, work titles are set in italic because that is
-how catalogues set them, marked up as `<cite>`. Nowhere else in any demo. A device that appears in all
-three demos is not a device, it is a tic.
+**Italics now appear in exactly two places, and they mean different things.** In the gallery, work
+titles are set in italic because that is how catalogues set them, marked up as `<cite>`. In `Atelier
+Lehm`, the word *Feuer* stays italic in the opening headline: **Javi's call, 2026-09-21**, after the
+first pass had removed it everywhere. It is the one demo that keeps the device, which is the point
+that was being made, and the Fraunces axes (`SOFT 40`, `WONK 1`) make the word read warm rather than
+merely slanted. **Do not remove it again.** Nowhere else in any demo. A device that appears in all
+three demos is not a device, it is a tic; the same device in one of three is a signature.
 
 **The third demo is deliberately two hooks in one.** `Halle Neun` is written to be recognisable both
 to galleries and to photographers: the work is generic and unattributed, the studio has no named
@@ -639,6 +643,9 @@ person.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v16 (2026-09-21) — **The italic word comes back in the pottery demo only**, on Javi's call: *Feuer*
+  in `Aus Erde, Feuer und Zeit.` The rest of v15 stands, so the device now marks one demo instead of
+  being the house style of all three.
 - v15 (2026-09-21) — **The three demos stopped sounding like one writer.** Javi found that every main
   headline across the demos used the same trick (one italicised word) and that the same sentence
   formulas recurred between them. Headlines rewritten so each demo has its own voice, recorded as a

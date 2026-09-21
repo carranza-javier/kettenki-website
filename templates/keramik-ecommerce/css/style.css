@@ -110,6 +110,13 @@ a {
   letter-spacing: -0.02em;
 }
 
+/* Das kursive Wort im Auftakt: Javis Entscheidung vom 2026-09-21, hier
+   und nur hier. Die Achsen weichen die Fraunces auf, damit das Wort
+   wärmer wirkt statt nur schräg. */
+.display em {
+  font-style: italic;
+  font-variation-settings: 'SOFT' 40, 'WONK' 1;
+}
 
 .serif-lead {
   font-family: var(--serif);
