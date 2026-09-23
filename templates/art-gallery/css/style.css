@@ -17,7 +17,7 @@
   --line-soft: rgba(242, 239, 234, 0.07);
   --sand: #d3bf9d;
 
-  --display: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  --display: 'Bricolage Grotesque', 'Inter Tight', system-ui, sans-serif;
   --sans: 'Inter Tight', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   --page: clamp(1.25rem, 5vw, 5.5rem);
@@ -107,13 +107,15 @@ a {
 .display {
   font-family: var(--display);
   font-weight: 400;
-  line-height: 0.96;
-  letter-spacing: -0.015em;
+  font-optical-sizing: auto;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
 /* Werktitel stehen kursiv, so wie es jeder Katalog macht. Sonst nichts:
-   Die Überschriften der Seite kommen ohne aus. */
+   Die Überschriften der Seite kommen ohne aus. Beide Schriften haben keinen
+   echten Kursivschnitt, der Browser neigt sie also selbst. */
 cite {
   font-style: italic;
 }
@@ -163,7 +165,8 @@ cite {
   gap: 0.55rem;
   font-family: var(--display);
   font-size: 1.4rem;
-  letter-spacing: 0.01em;
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
 
 .wordmark__tag {
@@ -347,6 +350,7 @@ cite {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 400;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .grid {
@@ -408,6 +412,7 @@ cite {
   font-family: var(--display);
   font-size: clamp(1.15rem, 1.9vw, 1.55rem);
   line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .tile__line {
@@ -855,6 +860,7 @@ cite {
   font-family: var(--display);
   font-size: clamp(1.3rem, 3vw, 2rem);
   line-height: 1;
+  letter-spacing: -0.02em;
   text-align: right;
 }
 
@@ -882,6 +888,8 @@ cite {
 .colophon__mark {
   font-family: var(--display);
   font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
 
 .colophon__lines {
