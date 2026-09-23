@@ -216,6 +216,27 @@
     gap: var(--spacing-sm);
   }
 
+  /* Auf einer Spalte nimmt jede Karte die ganze Breite ein, und linksbündiger
+     Text steht dann als schmale Säule am Rand eines breiten Kastens. Zentriert
+     gelesen bleibt die Startseite auf dem Telefon durchgehend mittig: Der
+     Kopfbereich, die Zeile über dem Bild, der Aufruf und die Fusszeile sind es
+     bereits, nur das Angebot und der Ablauf waren es nicht. */
+  .offer-card {
+    text-align: center;
+  }
+
+  /* Das Maskottchen ist ein Kreis fester Breite, den richtet text-align nicht
+     aus. */
+  .offer-mascot {
+    margin-inline: auto;
+  }
+
+  /* Derselbe Grund beim Ablauf: eine Spalte, also steht die Nummer über ihrem
+     Schritt und beide stehen mittig. */
+  .process-block {
+    text-align: center;
+  }
+
   /* Products Grid - Tablets */
   .products-grid {
     grid-template-columns: 1fr;
