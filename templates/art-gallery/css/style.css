@@ -353,9 +353,14 @@ cite {
   letter-spacing: -0.02em;
 }
 
+/* minmax(0, 1fr) statt 1fr: Eine 1fr-Spur hat als Minimum den Inhalt ihrer
+   Zellen, nicht null, und kann deshalb breiter werden als der Anteil, der ihr
+   zusteht. Hier hält das nichts auf, sondern beugt vor: In einer Zelle steht
+   ein Bild, und ein Bild mit prozentualer Breite zählt in dieser Rechnung mit
+   seiner eigenen Breite von 1376 px. */
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: var(--gap) var(--gap);
 }
 
@@ -481,8 +486,15 @@ cite {
 }
 
 @media (max-width: 699px) {
+  /* Nur der Zeilenabstand wächst. `gap` ist die Kurzform für beide Achsen, und
+     damit setzte diese Zeile auch 40 px zwischen die Spalten. Bei zwölf Spalten
+     sind das elf Abstände, zusammen 440 px, in einem Telefon von 390 px: Das
+     Raster stand breiter als der Bildschirm und die Seite liess sich seitwärts
+     schieben. Sichtbar war der Spaltenabstand hier nie, weil auf dieser Breite
+     jede Zelle über alle zwölf Spalten spannt. */
   .grid {
-    gap: clamp(2.5rem, 9vw, 3.5rem);
+    column-gap: 0;
+    row-gap: clamp(2.5rem, 9vw, 3.5rem);
   }
 }
 

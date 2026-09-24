@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-09-23 (Galerie auf Bricolage Grotesque, Startseite auf dem Handy mittig, beides deployt)_
+_Letzte Aktualisierung: 2026-09-24 (Querscroll der Galerie auf dem Telefon behoben, Vorschaubild der Galeriekarte neu)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -500,6 +500,14 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Drei Regeln im bestehenden 768-px-Block**, direkt hinter den Regeln, die dieselben Blöcke auf eine Spalte bringen: `.offer-card { text-align: center }`, `.process-block { text-align: center }` und `.offer-mascot { margin-inline: auto }`. Das Maskottchen ist ein Kreis fester Breite und damit kein Textinhalt, den richtet `text-align` nicht aus.
   - **Nichts anderes ist betroffen:** `.offer-card` und `.process-block` kommen nur in `index.html` vor, geprüft per `grep` über alle HTML-Dateien. Ab 769 px bleibt alles linksbündig wie bisher.
   - **Geprüft** auf `python -m http.server` in Chrome. Die Erweiterung liess den echten Viewport nicht unter 1280 px stellen (`resize_window` wirkte auf das Fenster, nicht auf `innerWidth`), deshalb zweigleisig: über das CSSOM bestätigt, dass die drei Regeln im `(max-width: 768px)`-Block aus `responsive.css` stehen, und die Einspaltigkeit samt der drei Regeln zusätzlich per eingespritztem Stylesheet nachgestellt und angesehen. Karten und Ablauf stehen dabei mittig, Maskottchen, Titel, Text und Link jeweils auf der Achse.
+
+- [x] **Die Galerie liess sich auf dem Telefon seitwärts schieben, und ihr Vorschaubild zeigte noch die alte Schrift** (2026-09-24, beides von Javi gefunden).
+  - **Der Querscroll kam aus der Kurzform `gap`.** In `templates/art-gallery/css/style.css` stand unter `@media (max-width: 699px)` die Zeile `.grid { gap: clamp(2.5rem, 9vw, 3.5rem) }`. Gemeint war der Abstand zwischen den untereinander stehenden Zellen, gesetzt hat sie beide Achsen. Das Raster hat zwölf Spalten, also elf Spaltenabstände: bei 390 px Fensterbreite sind das elf mal 40 px gleich 440 px, in einem Inhaltsbereich von 350 px. Das Raster stand 440 px breit, die Zellen und damit die Bilder ebenso. Neu `column-gap: 0` und `row-gap: clamp(...)`, getrennt statt in der Kurzform. Sichtbar war der Spaltenabstand auf dieser Breite ohnehin nie, weil jede Zelle über alle zwölf Spalten spannt.
+  - **`body { overflow-x: hidden }` stand schon da und hat nichts genützt.** Im Messlauf war `documentElement.scrollWidth` trotzdem 461 px bei 390 px Fenster. Die Zeile bleibt stehen, aber sie ist kein Schutz: Sie war bereits da, als der Fehler auftrat. Wer hier etwas baut, verlasse sich nicht auf sie.
+  - **Zusätzlich `repeat(12, minmax(0, 1fr))` statt `repeat(12, 1fr)`.** Das war nicht die Ursache, sondern Vorsorge: Eine `1fr`-Spur hat als Minimum den Inhalt ihrer Zellen, und ein Bild mit prozentualer Breite zählt dabei mit seiner eigenen Breite von 1376 px mit.
+  - **Gemessen statt geschätzt**, mit Chrome headless über das DevTools-Protokoll bei echtem Viewport von 390 px (die Chrome-Erweiterung war nicht verbunden und liess den Viewport ohnehin nie unter 1280 px). Vorher: `scrollWidth` 461 bei 390, 80 Elemente ragten heraus. Nachher: `scrollWidth` 390, keines. **Gegenprobe auf elf weiteren Seiten** (Startseite, Beispiele, beide Keramikseiten, Sprachschule, Werkseite der Galerie, Über mich, Lösungen, Kontakt, Portfolio, Blog): alle sauber, der Fehler steckte nur in der Galerie.
+  - **Das Vorschaubild der Galeriekarte** in `templates/index.html` zeigte noch die Instrument Serif, weil es vor dem Schriftwechsel vom Vortag aufgenommen wurde. `templates/img/art-gallery-{lg,sm}.webp` neu aufgenommen. **Der Bildausschnitt ist derselbe wie bei den zwei Geschwisterkarten:** aus den alten Dateien zurückgerechnet, dass bei 1900 px Fensterbreite aufgenommen wurde (der Text beginnt in beiden bei 13.58 Prozent der Breite), dann auf 1200×521 und 600×261 verkleinert, WebP Qualität 85, womit die Dateien so schwer sind wie vorher (24.5 statt 24.2 KB, 11.8 statt 10.6 KB).
+  - **Die zwei anderen Karten wurden geprüft, nicht angefasst:** beide neu aufgenommen und pixelweise gegen die abgelegten Dateien gerechnet. Keramik weicht im Mittel um 2.83 von 255 ab, die Sprachschule um 4.42; beide Male ist das Kompressionsrauschen, im Bildvergleich stehen Titel, Knöpfe und Foto identisch. Nur die Galerie war veraltet.
 
 
 ## Blockiert — wartet auf Input
