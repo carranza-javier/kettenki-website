@@ -2175,6 +2175,12 @@ img.portfolio-thumbnail-placeholder {
   background: rgba(20, 184, 166, 0.08);
 }
 
+.type-badge--soon {
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+  background: transparent;
+}
+
 .type-badges {
   display: flex;
   flex-wrap: wrap;

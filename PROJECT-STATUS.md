@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-09-24 (Querscroll der Galerie auf dem Telefon behoben, Vorschaubild der Galeriekarte neu)_
+_Letzte Aktualisierung: 2026-09-27 (`CLAUDE.md` angelegt, Platzhalterkarte "Bärn, sag!" im Portfolio)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -509,6 +509,9 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Das Vorschaubild der Galeriekarte** in `templates/index.html` zeigte noch die Instrument Serif, weil es vor dem Schriftwechsel vom Vortag aufgenommen wurde. `templates/img/art-gallery-{lg,sm}.webp` neu aufgenommen. **Der Bildausschnitt ist derselbe wie bei den zwei Geschwisterkarten:** aus den alten Dateien zurückgerechnet, dass bei 1900 px Fensterbreite aufgenommen wurde (der Text beginnt in beiden bei 13.58 Prozent der Breite), dann auf 1200×521 und 600×261 verkleinert, WebP Qualität 85, womit die Dateien so schwer sind wie vorher (24.5 statt 24.2 KB, 11.8 statt 10.6 KB).
   - **Die zwei anderen Karten wurden geprüft, nicht angefasst:** beide neu aufgenommen und pixelweise gegen die abgelegten Dateien gerechnet. Keramik weicht im Mittel um 2.83 von 255 ab, die Sprachschule um 4.42; beide Male ist das Kompressionsrauschen, im Bildvergleich stehen Titel, Knöpfe und Foto identisch. Nur die Galerie war veraltet.
 
+- [x] **`CLAUDE.md` im Root angelegt** (2026-09-27). Neue Sitzungen haben den Kontext bisher verloren, weil nichts sie automatisch auf die drei Grundlagendateien geführt hat. `CLAUDE.md` wird von jeder Sitzung automatisch gelesen, verweist auf `SPEC.md`, `PROJECT-STATUS.md` und `.agents/product-marketing.md` und fasst nur die Regeln zusammen, die am leichtesten aus Versehen brechen (Kategorie, kein "Ein-Mann-Agentur", du, kein Preis im Ablauf, Bambera nie "in Produktion", DE/EN, ss, keine Gedankenstriche). Der Inhalt der drei Dateien wird dort bewusst nicht dupliziert.
+- [x] **Platzhalterkarte "Bärn, sag!" in `portfolio/index.html`** (2026-09-27), am Ende des Rasters. Gleiches Muster wie die frühere Karte "Weitere Projekte in Vorbereitung" (`.portfolio-card.coming-soon`, gestrichelter Rand, kein Hover-Effekt): kein Thumbnail, keine Beschreibung, kein Stack, kein Link. Neu ist nur der Status-Badge `.type-badge--soon` (neutral, aus `--color-text-secondary`/`--color-border`, passt damit in beide Themes) mit dem Key `portfolio_status_soon` (DE "Bald verfügbar", EN "Coming soon"). Der Titel ist ein Eigenname und bleibt ohne Key, wie bei den anderen Karten. Geprüft per `python -m http.server` + Headless-Chrome-Screenshot.
+
 
 ## Blockiert — wartet auf Input
 
@@ -530,6 +533,7 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
 
 ## Offen (noch nicht begonnen)
 
+- [ ] **Projekt "Bärn, sag!": noch nicht gebaut.** Steht als Platzhalterkarte mit "Bald verfügbar" im Portfolio (siehe Erledigt). Konzept in einem Satz: _noch nicht festgehalten, Javi trägt es nach_. Wenn es gebaut wird, bekommt die Karte Thumbnail, Tagline, Stack und Link wie die anderen, und eine Fiche nach `SPEC.md` 5.2. Achtung: `SPEC.md` 5.3 setzt sechs Fichen als Obergrenze, eine siebte verlangt, eine andere herauszunehmen.
 - [ ] **Vorschau von Kontakt und Über mich nach dem Deployment im LinkedIn Post Inspector prüfen** (`https://www.linkedin.com/post-inspector/`, braucht Javis Login). Erst nach dem Deployment möglich, weil LinkedIn die Live-Seite liest; der Inspector leert dabei auch den Cache, der sonst noch die alte englische Vorschau zeigt. Erwartet: deutscher Titel, deutsche Beschreibung, Steinbock-Bild.
 - [ ] **Liegen gelassen beim Metadaten-Durchgang, weil ausserhalb des Auftrags:** das JSON-LD der Startseite zeigt mit `logo` auf `/assets/logo.png` (404), führt noch *"Cloud Architektur"* und *"Software Engineer & AI Solutions Architect"* und trägt `priceRange: "$$"`; die `meta keywords` von Kontakt und Über mich sind noch englisch und auf Cloud ausgerichtet. Details in `.agents/product-marketing.md` (Noticed, not acted on).
 - [ ] **Entscheiden, ob die langen Gedankenstriche auch aus der älteren Copy verschwinden.** In den zwei Demos unter `templates/` sind sie alle ersetzt (siehe Erledigt). Stehen geblieben sind die, die vorher schon da waren: in der `services`-Copy und in älteren Code-Kommentaren. **Rein eine Frage des Tons, nichts ist kaputt** — die Regel für Neues steht in `.agents/product-marketing.md` (Customer Language). Javis Entscheidung, ob der Altbestand nachzieht.
