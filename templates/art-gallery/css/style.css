@@ -294,6 +294,74 @@ cite {
   max-width: 16ch;
 }
 
+/* Eine Arbeit im Auftakt, gross genug, dass sie vor dem Text wirkt. Auf dem
+   Telefon steht sie unter dem Titel, ab 1000 px daneben. Der Ausschnitt ist
+   4:3 statt 16:9: so bleibt die Arbeit hoch genug, um neben dem Titel zu
+   bestehen, und die Mitte des Bildes, wo die Hände liegen, bleibt ganz. */
+.opener__stage {
+  display: grid;
+  gap: clamp(2rem, 6vw, 3rem);
+}
+
+.opener__piece {
+  display: block;
+}
+
+.opener__media {
+  display: block;
+  overflow: hidden;
+  background: var(--void-soft);
+  aspect-ratio: 4 / 3;
+}
+
+.opener__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+.opener__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.8rem;
+  padding-top: 0.9rem;
+  font-size: 0.78rem;
+  color: var(--chalk-faint);
+}
+
+.opener__label cite {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  color: var(--chalk);
+}
+
+@media (hover: hover) {
+  .opener__piece:hover .opener__media img {
+    transform: scale(1.025);
+  }
+}
+
+@media (min-width: 1000px) {
+  .opener {
+    padding-top: clamp(3rem, 5vw, 5rem);
+  }
+
+  .opener__stage {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: end;
+    gap: clamp(2.5rem, 4vw, 4.5rem);
+  }
+
+  /* Neben dem Bild hat der Titel weniger Breite, also weniger Grösse.
+     Die längste Zeile ist "Vorbeigehen", und die muss ganz bleiben. */
+  .opener__title {
+    font-size: clamp(3.5rem, 5.6vw, 6.4rem);
+    padding-bottom: 2.6rem;
+  }
+}
+
 .opener__foot {
   display: grid;
   gap: 2rem;
@@ -972,7 +1040,8 @@ cite {
   }
 
   .tile__media img,
-  .tile__media video {
+  .tile__media video,
+  .opener__media img {
     transition: none;
   }
 }

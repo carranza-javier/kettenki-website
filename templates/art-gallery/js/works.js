@@ -259,20 +259,22 @@ const WORKS = [
 /* Reihenfolge und Grösse der Zellen im Raster. Die Breiten beziehen sich auf
    ein Raster aus zwölf Spalten, "push" versetzt eine Zelle nach unten, damit
    die Reihen nicht wie ein Katalog auf einer Linie stehen.
-   Das Video sitzt an neunter Stelle von sechzehn: mitten im Scrollen, weit
-   weg von der ersten Zelle und von der letzten Reihe. */
+   Das Video sitzt an fünfter Stelle von sechzehn, in der dritten Reihe: Es ist
+   die stärkste Arbeit, und an neunter Stelle sah sie kaum jemand. Die erste
+   Zelle ist nicht "Was wir tragen", weil diese Arbeit schon gross im Auftakt
+   hängt; sie tauscht den Platz mit der anderen vollen Zelle, "Rasterbruch". */
 const LAYOUT = [
-  { id: 'was-wir-tragen', span: 'full' },
+  { id: 'rasterbruch', span: 'full' },
   { id: 'nordwind', span: 'wide' },
   { id: 'schwarzer-mond', span: 'mid', push: true },
   { id: 'profil-im-gegenlicht', span: 'mid' },
-  { id: 'schichtgestein', span: 'wide', push: true },
+  { id: 'pulsschlag', span: 'wide', push: true, film: true },
   { id: 'frostkoerper', span: 'third' },
   { id: 'herbarium-blatt-vii', span: 'third', push: true },
   { id: 'drehmoment', span: 'third' },
-  { id: 'pulsschlag', span: 'wide', film: true },
+  { id: 'schichtgestein', span: 'wide' },
   { id: 'doppelknoten', span: 'mid', push: true },
-  { id: 'rasterbruch', span: 'full' },
+  { id: 'was-wir-tragen', span: 'full' },
   { id: 'anflug', span: 'mid' },
   { id: 'feldnotiz', span: 'wide', push: true },
   { id: 'sternkoerper', span: 'third' },

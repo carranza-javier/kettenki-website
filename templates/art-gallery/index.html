@@ -32,7 +32,27 @@
 
   <main>
     <section class="shell opener">
-      <h1 class="display opener__title reveal">Hier hängt nichts, was man im Vorbeigehen sieht.</h1>
+      <!-- Der Auftakt zeigt eine Arbeit, bevor er etwas erklärt. Bild und Zeile
+           stehen hier von Hand statt aus works.js, damit das Bild mit dem HTML
+           kommt und nicht erst nach dem Skript. Wer die Arbeit tauscht, tauscht
+           Link, Bild, Alt-Text und Zeile zusammen. -->
+      <div class="opener__stage">
+        <h1 class="display opener__title reveal">Hier hängt nichts, was man im Vorbeigehen sieht.</h1>
+        <a class="opener__piece reveal" href="work.html?w=was-wir-tragen">
+          <span class="opener__media">
+            <img src="img/hands-flame-01-sm.webp"
+                 srcset="img/hands-flame-01-sm.webp 688w, img/hands-flame-01-lg.webp 1376w"
+                 sizes="(min-width: 1000px) 56vw, 92vw"
+                 alt="Zwei Hände in Kohle gezeichnet, die eine kleine Flamme schützen, auf rauem dunklem Putz"
+                 width="1376" height="768" fetchpriority="high" decoding="async">
+          </span>
+          <span class="opener__label">
+            <span class="tile__no">01</span>
+            <cite>Was wir tragen</cite>
+            <span>Kohle, Öl und Pigment auf Kalkputz, 2024</span>
+          </span>
+        </a>
+      </div>
       <div class="opener__foot reveal">
         <p class="lede">
           Eine ehemalige Werkhalle am Stadtrand, zwölf Meter lang, ein Oberlicht.
