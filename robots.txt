@@ -8,6 +8,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
+Disallow: /t/
 
 # Allow important resources for proper rendering
 Allow: /css/
