@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-10-27 (vierte Angebotslinie Sicherheitsanalyse, lokal, nicht veröffentlicht; Pentest-Fixtures unter `/t/` wieder entfernt)_
+_Letzte Aktualisierung: 2026-10-27 (vierte Angebotslinie Sicherheitsanalyse veröffentlicht; Pentest-Fixtures unter `/t/` wieder entfernt)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -15,7 +15,7 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
 
 ## Erledigt
 
-- [x] **Vierte Angebotslinie: Sicherheitsanalyse für Apps, Websites und KI-Produkte** (2026-10-27, nur lokal committet, **nicht veröffentlicht**, siehe Offen). Positionierung, Namen, Ausnahme vom Modell "erst entwickeln, dann entscheiden", Anonymitäts- und CVE-Regel stehen in `.agents/product-marketing.md` (v17), die Kurzfassung in `CLAUDE.md`.
+- [x] **Vierte Angebotslinie: Sicherheitsanalyse für Apps, Websites und KI-Produkte** (2026-10-27, **am selben Tag veröffentlicht** auf Javis ausdrückliche Freigabe, noch ohne Maskottchen, siehe Offen). Positionierung, Namen, Ausnahme vom Modell "erst entwickeln, dann entscheiden", Anonymitäts- und CVE-Regel stehen in `.agents/product-marketing.md` (v17), die Kurzfassung in `CLAUDE.md`.
   - **Startseite:** vierte Karte `.offer-card--security`, Akzent Magenta `#ff4d8d` (neue Variablen `--security-start/-end`, Kontrast rund 5.9:1 auf der Kartenfläche `#141414`). Der Maskottchenkreis steht leer im Akzent bei 12 Prozent, es gibt noch kein Maskottchen. Unter dem Titel die Umfangszeile, am Ende die Ablaufzeile, die ganze Karte führt auf `/security`. Das Raster ging von drei Spalten auf **zwei mal zwei**: Vier Spalten wären bei 1280 px zu schmal, und die Sicherheitskarte trägt deutlich mehr Text. Unter *Unser Vorgehen* eine leise Zeile (`process_note`), die den Ablauf auf Chatbots, Websites und Apps begrenzt.
   - **`services.html`:** eigener Abschnitt `#security` ("Sicherheit" / "Security") zwischen Individueller Entwicklung und KI-Lösungen, eine Karte mittig (`.products-grid--single`), Aufbau wie Websites und Apps plus Textlink auf `/security`; "Jetzt anfragen" führt auf `contact?produkt=security`. Der Kasten "Kein Risiko für dich" las sich als gültig für die ganze Seite und trägt jetzt die Zeile "Gilt für Chatbots, Websites und Apps.". Noch ohne Maskottchen, auch hier.
   - **`security.html` (neu):** dunkles kommerzielles Thema, ein H1, Abschnitte mit eigener id (`was-wir-pruefen`, `bericht`, `ablauf`, `quellcode`, `penetrationstest`, `erfahrung`), damit jeder später eine eigene Seite werden kann. Eigene Metadaten (Titel, Beschreibung, canonical, hreflang, Open Graph auf Deutsch mit dem Steinbock-Bild `img/landscape-last-frame.jpg`), JSON-LD `Service` nur mit dem, was die Seite sagt. Der Satz zur Praxis trägt `<!-- TODO(Javi): confirmar -->`. Das Chat-Widget läuft dort wie auf jeder kommerziellen Seite. **Noch am selben Tag umbenannt:** die zweite Stufe heisst "Quellcode-Sicherheitsprüfung" / "Security Code Review" (id `quellcode`), nicht mehr "Code-Review", das mit der Durchsicht unter Teamkollegen verwechselt wird; der Offenlegungssatz sagt "durch Analyse des Quellcodes" / "by analysing the source code".
@@ -546,14 +546,14 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
 
 ## Offen (noch nicht begonnen)
 
-- [ ] **Sicherheitsanalyse: vor der Veröffentlichung offen** (Stand 2026-10-27, alles nur lokal committet):
+- [ ] **Sicherheitsanalyse: nach der Veröffentlichung offen** (live seit 2026-10-27; Javi hat die Bedingung aus Punkt 7 aufgehoben und ohne Maskottchen freigegeben, das Kätzchen liefert er bald nach):
   1. **Maskottchen** für die Sicherheitskarte, auf der Startseite (leerer Kreis) und auf `services.html` (fehlt ganz).
   2. **`content.json` von Liviana** (Repo `kettenki-liviana` und S3): spricht von "drei gleichrangigen Bereichen" und kennt die Sicherheitsanalyse nicht. Am Tag der Veröffentlichung nachziehen. Zusatzregel: Liviana spricht nie über konkrete Befunde und nennt keine Namen.
   3. **Metadaten von `index.html` und `services.html` und der Untertitel im Hero** beschreiben noch drei Angebote. Vorschlag liegt bei Javi, nicht angewendet.
   4. **Erster Absatz von "Über KettenKI" in `about.html`** und ein Satz in "Über mich" ("ich baue Software und prüfe, ob sie sicher ist, meine und deine"). Vorschlag liegt bei Javi, nicht angewendet. Achtung: Die Bio in "Über mich" steht heute in der dritten Person.
   5. **Fiktiver Musterbericht** für den Abschnitt "Der Bericht", ausdrücklich als Beispiel gekennzeichnet.
   6. **Vertrag, Haftung und Versicherung** klären, bevor der erste Auftrag mit Ausnutzung (Penetrationstest) angenommen wird.
-  7. **Nicht veröffentlichen ohne 1, 2 und Javis Durchsicht.**
+  7. ~~Nicht veröffentlichen ohne 1, 2 und Javis Durchsicht.~~ **Aufgehoben, veröffentlicht am 2026-10-27.** Punkt 2 ist damit dringend: Liviana kennt die Sicherheitsanalyse auf der Live-Seite noch nicht.
   - Ausserdem offen: **Hauptmenü.** `/security` steht nur im Fuss, nicht im Menü und nicht im Untermenü "Lösungen". Javis Entscheidung. **Der Praxis-Satz unter Erfahrung** ist mit `TODO(Javi): confirmar` markiert. **Der Aufruf am Ende der Startseite** sagt weiterhin "Der erste Schritt kostet dich nichts.", direkt unter der neuen Abgrenzungszeile; er war nicht Teil des Auftrags und wurde nicht angefasst, liest sich aber neben der Sicherheitskarte wieder allgemein. **Der Untertitel von `services.html`** enthält noch einen Gedankenstrich aus dem Altbestand.
 
 - [ ] **Projekt "Bärn, sag!": noch nicht gebaut.** Steht als Platzhalterkarte mit "Bald verfügbar" im Portfolio (siehe Erledigt). Konzept: Bürgerumfragen in Bern. Plakate mit QR-Code an den Anschlagbrettern der Stadt, jedes mit einer Ja/Nein-Frage zur Schweizer Gesellschaft; wer antwortet, kann die Antwort begründen und mit seiner E-Mail an einer Verlosung teilnehmen. Die Ergebnisse erscheinen Monate später auf der Website, damit die Stadt sieht, was sie geantwortet hat. Wenn es gebaut wird, bekommt die Karte Thumbnail, Tagline, Stack und Link wie die anderen, und eine Fiche nach `SPEC.md` 5.2. Achtung: `SPEC.md` 5.3 setzt sechs Fichen als Obergrenze, eine siebte verlangt, eine andere herauszunehmen.
