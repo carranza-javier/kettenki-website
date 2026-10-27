@@ -35,4 +35,10 @@ copy decisions in `.agents/product-marketing.md`.
 - **No em or en dashes** in customer-facing copy, portfolio or blog.
 - **Two audiences:** the dark commercial site speaks to SME customers; the light `portfolio/` and
   `blog/` (Inter font) speak to recruiters. Do not mix their copy or voice.
+- **Security is fully anonymous.** On the Sicherheitsanalyse / Security Assessment (`security.html`)
+  and anywhere security is mentioned: no company, organisation, product, project, host, person, sector,
+  language, technology or date from any third party. **Never write "CVE"** or any vulnerability
+  identifier; none is published. Never name tools or operating systems, and never use AI or the
+  internal toolchain as a selling point. Not "Audit", not "Check"/"Security-Check", not "Cyber
+  Security" as a name, and no free/price wording on this service.
 - **Nothing is deployed** without Javi's explicit go-ahead.

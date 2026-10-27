@@ -590,7 +590,7 @@ const translations = {
     offer_apps_link: 'See custom apps',
     offer_security_title: 'Security Assessment',
     offer_security_scope: 'for apps, websites and AI products',
-    offer_security_text: 'We check your app, website or AI product for weaknesses before someone else does: access control, API, exposed services, and for AI products also prompt injection and guardrails. On request we also read the source code. You get a clear report with what matters, no scaremongering.',
+    offer_security_text: 'We test your app, website or AI product for weaknesses before someone else does: access control, API, exposed services, and for AI products also prompt injection and guardrails. On request we also read the source code. You get a clear report with what matters, no scaremongering.',
     offer_security_process: 'We agree scope and ground rules in writing up front.',
     offer_security_link: 'More about the security assessment',
     home_cta_text: 'Tell us what you need. The first step costs you nothing.',

@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v13
-**Last updated:** 2026-09-19
+**Document version:** v17
+**Last updated:** 2026-10-27
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
 > quoted verbatim in German and English and must be copied exactly, never re-translated.**
@@ -41,7 +41,9 @@ SMEs) / EN: *custom software development for small and medium businesses*.
 > inventive label — which also matches the site's sober tone.
 
 **Product type:** Service (custom development), plus three named in-house AI prototypes used as
-demonstrators: **BAMBERA**, **LIVIANA**, **FANDANGO**.
+demonstrators: **BAMBERA**, **LIVIANA**, **FANDANGO**. Since 2026-10-27 a fourth service line sits
+beside development: the **Sicherheitsanalyse / Security Assessment** — see its own section below. It
+complements the category, it does not replace it: *"wir bauen Software und prüfen, ob sie sicher ist"*.
 
 **Business model:** Project-based custom development. The three named prototypes are free to test,
 functional and tested, **but explicitly without warranty or SLA** — this disclaimer is on the site
@@ -157,6 +159,77 @@ anything, and because the person who understood the problem is the person who so
 
 ---
 
+## Service line — Sicherheitsanalyse / Security Assessment
+
+Added 2026-10-27 as the fourth offer, at the same level as chatbots, websites and apps: a card on the
+home page, its own section on `services.html`, and its own page `security.html` (`/security`) built
+to grow. **The category is unchanged** — still *Individuelle Softwareentwicklung für KMU*. Security is
+the complement: we build software and we test whether it is secure.
+
+**Names — settled, do not reopen:**
+- **Adopted:** DE *"Sicherheitsanalyse"*, EN *"Security Assessment"*. **Always with the scope beside
+  it**: *"für Apps, Websites und KI-Produkte"* / *"for apps, websites and AI products"*.
+- **Rejected: "Security-Check".** In Switzerland it connotes an automated entry-level scan, and it is
+  easily confused with the Cybersecurity-Check of the ADSS. Neither is what we sell.
+- **Rejected: "Cyber Security"** as a name. It promises a breadth (operations, monitoring, incident
+  response) we do not offer.
+- **Banned: "Audit".** Also banned anywhere on this service: "Check" in any form, vulnerability
+  identifiers (never "CVE"), names of tools or operating systems, and presenting the penetration test
+  as the default offer.
+
+**The exception to "Erst entwickeln, dann entscheiden".** This line does **not** use the build-first
+model. No copy about the security service mentions free, no cost, a free check, price or payment.
+The topic is simply not touched. Where the build-first process appears near it, it is scoped
+explicitly: under *Unser Vorgehen* on the home page (*"Dieser Ablauf gilt für Chatbots, Websites und
+Apps. Bei der Sicherheitsanalyse klären wir Umfang und Rahmen vorab schriftlich."*) and in the promise
+box on `services.html` (*"Gilt für Chatbots, Websites und Apps."*). The security process line instead
+is: *"Wir klären Umfang und Rahmen vorab schriftlich."* / *"We agree scope and ground rules in
+writing up front."*
+
+**The three-step ladder** (each a separate section with its own id on `security.html`, so any of them
+can become its own page without rewriting):
+1. **Sicherheitsanalyse** (`#was-wir-pruefen`, `#bericht`, `#ablauf`): tested without exploiting
+   anything, delivered as a report.
+2. **Code-Review** (`#code-review`): reading the source code, on request.
+3. **Penetrationstest** (`#penetrationstest`): on request only, with written authorisation and an
+   agreed scope.
+The card talks about the assessment and mentions the code; it never leads with the penetration test.
+
+**Anonymity rule — absolute.** Everything about security is anonymous: no company, organisation,
+product, project, host, person or other third-party detail, not even in identifiable form (no sector,
+language, specific technology or date). No hinting at unpublished findings or at clients that cannot
+be named. No invented certifications, clients, metrics or testimonials. AI and the internal tooling
+are never a selling argument here either.
+
+**CVE rule — never.** No CVE has been published, and none is ever written. The only permitted claim
+about responsible disclosure, verbatim, nothing added:
+- DE: *"Erfahrung mit verantwortungsvoller Offenlegung: eine Schwachstelle in einem
+  Open-Source-Projekt per Code-Review gefunden und gemeldet, vom Projekt bestätigt und behoben."*
+- EN: *"Experience with responsible disclosure: found a vulnerability in an open-source project
+  through code review and reported it, confirmed and fixed by the project."*
+
+The practice claim (*"Praxis in der Sicherheitsanalyse von Web-Anwendungen und KI-Produkten."* /
+*"Hands-on practice analysing the security of web applications and AI products."*) is on the page
+but marked `TODO(Javi): confirmar` until Javi confirms it.
+
+**Canonical card copy (DE / EN):**
+- Title: *"Sicherheitsanalyse"* / *"Security Assessment"*
+- Scope: *"für Apps, Websites und KI-Produkte"* / *"for apps, websites and AI products"*
+- Text: *"Wir prüfen deine App, Website oder dein KI-Produkt auf Schwachstellen, bevor es jemand
+  anderes findet: Zugriffskontrolle, API, exponierte Dienste, bei KI-Produkten auch Prompt-Injection
+  und Guardrails. Auf Wunsch lesen wir auch den Quellcode. Du bekommst einen klaren Bericht mit dem,
+  was zählt, ohne Alarmismus."* / *"We test your app, website or AI product for weaknesses before
+  someone else does: access control, API, exposed services, and for AI products also prompt
+  injection and guardrails. On request we also read the source code. You get a clear report with
+  what matters, no scaremongering."* — the brief said *"We check"*; changed to *"We test"* because
+  "check" is banned on this service.
+- Link: *"Mehr zur Sicherheitsanalyse"* / *"More about the security assessment"*
+
+**Not in the main nav** (footer only, on every commercial page). Whether it joins the menu is an open
+decision for Javi.
+
+---
+
 ## Objections
 
 | Objection | Response |
@@ -248,6 +321,9 @@ older dashes in the `services` copy and in code comments are still there and are
 - Hype register: revolutionär, disruptiv, bahnbrechend, "KI-Revolution". The site is deliberately
   sober and a single ad-line breaks it.
 - Any claim that BAMBERA is in active production or daily use — see Proof Points.
+- On the security service: "Audit", "Check" / "Security-Check", "Cyber Security" as a name, "CVE" or
+  any identifier, tool or OS names, free/price wording, and any third-party detail. See the
+  Sicherheitsanalyse section.
 
 **Glossary:**
 | Term | Meaning |
@@ -643,6 +719,13 @@ person.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v17 (2026-10-27) — **Fourth service line: Sicherheitsanalyse / Security Assessment**, for apps,
+  websites and AI products. New section records the names (adopted; "Security-Check" and "Cyber
+  Security" rejected, "Audit" banned), the exception to "Erst entwickeln, dann entscheiden" (no
+  free/price wording, process scoped to chatbots, websites and apps), the three-step ladder
+  (assessment, code review, penetration test), the absolute anonymity rule and the CVE rule (never).
+  Canonical card copy recorded. Header version corrected from v13 to v17 (it had not been bumped
+  since v13).
 - v16 (2026-09-21) — **The italic word comes back in the pottery demo only**, on Javi's call: *Feuer*
   in `Aus Erde, Feuer und Zeit.` The rest of v15 stands, so the device now marks one demo instead of
   being the house style of all three.
