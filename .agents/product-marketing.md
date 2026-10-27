@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v18
+**Document version:** v19
 **Last updated:** 2026-10-27
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
@@ -204,16 +204,21 @@ language, specific technology or date). No hinting at unpublished findings or at
 be named. No invented certifications, clients, metrics or testimonials. AI and the internal tooling
 are never a selling argument here either.
 
-**CVE rule — never.** No CVE has been published, and none is ever written. The only permitted claim
-about responsible disclosure, verbatim, nothing added:
-- DE: *"Erfahrung mit verantwortungsvoller Offenlegung: eine Schwachstelle in einem
-  Open-Source-Projekt durch Analyse des Quellcodes gefunden und gemeldet, vom Projekt bestätigt und behoben."*
-- EN: *"Experience with responsible disclosure: found a vulnerability in an open-source project
-  by analysing the source code and reported it, confirmed and fixed by the project."*
+**CVE rule — never.** No CVE has been published, and none is ever written, nor any other
+vulnerability identifier.
 
-The practice claim (*"Praxis in der Sicherheitsanalyse von Web-Anwendungen und KI-Produkten."* /
-*"Hands-on practice analysing the security of web applications and AI products."*) is on the page
-but marked `TODO(Javi): confirmar` until Javi confirms it.
+**No experience claims on the security service.** No statement about previous engagements, number of
+assessments, clients, findings or disclosures, in any text, metadata or structured data. **The
+experience section was dropped on 2026-10-27**: a single anecdote, however true, makes the service
+look thinner rather than stronger. It was replaced by the angle *"we build software"*, which is true of
+the whole business and needs no proof point:
+- Section `#warum`, title *"Warum wir"* / *"Why us"*.
+- DE: *"Wir entwickeln selbst Software. Deshalb schauen wir auf deine App wie ein Entwickler und nicht
+  nur wie ein Scanner: Wie ist der Zugriff aufgebaut, wo vertraut das System zu viel, was passiert bei
+  unerwarteten Eingaben. Die Befunde lassen sich nachvollziehen und beheben."*
+- EN: *"We build software ourselves. So we look at your app the way a developer would, not just the
+  way a scanner does: how access is structured, where the system trusts too much, what happens with
+  unexpected input. The findings are ones you can follow and fix."*
 
 **Canonical card copy (DE / EN):**
 - Title: *"Sicherheitsanalyse"* / *"Security Assessment"*
@@ -725,6 +730,10 @@ person.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v19 (2026-10-27) — **Experience section on `/security` dropped**, together with the practice claim, the
+  responsible-disclosure sentence and its `TODO(Javi)`: one anecdote takes credibility away instead of
+  adding it. Replaced by a `#warum` section on the angle *"we build software"*. No experience claims of
+  any kind on this service from now on. Anonymity rules and the CVE ban unchanged.
 - v18 (2026-10-27) — **Second rung renamed: "Code-Review" → "Quellcode-Sicherheitsprüfung" / "Security
   Code Review"**, section id `#quellcode`. Bare "Code-Review" rejected because it is confused with the
   peer review between teammates. The verbatim disclosure sentence now says *"durch Analyse des

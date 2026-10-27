@@ -106,8 +106,8 @@ const translations = {
     services_security_title: 'Sicherheit',
 
     /* security.html, seit dem 2026-10-27. Alles anonym: keine Firmen,
-       Projekte, Personen, Werkzeuge oder Kennungen. Die zwei Sätze unter
-       Erfahrung sind wörtlich festgelegt und werden nicht ausgeschmückt. */
+       Projekte, Personen, Werkzeuge oder Kennungen, und keine Aussagen über
+       frühere Aufträge, Befunde oder deren Zahl. */
     security_title: 'Sicherheitsanalyse für Apps, Websites und KI-Produkte',
     security_subtitle: 'Wir finden Schwachstellen, bevor es jemand anderes tut, und sagen dir klar, was zählt.',
     security_scope_title: 'Was wir prüfen',
@@ -126,9 +126,8 @@ const translations = {
     security_code_text: 'Auf Wunsch prüfen wir auch den Quellcode auf Sicherheitslücken (Security Code Review), wenn du uns Einsicht gibst. So finden wir Schwachstellen, die man von aussen nicht sieht.',
     security_pentest_title: 'Penetrationstest',
     security_pentest_text: 'Auf Wunsch vertiefen wir die Analyse bis zum Penetrationstest. Das geschieht nur mit schriftlicher Freigabe und klar abgegrenztem Umfang.',
-    security_experience_title: 'Erfahrung',
-    security_experience_practice: 'Praxis in der Sicherheitsanalyse von Web-Anwendungen und KI-Produkten.',
-    security_experience_disclosure: 'Erfahrung mit verantwortungsvoller Offenlegung: eine Schwachstelle in einem Open-Source-Projekt durch Analyse des Quellcodes gefunden und gemeldet, vom Projekt bestätigt und behoben.',
+    security_why_title: 'Warum wir',
+    security_why_text: 'Wir entwickeln selbst Software. Deshalb schauen wir auf deine App wie ein Entwickler und nicht nur wie ein Scanner: Wie ist der Zugriff aufgebaut, wo vertraut das System zu viel, was passiert bei unerwarteten Eingaben. Die Befunde lassen sich nachvollziehen und beheben.',
     services_disclaimer_title: 'Was diese Prototypen sind',
     services_disclaimer_text: 'Diese Lösungen sind experimentelle Prototypen. Sie sind kostenlos zum Testen, funktional und getestet, aber ohne Garantie oder SLA. Bei Erfolg: Gemeinsame Weiterentwicklung möglich.',
     
@@ -668,9 +667,8 @@ const translations = {
     security_code_text: 'On request we also review the source code for security weaknesses, if you give us access. This finds weaknesses that cannot be seen from the outside.',
     security_pentest_title: 'Penetration test',
     security_pentest_text: 'On request we take the analysis further, up to a penetration test. This only happens with written approval and a clearly defined scope.',
-    security_experience_title: 'Experience',
-    security_experience_practice: 'Hands-on practice analysing the security of web applications and AI products.',
-    security_experience_disclosure: 'Experience with responsible disclosure: found a vulnerability in an open-source project by analysing the source code and reported it, confirmed and fixed by the project.',
+    security_why_title: 'Why us',
+    security_why_text: 'We build software ourselves. So we look at your app the way a developer would, not just the way a scanner does: how access is structured, where the system trusts too much, what happens with unexpected input. The findings are ones you can follow and fix.',
     services_disclaimer_title: 'What these prototypes are',
     services_disclaimer_text: 'These solutions are experimental prototypes. They are free to test, functional and tested, but without guarantee or SLA. On success: Joint development possible.',
     
