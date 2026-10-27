@@ -1,0 +1,8 @@
+# GitHub Pages: interne Projektdokumente nicht unter kettenki.com ausliefern.
+# Sie bleiben im Repo, sind aber keine Seiten der Website.
+exclude:
+  - CLAUDE.md
+  - PROJECT-STATUS.md
+  - README.md
+  - SPEC.md
+  - .agents
