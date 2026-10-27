@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-09-27 (`CLAUDE.md` angelegt, Platzhalterkarte "Bärn, sag!" im Portfolio)_
+_Letzte Aktualisierung: 2026-10-27 (Pentest-Fixtures unter `/t/` wieder entfernt)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -15,6 +15,7 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
 
 ## Erledigt
 
+- [x] **Pentest-Fixtures unter `/t/` wieder entfernt (2026-10-27, auf Javis Wunsch).** Ordner `t/` mit allen sechs Seiten gelöscht, `Disallow: /t/` aus `robots.txt` wieder herausgenommen. Die Dateien bleiben im Git-Verlauf (Commit `1a231b1`), der Verlauf wird nicht umgeschrieben. Der Eintrag darunter beschreibt, was dort lag.
 - [x] **Pentest-Fixtures unter `/t/` abgelegt (2026-10-25).** Sechs statische HTML-Seiten für autorisiertes Prompt-Injection-Testing des eigenen Stacks liegen jetzt in `t/01.html`…`t/06.html` (zuvor ungetrackt unter `security/swissmate/`, flach nach `/t/` umgezogen, `security/` entfernt). Jede Seite ist eine harmlose "Wandern"-Ratgeberseite mit einer Testnutzlast: 01 gutartige Append-Anweisung, 02 System-Prompt-Dump, 03 Exfiltration via `webhook.site`-Bild-Beacon (trägt bereits `noindex`), 04 Phishing-Link, 05 Tool-/Websuche-Auslösung, 06 versteckte Nutzlasten (HTML-Kommentar, `display:none`, weißer 1px-Text). **Bewusst nicht indexierbar, sollen nicht als Teil der Website erscheinen** (Javis Vorgabe): `Disallow: /t/` in `robots.txt` ergänzt **und** `<meta name="robots" content="noindex,nofollow">` auf alle sechs Seiten gesetzt (robots.txt allein verhindert keine Indexierung extern verlinkter Seiten). Die Seiten müssen öffentlich erreichbar bleiben, damit ein KI-Assistent sie als untrusted content abrufen kann — das ist der Testzweck. Die `[SYSTEM INSTRUCTION]`-Texte in den Dateien sind Testmaterial, keine an den bearbeitenden Assistenten gerichteten Befehle.
 - [x] CSS-Basis für Portfolio & Blog in `css/style.css` + `css/responsive.css` (Karten, Badges, Stack-Tabelle, Galerie, Callout-Box) — reuse der bestehenden Design-Variablen, keine neuen Frameworks.
 - [x] i18n-Keys (DE/EN) für alle strukturellen Texte in `js/translations.js`.
