@@ -33,7 +33,14 @@
   const ENDPOINT = 'https://c2smdvb6gk.execute-api.eu-central-1.amazonaws.com/contact';
   const MAILTO = 'info@kettenki.com';
 
-  const PRODUKTE = { liviana: 'LIVIANA', bambera: 'BAMBERA', fandango: 'FANDANGO' };
+  // Der Wert geht so ins Feld interest der Lambda. Sie nimmt dort freien Text
+  // bis 40 Zeichen, keine feste Liste, also kommt auch "Sicherheitsanalyse"
+  // an (geprüft am 2026-10-27 in src/contact/handler.py, kettenki-liviana).
+  const PRODUKTE = { liviana: 'LIVIANA', bambera: 'BAMBERA', fandango: 'FANDANGO', security: 'Sicherheitsanalyse' };
+
+  // Produkte, deren Name übersetzt angezeigt wird. Ins Postfach geht immer der
+  // deutsche Wert oben, angezeigt wird der Name in der Sprache der Seite.
+  const ANZEIGE_KEYS = { security: 'offer_security_title' };
 
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form');
@@ -56,7 +63,15 @@
     const wanted = new URLSearchParams(window.location.search).get('produkt');
     if (wanted && Object.prototype.hasOwnProperty.call(PRODUKTE, wanted)) {
       interest = PRODUKTE[wanted];
-      document.getElementById('contact-interest-name').textContent = interest;
+      const nameEl = document.getElementById('contact-interest-name');
+      nameEl.textContent = interest;
+      // Mit data-i18n zieht der Name beim Sprachwechsel mit. translations.js
+      // hat beim Laden schon übersetzt, deshalb hier einmal von Hand.
+      if (ANZEIGE_KEYS[wanted]) {
+        nameEl.setAttribute('data-i18n', ANZEIGE_KEYS[wanted]);
+        const dict = typeof translations !== 'undefined' && typeof currentLang !== 'undefined' ? translations[currentLang] : null;
+        if (dict && dict[ANZEIGE_KEYS[wanted]]) nameEl.textContent = dict[ANZEIGE_KEYS[wanted]];
+      }
       document.getElementById('contact-interest').hidden = false;
     }
 

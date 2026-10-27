@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Sicherheitsanalyse für Apps, Websites und KI-Produkte | KettenKI</title>
+  <meta name="description" content="Sicherheitsanalyse für Apps, Websites und KI-Produkte: Wir finden Schwachstellen, bevor es jemand anderes tut, und sagen dir klar, was zählt.">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kettenki.com/security">
+  <meta property="og:title" content="Sicherheitsanalyse für Apps, Websites und KI-Produkte | KettenKI">
+  <meta property="og:description" content="Sicherheitsanalyse für Apps, Websites und KI-Produkte: Wir finden Schwachstellen, bevor es jemand anderes tut, und sagen dir klar, was zählt.">
+  <meta property="og:image" content="https://kettenki.com/img/landscape-last-frame.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Ein Steinbock in einer Berglandschaft, als Drahtgittermodell gezeichnet">
+  <meta property="og:locale" content="de_CH">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://kettenki.com/security">
+
+  <!-- Language Alternates -->
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/security">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/security">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/liviana-widget.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Structured Data: nur, was die Seite selbst sagt. Keine Bewertungen,
+       keine Zertifikate. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Sicherheitsanalyse für Apps, Websites und KI-Produkte",
+    "description": "Wir finden Schwachstellen, bevor es jemand anderes tut, und sagen dir klar, was zählt.",
+    "url": "https://kettenki.com/security",
+    "provider": {
+      "@type": "ProfessionalService",
+      "@id": "https://kettenki.com/#organization",
+      "name": "KettenKI",
+      "url": "https://kettenki.com"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Switzerland"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index" class="logo">KettenKI</a>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="index" data-i18n="nav_home">Start</a></li>
+        <li><a href="about" data-i18n="nav_about">Über mich</a></li>
+        <li class="nav-item-dropdown">
+          <a href="services" data-i18n="nav_services">Lösungen</a>
+          <button type="button" class="nav-submenu-toggle" aria-expanded="false" aria-controls="nav-submenu-solutions" data-i18n-aria-label="nav_submenu_toggle">
+            <span class="nav-caret" aria-hidden="true"></span>
+          </button>
+          <div class="nav-submenu-wrap" id="nav-submenu-solutions">
+            <ul class="nav-submenu">
+              <li><a href="services#custom-development" data-i18n="services_custom_title">Individuelle Entwicklung</a></li>
+              <li><a href="services#ai-solutions" data-i18n="services_ai_title">KI-Lösungen</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="templates/" data-i18n="nav_examples">Beispiele</a></li>
+        <li><a href="contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sicherheitsanalyse, seit dem 2026-10-27. Jeder Abschnitt trägt eine
+       eigene id und ist für sich verständlich, damit Code-Review oder
+       Penetrationstest später eine eigene Seite werden können, ohne dass der
+       Text neu geschrieben werden muss. Alles hier bleibt anonym: keine
+       Firmen, Projekte, Personen oder Werkzeuge. -->
+  <main>
+    <section class="container product-detail security-page">
+      <div class="product-hero fade-in">
+        <h1 class="product-title product-title--long security-gradient" data-i18n="security_title">Sicherheitsanalyse für Apps, Websites und KI-Produkte</h1>
+        <p class="product-subtitle" data-i18n="security_subtitle">Wir finden Schwachstellen, bevor es jemand anderes tut, und sagen dir klar, was zählt.</p>
+      </div>
+
+      <div class="product-section fade-in" id="was-wir-pruefen">
+        <h2 data-i18n="security_scope_title">Was wir prüfen</h2>
+        <ul class="security-list">
+          <li>
+            <strong data-i18n="security_scope_apps_label">Apps und Websites:</strong>
+            <span data-i18n="security_scope_apps">Zugriffskontrolle zwischen Konten, API, Konfiguration, exponierte Dienste.</span>
+          </li>
+          <li>
+            <strong data-i18n="security_scope_ai_label">KI-Produkte:</strong>
+            <span data-i18n="security_scope_ai">Prompt-Injection, Guardrails, Umgang mit Daten und Zugriffsrechten.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="product-section fade-in" id="bericht">
+        <h2 data-i18n="security_report_title">Der Bericht</h2>
+        <p data-i18n="security_report_text">Du bekommst einen klaren Bericht: eine kurze Zusammenfassung, die Befunde nach Dringlichkeit geordnet, zu jedem den Nachweis und eine konkrete Empfehlung. Wir zeigen auch, was gut gebaut ist. Ohne Alarmismus.</p>
+      </div>
+
+      <div class="product-section fade-in" id="ablauf">
+        <h2 data-i18n="security_process_title">So läuft ein Auftrag ab</h2>
+        <ol class="process-steps">
+          <li class="process-step">
+            <span class="process-step-number" aria-hidden="true">01</span>
+            <span class="process-step-text" data-i18n="security_step_1">Wir klären Umfang und Rahmen vorab schriftlich: was geprüft wird, was nicht und wie.</span>
+          </li>
+          <li class="process-step">
+            <span class="process-step-number" aria-hidden="true">02</span>
+            <span class="process-step-text" data-i18n="security_step_2">Wir prüfen mit Rücksicht auf deinen laufenden Betrieb.</span>
+          </li>
+          <li class="process-step">
+            <span class="process-step-number" aria-hidden="true">03</span>
+            <span class="process-step-text" data-i18n="security_step_3">Du bekommst den Bericht, und wir gehen die Befunde gemeinsam durch.</span>
+          </li>
+          <li class="process-step">
+            <span class="process-step-number" aria-hidden="true">04</span>
+            <span class="process-step-text" data-i18n="security_step_4">Befunde und Zugangsdaten behandeln wir vertraulich.</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="product-section fade-in" id="code-review">
+        <h2 data-i18n="security_code_title">Code-Review</h2>
+        <p data-i18n="security_code_text">Auf Wunsch lesen wir auch den Quellcode, wenn du uns Einsicht gibst. So finden wir Schwachstellen, die man von aussen nicht sieht.</p>
+      </div>
+
+      <div class="product-section fade-in" id="penetrationstest">
+        <h2 data-i18n="security_pentest_title">Penetrationstest</h2>
+        <p data-i18n="security_pentest_text">Auf Wunsch vertiefen wir die Analyse bis zum Penetrationstest. Das geschieht nur mit schriftlicher Freigabe und klar abgegrenztem Umfang.</p>
+      </div>
+
+      <div class="product-section fade-in" id="erfahrung">
+        <h2 data-i18n="security_experience_title">Erfahrung</h2>
+        <!-- TODO(Javi): confirmar -->
+        <p data-i18n="security_experience_practice">Praxis in der Sicherheitsanalyse von Web-Anwendungen und KI-Produkten.</p>
+        <p data-i18n="security_experience_disclosure">Erfahrung mit verantwortungsvoller Offenlegung: eine Schwachstelle in einem Open-Source-Projekt per Code-Review gefunden und gemeldet, vom Projekt bestätigt und behoben.</p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="contact?produkt=security" class="btn-cta security-btn" data-i18n="cta_get_in_touch">Jetzt anfragen</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <nav class="footer-nav" aria-labelledby="footer-nav-label">
+        <h2 id="footer-nav-label" class="visually-hidden" data-i18n="footer_nav_label">Seiten</h2>
+        <a href="index" data-i18n="nav_home">Start</a>
+        <a href="services" data-i18n="nav_services">Lösungen</a>
+        <a href="security" data-i18n="offer_security_title">Sicherheitsanalyse</a>
+        <a href="about" data-i18n="nav_about">Über mich</a>
+        <a href="templates/" data-i18n="nav_examples">Beispiele</a>
+        <a href="contact" data-i18n="nav_contact">Kontakt</a>
+      </nav>
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/liviana-widget.js"></script>
+</body>
+</html>

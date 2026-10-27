@@ -1639,6 +1639,43 @@ footer p {
   margin-bottom: var(--spacing-sm);
 }
 
+/* Ein Titel mit ganzem Satz statt Produktname (security.html). In der
+   breiten Schrift läuft "Sicherheitsanalyse" in der normalen Grösse auf dem
+   Telefon über den Rand. */
+.product-title--long {
+  font-size: clamp(1.35rem, 4.5vw, 3rem);
+  line-height: 1.2;
+  hyphens: auto;
+}
+
+/* Was wir prüfen: zwei Zeilen, je ein Bereich mit seinem Umfang. */
+.security-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.security-list li {
+  padding: var(--spacing-xs) 0 var(--spacing-xs) 1rem;
+  border-left: 2px solid var(--security-start);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.security-list strong {
+  color: var(--color-text);
+}
+
+.security-page .product-section p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.security-page .process-step-number {
+  color: var(--security-start);
+}
+
 .product-subtitle {
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   color: var(--color-text-secondary);
