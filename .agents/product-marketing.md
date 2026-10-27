@@ -228,8 +228,9 @@ but marked `TODO(Javi): confirmar` until Javi confirms it.
   "check" is banned on this service.
 - Link: *"Mehr zur Sicherheitsanalyse"* / *"More about the security assessment"*
 
-**Not in the main nav** (footer only, on every commercial page). Whether it joins the menu is an open
-decision for Javi.
+**In the main nav since 2026-10-27, Javi's call** ("esto es super importante"): label *"Sicherheit"* /
+*"Security"*, between Lösungen and Beispiele, on every commercial page, plus the footer link. The
+short label is a nav label, not the service name; the page it opens carries the full name and scope.
 
 ---
 

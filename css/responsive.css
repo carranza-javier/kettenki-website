@@ -29,6 +29,44 @@
   }
 }
 
+/* Menü zwischen Tablet und Desktop: Seit "Sicherheit" im Menü steht
+   (2026-10-27), passt die Zeile mit dem vollen Abstand erst ab gut 1000 px.
+   Schon vorher ragte der Sprachumschalter bei 770 px über den Rand. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .nav-menu a {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .lang-selector {
+    margin-left: 0;
+    padding-left: 1rem;
+  }
+}
+
+/* Knapp über dem Hamburger-Menü wird es noch enger. */
+@media (min-width: 769px) and (max-width: 900px) {
+  nav {
+    padding-inline: 1rem;
+  }
+
+  .nav-menu {
+    gap: 0.75rem;
+  }
+
+  .nav-menu a {
+    font-size: 0.8rem;
+  }
+
+  .lang-option {
+    padding: 0.35rem 0.55rem;
+  }
+}
+
 /* Tablets */
 @media (max-width: 768px) {
   :root {
