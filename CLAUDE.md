@@ -40,5 +40,6 @@ copy decisions in `.agents/product-marketing.md`.
   language, technology or date from any third party. **Never write "CVE"** or any vulnerability
   identifier; none is published. Never name tools or operating systems, and never use AI or the
   internal toolchain as a selling point. Not "Audit", not "Check"/"Security-Check", not "Cyber
-  Security" as a name, and no free/price wording on this service.
+  Security" as a name, not bare "Code-Review" (it is "Quellcode-Sicherheitsprüfung" / "Security Code
+  Review"), nothing suggesting compliance or certification, and no free/price wording on this service.
 - **Nothing is deployed** without Javi's explicit go-ahead.

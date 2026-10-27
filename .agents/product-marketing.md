@@ -1,6 +1,6 @@
 # Product Marketing Context
 
-**Document version:** v17
+**Document version:** v18
 **Last updated:** 2026-10-27
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
@@ -190,7 +190,10 @@ writing up front."*
 can become its own page without rewriting):
 1. **Sicherheitsanalyse** (`#was-wir-pruefen`, `#bericht`, `#ablauf`): tested without exploiting
    anything, delivered as a report.
-2. **Code-Review** (`#code-review`): reading the source code, on request.
+2. **Quellcode-Sicherheitsprüfung** / EN **Security Code Review** (`#quellcode`): reviewing the
+   source code for security weaknesses, on request. The German text names "Security Code Review"
+   once, in brackets. **Bare "Code-Review" is rejected** in any text: it reads as the peer review
+   between teammates, not as a security service.
 3. **Penetrationstest** (`#penetrationstest`): on request only, with written authorisation and an
    agreed scope.
 The card talks about the assessment and mentions the code; it never leads with the penetration test.
@@ -204,9 +207,9 @@ are never a selling argument here either.
 **CVE rule — never.** No CVE has been published, and none is ever written. The only permitted claim
 about responsible disclosure, verbatim, nothing added:
 - DE: *"Erfahrung mit verantwortungsvoller Offenlegung: eine Schwachstelle in einem
-  Open-Source-Projekt per Code-Review gefunden und gemeldet, vom Projekt bestätigt und behoben."*
+  Open-Source-Projekt durch Analyse des Quellcodes gefunden und gemeldet, vom Projekt bestätigt und behoben."*
 - EN: *"Experience with responsible disclosure: found a vulnerability in an open-source project
-  through code review and reported it, confirmed and fixed by the project."*
+  by analysing the source code and reported it, confirmed and fixed by the project."*
 
 The practice claim (*"Praxis in der Sicherheitsanalyse von Web-Anwendungen und KI-Produkten."* /
 *"Hands-on practice analysing the security of web applications and AI products."*) is on the page
@@ -321,7 +324,9 @@ older dashes in the `services` copy and in code comments are still there and are
 - Hype register: revolutionär, disruptiv, bahnbrechend, "KI-Revolution". The site is deliberately
   sober and a single ad-line breaks it.
 - Any claim that BAMBERA is in active production or daily use — see Proof Points.
-- On the security service: "Audit", "Check" / "Security-Check", "Cyber Security" as a name, "CVE" or
+- On the security service: "Audit", "Check" / "Security-Check", "Cyber Security" as a name, bare
+  "Code-Review" (use "Quellcode-Sicherheitsprüfung" / "Security Code Review"), anything suggesting
+  regulatory compliance or certification, "CVE" or
   any identifier, tool or OS names, free/price wording, and any third-party detail. See the
   Sicherheitsanalyse section.
 
@@ -719,6 +724,10 @@ person.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v18 (2026-10-27) — **Second rung renamed: "Code-Review" → "Quellcode-Sicherheitsprüfung" / "Security
+  Code Review"**, section id `#quellcode`. Bare "Code-Review" rejected because it is confused with the
+  peer review between teammates. The verbatim disclosure sentence now says *"durch Analyse des
+  Quellcodes"* / *"by analysing the source code"*. Nothing may suggest compliance or certification.
 - v17 (2026-10-27) — **Fourth service line: Sicherheitsanalyse / Security Assessment**, for apps,
   websites and AI products. New section records the names (adopted; "Security-Check" and "Cyber
   Security" rejected, "Audit" banned), the exception to "Erst entwickeln, dann entscheiden" (no
