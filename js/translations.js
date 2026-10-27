@@ -24,6 +24,14 @@ const translations = {
     offer_chatbots_link: 'KI-Chatbots ansehen',
     offer_websites_link: 'Websites ansehen',
     offer_apps_link: 'Apps nach Mass ansehen',
+    /* Vierte Karte seit dem 2026-10-27: die Sicherheitsanalyse. Sie läuft
+       nicht über "erst entwickeln, dann entscheiden", deshalb steht auf der
+       Karte eine eigene Zeile zum Ablauf. Der Name steht nie ohne Umfang. */
+    offer_security_title: 'Sicherheitsanalyse',
+    offer_security_scope: 'für Apps, Websites und KI-Produkte',
+    offer_security_text: 'Wir prüfen deine App, Website oder dein KI-Produkt auf Schwachstellen, bevor es jemand anderes findet: Zugriffskontrolle, API, exponierte Dienste, bei KI-Produkten auch Prompt-Injection und Guardrails. Auf Wunsch lesen wir auch den Quellcode. Du bekommst einen klaren Bericht mit dem, was zählt, ohne Alarmismus.',
+    offer_security_process: 'Wir klären Umfang und Rahmen vorab schriftlich.',
+    offer_security_link: 'Mehr zur Sicherheitsanalyse',
     /* Der Hauptaufruf der Startseite, direkt hinter dem Ablauf: Dort endet
        gerade der Satz, dass nichts kostet, was nicht überzeugt. */
     home_cta_text: 'Erzähl uns, was du brauchst. Der erste Schritt kostet dich nichts.',
@@ -64,6 +72,8 @@ const translations = {
     process_step_2: 'Wir entwickeln eine erste funktionierende Version.',
     process_step_3: 'Überzeugt dich das Ergebnis, besprechen wir die nächsten Schritte.',
     process_step_4: 'Andernfalls entstehen für dich keine Kosten.',
+    /* Grenzt den Ablauf darüber ab: Er gilt nicht für die Sicherheitsanalyse. */
+    process_note: 'Dieser Ablauf gilt für Chatbots, Websites und Apps. Bei der Sicherheitsanalyse klären wir Umfang und Rahmen vorab schriftlich.',
     
     about_title: 'Über mich',
     about_text: 'Javier Carranza ist ein Softwareingenieur, der bewusst abseits des Lärms und der Eile arbeitet, die die heutige Technologiewelt dominieren. Mit mehr als 14 Jahren Erfahrung in internationalen Projekten verfügt er über umfassende Kenntnisse in unterschiedlichsten technischen Umgebungen.',
@@ -91,6 +101,8 @@ const translations = {
     services_ai_title: 'KI-Lösungen',
     services_custom_title: 'Individuelle Entwicklung',
     services_promise_title: 'Kein Risiko für dich',
+    services_promise_scope: 'Gilt für Chatbots, Websites und Apps.',
+    services_security_title: 'Sicherheit',
     services_disclaimer_title: 'Was diese Prototypen sind',
     services_disclaimer_text: 'Diese Lösungen sind experimentelle Prototypen. Sie sind kostenlos zum Testen, funktional und getestet, aber ohne Garantie oder SLA. Bei Erfolg: Gemeinsame Weiterentwicklung möglich.',
     
@@ -551,6 +563,11 @@ const translations = {
     offer_chatbots_link: 'See AI chatbots',
     offer_websites_link: 'See websites',
     offer_apps_link: 'See custom apps',
+    offer_security_title: 'Security Assessment',
+    offer_security_scope: 'for apps, websites and AI products',
+    offer_security_text: 'We check your app, website or AI product for weaknesses before someone else does: access control, API, exposed services, and for AI products also prompt injection and guardrails. On request we also read the source code. You get a clear report with what matters, no scaremongering.',
+    offer_security_process: 'We agree scope and ground rules in writing up front.',
+    offer_security_link: 'More about the security assessment',
     home_cta_text: 'Tell us what you need. The first step costs you nothing.',
     offer_websites_detail: 'Responsive, fast and with the SEO basics for Google.',
     offer_apps_detail: 'Built to your requirements, with a clear scope from the start.',
@@ -580,6 +597,7 @@ const translations = {
     process_step_2: 'We build a first working version.',
     process_step_3: 'If the result convinces you, we discuss the next steps.',
     process_step_4: 'Otherwise, there are no costs for you.',
+    process_note: 'This process applies to chatbots, websites and apps. For the security assessment, we agree scope and ground rules in writing up front.',
     
     about_title: 'About Me',
     about_text: 'Javier Carranza is a software engineer who deliberately works away from the noise and rush that dominate today\'s technology world. With over 14 years of experience in international projects, he has extensive knowledge in a wide range of technical environments.',
@@ -602,6 +620,8 @@ const translations = {
     services_ai_title: 'AI Solutions',
     services_custom_title: 'Custom Development',
     services_promise_title: 'No risk for you',
+    services_promise_scope: 'Applies to chatbots, websites and apps.',
+    services_security_title: 'Security',
     services_disclaimer_title: 'What these prototypes are',
     services_disclaimer_text: 'These solutions are experimental prototypes. They are free to test, functional and tested, but without guarantee or SLA. On success: Joint development possible.',
     

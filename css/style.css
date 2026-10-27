@@ -24,6 +24,8 @@
   --websites-end: #00d4ff;
   --apps-start: #b388ff;
   --apps-end: #6c5ce7;
+  --security-start: #ff4d8d;
+  --security-end: #ff85b8;
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -1142,9 +1144,12 @@ footer p {
    Kartenfläche machen sie auf einen Blick unterscheidbar.
    --offer-accent trägt die Farbe der jeweiligen Karte, gesetzt weiter unten
    von den drei Modifikatoren, und speist Strich und Maskottchenkreis. */
+/* Seit der vierten Karte (2026-10-27) zwei mal zwei statt drei nebeneinander:
+   Vier Spalten wären bei 1280 px knapp 270 px schmal, und die
+   Sicherheitskarte trägt deutlich mehr Text als die anderen drei. */
 .offer-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-md);
   /* Jede Karte endet an ihrem eigenen Inhalt. Ohne das streckt das Raster alle
      drei auf die Höhe der längsten, und die beiden kurzen bekommen unten ein
@@ -1158,12 +1163,8 @@ footer p {
    Nur solange die Karten nebeneinander stehen. Untereinander kommt jede
    ohnehin einzeln ins Bild, eine Verzögerung wäre dort nur Warten. */
 @media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
-  .offer-grid .fade-in:nth-child(2) {
+  .offer-grid .fade-in:nth-child(even) {
     transition-delay: 0.15s;
-  }
-
-  .offer-grid .fade-in:nth-child(3) {
-    transition-delay: 0.3s;
   }
 }
 
@@ -1187,6 +1188,12 @@ footer p {
 
 .offer-card--apps {
   --offer-accent: #ffa94d;
+}
+
+/* Magenta, weit genug weg von Cyan, Grün und Amber. Auf der Kartenfläche
+   #141414 liegt der Kontrast bei rund 5.9:1, also AA auch für den Linktext. */
+.offer-card--security {
+  --offer-accent: var(--security-start);
 }
 
 /* Maskottchen oben links, im Kreis in der Akzentfarbe der Karte bei 12 Prozent
@@ -1224,6 +1231,23 @@ footer p {
   margin-bottom: 0;
 }
 
+/* Umfang direkt unter dem Titel: Der Name der Sicherheitsanalyse steht nie
+   ohne ihn. */
+.offer-scope {
+  font-size: 14px;
+  color: var(--offer-accent);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Ablaufzeile am Ende der Karte, abgesetzt vom Beschreibungstext. */
+.offer-process {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #c9c9c9;
+  margin-top: var(--spacing-xs);
+  margin-bottom: 0;
+}
+
 /* Gegenstück zum Hinweiskasten des ersten Abschnitts: gleiche Bauweise, aber
    in den Akzentfarben statt in Warnfarben. Der erste Abschnitt warnt vor
    Prototypen ohne Garantie, dieser hier verspricht das Gegenteil, und beide
@@ -1248,6 +1272,12 @@ footer p {
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
+}
+
+/* Die Abgrenzung unter dem Versprechen: für wen es gilt. */
+.promise-box p + p {
+  margin-top: var(--spacing-xs);
+  font-size: 0.9rem;
 }
 
 /* Der Ablauf steht unter den drei Blöcken und trägt die ganze Breite, damit er
@@ -1289,6 +1319,16 @@ footer p {
   font-size: 14px;
   line-height: 1.6;
   color: #c9c9c9;
+}
+
+/* Grenzt den Ablauf ab: Er gilt nicht für die Sicherheitsanalyse. Leise
+   gesetzt, damit er die vier Schritte nicht übertönt. */
+.process-note {
+  margin-top: var(--spacing-md);
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
 }
 
 /* Products Grid (2+1 layout) */
@@ -1384,6 +1424,31 @@ footer p {
   box-shadow: 0 20px 40px rgba(179, 136, 255, 0.15);
 }
 
+.product-card.security-card::before {
+  background: linear-gradient(90deg, var(--security-start), var(--security-end));
+}
+
+.product-card.security-card:hover {
+  border-color: var(--security-start);
+  box-shadow: 0 20px 40px rgba(255, 77, 141, 0.15);
+}
+
+/* Ein Abschnitt mit nur einer Karte: mittig und so breit wie die
+   alleinstehende dritte Karte der anderen Abschnitte, statt in der linken
+   Spalte eines leeren Zweierrasters. */
+.products-grid--single {
+  grid-template-columns: minmax(0, 600px);
+  justify-content: center;
+}
+
+/* Ablaufzeile der Sicherheitskarte, zwischen Beschreibung und Links. */
+.product-note {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
 /* Product Name with Gradients */
 .product-name {
   font-size: 2rem;
@@ -1421,6 +1486,13 @@ footer p {
 
 .apps-gradient {
   background: linear-gradient(135deg, var(--apps-start), var(--apps-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.security-gradient {
+  background: linear-gradient(135deg, var(--security-start), var(--security-end));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1525,6 +1597,17 @@ footer p {
 .apps-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(179, 136, 255, 0.3);
+}
+
+.security-btn {
+  background: linear-gradient(135deg, var(--security-start), var(--security-end));
+  border-color: transparent;
+  color: var(--color-bg);
+}
+
+.security-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 77, 141, 0.3);
 }
 
 /* ============================================
@@ -2934,6 +3017,10 @@ body.theme-light .blog-post li {
 
 .product-examples:hover {
   border-bottom-color: currentColor;
+}
+
+.product-examples--security {
+  color: var(--security-start);
 }
 
 /* ---------- Beispiele ----------
