@@ -112,7 +112,7 @@
       </form>
 
       <p class="liviana-disclaimer" data-i18n="chat_disclaimer">
-        Prototyp. Antworten können Fehler enthalten.
+        Antworten können Fehler enthalten.
       </p>
     </div>
   `;
