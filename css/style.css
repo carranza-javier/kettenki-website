@@ -3039,6 +3039,88 @@ body.theme-light .blog-post li {
   color: var(--color-accent-start);
 }
 
+/* Impressum und Datenschutz: eine zweite, leisere Zeile unter den Seiten.
+   Steht auf jeder Seite, auch in Portfolio und Blog, die sonst keine
+   Fussnavigation haben. */
+.footer-legal {
+  gap: var(--spacing-xs) var(--spacing-sm);
+}
+
+.footer-legal a {
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
+/* ============================================
+   RECHTLICHE SEITEN (impressum.html, datenschutz.html)
+   Schmale Lesespalte, kleine Zwischentitel. Bewusst div statt section für
+   die Abschnitte: section trägt seitenweites Padding.
+   ============================================ */
+.legal-page {
+  max-width: 760px;
+}
+
+/* "Datenschutzerklärung" ist ein einziges langes Wort und lief in der
+   breiten Schrift auf 390 px über den Rand. */
+.legal-page .section-title {
+  font-size: clamp(1.4rem, 6vw, 2.6rem);
+  hyphens: auto;
+}
+
+.legal-updated {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.legal-intro {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
+.legal-short {
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-accent-start);
+  border-radius: 8px;
+}
+
+.legal-short ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.legal-short li {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.legal-short h2,
+.legal-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+}
+
+.legal-section {
+  margin-bottom: var(--spacing-md);
+}
+
+.legal-section p {
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.legal-section a {
+  color: var(--color-accent-start);
+}
+
+.legal-section a:hover {
+  text-decoration: underline;
+}
+
 /* Link von der Websites-Karte zu den Beispielen. Er sieht bewusst nicht wie
    der Knopf darunter aus: Anschauen ist der kleinere Schritt. */
 .product-examples {

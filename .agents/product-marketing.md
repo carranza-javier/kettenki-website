@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v19
-**Last updated:** 2026-10-27
+**Document version:** v20
+**Last updated:** 2026-11-15
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
 > quoted verbatim in German and English and must be copied exactly, never re-translated.**
@@ -675,6 +675,35 @@ person.
 - **`sameAs` LinkedIn moved from the Person to the organisation** — it is the company page.
 - **No `logo`**: the site has no logo file; the text logo is not an image.
 
+## Page notes — `impressum.html` and `datenschutz.html` (legal)
+
+Added 2026-11-15, linked from a second, quieter footer row (`Impressum · Datenschutz` / `Legal notice ·
+Privacy`) on every page with a footer, portfolio and blog included. Before that the site had neither,
+although the contact form and LIVIANA both handle personal data.
+
+**The privacy policy is also the trust page.** It opens with a four-line box, canonical copy:
+- DE *"Kurz gesagt"*: *"Wir setzen keine Cookies."* / *"Kein Tracking, keine Besucherstatistik, keine
+  Werbung."* / *"Was du uns schreibst, verwenden wir nur, um dir zu antworten. Wir verkaufen keine
+  Daten."* / *"Gespräche mit Liviana werden nach 24 Stunden gelöscht."*
+- EN *"In short"*: *"We do not set cookies."* / *"No tracking, no visitor statistics, no advertising."* /
+  *"What you write to us is used only to answer you. We do not sell data."* / *"Conversations with
+  Liviana are deleted after 24 hours."*
+
+These four lines are true today and are a real differentiator for a Swiss SME owner, who is used to
+cookie banners everywhere. They stop being true the moment analytics, a pixel or a new third party is
+added, so any such change must update the page in the same commit (see `PROJECT-STATUS.md`).
+
+**Rules for this copy:** same voice as the rest of the commercial site (du, wir, short sentences, no
+legal padding); every statement must be backed by the code, never by assumption; no compliance or
+certification wording (the page says the policy is *based on* the DSG, it does not claim conformity);
+the LIVIANA paragraph names AWS and Amazon Bedrock because that is a disclosure duty, not a selling
+point, and the security service is not mentioned. The imprint names the person (Javier Carranza) as
+responsible, never a size or a structure ("Inhaber", "Einzelunternehmen" and the like stay out).
+
+**Deliberately not built:** a separate "Vertrauen" page (nothing to put on it beyond the box above
+until a client quote exists, see Proof Points), terms and conditions (nothing is sold or booked on the
+site), a cookie banner (no cookies).
+
 ## Open questions
 
 1. **Pricing model.** Fixed price per project, hourly, or retainer? Required before any pricing,
@@ -730,6 +759,10 @@ person.
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v20 (2026-11-15) — **Legal pages: Impressum and Datenschutzerklärung**, linked in every footer. The
+  privacy policy opens with a four-line "Kurz gesagt" box that doubles as the trust statement (no cookies,
+  no tracking, data only to answer, chat deleted after 24 hours); canonical copy and rules recorded under
+  the new page notes. No separate trust page, no terms, no cookie banner, and why.
 - v19 (2026-10-27) — **Experience section on `/security` dropped**, together with the practice claim, the
   responsible-disclosure sentence and its `TODO(Javi)`: one anecdote takes credibility away instead of
   adding it. Replaced by a `#warum` section on the angle *"we build software"*. No experience claims of

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Datenschutzerklärung | KettenKI</title>
+  <meta name="description" content="Keine Cookies, kein Tracking, keine Werbung. Welche Daten beim Besuch von kettenki.com anfallen, wofür wir sie verwenden und wie lange sie bleiben.">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://kettenki.com/datenschutz">
+
+  <!-- Language Alternates -->
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/datenschutz">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/datenschutz">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/liviana-widget.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index" class="logo">KettenKI</a>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="index" data-i18n="nav_home">Start</a></li>
+        <li><a href="about" data-i18n="nav_about">Über mich</a></li>
+        <li class="nav-item-dropdown">
+          <a href="services" data-i18n="nav_services">Lösungen</a>
+          <button type="button" class="nav-submenu-toggle" aria-expanded="false" aria-controls="nav-submenu-solutions" data-i18n-aria-label="nav_submenu_toggle">
+            <span class="nav-caret" aria-hidden="true"></span>
+          </button>
+          <div class="nav-submenu-wrap" id="nav-submenu-solutions">
+            <ul class="nav-submenu">
+              <li><a href="services#custom-development" data-i18n="services_custom_title">Individuelle Entwicklung</a></li>
+              <li><a href="services#ai-solutions" data-i18n="services_ai_title">KI-Lösungen</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="security" data-i18n="nav_security">Sicherheit</a></li>
+        <li><a href="templates/" data-i18n="nav_examples">Beispiele</a></li>
+        <li><a href="contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Datenschutzerklärung, seit dem 2026-11-15. Jede Aussage hier ist im
+       Code belegt, nicht angenommen:
+       - Hosting: GitHub Pages (CNAME, _config.yml).
+       - Schriften: fonts.googleapis.com in jedem <head>.
+       - Formular: js/contact-form.js → API in eu-central-1 → SES → Postfach
+         bei Zoho; Felder name, email, company, message, interest; Lambda-Logs
+         ohne Texte, 30 Tage (kettenki-liviana, infra/contact.yaml).
+       - Chat: js/liviana-widget.js (Kennung in localStorage, keine Cookies);
+         Verlauf in DynamoDB mit TTL 24 h, Bedrock über EU-Inferenzprofil,
+         Zugriffsprotokoll mit IP 14 Tage, Nachrichtentexte nicht protokolliert
+         (kettenki-liviana, infra/template.yaml, src/liviana/app.py).
+       - Beispiele: localStorage in templates/*/js, Google-Maps-iframe in
+         templates/deutsche-schule/index.html.
+       Ändert sich eines davon, muss diese Seite mit. -->
+  <main>
+    <section class="container legal-page">
+      <h1 class="section-title" data-i18n="privacy_title">Datenschutzerklärung</h1>
+      <p class="legal-updated" data-i18n="privacy_updated">Stand: 15. November 2026</p>
+
+      <p class="legal-intro" data-i18n="privacy_intro">Hier steht, welche Personendaten beim Besuch dieser Website anfallen, wofür wir sie verwenden und wie lange sie bleiben. Grundlage ist das Schweizer Datenschutzgesetz (DSG).</p>
+
+      <div class="legal-short">
+        <h2 data-i18n="privacy_short_title">Kurz gesagt</h2>
+        <ul>
+          <li data-i18n="privacy_short_1">Wir setzen keine Cookies.</li>
+          <li data-i18n="privacy_short_2">Kein Tracking, keine Besucherstatistik, keine Werbung.</li>
+          <li data-i18n="privacy_short_3">Was du uns schreibst, verwenden wir nur, um dir zu antworten. Wir verkaufen keine Daten.</li>
+          <li data-i18n="privacy_short_4">Gespräche mit Liviana werden nach 24 Stunden gelöscht.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="legal_responsible_title">Verantwortlich</h2>
+        <p class="legal-address">
+          KettenKI<br>
+          Javier Carranza<br>
+          <span data-i18n="legal_country">Bern, Schweiz</span><br>
+          <a href="mailto:info@kettenki.com">info@kettenki.com</a>
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_hosting_title">Besuch der Website</h2>
+        <p data-i18n="privacy_hosting_text">Die Website liegt bei GitHub Pages, einem Dienst der GitHub Inc. in den USA. Beim Aufruf einer Seite erhält GitHub technisch bedingt deine IP-Adresse und übliche Angaben deines Browsers, etwa Uhrzeit, aufgerufene Seite und Browsertyp. GitHub verwendet diese Angaben, um die Seiten auszuliefern und vor Missbrauch zu schützen. Wir selbst bekommen sie nicht zu sehen.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_fonts_title">Schriften</h2>
+        <p data-i18n="privacy_fonts_text">Die Schriften dieser Website lädt dein Browser von Google Fonts, einem Dienst der Google LLC in den USA. Dabei erhält Google deine IP-Adresse.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_form_title">Kontaktformular und E-Mail</h2>
+        <p data-i18n="privacy_form_text">Wenn du das Kontaktformular abschickst, übermitteln wir deinen Namen, deine E-Mail-Adresse, deine Nachricht und, falls angegeben, dein Unternehmen und das Thema deiner Anfrage. Der Versand läuft über Amazon Web Services (AWS) in Frankfurt am Main an unser E-Mail-Postfach bei Zoho. Schreibst du uns direkt per E-Mail, landet die Nachricht im selben Postfach.</p>
+        <p data-i18n="privacy_form_use">Wir verwenden diese Angaben nur, um deine Anfrage zu beantworten, und geben sie nicht weiter. Die Nachricht bleibt in unserem Postfach, solange die Anfrage oder ein daraus entstandenes Projekt es braucht. Die technischen Protokolle des Versands enthalten keine Nachrichtentexte und werden nach 30 Tagen gelöscht.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_chat_title">Chat mit Liviana</h2>
+        <p data-i18n="privacy_chat_text">Liviana beantwortet Fragen zu KettenKI. Was du im Chat schreibst, geht an unseren Server bei AWS in Frankfurt am Main. Die Antwort erzeugt ein KI-Sprachmodell über den Dienst Amazon Bedrock, innerhalb der EU.</p>
+        <p data-i18n="privacy_chat_memory">Damit Liviana den Faden behält, speichert der Server das Gespräch unter einer zufälligen Kennung, die nichts über dich verrät. Diese Kennung liegt im Speicher deines Browsers. Nach 24 Stunden wird das Gespräch automatisch gelöscht.</p>
+        <p data-i18n="privacy_chat_logs">Zum Schutz vor Missbrauch zählt der Server kurzzeitig mit, wie viele Nachrichten von einer Kennung oder IP-Adresse kommen, und protokolliert jede Anfrage mit IP-Adresse, aber ohne den Text deiner Nachricht. Diese Protokolle werden nach 14 Tagen gelöscht.</p>
+        <p data-i18n="privacy_chat_training">Wir verwenden deine Nachrichten nicht zum Training von Modellen. AWS verwendet sie nach eigenen Angaben ebenfalls nicht dafür und gibt sie nicht an die Hersteller der Modelle weiter.</p>
+        <p data-i18n="privacy_chat_hint">Bitte gib im Chat keine sensiblen Daten ein, etwa Gesundheitsdaten oder Passwörter. Für alles Persönliche ist das Kontaktformular der bessere Weg.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_storage_title">Speicher in deinem Browser</h2>
+        <p data-i18n="privacy_storage_text">Wir setzen keine Cookies. Im Speicher deines Browsers (localStorage) legen wir nur zwei Einträge ab: die gewählte Sprache und die Kennung des Chats mit Liviana. Die Sprache verlässt deinen Browser nie, die Kennung nur zusammen mit einer Nachricht an Liviana. Du kannst beide jederzeit in den Einstellungen deines Browsers löschen.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_examples_title">Beispielseiten</h2>
+        <p data-i18n="privacy_examples_text">Die Seiten unter Beispiele sind erfunden. Warenkorb, Anmeldung und Buchungen dort speichern ihre Angaben nur in deinem Browser und senden nichts an uns. Eine dieser Seiten zeigt eine Karte von Google Maps. Beim Laden der Karte erhält Google deine IP-Adresse und kann eigene Cookies setzen.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_abroad_title">Weitergabe und Ausland</h2>
+        <p data-i18n="privacy_abroad_text">Wir verkaufen keine Daten und geben sie nicht für Werbung weiter. Die oben genannten Anbieter bearbeiten Daten zum Teil ausserhalb der Schweiz, in der EU und in den USA. Für die USA stützen sie sich auf das Swiss-U.S. Data Privacy Framework oder auf Standardvertragsklauseln.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_security_title">Sicherheit</h2>
+        <p data-i18n="privacy_security_text">Alle Verbindungen zur Website, zum Kontaktformular und zum Chat laufen verschlüsselt über HTTPS. Gespeicherte Gespräche liegen verschlüsselt.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_rights_title">Deine Rechte</h2>
+        <p><span data-i18n="privacy_rights_text">Du kannst jederzeit erfahren, welche Daten wir über dich haben, und sie berichtigen oder löschen lassen. Schreib dafür an</span> <a href="mailto:info@kettenki.com">info@kettenki.com</a>.</p>
+        <p data-i18n="privacy_rights_authority">Wenn du findest, dass wir mit deinen Daten nicht richtig umgehen, kannst du dich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) beschweren. Wohnst du in der EU, hast du die Rechte nach der DSGVO, darunter die Beschwerde bei der Aufsichtsbehörde deines Landes.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2 data-i18n="privacy_changes_title">Änderungen</h2>
+        <p data-i18n="privacy_changes_text">Ändert sich etwas an der Website, passen wir diese Erklärung an. Es gilt die Fassung auf dieser Seite.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <nav class="footer-nav" aria-labelledby="footer-nav-label">
+        <h2 id="footer-nav-label" class="visually-hidden" data-i18n="footer_nav_label">Seiten</h2>
+        <a href="index" data-i18n="nav_home">Start</a>
+        <a href="services" data-i18n="nav_services">Lösungen</a>
+        <a href="security" data-i18n="offer_security_title">Sicherheitsanalyse</a>
+        <a href="about" data-i18n="nav_about">Über mich</a>
+        <a href="templates/" data-i18n="nav_examples">Beispiele</a>
+        <a href="contact" data-i18n="nav_contact">Kontakt</a>
+      </nav>
+      <nav class="footer-nav footer-legal" aria-labelledby="footer-legal-label">
+        <h2 id="footer-legal-label" class="visually-hidden" data-i18n="footer_legal_label">Rechtliches</h2>
+        <a href="impressum" data-i18n="footer_imprint">Impressum</a>
+        <a href="datenschutz" data-i18n="footer_privacy">Datenschutz</a>
+      </nav>
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/liviana-widget.js"></script>
+</body>
+</html>
