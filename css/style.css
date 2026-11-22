@@ -2743,6 +2743,28 @@ img.portfolio-thumbnail-placeholder {
   margin-bottom: var(--spacing-sm);
 }
 
+/* A prompt the reader copies (first used in switch-seats). The line breaks
+   are part of the text, so they are kept (pre-wrap); long lines wrap
+   instead of scrolling sideways on a phone. The text comes in through
+   textContent, so the newlines live in the translation key itself. */
+.blog-post .blog-prompt {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: hidden;
+}
+
+.blog-post .blog-prompt code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
 /* ============================================
    ABOUT -> PORTFOLIO CALLOUT
    ============================================ */

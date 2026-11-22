@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-11-15 (Impressum und Datenschutzerklärung live, im Fuss jeder Seite verlinkt)_
+_Letzte Aktualisierung: 2026-11-22 (Blog-Post "Die Seiten wechseln", erster Post mit dem Tag KI)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -535,6 +535,12 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Karte in Beispiele (`templates/img/art-gallery-{lg,sm}.webp`):** kein Bildschirmfoto mehr, sondern *Pulsschlag* selbst, die Installation in der dunklen Halle mit den Besuchern am Rand, die den Massstab geben. Ganzes Bild ohne Beschnitt auf 1200×675 und 600×338, WebP Qualität 78 (97 und 29 KB, schwerer als die Bildschirmfotos, weil es ein Foto ist). Die Karte zeigt 16:9 mit `object-fit: cover`, also passt das Bild ohne Anschnitt; `height` am `<img>` von 521 auf 675. **Damit weicht die Galeriekarte bewusst vom Muster "Bildschirmfoto des Auftakts" der zwei Geschwister ab.**
   - **Geprüft** auf `python -m http.server` mit Chrome headless: Auftakt bei 1920, 1440 und 1100 px sowie in 390- und 320-px-iframes (Arbeit jeweils im ersten Bildschirm), Reihenfolge im gerenderten DOM (fünfte Zelle *09 Pulsschlag* mit `<video>`), Beispiele-Seite mit der neuen Karte. Auf einem echten Gerät weiterhin nicht (siehe Offen).
 
+- [x] **Blog-Post "Die Seiten wechseln" / "Switch Seats"** (`blog/switch-seats.html`, 2026-11-22), erster Post mit dem Tag **KI** (Key `blog_filter_ai` gab es schon, der Filter in `blog/index.html` zeigt "KI" von selbst, weil `js/blog-filter.js` die Tags aus den Einträgen liest). Text DE/EN 1:1 aus Javis Brief, 4 min Lesezeit, neuer Eintrag ganz oben im Index mit eigener Miniatur (zwei Kreise mit Bögen, "Platz tauschen").
+  - **Bild** `blog/img/switch-seats/switch-seats.jpg` (1376×768, neu kodiert mit JPEG-Qualität 82: 820 KB → 220 KB), nach den vier Einleitungsabsätzen vor der ersten H2, Klasse `.context-hero-img` wie bei Clean Code. Alt-Text DE/EN aus dem Brief (`switchseats_alt_image`). Dient auch als `og:image`.
+  - **Prompt als Codeblock**: neue Klasse `.blog-prompt` (`<pre><code>`) in `css/style.css`. Die Zeilenumbrüche stecken als `\n` im Key `switchseats_prompt`, weil `updateContent()` `textContent` setzt und `<pre>` sie so erhält. `white-space: pre-wrap` und `overflow-wrap: anywhere`: lange Zeilen brechen um, kein seitliches Scrollen.
+  - 28 neue Keys `switchseats_*` je Sprache, die deutschen Werte direkt aus dem HTML-Fallback erzeugt (damit beide gleich bleiben). Parität geprüft: 576 Keys je Sprache, Prompt in beiden Sprachen 17 Zeilen.
+  - **Geprüft** auf `python -m http.server` mit Chrome headless: 1280 px, sowie in 390- und 360-px-iframes (Codeblock bricht um, keine horizontale Scrollleiste). Index zeigt Filter `Alle | KI | Software Engineering | Java & Architektur`. EN nur über die Keys geprüft, nicht gerendert. **Nicht deployt.**
+
 ## Blockiert — wartet auf Input
 
 _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind geliefert und eingebaut (siehe Erledigt)._
@@ -552,7 +558,7 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
    Die Abschnittsform (`aspect-ratio: 16 / 9`) und der Abstand zum Angebot gelten dagegen als abgenommen.
 3. **Javi liest die deutsche Fassung von `railtrack_context` in `js/translations.js` gegen** (der literarische Einstieg "Als Liebhaber von Zügen und Schweizer Pünktlichkeit…" — bewusst nicht flach übersetzt, aber noch nicht von Javi freigegeben).
 4. **Liviana ist live.** Javi geht am besten einmal selbst mit dem Handy und am Rechner über die sieben kommerziellen Seiten und stellt ein paar echte Fragen. Bei Arbeiten am Widget gilt weiter: von `localhost` aus antwortet die API nicht (`AllowedOrigin` ist `https://kettenki.com`), für die Optik `?mock=true` anhängen.
-5. **Alle 6 Portfolio-Fichen sind vollständig** (die 4 kuratierten aus `SPEC.md` 5.3 plus La Guitarrita). **Live sind zwei Blog-Posts** (Canary-Migration und Clean Code); der dritte (Responsible Disclosure) ist fertig, liegt auf `draft/responsible-disclosure` und wartet darauf, dass das Fix-Release des betroffenen Projekts erscheint, siehe Erledigt und Offen. Nächster inhaltlicher Block ist ein weiterer Blog-Post.
+5. **Alle 6 Portfolio-Fichen sind vollständig** (die 4 kuratierten aus `SPEC.md` 5.3 plus La Guitarrita). **Live sind zwei Blog-Posts** (Canary-Migration und Clean Code), ein dritter ("Die Seiten wechseln", Tag KI) ist fertig und wartet auf Javis Freigabe zum Deployen; der dritte (Responsible Disclosure) ist fertig, liegt auf `draft/responsible-disclosure` und wartet darauf, dass das Fix-Release des betroffenen Projekts erscheint, siehe Erledigt und Offen. Nächster inhaltlicher Block ist ein weiterer Blog-Post.
 
 ## Offen (noch nicht begonnen)
 

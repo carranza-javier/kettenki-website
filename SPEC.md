@@ -164,7 +164,7 @@ Basado en investigación de mejores prácticas 2026: 3-6 proyectos curados super
 
 - **Observabilidad**, plan de estudio Dynatrace (15h), curso OpenTelemetry (Vinoth Selvaraj), preparación entrevista AXA. Contenido ya vivido, no teórico.
 - **Java & Arquitectura**, Canary migration en Mango (AWS EKS), migración monolito↔microservicios (Amadeus, y lo aprendido sobre TIP2 en SBB), Terraform self-service para 25 equipos.
-- **KI**, decisiones concretas detrás de Bambera/Fandango (ej. routing contextual vs. RAG puro, debugging de alucinaciones).
+- **KI**, decisiones concretas detrás de Bambera/Fandango (ej. routing contextual vs. RAG puro, debugging de alucinaciones). Primer post: "Die Seiten wechseln" / "Switch Seats" (`blog/switch-seats.html`), uso práctico de la IA al postularse a un empleo.
 - **BioInformática/IA**, opinión personal tras leer el libro *The Code Breaker*. Candidato a primer post de este tag.
 - **Exploración**, temas nuevos sin proyecto propio detrás todavía. Tratar como exploración honesta ("esto me interesa y esto estoy leyendo"), no prometer una categoría consolidada que aún no existe.
 - **Software Engineering**, reflexiones personales sobre prácticas de desarrollo (Clean Code, diseño, filosofías como *Tidy First?* de Kent Beck) más allá de un proyecto o migración concretos. Primer post: "Clean Code: el siguiente programador podrías ser tú".
