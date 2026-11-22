@@ -539,7 +539,8 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Bild** `blog/img/switch-seats/switch-seats.jpg` (1376×768, neu kodiert mit JPEG-Qualität 82: 820 KB → 220 KB), nach den vier Einleitungsabsätzen vor der ersten H2, Klasse `.context-hero-img` wie bei Clean Code. Alt-Text DE/EN aus dem Brief (`switchseats_alt_image`). Dient auch als `og:image`.
   - **Prompt als Codeblock**: neue Klasse `.blog-prompt` (`<pre><code>`) in `css/style.css`. Die Zeilenumbrüche stecken als `\n` im Key `switchseats_prompt`, weil `updateContent()` `textContent` setzt und `<pre>` sie so erhält. `white-space: pre-wrap` und `overflow-wrap: anywhere`: lange Zeilen brechen um, kein seitliches Scrollen.
   - 28 neue Keys `switchseats_*` je Sprache, die deutschen Werte direkt aus dem HTML-Fallback erzeugt (damit beide gleich bleiben). Parität geprüft: 576 Keys je Sprache, Prompt in beiden Sprachen 17 Zeilen.
-  - **Geprüft** auf `python -m http.server` mit Chrome headless: 1280 px, sowie in 390- und 360-px-iframes (Codeblock bricht um, keine horizontale Scrollleiste). Index zeigt Filter `Alle | KI | Software Engineering | Java & Architektur`. EN nur über die Keys geprüft, nicht gerendert. **Nicht deployt.**
+  - **Geprüft** auf `python -m http.server` mit Chrome headless: 1280 px, sowie in 390- und 360-px-iframes (Codeblock bricht um, keine horizontale Scrollleiste). Index zeigt Filter `Alle | KI | Software Engineering | Java & Architektur`. EN nur über die Keys geprüft, nicht gerendert. Live seit 2026-11-22 (Commit `1ec6ac0`).
+  - **Open Graph auf Englisch** wie bei Clean Code: `og:title` = englischer Titel + ` | Javier Carranza`, `og:description` = englischer Untertitel (nicht der Listentext), `og:image` = Artikelbild absolut, in seiner echten Grösse 1376×768 angegeben, nicht hochskaliert. Sichtbare Seite bleibt deutsch per `data-i18n`.
 
 ## Blockiert — wartet auf Input
 
