@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v20
-**Last updated:** 2026-11-15
+**Document version:** v21
+**Last updated:** 2026-11-24
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
 > quoted verbatim in German and English and must be copied exactly, never re-translated.**
@@ -233,9 +233,21 @@ the whole business and needs no proof point:
   "check" is banned on this service.
 - Link: *"Mehr zur Sicherheitsanalyse"* / *"More about the security assessment"*
 
-**In the main nav since 2026-10-27, Javi's call** ("esto es super importante"): label *"Sicherheit"* /
-*"Security"*, between Lösungen and Beispiele, on every commercial page, plus the footer link. The
-short label is a nav label, not the service name; the page it opens carries the full name and scope.
+**Home card is the short form (since 2026-11-24, Javi's call).** On the home page all four offer cards
+carry the same weight: title, one sentence, link. The security card had three times the text of the
+others, which made it read as the main offer. The full card above stays on `services.html`; the home
+card drops scope line and process line, and its sentence names the scope itself (key
+`offer_security_short`):
+- DE: *"Wir finden Schwachstellen in deinen Apps, Websites und KI-Produkten, bevor andere es tun."*
+- EN: *"We find the weak spots in your apps, websites and AI products before others do."*
+The written-scope line is not lost: the process note under the four steps already says it.
+
+**In the nav: under Lösungen, not as its own item (since 2026-11-24, Javi's call).** From 2026-10-27
+it was a top-level item *"Sicherheit"* / *"Security"*. Javi then asked the obvious question: it is
+another solution, so it belongs with the others. It is now the third submenu entry under Lösungen,
+labelled with the full service name *"Sicherheitsanalyse"* / *"Security Assessment"* (shared key
+`offer_security_title`, like the other entries share their section titles), linking to `/security`.
+On `security.html` the Lösungen item is marked active. The footer link stays.
 
 ---
 
@@ -570,9 +582,12 @@ own design and are German-only, because they portray a Swiss business rather tha
 Websites card on `services.html` links into the section, because someone reading about websites wants
 to see one.
 
-**`Beispiele` is in the main nav although portfolio and blog are deliberately not.** No
-contradiction: the nav rule is about audience. Portfolio and blog serve recruiters; the demos serve
-customers, so they belong in the customer menu.
+**`Beispiele` is no longer in the main nav (since 2026-11-24, Javi's call).** It sat there from
+2026-09-14, but a top-level "Examples" that only shows websites shrinks KettenKI to a web shop in the
+one place that should say the business is wider (chatbots, apps, security assessment). The demos are
+reached where someone wants them: the Websites card on `services.html` ("Fertige Beispielseiten
+ansehen") and the footer. If demos for other lines exist one day, the question can be reopened as a
+section covering all of them, not as "website examples" in the menu.
 
 **The page sells with pictures, not paragraphs — Javi's call, 2026-09-14.** The intro paragraph was
 removed and the subtitle and card descriptions cut to one line each. What is left says what the demo
@@ -759,6 +774,10 @@ site), a cookie banner (no cookies).
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v21 (2026-11-24) — **Nav down to four items and the home cards evened out**, Javi's calls. Beispiele
+  left the main nav (it framed KettenKI as websites only); Sicherheitsanalyse moved from its own nav
+  item into the Lösungen submenu. The home security card now uses a one-sentence short form like the
+  other three (`offer_security_short`); the full card copy stays on `services.html`.
 - v20 (2026-11-15) — **Legal pages: Impressum and Datenschutzerklärung**, linked in every footer. The
   privacy policy opens with a four-line "Kurz gesagt" box that doubles as the trust statement (no cookies,
   no tracking, data only to answer, chat deleted after 24 hours); canonical copy and rules recorded under

@@ -1145,16 +1145,18 @@ footer p {
    --offer-accent trägt die Farbe der jeweiligen Karte, gesetzt weiter unten
    von den drei Modifikatoren, und speist Strich und Maskottchenkreis. */
 /* Seit der vierten Karte (2026-10-27) zwei mal zwei statt drei nebeneinander:
-   Vier Spalten wären bei 1280 px knapp 270 px schmal, und die
-   Sicherheitskarte trägt deutlich mehr Text als die anderen drei. */
+   Vier Spalten wären bei 1280 px knapp 270 px schmal.
+   Seit dem 2026-11-24 tragen alle vier Karten gleich viel (Titel, ein Satz,
+   Verweis) und stehen gleich hoch; vorher waren sie am Rechner mit 44-px-
+   Maskottchen und 16-px-Titel in ihren breiten Zellen klein geraten, und die
+   Sicherheitskarte trug dreimal so viel Text wie die anderen. */
 .offer-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-md);
-  /* Jede Karte endet an ihrem eigenen Inhalt. Ohne das streckt das Raster alle
-     drei auf die Höhe der längsten, und die beiden kurzen bekommen unten ein
-     leeres Feld. */
-  align-items: start;
+  /* Gleich hoch: Die Karten tragen gleich viel Inhalt, und der Verweis sitzt
+     dank margin-top: auto bei allen auf derselben Linie. */
+  align-items: stretch;
 }
 
 /* Die drei Karten kommen nacheinander herein statt als ein Block. Die
@@ -1175,7 +1177,10 @@ footer p {
   border: 1px solid var(--color-border);
   border-top: 2px solid var(--offer-accent);
   border-radius: 12px;
-  padding: var(--spacing-md);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .offer-card--chatbots {
@@ -1203,8 +1208,9 @@ footer p {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: color-mix(in srgb, var(--offer-accent) 12%, transparent);
   margin-bottom: var(--spacing-sm);
@@ -1218,17 +1224,17 @@ footer p {
 }
 
 .offer-title {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: var(--font-weight-medium);
   color: #ffffff;
   margin-bottom: var(--spacing-xs);
 }
 
 .offer-text {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: #9a9a9a;
-  margin-bottom: 0;
+  margin-bottom: var(--spacing-sm);
 }
 
 /* Umfang direkt unter dem Titel: Der Name der Sicherheitsanalyse steht nie
@@ -2922,8 +2928,10 @@ body.theme-light .blog-post li {
 .offer-link {
   position: relative;
   display: inline-block;
-  margin-top: var(--spacing-sm);
-  font-size: 0.9rem;
+  /* Schiebt den Verweis an den Fuss der Karte, damit er auf allen vier auf
+     derselben Linie steht. Den Mindestabstand zum Text hält .offer-text. */
+  margin-top: auto;
+  font-size: 0.95rem;
   font-weight: var(--font-weight-medium);
   color: var(--offer-accent, var(--color-accent-start));
   text-decoration: none;

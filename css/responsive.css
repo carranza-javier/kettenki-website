@@ -267,6 +267,19 @@
      aus. */
   .offer-mascot {
     margin-inline: auto;
+    width: 72px;
+    height: 72px;
+  }
+
+  /* Die Karte ist eine Flex-Spalte, text-align allein zentriert die
+     Kinder nicht. */
+  .offer-card {
+    align-items: center;
+    padding: var(--spacing-md);
+  }
+
+  .offer-title {
+    font-size: 19px;
   }
 
   /* Derselbe Grund beim Ablauf: eine Spalte, also steht die Nummer über ihrem
