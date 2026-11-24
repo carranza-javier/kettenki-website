@@ -15,6 +15,8 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
 
 ## Erledigt
 
+- [x] **Maskottchen der Sicherheitsanalyse auch auf `security.html`** (2026-11-24, auf Javis Wunsch: "me gusta mucho la imagen"). Gross über dem Titel im Kopfbereich (`.security-hero-art` / `.security-hero-mascot` in `css/style.css`, 180 bis 300 px breit), dasselbe `img/ketten_security.webp` wie auf Startseite und `services.html`. Der schwarze Bildgrund verschwindet per `mix-blend-mode: screen`; der magentafarbene Schein liegt als radialer Verlauf hinter dem Bild. Ein `drop-shadow` am Bild selbst war die erste Fassung und zeichnete das ganze schwarze Quadrat nach, deshalb verworfen. Geprüft mit Chrome headless bei 1440 px (DE) und 390 px (EN), auf keinem echten Gerät.
+
 - [x] **Menü aufgeräumt, Startkarten gleich gross, Maskottchen der Sicherheitsanalyse** (2026-11-24, auf Javis Wunsch).
   - **Maskottchen:** Javis Bild `img/kettenki_cybersecurity.jpg` (1376×768) eng auf die Figur zugeschnitten und auf das Format der Geschwister gebracht: `img/ketten_security.webp`, 1024×1008, schwarzer Grund, WebP Qualität 80, 55 KB. Eingebaut auf der Startseite (der leere Kreis ist gefüllt) und auf `services.html` (`.product-mascot` wie Websites und Apps). Das JPEG-Original ist nicht im Repo (Regel: Originale ausserhalb).
   - **"Beispiele" ist aus dem Hauptmenü raus**, auf allen elf Seiten mit kommerziellem Menü. Ein Menüpunkt, der nur Websites zeigt, stellte KettenKI als reinen Website-Anbieter dar. Die Demos bleiben erreichbar über die Websites-Karte auf `services.html` und den Fuss. Key `nav_examples` bleibt (Fuss, Galerieseite).

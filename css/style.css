@@ -1645,6 +1645,23 @@ footer p {
   margin-bottom: var(--spacing-sm);
 }
 
+/* Maskottchen über dem Titel von security.html. Das Bild hat schwarzen Grund;
+   screen lässt ihn verschwinden, wie bei .product-mascot. Der Schein in
+   Magenta liegt als Verlauf hinter dem Bild und nicht als filter: Ein
+   drop-shadow am Bild zeichnete das ganze schwarze Quadrat nach. */
+.security-hero-art {
+  width: clamp(180px, 24vw, 300px);
+  margin: 0 auto var(--spacing-sm);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--security-start) 14%, transparent), transparent);
+}
+
+.security-hero-mascot {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: screen;
+}
+
 /* Ein Titel mit ganzem Satz statt Produktname (security.html). In der
    breiten Schrift läuft "Sicherheitsanalyse" in der normalen Grösse auf dem
    Telefon über den Rand. */
