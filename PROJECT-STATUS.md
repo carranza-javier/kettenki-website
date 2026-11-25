@@ -1,6 +1,6 @@
 # KettenKI — Project Status
 
-_Letzte Aktualisierung: 2026-11-25 (KeepT: siebte Portfolio-Fiche und Download-Seite `/keept`)_
+_Letzte Aktualisierung: 2026-11-25 (Blog-Post zu KeepT, Tag KI; davor KeepT-Fiche und Download-Seite `/keept`)_
 
 > **Hinweis:** Dieses Dokument wird laufend aktualisiert, sobald sich am Projektstand etwas ändert. Bei jedem Fortschritt (erledigt, blockiert, neu offen) bitte hier nachführen, nicht nur in `SPEC.md`.
 
@@ -559,6 +559,12 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - 64 neue Keys je Sprache (`keeptpf_*`, `keept_*`, `portfolio_status_prerelease`), per Skript nach Position in beide Blöcke eingefügt, Parität geprüft: 640 Keys je Sprache. Die SignPath-Keys haben in beiden Sprachen denselben englischen Wortlaut, weil SignPath ihn wörtlich verlangt.
   - **Geprüft** auf `python -m http.server` mit Chrome headless: beide Seiten DE und EN auf 1280 px, beide im 390-px-iframe, Portfolio-Index mit der neuen Karte. Auf keinem echten Gerät, und die Demo-Wiedergabe nur im Code belegt.
 
+- [x] **Blog-Post "Ich wollte Circle to Search auf Windows. Also habe ich KeepT gebaut." / "I wanted Circle to Search on Windows. So I built KeepT."** (`blog/keept.html`, 2026-11-25), Tag **KI**, 5 min. Text DE/EN wörtlich aus Javis `keept-blog-post.md` (die Datei liegt nicht im Repo, steht in `.git/info/exclude`). Keys und HTML per Skript direkt aus dem Markdown erzeugt, danach geprüft, dass jeder Text unverändert im richtigen Sprachabschnitt der Vorlage steht. 34 Keys `keeptpost_*` je Sprache, Parität 674 Keys je Sprache.
+  - **Neuer Eintrag ganz oben im Index**, Teaser = kursiver Untertitel (Javis Entscheidung, die Vorlage hatte keinen eigenen Teaser), eigene Miniatur (Taste mit Textzeile darüber). Filter KI zeigt KeepT und "Die Seiten wechseln", in beiden Sprachen geprüft.
+  - **Fettgedruckte Einstiege** (Keine API-Keys, Der Akzent-Bug usw.) als `<strong>` mit eigenem Key, Rest des Absatzes als `<span>`. **Links im Fliesstext** in Spans aufgeteilt: "Portfolio" zeigt direkt auf `/portfolio/keept` (die Fiche existiert), das Repo öffnet in neuem Tab. Neue Regel `body.theme-light .blog-post p a` in `css/style.css` (Blau des hellen Themas, unterstrichen), weil bisher kein Post Links im Text hatte und sie vom Text kaum zu unterscheiden waren.
+  - **Open Graph auf Englisch** wie bei den anderen Posts, Beschreibung = Untertitel, `og:image` = erstes Einzelbild der KeepT-Demo (`img/keept/keept-demo-first.jpg`, 960×600). Kein Bild im Text, die Vorlage hat keins.
+  - **Geprüft** auf `python -m http.server` mit Chrome headless: 1280 px DE, 390-px-iframes DE und EN (Überschriften, Fettdruck, beide Links), Index mit Filter KI. Kein echtes Gerät. **Nicht gepusht, wartet auf Javis OK.**
+
 ## Blockiert — wartet auf Input
 
 _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind geliefert und eingebaut (siehe Erledigt)._
@@ -580,7 +586,7 @@ _Aktuell keine offenen Blocker für RailTrack Manager — Screenshots sind gelie
 
 ## Offen (noch nicht begonnen)
 
-- [ ] **KeepT: SignPath-Zeile einschalten, sobald SignPath die Anfrage genehmigt.** In `keept.html` steht im Abschnitt "Lizenzen" auskommentiert die Zeile, die SignPath Foundation wörtlich verlangt: *"Free code signing provided by SignPath.io, certificate by SignPath Foundation"* mit Links auf `signpath.io` und `signpath.org` (Keys `keept_signpath_1` / `_2` existieren schon). Einkommentieren, sobald die Signierung aktiv ist und das erste signierte Release draussen ist. Im selben Zug den Kasten "Pre-Release, noch nicht signiert" und den SmartScreen-Hinweis anpassen.
+- [ ] **KeepT: SignPath hat die Anfrage abgelehnt** (Projekt zu neu, laut Javis Blog-Post vom 2026-11-25; Javi fragt später erneut). **Folge, noch nicht umgesetzt:** `keept.html` und die Portfolio-Fiche versprechen weiterhin "Version 1.0.0 ... mit signiertem Installer" (`keeptpf_context_status`, `keept_prerelease_1`); das stimmt so nicht mehr sicher und gehört in einer eigenen Aufgabe angepasst (Javis Entscheidung vom 2026-11-25). **SignPath-Zeile einschalten, sobald SignPath eine neue Anfrage genehmigt.** In `keept.html` steht im Abschnitt "Lizenzen" auskommentiert die Zeile, die SignPath Foundation wörtlich verlangt: *"Free code signing provided by SignPath.io, certificate by SignPath Foundation"* mit Links auf `signpath.io` und `signpath.org` (Keys `keept_signpath_1` / `_2` existieren schon). Einkommentieren, sobald die Signierung aktiv ist und das erste signierte Release draussen ist. Im selben Zug den Kasten "Pre-Release, noch nicht signiert" und den SmartScreen-Hinweis anpassen.
 - [ ] **KeepT 1.0.0: Seiten nachziehen.** Download-Knopf von `/releases` auf `/releases/latest` umstellen (geht erst, wenn es ein Release gibt, das keine Pre-Release ist; Kommentar im HTML), Badge `Pre-Release` von Fiche, Karte und Download-Seite nehmen, die Sätze zu Version 0.9 und 1.0.0 in `keeptpf_context_status`, `keeptpf_result_1`, `keept_prerelease_*` und `keept_download_note` umschreiben.
 - [ ] **Liviana kennt KeepT nicht.** `keept.html` zeigt das Widget wie jede dunkle Seite, aber `content.json` im Repo `kettenki-liviana` weiss nichts von KeepT. Javis Entscheidung, ob sie es kennen soll (dann Inhalt ergänzen und nach S3), oder ob das Widget auf dieser Seite weg soll.
 - [ ] **Impressum und Datenschutz: was nur Javi liefern kann** (seit 2026-11-15).

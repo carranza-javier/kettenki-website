@@ -3506,3 +3506,16 @@ body.theme-light .type-badge--prerelease {
 .keept-joke {
   margin-top: var(--spacing-sm);
 }
+
+/* Links im Fliesstext eines Blog-Posts (zuerst im KeepT-Post): bisher hatte
+   kein Post welche, ohne Regel waren sie vom Text kaum zu unterscheiden.
+   Gleiches Blau wie die übrigen Links im hellen Thema, dazu unterstrichen. */
+body.theme-light .blog-post p a {
+  color: #0077a6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+body.theme-light .blog-post p a:hover {
+  color: #00915c;
+}

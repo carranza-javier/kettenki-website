@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Ich wollte Circle to Search auf Windows. Also habe ich KeepT gebaut. - Blog | KettenKI</title>
+  <meta name="description" content="Wie aus einem täglichen Ärgernis mit drei Sprachen eine kleine Open-Source-App wurde, und was ich dabei als Product Owner von Claude Code gelernt habe.">
+  <meta name="keywords" content="KeepT, KI, Claude Code, Product Owner, Übersetzung, OCR, Windows, Open Source, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/blog/keept">
+  <meta property="og:title" content="I wanted Circle to Search on Windows. So I built KeepT. | Javier Carranza">
+  <meta property="og:description" content="How a daily annoyance with three languages turned into a small open source app, and what I learned acting as product owner for Claude Code.">
+  <meta property="og:image" content="https://kettenki.com/img/keept/keept-demo-first.jpg">
+  <meta property="og:image:width" content="960">
+  <meta property="og:image:height" content="600">
+
+  <link rel="canonical" href="https://kettenki.com/blog/keept">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/blog/keept">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/blog/keept">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact?from=blog" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container blog-post">
+      <div class="blog-post-header fade-in">
+        <h1 class="blog-post-title" data-i18n="keeptpost_title">Ich wollte Circle to Search auf Windows. Also habe ich KeepT gebaut.</h1>
+        <p class="blog-post-subtitle" data-i18n="keeptpost_subtitle">Wie aus einem täglichen Ärgernis mit drei Sprachen eine kleine Open-Source-App wurde, und was ich dabei als Product Owner von Claude Code gelernt habe.</p>
+        <div class="blog-post-meta">
+          <span data-i18n="keeptpost_date">25. November 2026</span>
+          <span class="tech-badge" data-i18n="blog_filter_ai">KI</span>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <p data-i18n="keeptpost_p1">Wer in der Schweiz lebt, kennt das: Die Website ist auf Französisch, der Brief von der Versicherung auf Deutsch, das Programm bei der Arbeit auf Englisch. Bei mir ist das jeden Tag so. Und jedes Mal das gleiche Ritual: Text markieren, kopieren, Übersetzer oder KI-Chat öffnen, einfügen, lesen, zurückwechseln. Pro Mal ist das nicht viel Zeit, aber es läppert sich.</p>
+        <p data-i18n="keeptpost_p2">Auf dem Handy habe ich das Problem längst nicht mehr. Mit Circle to Search auf Android tippe ich zweimal und sehe die Übersetzung direkt über dem Text. Genau das wollte ich auch auf Windows.</p>
+        <h2 data-i18n="keeptpost_h1">Was es schon gibt</h2>
+        <p data-i18n="keeptpost_p3">Ich habe mich umgeschaut. DeepL übersetzt sehr gut, muss aber immer offen sein und zeigt das Ergebnis in einem eigenen Fenster. Das Snipping Tool holt Text aus einem Bildschirmausschnitt, übersetzt ihn aber nicht. Und Click to Do von Windows läuft nur auf Copilot+ PCs.</p>
+        <p data-i18n="keeptpost_p4">Ein Beispiel zeigt ganz gut, was mir gefehlt hat: Ich scrolle durch LinkedIn auf Englisch und stosse auf eine Stellenanzeige auf Deutsch. Der Übersetzer im Browser nimmt sich eine Sprache vor. KeepT erkennt die Sprache jedes Textblocks einzeln und übersetzt beide.</p>
+        <h2 data-i18n="keeptpost_h2">Was KeepT macht</h2>
+        <p data-i18n="keeptpost_p5">KeepT ist eine kostenlose Open-Source-App für Windows. Du drückst F1, der Bildschirm friert ein, ein Schimmer in den KettenKI-Farben läuft darüber, und die Übersetzung erscheint genau dort, wo vorher der Originaltext stand. Das funktioniert in jeder App, auch bei Bildern, eingescannten Dokumenten und Remote-Desktops.</p>
+        <p data-i18n="keeptpost_p6">Alles läuft lokal. Nichts verlässt den PC, es braucht kein Konto und keinen API-Key.</p>
+        <p data-i18n="keeptpost_p7">Und ja, F1. Hast du jemals F1 gedrückt, um Hilfe zu bekommen? Ich auch nicht. KeepT gibt dieser Taste endlich eine Aufgabe.</p>
+        <h2 data-i18n="keeptpost_h3">Wie es entstanden ist</h2>
+        <p data-i18n="keeptpost_p8">Gebaut habe ich KeepT in sehr kurzer Zeit mit Claude Code, das selbstständig auf meinem eigenen PC gearbeitet hat. Vorher habe ich ein Briefing geschrieben: was die App können soll, was nicht und welche Entscheidungen schon feststehen. Meine Rolle war die eines Product Owners und Reviewers. Ich habe auf meinem echten Desktop getestet, Fehler gefunden und entschieden. Ein paar Momente aus diesem Prozess:</p>
+        <p><strong data-i18n="keeptpost_p9_lead">Keine API-Keys.</strong> <span data-i18n="keeptpost_p9">Das war die erste und wichtigste Entscheidung. Wenn man sich zuerst irgendwo anmelden und einen Schlüssel einfügen muss, benutzt es niemand. Also läuft alles lokal: die Texterkennung mit dem OCR, das Windows schon mitbringt, und die Übersetzung mit den OPUS-MT-Modellen der Universität Helsinki.</span></p>
+        <p><strong data-i18n="keeptpost_p10_lead">Leicht, aber nicht auf Kosten der Geschwindigkeit.</strong> <span data-i18n="keeptpost_p10">Eine App, die im Hintergrund wartet, soll wenig Speicher brauchen. Ich wollte aber nicht so weit optimieren, dass man beim Übersetzen warten muss. Der Kompromiss: Nach 10 Minuten ohne Nutzung werden die Modelle freigegeben. Beim nächsten Mal lädt KeepT sie neu, während du den Bereich auswählst. Bis du fertig bist, sind sie meistens schon da.</span></p>
+        <p><strong data-i18n="keeptpost_p11_lead">Der Akzent-Bug.</strong> <span data-i18n="keeptpost_p11">Bei einem Test stand plötzlich "Ultima" statt "Última" auf dem Bildschirm. Claude Code hat einen Patch vorgeschlagen, der das Symptom überdeckt hätte. Den habe ich abgelehnt und darauf bestanden, die eigentliche Ursache zu finden. Sie lag im Vokabular einiger Modelle: Die konnten bestimmte Buchstaben schlicht nicht schreiben. Gelöst haben wir es mit Modellen, die alle Buchstaben schreiben können. Für mich ist das der Kern dieser Arbeitsweise: Die KI liefert schnell eine Lösung, aber ob es die richtige ist, muss jemand entscheiden.</span></p>
+        <p><strong data-i18n="keeptpost_p12_lead">Produktdetails.</strong> <span data-i18n="keeptpost_p12">Die ersten Versionen sahen zu sehr nach Google aus, mit deren Farben und einem Icon, das an Gemini erinnerte. Das habe ich durch die Identität von KettenKI ersetzt. Die Freihand-Auswahl mit der Maus habe ich gestrichen, weil sie beim Übersetzen nichts bringt. Und als Tastenkürzel habe ich F1 gewählt.</span></p>
+        <p><strong data-i18n="keeptpost_p13_lead">Versionierung.</strong> <span data-i18n="keeptpost_p13">Am Anfang habe ich als 1.0.0 veröffentlicht. Kurz danach habe ich auf 0.9 zurückgestuft, weil die App noch nicht stabil genug für eine 1.0 war. Die 1.0.0 kommt, wenn sie es verdient.</span></p>
+        <p><strong data-i18n="keeptpost_p14_lead">Code-Signing.</strong> <span data-i18n="keeptpost_p14">Bei der SignPath Foundation habe ich eine kostenlose Code-Signatur für Open-Source-Projekte beantragt. Abgelehnt, weil das Projekt noch zu neu ist. Fair. Ich frage wieder, wenn KeepT mehr Geschichte hat.</span></p>
+        <h2 data-i18n="keeptpost_h4">Technische Eckdaten</h2>
+        <p><span data-i18n="keeptpost_p15_1">Python und PySide6, das native OCR von Windows und OPUS-MT-Modelle, konvertiert nach CTranslate2 (int8). 8 Sprachen, die bei Bedarf heruntergeladen und per SHA-256 geprüft werden. Build und Installer laufen automatisch über GitHub Actions. KeepT öffnet sich in etwa 40 ms und übersetzt den ersten Block in etwa 100 ms. Die ausführliche technische Beschreibung findest du im </span><a href="../portfolio/keept" data-i18n="keeptpost_p15_2">Portfolio</a><span data-i18n="keeptpost_p15_3">.</span></p>
+        <h2 data-i18n="keeptpost_h5">Stand</h2>
+        <p><span data-i18n="keeptpost_p16_1">KeepT ist in Version 0.9.x, also noch Pre-Release, und steht unter MIT-Lizenz. Den Code gibt es auf GitHub: </span><a href="https://github.com/carranza-javier/KeepT" target="_blank" rel="noopener noreferrer" data-i18n="keeptpost_p16_2">github.com/carranza-javier/KeepT</a><span data-i18n="keeptpost_p16_3">. Wenn du es ausprobierst und etwas nicht funktioniert, eröffne gerne ein Issue.</span></p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_blog">← Zurück zum Blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <nav class="footer-nav footer-legal" aria-labelledby="footer-legal-label">
+        <h2 id="footer-legal-label" class="visually-hidden" data-i18n="footer_legal_label">Rechtliches</h2>
+        <a href="../impressum" data-i18n="footer_imprint">Impressum</a>
+        <a href="../datenschutz" data-i18n="footer_privacy">Datenschutz</a>
+      </nav>
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
