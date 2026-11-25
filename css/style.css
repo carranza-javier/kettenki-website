@@ -3431,13 +3431,18 @@ body.theme-light .blog-post li {
   box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
 }
 
-/* Wortmarke auf der Portfolio-Karte, gleicher Aufbau wie BAMBERA und
-   LIVIANA: der Verlauf sitzt auf dem inneren span. */
+/* Portfolio-Karte: das echte Logo von KeepT (img/keept/keept-logo.svg)
+   statt einer Wortmarke, auf demselben weissen Feld wie LIVIANA und die
+   Chilis. Feste Grösse statt object-fit über das ganze Feld: so wiegt die
+   dunkle Scheibe etwa so viel wie die Schriftzüge der Nachbarkarten. */
 .portfolio-thumbnail-placeholder--keept {
   background: #ffffff;
-  font-size: 2.5rem;
-  font-family: "Zalando Sans Expanded", sans-serif;
-  font-weight: var(--font-weight-bold);
+}
+
+.portfolio-thumbnail-logo {
+  width: 96px;
+  height: 96px;
+  display: block;
 }
 
 /* Zweite Achse "Status" (SPEC 5.1), neben In Produktion: ein Projekt, das
