@@ -720,7 +720,7 @@ const translations = {
     keept_signpath_1: 'Free code signing provided by ',
     keept_signpath_2: ', certificate by ',
     // Blog-Post KeepT (blog/keept.html)
-    keeptpost_title: 'Ich wollte Circle to Search auf Windows. Also habe ich KeepT gebaut.',
+    keeptpost_title: 'Mein Browser übersetzt eine Sprache. Die Schweiz spricht drei. Also habe ich KeepT gebaut.',
     keeptpost_subtitle: 'Wie aus einem täglichen Ärgernis mit drei Sprachen eine kleine Open-Source-App wurde, und was ich dabei als Product Owner von Claude Code gelernt habe.',
     keeptpost_p1: 'Wer in der Schweiz lebt, kennt das: Die Website ist auf Französisch, der Brief von der Versicherung auf Deutsch, das Programm bei der Arbeit auf Englisch. Bei mir ist das jeden Tag so. Und jedes Mal das gleiche Ritual: Text markieren, kopieren, Übersetzer oder KI-Chat öffnen, einfügen, lesen, zurückwechseln. Pro Mal ist das nicht viel Zeit, aber es läppert sich.',
     keeptpost_p2: 'Auf dem Handy habe ich das Problem längst nicht mehr. Mit Circle to Search auf Android tippe ich zweimal und sehe die Übersetzung direkt über dem Text. Genau das wollte ich auch auf Windows.',
@@ -1438,7 +1438,7 @@ const translations = {
     keept_signpath_1: 'Free code signing provided by ',
     keept_signpath_2: ', certificate by ',
     // Blog post KeepT (blog/keept.html)
-    keeptpost_title: 'I wanted Circle to Search on Windows. So I built KeepT.',
+    keeptpost_title: 'My browser translates one language. Switzerland speaks three. So I built KeepT.',
     keeptpost_subtitle: 'How a daily annoyance with three languages turned into a small open source app, and what I learned acting as product owner for Claude Code.',
     keeptpost_p1: 'If you live in Switzerland, you know the drill: the website is in French, the letter from the insurance company is in German, the software at work is in English. That\'s my everyday life. And every time it\'s the same ritual: select the text, copy it, open a translator or an AI chat, paste, read, switch back. It\'s not much time each time, but it adds up.',
     keeptpost_p2: 'On my phone this stopped being a problem a while ago. With Circle to Search on Android I tap twice and the translation shows up right on top of the text. I wanted exactly that on Windows.',
