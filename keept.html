@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KeepT: Bildschirm übersetzen mit einer Taste | KettenKI</title>
+  <meta name="description" content="KeepT übersetzt jeden Text auf deinem Windows-Bildschirm mit F1 und legt die Übersetzung direkt über das Original. Kostenlos, Open Source, alles lokal auf deinem PC.">
+  <meta name="keywords" content="KeepT, Bildschirm übersetzen, Übersetzer Windows, OCR Übersetzung, offline übersetzen, Open Source, KettenKI">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kettenki.com/keept">
+  <meta property="og:title" content="KeepT: translate your screen with one key | KettenKI">
+  <meta property="og:description" content="KeepT translates any text on your Windows screen with F1 and paints the translation right over the original. Free, open source, everything stays on your PC.">
+
+  <link rel="canonical" href="https://kettenki.com/keept">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/keept">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/keept">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/liviana-widget.css">
+
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index" class="logo">KettenKI</a>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="index" data-i18n="nav_home">Start</a></li>
+        <li><a href="about" data-i18n="nav_about">Über mich</a></li>
+        <li class="nav-item-dropdown">
+          <a href="services" data-i18n="nav_services">Lösungen</a>
+          <button type="button" class="nav-submenu-toggle" aria-expanded="false" aria-controls="nav-submenu-solutions" data-i18n-aria-label="nav_submenu_toggle">
+            <span class="nav-caret" aria-hidden="true"></span>
+          </button>
+          <div class="nav-submenu-wrap" id="nav-submenu-solutions">
+            <ul class="nav-submenu">
+              <li><a href="services#custom-development" data-i18n="services_custom_title">Individuelle Entwicklung</a></li>
+              <li><a href="services#ai-solutions" data-i18n="services_ai_title">KI-Lösungen</a></li>
+              <li><a href="security" data-i18n="offer_security_title">Sicherheitsanalyse</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="contact" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container product-detail">
+      <div class="product-hero fade-in">
+        <div class="type-badges">
+          <span class="type-badge type-badge--prerelease" data-i18n="portfolio_status_prerelease">🧪 Pre-Release</span>
+        </div>
+        <h1 class="product-title keept-gradient">KeepT</h1>
+        <p class="product-subtitle" data-i18n="keept_tagline">Übersetze jeden Text auf deinem Bildschirm mit einer Taste</p>
+      </div>
+
+      <div class="product-intro fade-in">
+        <p data-i18n="keept_intro">Drück F1: KeepT friert den Bildschirm ein, liest den Text und legt die Übersetzung direkt über das Original, an derselben Stelle. In jeder App, auch in Bildern, gescannten Dokumenten und Remotedesktops. Kostenlos und Open Source.</p>
+      </div>
+
+      <!-- Quelle: docs/keept-demo.gif im Repo von KeepT, hier als MP4.
+           Standbild = erstes Einzelbild, damit beim Start nichts springt. -->
+      <video class="keept-demo fade-in" src="vid/keept/keept-demo.mp4" poster="img/keept/keept-demo-first.jpg" width="960" height="600" muted loop playsinline preload="metadata" aria-label="Aufnahme: F1 drücken, auf einen deutschen Absatz klicken, die spanische Übersetzung erscheint an seiner Stelle" data-i18n-aria-label="keept_video_label"></video>
+
+      <!-- Der Knopf zeigt auf die Liste der Releases, nicht auf /releases/latest:
+           Solange alle Versionen 0.x Pre-Releases sind, kennt GitHub kein "latest".
+           Ab 1.0.0 (keine Pre-Release mehr) auf /releases/latest umstellen. -->
+      <div class="keept-download fade-in">
+        <a href="https://github.com/carranza-javier/KeepT/releases" target="_blank" rel="noopener noreferrer" class="btn-cta keept-btn" data-i18n="keept_download_btn">Für Windows herunterladen</a>
+        <p class="keept-download-note" data-i18n="keept_download_note">Windows 10 oder 11, 64 Bit, rund 50 MB. Auf GitHub lädst du aus der neuesten Version die Datei KeepT-Setup mit der Endung .exe herunter. Installiert ohne Administratorrechte.</p>
+        <p class="keept-download-source">
+          <a href="https://github.com/carranza-javier/KeepT" target="_blank" rel="noopener noreferrer" class="repo-link" data-i18n="keept_source_link">Quellcode auf GitHub</a>
+        </p>
+      </div>
+
+      <div class="prototype-disclaimer fade-in">
+        <h3 data-i18n="keept_prerelease_title">Pre-Release, noch nicht signiert</h3>
+        <p data-i18n="keept_prerelease_1">KeepT ist in Version 0.9 und noch nicht stabil. Die Version 1.0.0 wird die offizielle Veröffentlichung, dann mit signiertem Installer.</p>
+        <p data-i18n="keept_prerelease_2">Bis dahin zeigt Windows SmartScreen möglicherweise die Meldung &quot;Der Computer wurde durch Windows geschützt&quot;. Klicke auf &quot;Weitere Informationen&quot; und dann auf &quot;Trotzdem ausführen&quot;. Der Installer wird von GitHub Actions direkt aus dem öffentlichen Repository gebaut, und jede Version nennt ihre SHA-256-Prüfsumme zum Vergleichen.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="keept_features_title">Was KeepT kann</h2>
+        <ul class="benefits-list">
+          <li data-i18n="keept_feature_1">Gemischte Sprachen: KeepT erkennt die Sprache jedes Textblocks und übersetzt alle auf einmal, etwa eine englische Seite mit einer deutschen Stellenanzeige darin.</li>
+          <li data-i18n="keept_feature_2">8 Sprachen in jede Richtung: Deutsch, Englisch, Französisch, Italienisch, Spanisch, Portugiesisch, Niederländisch und Polnisch.</li>
+          <li data-i18n="keept_feature_3">Überall auf dem Bildschirm: in Programmen, Bildern, gescannten Briefen, Remotedesktops und virtuellen Maschinen.</li>
+          <li data-i18n="keept_feature_4">Zum Sprachenlernen: Halte die Leertaste gedrückt, und das Original erscheint wieder zum Vergleich.</li>
+        </ul>
+        <p class="keept-joke" data-i18n="keept_joke">Hast du jemals F1 gedrückt, um Hilfe zu bekommen? Wir auch nicht. KeepT gibt dieser Taste endlich etwas zu tun.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="keept_privacy_title">Alles bleibt auf deinem PC</h2>
+        <p data-i18n="keept_privacy_1">Bildschirm, erkannter Text und Übersetzungen verlassen deinen Computer nie. Es gibt kein Konto, keinen API-Schlüssel und keine Telemetrie.</p>
+        <p data-i18n="keept_privacy_2">Ins Internet geht KeepT nur für zwei Dinge: um die Übersetzungsmodelle einmalig von GitHub herunterzuladen, und, wenn du es nicht ausschaltest, um einmal am Tag nach einer neuen Version zu schauen.</p>
+      </div>
+
+      <div class="product-section keept-credits fade-in">
+        <h2 data-i18n="keept_credits_title">Lizenzen</h2>
+        <p><span data-i18n="keept_credits_models_1">Die Übersetzungsmodelle stammen aus </span><a href="https://github.com/Helsinki-NLP/Opus-MT" target="_blank" rel="noopener noreferrer">OPUS-MT</a><span data-i18n="keept_credits_models_2"> von Helsinki-NLP an der Universität Helsinki und stehen unter der Lizenz </span><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a><span data-i18n="keept_credits_models_3">. Für KeepT wurden sie nach CTranslate2 (int8) konvertiert.</span></p>
+        <p><span data-i18n="keept_credits_app_1">KeepT selbst steht unter der </span><a href="https://github.com/carranza-javier/KeepT/blob/HEAD/LICENSE" target="_blank" rel="noopener noreferrer" data-i18n="keept_license_mit">MIT-Lizenz</a><span data-i18n="keept_credits_app_2">.</span></p>
+
+        <!-- SignPath: diese Zeile verlangt SignPath Foundation wörtlich, sobald die Signierung
+             aktiv ist. Erst einkommentieren, wenn SignPath die Anfrage genehmigt hat und das
+             erste signierte Release draussen ist (siehe PROJECT-STATUS.md, Offen). Text in
+             beiden Sprachen gleich, Keys keept_signpath_1 / keept_signpath_2.
+        <p><span data-i18n="keept_signpath_1">Free code signing provided by </span><a href="https://signpath.io" target="_blank" rel="noopener noreferrer">SignPath.io</a><span data-i18n="keept_signpath_2">, certificate by </span><a href="https://signpath.org" target="_blank" rel="noopener noreferrer">SignPath Foundation</a></p>
+        -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <nav class="footer-nav" aria-labelledby="footer-nav-label">
+        <h2 id="footer-nav-label" class="visually-hidden" data-i18n="footer_nav_label">Seiten</h2>
+        <a href="index" data-i18n="nav_home">Start</a>
+        <a href="services" data-i18n="nav_services">Lösungen</a>
+        <a href="security" data-i18n="offer_security_title">Sicherheitsanalyse</a>
+        <a href="about" data-i18n="nav_about">Über mich</a>
+        <a href="templates/" data-i18n="nav_examples">Beispiele</a>
+        <a href="contact" data-i18n="nav_contact">Kontakt</a>
+      </nav>
+      <nav class="footer-nav footer-legal" aria-labelledby="footer-legal-label">
+        <h2 id="footer-legal-label" class="visually-hidden" data-i18n="footer_legal_label">Rechtliches</h2>
+        <a href="impressum" data-i18n="footer_imprint">Impressum</a>
+        <a href="datenschutz" data-i18n="footer_privacy">Datenschutz</a>
+      </nav>
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/keept-demo.js"></script>
+  <script src="js/liviana-widget.js"></script>
+</body>
+</html>

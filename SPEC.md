@@ -76,7 +76,8 @@ Los índices son `index.html` **dentro** de su carpeta, no archivos sueltos en l
 │   ├── railtrack-manager.html
 │   ├── spicy-feedback-tool.html
 │   ├── bambera.html
-│   └── mini-midoffice.html
+│   ├── mini-midoffice.html
+│   └── keept.html
 └── blog/
     ├── index.html           ← índice del blog (listado + filtro por tags)
     └── biomedicina-ai.html
@@ -96,7 +97,7 @@ URLs resultantes: `/portfolio/`, `/portfolio/railtrack-manager.html`, `/blog/`.
   - 3-4 badges de stack (mismo estilo visual que badges de tecnología en `services.html`)
   - Badges de tipo, en dos ejes independientes (no una escala única):
     - **Eje 1, Propiedad** (siempre uno de los dos): 🎓 **Eigenes Projekt** vs. 🤝 **Kundenprojekt** (encargo de cliente).
-    - **Eje 2, Estado** (opcional, solo si aplica): 🚀 **In Produktion**.
+    - **Eje 2, Estado** (opcional, solo si aplica): 🚀 **In Produktion**, o 🧪 **Pre-Release** para un proyecto publicado pero aún no estable (KeepT 0.9.x). Pre-Release en ámbar, para no confundirse con los verdes.
     - Ejemplo: RailTrack Manager → solo Eigenes Projekt. Spicy Feedback Tool → Kundenprojekt + In Produktion (los dos a la vez).
     - Colores: Eigenes Projekt en verde, Kundenprojekt en azul, In Produktion en verde/esmeralda (distinto del verde de Eigenes Projekt, para que no se confundan si coinciden en la misma tarjeta).
   - Link a la ficha completa
@@ -136,7 +137,7 @@ No todos los proyectos necesitan las 7 secciones (ej. un proyecto sin UI navegab
 
 ### 5.3 Selección de proyectos (curada, no exhaustiva)
 
-Basado en investigación de mejores prácticas 2026: 3-6 proyectos curados superan a listas largas, los reclutadores escanean ~8 segundos y priorizan evidencia verificable (repo/demo) sobre volumen. **Seis fichas es el techo**: a partir de ahí, añadir una obliga a quitar otra. Portfolio final, por orden de fuerza de evidencia:
+Basado en investigación de mejores prácticas 2026: 3-6 proyectos curados superan a listas largas, los reclutadores escanean ~8 segundos y priorizan evidencia verificable (repo/demo) sobre volumen. **Siete fichas es el techo** (subido de seis el 2026-11-25 para KeepT, decisión de Javi): a partir de ahí, añadir una obliga a quitar otra. Portfolio final, por orden de fuerza de evidencia:
 
 1. **RailTrack Manager**, proyecto propio, repo público, capturas. Máxima evidencia verificable. ✅ Completado.
 2. **Spicy Feedback Tool** (spicy-kunstraum.ch), caso real: herramienta de feedback para galería de arte (Kunstraum), cliente real, en producción. ✅ Completado.
@@ -144,10 +145,11 @@ Basado en investigación de mejores prácticas 2026: 3-6 proyectos curados super
 4. **Liviana**, chatbot propio **en producción sobre kettenki.com**, repo público. La evidencia más fuerte del portfolio y la única que el visitante puede usar en la misma visita: es a la vez producto y demo de sí misma (ver 7.1). El interés técnico no está en el prompt sino en exponer un modelo de lenguaje sin login sin que te vacíen la cuenta. ✅ Completado.
 5. **mini-midoffice**, repo propio, migración Spring 5→6 documentada y tageada en Git (preparado en contexto Umbrella AG). ✅ Completado.
 6. **La Guitarrita** (laguitarrita.ch), proyecto propio en producción, sin recorrido de pantallas ni arquitectura porque el reto fue de diseño y no técnico. ✅ Completado.
+7. **KeepT**, app propia gratuita y open source para Windows (traduce texto de la pantalla con F1), repo público, MIT, **pre-release 0.9.x**: decirlo siempre, la 1.0.0 será el lanzamiento oficial y firmado. Tiene además página de descarga en el sitio comercial (`/keept`, tema oscuro). ✅ Completado.
 
 *(Descartado)* Fandango, complementa a Bambera. SBB/TIP2, sin repo propio, mejor tratado como post de blog (reflexión de arquitectura) que como ficha de portfolio.
 
-**Orden en el índice** (decisión editorial de Javi, distinta del orden de esta lista): Liviana, Spicy Feedback Tool, RailTrack Manager, La Guitarrita, Bambera, mini-midoffice. Delante va lo que se puede tocar o verificar en el momento; la lista de arriba sigue ordenada por fuerza de evidencia y no por posición en pantalla.
+**Orden en el índice** (decisión editorial de Javi, distinta del orden de esta lista): KeepT, Liviana, Spicy Feedback Tool, RailTrack Manager, La Guitarrita, Bambera, mini-midoffice. Delante va lo que se puede tocar o verificar en el momento; la lista de arriba sigue ordenada por fuerza de evidencia y no por posición en pantalla.
 
 **No incluir en portfolio profesional:** Iledysile (web personal para su pareja), proyecto real pero de naturaleza distinta (regalo personal, no caso de estudio técnico).
 

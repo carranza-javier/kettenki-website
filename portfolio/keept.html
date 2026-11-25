@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>KeepT - Portfolio | KettenKI</title>
+  <meta name="description" content="KeepT: kostenlose Open-Source-App für Windows, die Text auf dem Bildschirm mit F1 übersetzt und die Übersetzung über das Original legt. Python, PySide6, Windows-OCR, OPUS-MT lokal mit CTranslate2.">
+  <meta name="keywords" content="KeepT, Bildschirmübersetzer, Windows, OCR, OPUS-MT, CTranslate2, PySide6, Python, Javier Carranza">
+  <meta name="author" content="Javier Carranza - KettenKI">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kettenki.com/portfolio/keept">
+  <meta property="og:title" content="KeepT - Portfolio | KettenKI">
+  <meta property="og:description" content="KeepT: a free, open source Windows app that translates any text on screen with F1 and paints the translation over the original. Python, PySide6, Windows OCR, local OPUS-MT models with CTranslate2.">
+
+  <link rel="canonical" href="https://kettenki.com/portfolio/keept">
+  <link rel="alternate" hreflang="de" href="https://kettenki.com/portfolio/keept">
+  <link rel="alternate" hreflang="en" href="https://kettenki.com/portfolio/keept">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/animations.css">
+
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+</head>
+<body class="theme-light">
+  <header>
+    <nav>
+      <div class="logo-group">
+        <a href="../index" class="logo">KettenKI</a>
+        <span class="logo-subtitle" data-i18n="logo_subtitle">Javier Carranza</span>
+      </div>
+
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="/portfolio/" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="../contact?from=portfolio" data-i18n="nav_contact">Kontakt</a></li>
+
+        <li class="lang-selector">
+          <button class="lang-option active" data-lang="de" onclick="setLanguage('de')">DE</button>
+          <button class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container product-detail">
+      <div class="product-hero fade-in">
+        <div class="type-badges">
+          <span class="type-badge type-badge--own" data-i18n="portfolio_type_own">🎓 Eigenes Projekt</span>
+          <span class="type-badge type-badge--prerelease" data-i18n="portfolio_status_prerelease">🧪 Pre-Release</span>
+        </div>
+        <h1 class="product-title">KeepT</h1>
+        <p class="product-subtitle" data-i18n="keeptpf_tagline">Übersetzt jeden Text auf dem Bildschirm mit einer Taste, direkt über dem Original</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_context">Kontext</h2>
+        <p data-i18n="keeptpf_context_1">Ich lebe in der Schweiz, und jeden Tag begegnen mir Deutsch, Französisch und Englisch durcheinander: auf Websites, in Briefen, in den Programmen bei der Arbeit. Lange habe ich solche Texte in einen Übersetzer oder einen KI-Chat kopiert und dabei jedes Mal Zeit verloren.</p>
+        <p data-i18n="keeptpf_context_2">Ein typischer Fall: LinkedIn auf Englisch, die Stellenanzeige darin auf Deutsch. Der Übersetzer im Browser übersetzt nur eine der beiden Sprachen. KeepT erkennt die Sprache jedes Textblocks und übersetzt beide.</p>
+        <p data-i18n="keeptpf_context_3">KeepT ist eine kostenlose Open-Source-App für Windows. Ein Druck auf F1 friert den Bildschirm ein, die Texterkennung von Windows liest den Text, und die Übersetzung erscheint über dem Original, an derselben Stelle, ähnlich wie Circle to Search auf Android. Das funktioniert in jeder App, auch in Bildern, gescannten Dokumenten und Remotedesktops.</p>
+        <p data-i18n="keeptpf_context_4">Alles läuft lokal. Die Übersetzungsmodelle liegen auf dem PC, Bildschirm und Text gehen nie ins Internet, und es braucht weder Konto noch API-Schlüssel.</p>
+        <p data-i18n="keeptpf_context_joke">Hast du jemals F1 gedrückt, um Hilfe zu bekommen? Ich auch nicht. KeepT gibt dieser Taste endlich etwas zu tun.</p>
+        <p data-i18n="keeptpf_context_status">KeepT ist noch eine Pre-Release, Version 0.9. Die Version 1.0.0 wird die offizielle Veröffentlichung, dann mit signiertem Installer.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="keeptpf_uses_title">Wofür</h2>
+        <ul class="benefits-list">
+          <li data-i18n="keeptpf_use_1">Gemischte Sprachen auf derselben Seite.</li>
+          <li data-i18n="keeptpf_use_2">Briefe und gescannte Dokumente.</li>
+          <li data-i18n="keeptpf_use_3">Windows und Programme in einer anderen Sprache.</li>
+          <li data-i18n="keeptpf_use_4">Remotedesktops und virtuelle Maschinen, deren Bildschirm für den eigenen PC nur ein Bild ist.</li>
+          <li data-i18n="keeptpf_use_5">Sprachen lernen: Die Übersetzung steht über dem Original, und mit gedrückter Leertaste siehst du das Original zum Vergleich.</li>
+        </ul>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_walkthrough">Rundgang durch die Anwendung</h2>
+
+        <div class="screen-walkthrough-item">
+          <h3 data-i18n="keeptpf_walkthrough_title">Eine Taste, ein Klick</h3>
+          <p data-i18n="keeptpf_walkthrough">Nach F1 friert der Bildschirm unter der Maus ein, mit einem leuchtenden Rand im Verlauf von KettenKI. Ein Klick auf einen Textblock übersetzt ihn, Ziehen übersetzt einen Ausschnitt, Enter den ganzen Bildschirm. Die Übersetzung übernimmt Position, Farben und Schriftgrösse des Originals. Die Aufnahme zeigt einen Testbildschirm, auf dem ein deutscher Absatz ins Spanische übersetzt wird.</p>
+          <!-- Quelle: docs/keept-demo.gif im Repo von KeepT, hier als MP4 (124 KB statt 3.6 MB).
+               Standbild = erstes Einzelbild, damit beim Start nichts springt. -->
+          <video class="keept-demo" src="../vid/keept/keept-demo.mp4" poster="../img/keept/keept-demo-first.jpg" width="960" height="600" muted loop playsinline preload="metadata" aria-label="Aufnahme: F1 drücken, auf einen deutschen Absatz klicken, die spanische Übersetzung erscheint an seiner Stelle" data-i18n-aria-label="keeptpf_video_label"></video>
+        </div>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_stack">Stack</h2>
+        <table class="stack-table">
+          <thead>
+            <tr>
+              <th data-i18n="label_layer">Ebene</th>
+              <th data-i18n="label_technology">Technologie</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="label_language">Sprache</td>
+              <td>Python</td>
+            </tr>
+            <tr>
+              <td>UI</td>
+              <td data-i18n="keeptpf_stack_ui">PySide6 (Qt) für Overlay und Effekte</td>
+            </tr>
+            <tr>
+              <td data-i18n="keeptpf_label_ocr">Texterkennung</td>
+              <td data-i18n="keeptpf_stack_ocr">Windows.Media.Ocr, die eingebaute OCR von Windows</td>
+            </tr>
+            <tr>
+              <td data-i18n="keeptpf_label_translation">Übersetzung</td>
+              <td data-i18n="keeptpf_stack_translation">OPUS-MT (Universität Helsinki, CC BY 4.0), nach CTranslate2 int8 konvertiert</td>
+            </tr>
+            <tr>
+              <td data-i18n="keeptpf_label_languages">Sprachen</td>
+              <td data-i18n="keeptpf_stack_languages">8 Sprachen in jede Richtung: de, en, es, fr, it, pt, nl, pl</td>
+            </tr>
+            <tr>
+              <td data-i18n="keeptpf_label_models">Modelle</td>
+              <td data-i18n="keeptpf_stack_models">Bei Bedarf aus GitHub Releases geladen, mit SHA-256 geprüft</td>
+            </tr>
+            <tr>
+              <td data-i18n="label_build">Build</td>
+              <td data-i18n="keeptpf_stack_build">GitHub Actions, PyInstaller und Inno Setup</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
+        <ul class="benefits-list">
+          <li data-i18n="keeptpf_did_1">Das Overlay habe ich mit PySide6 gebaut: Es friert den Bildschirm ein, zeichnet den Rand im Verlauf von KettenKI (#00d4ff bis #00ff88) und legt jede Übersetzung in Farbe und Grösse des Originals über den Text.</li>
+          <li data-i18n="keeptpf_did_2">Die Texterkennung von Windows habe ich angebunden und erkenne die Sprache pro Textblock, damit eine gemischte Seite in einem Durchgang übersetzt wird.</li>
+          <li data-i18n="keeptpf_did_3">Die OPUS-MT-Modelle habe ich nach CTranslate2 int8 konvertiert und in einem GitHub Release veröffentlicht. Die App lädt sie erst, wenn sie gebraucht werden, und prüft jede Datei gegen einen fest hinterlegten SHA-256-Wert.</li>
+          <li data-i18n="keeptpf_did_4">Build und Installer laufen automatisch: Ein Versions-Tag startet GitHub Actions, das testet, mit PyInstaller und Inno Setup baut und das Release mit Prüfsumme veröffentlicht.</li>
+          <li data-i18n="keeptpf_did_5">Gebaut habe ich KeepT mit Claude Code.</li>
+        </ul>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
+        <p data-i18n="keeptpf_challenge_1">Ein Werkzeug, das man mit einer Taste aufruft, muss sofort da sein. Sonst greift man doch wieder zum Kopieren. Das Overlay erscheint deshalb nach rund 40 ms, und die Texterkennung läuft im Hintergrund weiter, während der eingefrorene Bildschirm schon steht. Die erste Übersetzung kommt nach rund 100 ms.</p>
+        <p data-i18n="keeptpf_challenge_2">Die Modelle brauchen Speicher. KeepT gibt sie nach zehn Minuten ohne Nutzung frei und lädt sie im Hintergrund neu, sobald die Taste gedrückt wird. Und nicht jedes Sprachpaar hat ein eigenes Modell: Wo keines existiert, übersetzt KeepT über Englisch.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <h2 data-i18n="label_result">Ergebnis &amp; Learnings</h2>
+        <p data-i18n="keeptpf_result_1">KeepT ist als Pre-Release 0.9 auf GitHub veröffentlicht, unter MIT-Lizenz, mit Installer für Windows 10 und 11.</p>
+        <p data-i18n="keeptpf_result_2">Was ich dabei gelernt habe: Bei einem Werkzeug für eine einzige Taste zählt die Zeit bis zur ersten Übersetzung mehr als jede zusätzliche Funktion.</p>
+      </div>
+
+      <div class="product-section fade-in">
+        <p>
+          <a href="../keept" class="repo-link" data-i18n="keeptpf_cta_download">KeepT herunterladen</a>
+        </p>
+        <p>
+          <a href="https://github.com/carranza-javier/KeepT" target="_blank" rel="noopener noreferrer" class="repo-link" data-i18n="cta_view_repo">Repo auf GitHub ansehen</a>
+        </p>
+      </div>
+
+      <div class="product-cta fade-in">
+        <a href="index" data-i18n="cta_back_to_portfolio">← Zurück zum Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-footer">
+      <nav class="footer-nav footer-legal" aria-labelledby="footer-legal-label">
+        <h2 id="footer-legal-label" class="visually-hidden" data-i18n="footer_legal_label">Rechtliches</h2>
+        <a href="../impressum" data-i18n="footer_imprint">Impressum</a>
+        <a href="../datenschutz" data-i18n="footer_privacy">Datenschutz</a>
+      </nav>
+      <p data-i18n="footer_text">© 2026 KettenKI. Entwickelt mit Präzision.</p>
+    </div>
+  </footer>
+
+  <script src="../js/translations.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/keept-demo.js"></script>
+</body>
+</html>

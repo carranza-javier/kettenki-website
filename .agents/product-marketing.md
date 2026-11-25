@@ -1,7 +1,7 @@
 # Product Marketing Context
 
-**Document version:** v21
-**Last updated:** 2026-11-24
+**Document version:** v22
+**Last updated:** 2026-11-25
 
 > Written in English because every marketing skill reads it. **All customer-facing strings are
 > quoted verbatim in German and English and must be copied exactly, never re-translated.**
@@ -774,6 +774,14 @@ site), a cookie banner (no cookies).
 
 ## Changelog
 *Newest first. One line per revision: what changed and why.*
+- v22 (2026-11-25) — **KeepT gets a download page at `/keept`** (dark commercial design, not in the nav,
+  linked from its portfolio case study). Free, open source, so "kostenlos" is allowed here; this is not an
+  offer and not the security service. Always says **pre-release** (0.9.x) and that the installer is not
+  signed yet, with the SmartScreen steps. Tagline DE *"Übersetze jeden Text auf deinem Bildschirm mit einer
+  Taste"* / EN *"Translate any text on your screen with one key"*. The F1 joke speaks as **wir** on the
+  commercial page (*"Wir auch nicht."*) and as **ich** in the portfolio. **"Built with Claude Code"
+  appears only in the portfolio case study** (recruiter audience, stated as a fact), never on `/keept`.
+  The SignPath attribution line is prepared but commented out until signing is active.
 - v21 (2026-11-24) — **Nav down to four items and the home cards evened out**, Javi's calls. Beispiele
   left the main nav (it framed KettenKI as websites only); Sicherheitsanalyse moved from its own nav
   item into the Lösungen submenu. The home security card now uses a one-sentence short form like the
