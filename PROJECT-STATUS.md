@@ -563,7 +563,7 @@ Bezieht sich auf `SPEC.md` (Portfolio, Blog & Chatbot).
   - **Neuer Eintrag ganz oben im Index**, Teaser = kursiver Untertitel (Javis Entscheidung, die Vorlage hatte keinen eigenen Teaser), eigene Miniatur (Taste mit Textzeile darüber). Filter KI zeigt KeepT und "Die Seiten wechseln", in beiden Sprachen geprüft.
   - **Fettgedruckte Einstiege** (Keine API-Keys, Der Akzent-Bug usw.) als `<strong>` mit eigenem Key, Rest des Absatzes als `<span>`. **Links im Fliesstext** in Spans aufgeteilt: "Portfolio" zeigt direkt auf `/portfolio/keept` (die Fiche existiert), das Repo öffnet in neuem Tab. Neue Regel `body.theme-light .blog-post p a` in `css/style.css` (Blau des hellen Themas, unterstrichen), weil bisher kein Post Links im Text hatte und sie vom Text kaum zu unterscheiden waren.
   - **Open Graph auf Englisch** wie bei den anderen Posts, Beschreibung = Untertitel, `og:image` = erstes Einzelbild der KeepT-Demo (`img/keept/keept-demo-first.jpg`, 960×600). Kein Bild im Text, die Vorlage hat keins.
-  - **Geprüft** auf `python -m http.server` mit Chrome headless: 1280 px DE, 390-px-iframes DE und EN (Überschriften, Fettdruck, beide Links), Index mit Filter KI. Kein echtes Gerät. **Nicht gepusht, wartet auf Javis OK.**
+  - **Geprüft** auf `python -m http.server` mit Chrome headless: 1280 px DE, 390-px-iframes DE und EN (Überschriften, Fettdruck, beide Links), Index mit Filter KI. Kein echtes Gerät. **Live seit dem 2026-11-25** (Commit `8d0e7e9`, Javis Freigabe).
 
 ## Blockiert — wartet auf Input
 
