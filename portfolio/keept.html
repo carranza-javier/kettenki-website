@@ -76,10 +76,10 @@
         <h2 data-i18n="label_context">Kontext</h2>
         <p data-i18n="keeptpf_context_1">Ich lebe in der Schweiz, und jeden Tag begegnen mir Deutsch, Französisch und Englisch durcheinander: auf Websites, in Briefen, in den Programmen bei der Arbeit. Lange habe ich solche Texte in einen Übersetzer oder einen KI-Chat kopiert und dabei jedes Mal Zeit verloren.</p>
         <p data-i18n="keeptpf_context_2">Ein typischer Fall: LinkedIn auf Englisch, die Stellenanzeige darin auf Deutsch. Der Übersetzer im Browser übersetzt nur eine der beiden Sprachen. KeepT erkennt die Sprache jedes Textblocks und übersetzt beide.</p>
-        <p data-i18n="keeptpf_context_3">KeepT ist eine kostenlose Open-Source-App für Windows. Ein Druck auf F1 friert den Bildschirm ein, die Texterkennung von Windows liest den Text, und die Übersetzung erscheint über dem Original, an derselben Stelle, ähnlich wie Circle to Search auf Android. Das funktioniert in jeder App, auch in Bildern, gescannten Dokumenten und Remotedesktops.</p>
+        <p data-i18n="keeptpf_context_3">KeepT ist eine kostenlose Open-Source-App für Windows. Ein Druck auf F1 friert den Bildschirm ein, ein hybrides OCR liest den Text, und die Übersetzung erscheint über dem Original, an derselben Stelle, ähnlich wie Circle to Search auf Android. Das funktioniert in jeder App, auch in Bildern, gescannten Dokumenten und Remotedesktops.</p>
         <p data-i18n="keeptpf_context_4">Alles läuft lokal. Die Übersetzungsmodelle liegen auf dem PC, Bildschirm und Text gehen nie ins Internet, und es braucht weder Konto noch API-Schlüssel.</p>
         <p data-i18n="keeptpf_context_joke">Hast du jemals F1 gedrückt, um Hilfe zu bekommen? Ich auch nicht. KeepT gibt dieser Taste endlich etwas zu tun.</p>
-        <p data-i18n="keeptpf_context_status">KeepT ist noch eine Pre-Release, Version 0.9. Die Version 1.0.0 wird die offizielle Veröffentlichung, dann mit signiertem Installer.</p>
+        <p data-i18n="keeptpf_context_status">KeepT ist noch eine Pre-Release.</p>
       </div>
 
       <div class="product-section fade-in">
@@ -125,7 +125,7 @@
             </tr>
             <tr>
               <td data-i18n="keeptpf_label_ocr">Texterkennung</td>
-              <td data-i18n="keeptpf_stack_ocr">Windows.Media.Ocr, die eingebaute OCR von Windows</td>
+              <td data-i18n="keeptpf_stack_ocr">Hybrides OCR: Windows.Media.Ocr für das Layout, PP-OCRv5 (ONNX Runtime) zum Lesen</td>
             </tr>
             <tr>
               <td data-i18n="keeptpf_label_translation">Übersetzung</td>
@@ -151,7 +151,7 @@
         <h2 data-i18n="label_what_i_did">Was ich gemacht habe</h2>
         <ul class="benefits-list">
           <li data-i18n="keeptpf_did_1">Das Overlay habe ich mit PySide6 gebaut: Es friert den Bildschirm ein, zeichnet den Rand im Verlauf von KettenKI (#00d4ff bis #00ff88) und legt jede Übersetzung in Farbe und Grösse des Originals über den Text.</li>
-          <li data-i18n="keeptpf_did_2">Die Texterkennung von Windows habe ich angebunden und erkenne die Sprache pro Textblock, damit eine gemischte Seite in einem Durchgang übersetzt wird.</li>
+          <li data-i18n="keeptpf_did_2">Die Texterkennung habe ich hybrid aufgebaut: Das OCR von Windows findet die Zeilen, PP-OCRv5 liest sie. Dazu erkenne ich die Sprache pro Textblock, damit eine gemischte Seite in einem Durchgang übersetzt wird.</li>
           <li data-i18n="keeptpf_did_3">Die OPUS-MT-Modelle habe ich nach CTranslate2 int8 konvertiert und in einem GitHub Release veröffentlicht. Die App lädt sie erst, wenn sie gebraucht werden, und prüft jede Datei gegen einen fest hinterlegten SHA-256-Wert.</li>
           <li data-i18n="keeptpf_did_4">Build und Installer laufen automatisch: Ein Versions-Tag startet GitHub Actions, das testet, mit PyInstaller und Inno Setup baut und das Release mit Prüfsumme veröffentlicht.</li>
           <li data-i18n="keeptpf_did_5">Gebaut habe ich KeepT mit Claude Code.</li>
@@ -160,14 +160,16 @@
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_challenge">Technische Herausforderung</h2>
-        <p data-i18n="keeptpf_challenge_1">Ein Werkzeug, das man mit einer Taste aufruft, muss sofort da sein. Sonst greift man doch wieder zum Kopieren. Das Overlay erscheint deshalb nach rund 40 ms, und die Texterkennung läuft im Hintergrund weiter, während der eingefrorene Bildschirm schon steht. Die erste Übersetzung kommt nach rund 100 ms.</p>
+        <p data-i18n="keeptpf_challenge_1">Ein Werkzeug, das man mit einer Taste aufruft, muss sofort da sein. Sonst greift man doch wieder zum Kopieren. Das Overlay erscheint deshalb ohne spürbare Verzögerung, und die Texterkennung läuft im Hintergrund weiter, während der eingefrorene Bildschirm schon steht. Die erste Übersetzung kommt in weniger als einer Sekunde.</p>
         <p data-i18n="keeptpf_challenge_2">Die Modelle brauchen Speicher. KeepT gibt sie nach zehn Minuten ohne Nutzung frei und lädt sie im Hintergrund neu, sobald die Taste gedrückt wird. Und nicht jedes Sprachpaar hat ein eigenes Modell: Wo keines existiert, übersetzt KeepT über Englisch.</p>
+        <p data-i18n="keeptpf_challenge_3">Dazu kamen die Akzente. Ein Benchmark auf echten Bildschirmen hat gezeigt, dass die meisten Fehler aus der Texterkennung kamen, nicht aus der Übersetzung. Mit dem hybriden OCR stieg der Anteil korrekt gelesener Akzente und Umlaute von 82 auf 99 Prozent.</p>
       </div>
 
       <div class="product-section fade-in">
         <h2 data-i18n="label_result">Ergebnis &amp; Learnings</h2>
-        <p data-i18n="keeptpf_result_1">KeepT ist als Pre-Release 0.9 auf GitHub veröffentlicht, unter MIT-Lizenz, mit Installer für Windows 10 und 11.</p>
+        <p data-i18n="keeptpf_result_1">KeepT ist als Pre-Release auf GitHub veröffentlicht, unter MIT-Lizenz, mit Installer für Windows 10 und 11.</p>
         <p data-i18n="keeptpf_result_2">Was ich dabei gelernt habe: Bei einem Werkzeug für eine einzige Taste zählt die Zeit bis zur ersten Übersetzung mehr als jede zusätzliche Funktion.</p>
+        <p data-i18n="keeptpf_result_3">Und noch etwas habe ich gelernt: Erst messen, dann flicken. Ein Benchmark auf echten Bildschirmen hat gezeigt, dass das Problem beim OCR lag, nicht beim Übersetzungsmodell.</p>
       </div>
 
       <div class="product-section fade-in">

@@ -3524,3 +3524,18 @@ body.theme-light .blog-post p a {
 body.theme-light .blog-post p a:hover {
   color: #00915c;
 }
+
+/* Bilder mit Bildunterschrift im Blog-Post (KeepT: vorher / nachher) */
+.blog-figure {
+  margin: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.blog-figure .context-hero-img {
+  height: auto;
+  margin-bottom: var(--spacing-xs, 0.5rem);
+}
+
+.blog-figure figcaption {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary, #666);
+}
